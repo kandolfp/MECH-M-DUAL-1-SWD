@@ -174,25 +174,25 @@
     ]
   },
   {
-    "objectID": "basics/epilog.html",
-    "href": "basics/epilog.html",
-    "title": "4  Epilog",
+    "objectID": "basics/epilogue.html",
+    "href": "basics/epilogue.html",
+    "title": "4  Epilogue",
     "section": "",
     "text": "4.1 A note on dependency and reproducibility\nBefore we conclude our notes on package managers we should discuss reproducibility.\nIn our world of modern infrastructure we depend on a lot of other projects and quite often we do not even realize what tools we need in the background for our little program to run.\nThis is exquisitely illustrated in the following xkcd comic.\nThere only needs to be one little pebble misplaced and everything collapses. A package manager helps you\nIn industry and academia it is often a problem that some computation can not be reproduces. Let it be an experiment that you need to rerun two years after your initial run, or generate some computations for an annual report. You will require your program to provide the same output for the same input.\nTo large extend this is also the case for reproducibility of work, your own and the one performed by your code. Having a properly managed project is a foundation that will help you to achieve this goal more easily. The hole point of having a proper package management is to be able to copy your project to a new computer and setup your environment as quickly as possible to allow your code to function properly.",
     "crumbs": [
       "Basics",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Epilog</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Epilogue</span>"
     ]
   },
   {
-    "objectID": "basics/epilog.html#sec-intro-pm-reproducibility",
-    "href": "basics/epilog.html#sec-intro-pm-reproducibility",
-    "title": "4  Epilog",
+    "objectID": "basics/epilogue.html#sec-intro-pm-reproducibility",
+    "href": "basics/epilogue.html#sec-intro-pm-reproducibility",
+    "title": "4  Epilogue",
     "section": "",
     "text": "Figure 4.1: The xkcd comic #2347 discussing dependency. Click the image to get to the original image source https://imgs.xkcd.com/comics/dependency.png.",
     "crumbs": [
       "Basics",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Epilog</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Epilogue</span>"
     ]
   },
   {
@@ -230,7 +230,7 @@
     "href": "basics/index.html",
     "title": "Basics",
     "section": "",
-    "text": "In this secton we are going to lay the ground work for our introduction into softwaredesing by looking at:\n\nour main programming language - Python - see 1  Introduction to python\nour way of managing packages - pdm - see 2  Package manager\nour way of keeping track of our code and projects - git - see 3  Version Control\n\nWe will use these tools throughout this notes. Our aim is, that by the end of the notes you will use them without a second thought.\n\n\n\n\n\n\nNote\n\n\n\nAs mentioned earlier, this notes assume that you have some basic knowledge of programming and we build on that knowledge to widen you horizon.\n\n\nAt the end of this part you will also find an 4  Epilog where we bind them all together with some final thoughts.\n\nLiterature\nHere you find some literature regarding the topics covered in this section split up by the topics.\n\nPython\n\nMatthes (2023): Python Crash Course - A hands-on, project-based introduction to programming; Online Material.\nVasiliev (2022): Python for Data Science - A Hands-On Introduction\nInden (2023): Python lernen – kurz & gut; German\n\n\n\nGit\n\nPonuthorai (2022): Version Control with Git: Powerful Tools and Techniques for Collaborative Software Development;\nSiessegger (2024): Git – kurz & gut; German\n\n\n\n\n\nInden, Michael. 2023. Python Lernen – Kurz & Gut -. Sebastopol: O’Reilly.\n\n\nMatthes, Eric. 2023. Python Crash Course - a Hands-on, Project-Based Introduction to Programming. 3rd ed. No Starch Press. https://ehmatthes.github.io/pcc_3e/.\n\n\nPonuthorai, Jon, Prem Kumar AND Loeliger. 2022. Version Control with Git. 3rd ed. Sebastopol: \"O’Reilly Media, Inc.\".\n\n\nSiessegger, Nina. 2024. Git – Kurz & Gut. 2nd ed. Sebastopol: O’Reilly.\n\n\nVasiliev, Yuli. 2022. Python for Data Science - a Hands-on Introduction. München: No Starch Press.",
+    "text": "In this secton we are going to lay the ground work for our introduction into softwaredesing by looking at:\n\nour main programming language - Python - see 1  Introduction to python\nour way of managing packages - pdm - see 2  Package manager\nour way of keeping track of our code and projects - git - see 3  Version Control\n\nWe will use these tools throughout this notes. Our aim is, that by the end of the notes you will use them without a second thought.\n\n\n\n\n\n\nNote\n\n\n\nAs mentioned earlier, this notes assume that you have some basic knowledge of programming and we build on that knowledge to widen you horizon.\n\n\nAt the end of this part you will also find an 4  Epilogue where we bind them all together with some final thoughts.\n\nLiterature\nHere you find some literature regarding the topics covered in this section split up by the topics.\n\nPython\n\nMatthes (2023): Python Crash Course - A hands-on, project-based introduction to programming; Online Material.\nVasiliev (2022): Python for Data Science - A Hands-On Introduction\nInden (2023): Python lernen – kurz & gut; German\n\n\n\nGit\n\nPonuthorai (2022): Version Control with Git: Powerful Tools and Techniques for Collaborative Software Development;\nSiessegger (2024): Git – kurz & gut; German\n\n\n\n\n\nInden, Michael. 2023. Python Lernen – Kurz & Gut -. Sebastopol: O’Reilly.\n\n\nMatthes, Eric. 2023. Python Crash Course - a Hands-on, Project-Based Introduction to Programming. 3rd ed. No Starch Press. https://ehmatthes.github.io/pcc_3e/.\n\n\nPonuthorai, Jon, Prem Kumar AND Loeliger. 2022. Version Control with Git. 3rd ed. Sebastopol: \"O’Reilly Media, Inc.\".\n\n\nSiessegger, Nina. 2024. Git – Kurz & Gut. 2nd ed. Sebastopol: O’Reilly.\n\n\nVasiliev, Yuli. 2022. Python for Data Science - a Hands-on Introduction. München: No Starch Press.",
     "crumbs": [
       "Basics"
     ]
