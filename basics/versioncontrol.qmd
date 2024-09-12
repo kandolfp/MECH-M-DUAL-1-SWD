@@ -1,0 +1,727 @@
+# Version Control {#sec-intro-versioncontrol}
+
+:::{.callout-note}
+These notes where originally developed for the class _971001 Software_ at the University of Innsbruck and are slightly adapted for this notes. See @pgd2024 for the original source and [github pages](https://kandolfp.github.io/ws22-ulg-python-git-docker/pages/git/) for the notes.
+:::
+
+A Version Control Software (VCS) is, in its most abstract form, designed to keep track of changes to a file system. 
+This means it tracks changes in files, such as addition or deletion, but also more basic modifications to files or directories. 
+A VCS also allows teams to collaborate and therefore inform each other of changes made by others. 
+Some of the main features of a VCS is that you can: 
+
+1. Revert a file or an entire directory to a previous state.
+1. Compare files or directories to a previous version.
+1. Help resolving conflicts if multiple changes on the same resource collide with each other. 
+1. Allows you to _tag_ specific versions of a file for alter use.
+1. Keep track who changed what and when.
+1. Much more
+
+In the scope of an entire file system this is used by operation systems to minimize file loss and allows users to restore unwanted changes. 
+Most often, and that is also the main focus here, a VCS is used to track of source code. 
+This might be a software project or a term paper. 
+Nevertheless, the VCS will  keep track of additions, deletions, modifications and so forth of individual lines of _text_ within these files. 
+We will focus on *Git* but there are alternatives around such as _Mercurial_, _CVS_, or _SVN_.
+All of them have individual strengths and weaknesses but in terms of wide spread use Git is in the lead. 
+
+### What is git and a bit of history {.unnumbered}
+
+Git was developed as a free and open source software by [Linus Torvalds](https://en.wikipedia.org/wiki/Linus_Torvalds) in 2005 for the development of the Linux kernel. 
+The main goals in the development were (according to [wikipedia](https://en.wikipedia.org/wiki/Git)):
+
+- Take Concurrent Versions System (CVS) as an example of what not to do; if in doubt, make the exact opposite decision.
+- Support a distributed, [BitKeeper](https://en.wikipedia.org/wiki/BitKeeper)-like workflow.
+- Include very strong safeguards against corruption, either accidental or malicious.
+
+> The development of Git began on 3 April 2005. Torvalds announced the project on 6 April and became self-hosting the next day. The first merge of multiple branches took place on 18 April. Torvalds achieved his performance goals; on 29 April, the nascent Git was benchmarked recording patches to the Linux kernel tree at the rate of 6.7 patches per second. On 16 June, Git managed the kernel 2.6.12 release.
+
+Regarding the name:
+
+> Torvalds sarcastically quipped about the name git (which means "unpleasant person" in British English slang): "I'm an egotistical bastard, and I name all my projects after myself. First 'Linux', now 'git'." The man page describes Git as "the stupid content tracker". The read-me file of the source code elaborates further:
+
+"git" can mean anything, depending on your mood.
+
+- Random three-letter combination that is pronounceable, and not actually used by any common UNIX command. The fact that it is a mispronunciation of "get" may or may not be relevant.
+- Stupid. Contemptible and despicable. Simple. Take your pick from the dictionary of slang.
+"Global information tracker": you're in a good mood, and it actually works for you. Angels sing, and a light suddenly fills the room.
+- "Goddamn idiotic truckload of sh&ast;t": when it breaks.
+
+In the following we try to give a pragmatic hands on introduction to the concepts of git and how it can be uses. 
+The notes are a mix of several sources but the main ideas are based on the [git training by the UnseenWizzard](https://github.com/UnseenWizzard/git_training).
+
+
+### Installing Git on your system {.unnumbered}
+::: {.panel-tabset}
+## Linux
+1. Open the terminal
+1. Type `git --version`
+1. If Git is not installed use your package manager to install it (Ubuntu: `apt`, Fedora `dnf`, ...) with `sudo apt install git`
+
+## OSx
+1. Open the terminal
+1. Type `git --version`
+1. If Git is not installed install it via `xcode-select --install`
+
+## Windows
+1. Download Git von [https://git-scm.com/](https://git-scm.com/) and install it with the default settings (unless you really, really know what you are doing).
+1. Open the git bash and verify the installation by typing `git --version`
+:::
+
+:::{.callout-note}
+In the following we will always refer to the Terminal, by which we mean the Git Bash on Windows and the Terminal on Linux or Macs.
+:::
+
+
+::: {.callout-tip appearance="simple" collapse="true" icon=false}
+## {{< fa pen-to-square >}} Exercise
+
+Check your installation with the above guide. 
+Check that you can log into the git service of the University.
+
+Specify these global variables in the Git Bash on Windows or the Terminal:
+
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "Your University Email"
+```
+:::
+
+### Additional resources {.unnumbered}
+Obviously not everybody learns the same way and the concepts of Git can make your brain twist a bit so here are some additional resources:
+
+- [Git cheat sheet](https://education.github.com/git-cheat-sheet-education.pdf)
+- [Pro Git](https://git-scm.com/book/en/v2) a book on git
+- [A Visual Git Reference](https://marklodato.github.io/visual-git-guide/index-en.html)
+- [Building Git](https://shop.jcoglan.com/building-git/) a book that tells you how to build Git on your own
+- [Write yourself a Git](https://wyag.thb.lt/) a website that tells you how to build Git on your own
+
+
+## Basics of Git
+Git is a distributed VCS, in this case this means the entire _repository_ is distributed on various machines and possible multiple _remotes_. 
+This was a clear design choice that allows individual contributors to work independently of the availability of a _remote_ but still have the full history available. 
+The following is based on the [git training by the UnseenWizzard](https://github.com/UnseenWizzard/git_training). 
+The main structure as well as the basic idea in the pictures follows this notes, with a view adaptations where needed. 
+
+In particular, such a setup could look something like this:
+
+![Basic setup](../_assets/basics/versioncontrol/distributed1.svg){.lightbox}
+
+In this setup the _Remote Repository_ is the place you send your changes to in order to have them visible for others, and in return you can get changes from them via the _Remote Repository_. 
+
+Like the name suggests the _Local (development) environment_ sits on your machine. 
+The _working directory_ is your current version of the files contained in the repository and the _Local Repository_ is the copy of the entire repository (with all changes) on your machine. 
+We will learn more about these parts as we go along. 
+
+### Let us start with getting a _Remote Repository_
+
+In order to allow a playfield for this class I created a repository that we are going to use. 
+In order to get it onto you local machine type the following commands in the Terminal:
+
+```bash
+#Navigate to a suitable directory
+git clone https://{YOUR ID}@git.uibk.ac.at/c702169/ulg22_playground.git
+```
+This will perform the following two actions:
+1. _Checkout_ the content of the _remote repository_ into the _\color{#e67700}{working directory}_. By default this is the name of the repository, in your case the folder `ulg22_playground` is created and all files are put there. 
+1. A copy of the _remote repository_ is stored in the _\color{#1864ab}{local repository}_. For all intended purposes, it acts exactly the same as the _Remote Repository_, with the sole exception that is not shared with others. 
+
+![Clone a remote repository to your machine](../_assets/basics/versioncontrol/distributed2.svg){.lightbox}
+
+### Adding content
+
+With the following snippet you can view the content of the repository (the second line is the response):
+```bash 
+> ls ulg22_playground
+python_ex1 README.md
+```
+As you can see there is currently only a `README.md` and the folder `python_ex1`. 
+
+Now lets add our solutions of the exercises we did in Python to the repository. 
+
+First we copy the file to exercise directory
+```bash
+cp PATH/TO/YOUR/FILE/solution_ex1.py python_ex1/{YOUR ID}.py 
+```
+In my case the command reads like this:
+```bash
+> cp ../Exercises/reference_solution.py python_ex1/ID.py
+'../Exercises/reference_solution.py' -> 'python_ex1/ID.py'
+```
+
+This has we modified our _working directory_. In order to get an idea what Git thinks about this lets run `git status` in the working directory:
+```bash
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	python_ex1/ID.py
+
+nothing added to commit but untracked files present (use "git add" to track)
+```
+Lets break down the output of the command.
+First, Git tells you on what _branch_ you are on (we will hear more about that later), second, that _local repository_ is different from the _remote repository_ and it states that you have _tracked_ and _untracked_ files. 
+
+Now, a _tracked_ files is a file that is part of the repository and Git is keeping _track_ of what is happening to it. 
+An _untracked_ file on the other hand, is a file that is in the same directory but it is not managed by Git. 
+
+Git tells you how to change the status of your _untracked_ file into a _tracked_ file. 
+
+We do this by running `git add python_ex1/ID.py`.
+
+Now it is time to introduce another Git concept, namely the _\color{#862e9c}{staging area}_. 
+The stating area is the curious white spot  between your _working directory_ and the _local repository_ in the above pictures. 
+This is the place where Git collects all the changes to your files that you want to put into the _local repository_.
+
+![Staging area with the changes that can be moved to the repository](../_assets/basics/versioncontrol/staging.svg){.lightbox}
+
+By rerunning `git status` we get
+```bash
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   python_ex1/ID.py
+
+```
+
+Now that we are satisfied that all our changes are in the _staging area_ we are ready to _commit_ the changes to the _local repository_. 
+This is done by running `git commit`. 
+A text editor will open and you are able to write a message telling everybody what you just did in the repository. 
+Usually you will also see the changes you are about to commit.
+The *commit message* is something really important and the message should be meaningful and readable as it will be later used by others to understand your action. 
+There are several ways to do this and it boils down to what you team wants but here are some links on good commit messages:
+
+- [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
+- [https://cbea.ms/git-commit/](https://cbea.ms/git-commit/)
+
+The same can be achieved directly in the Terminal by writing
+```bash
+> git commit -m "feat: add my solution for python exercises 1"
+[main 578e48f] feat: add my solution for python exercises 1
+ 1 files changed, 85git insertions(+)
+ create mode 100644 python_ex1/ID.py
+
+```
+
+![Committing changes the repository](../_assets/basics/versioncontrol/commit.svg){.lightbox}
+
+In the above message you can see that your commit get some more meta data. 
+Specifically, it gets a [SHA-1](https://de.wikipedia.org/wiki/Secure_Hash_Algorithm) hash, namely `578e48f`
+The hash is used to keep track of your commits and is one of the ground breaking ideas that makes Git so successful. 
+The hash is much longer but due to its nature in most cases already its first seven digits will make it unique. 
+
+:::{.callout-important}
+Any changes done to a file after running `git add <file>` will not be part of a _commit_. If they should be included you need to rerun `git add <file>`.
+:::
+
+:::{.callout-important}
+My submitting an _empty_ commit message you can abort a commit.
+:::
+
+Now the changes are in the _local repository_ and you can continue working. 
+In order to share your changes with others you need to get them to the _remote repository_. 
+This is done by _pushing_ the changes. 
+We do this by calling `git push` witch gives us an output similar to:
+```bash
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 1.17 KiB | 1.17 MiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://git.uibk.ac.at/c102338/ulg22_playground.git
+   e8f13f4..0b8a494  main -> main
+```
+
+![Pushing changes from the local to the remote repository](../_assets/basics/versioncontrol/push.svg){.lightbox}
+
+Now, if you would do this on your own everything is working and your are happy. 
+Unfortunately, as we are doing this in a class and all at the same time we will run into some difficulties. 
+After all, this is a crash course for Git, eventually something hat to crash. 
+
+Some of you might get the following message for `git push`:
+```bash
+To https://git.uibk.ac.at/c102338/ulg22_playground.git
+ ! [rejected]        main -> main (non-fast-forward)
+error: failed to push some refs to 'https://git.uibk.ac.at/c102338/ulg22_playground.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+```
+
+This gives us the opportunity to talk about how to get changes from the _remote repository_ to your _local repository_ after the initial _clone_. 
+Unfortunately, in order to do this properly we need to talk about branches first. 
+
+## Branches
+
+The word _branch_ was mentioned several times before but not explained. 
+The main idea is rather simple. 
+
+If you consider having one commit after the other in a long chain like the trunk of a tree a branch is the same as for a tree:
+
+![A branch in a chain of commits](../_assets/basics/versioncontrol/branching.svg){.lightbox}
+
+In short, whenever multiple commits are _based_ on the same commit they (and all following commits) form different branches.
+
+By default, git always operates on _branches_. 
+When we cloned the _remote repository_ we also cloned its branches and we started working on the `main` branch. 
+You can go back and check the messages, it is always there. 
+
+Now without knowing we created a branch. 
+It is not visible to us but it is clear from the point of the _remote repository_. 
+
+There are several ways of _integrating_ or _merging_ two branches back into one.
+
+For now we will only talk about the most elegant and simplest way, with a `rebase`. 
+
+Naturally, every branch is _based_ on a commit. 
+In the above example `9a98eb2` is based on `e8f13f4`. 
+As the name suggests, _rebase_ simple changes this base. 
+This gives us a clean way of how the entire Git commit chain is supposed to be read.
+One way of performing a rebase we will see shortly. 
+But first, lets talk about how to 
+
+## Integrating remote changes into your local environment
+
+The above _error_ message gives us already a hint on what to do but lets make it more structured. 
+
+By running a 
+```bash
+> git status
+On branch main
+Your branch and 'origin/main' have diverged,
+and have 1 and 1 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+
+nothing to commit, working tree clean
+```
+we can see that the _remote_ and the _local_ repository have different commits. 
+
+With `git fetch` you can get changes from the _remote repository_ into the _local repository_. This is the other way around as with the `git push` command.
+
+![Fetching changes from the remote to the local repository](../_assets/basics/versioncontrol/fetch.svg){.lightbox}
+
+The important part here is, that this does not effect your _working directory_ as the changes are only synchronized with the _local repository_ and when you try to push again you will see the same message. 
+It does not even effect your _local branches_, it will only make sure that all of the _remote branches_ are synchronized. 
+
+
+### Pulling
+
+In order to affect the _working directory_ and your _local branches_, we need to pull the changes in. 
+This is done with `git pull`. 
+
+As we have some _conflicts_ we need to define a strategy how to deal with them. 
+At the moment we only know one so let us use
+```bash
+> git pull --rebase
+Successfully rebased and updated refs/heads/main.
+```
+This should have worked for everybody as all of you added different files to the repository and the Git tree looks something like this:
+
+![After pulling and rebasing](../_assets/basics/versioncontrol/simplerebase.svg){.lightbox}
+
+
+Next we will see what happens if we modify some files. 
+
+## Modifying content in a repository
+
+A good start to do this is to link our uploaded file form the `README` contained in the repository. 
+
+With your favourite editor add the following content next to your `ID` (btw. this is [markdown](https://en.wikipedia.org/wiki/Markdown) syntax):
+```markdown
+# ulg22_playground
+
+## List of submitted python exercises 
+
+| Name/UID    | File        |
+| ----------- | ----------- |
+| ID     | [my upload](python_ex1/ID.py) |
+```
+
+If we check with `git status` we can see that `README.md` is modified
+```bash
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+```
+
+Of course this is only a change in our _working directory_ and not in either of the two _repositories_. 
+Before we add the changes to the _local repository_ we can use `git diff` to see what we actually changed. 
+
+```diff
+diff --git a/README.md b/README.md
+index d9f0acb..9ac3846 100644
+--- a/README.md
++++ b/README.md
+@@ -4,7 +4,7 @@
+ 
+ | Name/UID    | File        |
+ | ----------- | ----------- |
+-| ID  | |
++| ID  | [my upload](python_ex1/ID.py)|
+ | ID1 | |
+ | ID2 | |
+ | ID3 | |
+```
+
+We already know the next steps, _add_, _commit_, and _push_.
+
+So lets recall, with `git add README.md` we move the file into the staging area. 
+**Note:** If you run `git diff` now, the output is empty. This is because, `git diff` only works on the changes in your _working directory_. You can still get the diffs from your _staging area_ with `git diff --staged` (some editors will use this if you type up your _commit message_).
+
+Now, before we commit, we decide to modify `README.md` again. Maybe we made a typo or we just really want to nail this hand in so we change it, maybe we add
+```markdown
+| ID     | [my upload](python_ex1/ID.py) run it by calling `python3 python_ex1/ID.py`|
+```
+to make it clear we know what we are doing. 
+
+If we run `git status` we see the following
+```bash
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   README.md
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   README.md
+
+```
+which tells us that `README.md`is modified and staged. 
+
+If we run a `git diff` again we get
+```diff
+diff --git a/README.md b/README.md
+index 9ac3846..28dba4b 100644
+--- a/README.md
++++ b/README.md
+@@ -4,7 +4,7 @@
+ 
+ | Name/UID    | File        |
+ | ----------- | ----------- |
+-| ID  | [my upload](python_ex1/ID.py)|
++| ID  | [my upload](python_ex1/ID.py) run it by calling `python3 python_ex1/ID.py`|
+ | csad3581 | |
+ | csak1512 | |
+ | csak4299 | |
+```
+which show the changes to the _staging area_. 
+If we are satisfied with our changes, we can use `git add README.md` again to add the file to the _staging area_ and finally commit it with `git commit`.
+Of course we do this **with a meaningful commit message**.
+
+Depending on your timing, you might have to _fetch_ and _pull_ in changes to your _local repository_. 
+By the way, you can directly call `git pull`, without first calling `git fetch`, the fetch is done implicitly.  But we should not get a conflict as everybody changed a different line. 
+
+## Conflicts and how to resolve them
+
+It will not always be this smooth and conflicts occur. 
+For example when two commits with the same base make changes to a single line. 
+We simulate this by simply copying our _local repository_ and _working directory_ - either with a new `git clone` or by copying the directory.
+
+For this, we assume that in location _A_ we changed `README.md` to 
+```markdown
+| Name/UID    | File        |
+| ----------- | ----------- |
+| ID     | [my upload](python_ex1/ID.py) |
+```
+and we _commit_ and _push_ this change to the _remote repository_.
+
+```bash
+À> git diff
+diff --git a/README.md b/README.md
+index d9f0acb..28dba4b 100644
+--- a/README.md
++++ b/README.md
+@@ -4,7 +4,7 @@
+ 
+ | Name/UID    | File        |
+ | ----------- | ----------- |
+-| ID  | |
++| ID  | [my upload](python_ex1/ID.py)|
+ | ID1 | |
+ | ID2 | |
+ | ID3 | |
+
+A> git add README.md
+A> git commit -m "add my exercise sheet"
+[main a16b809] add my exercise sheet
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+A> git push
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 769 bytes | 769.00 KiB/s, done.
+Total 6 (delta 1), reused 0 (delta 0), pack-reused 0
+To https://git.uibk.ac.at/c102338/ulg22_playground.git
+   0b8a494..a16b809  main -> main
+```
+
+Now in location _B_ we do not get the changes from the _remote repository_ but modify `README.md` to
+```markdown
+| Name/UID    | File        |
+| ----------- | ----------- |
+| ID     | [my upload](python_ex1/ID.py) run it by calling `python3 python_ex1/ID.py`|
+```
+and we try to do the same as before:
+```bash
+B> git diff
+diff --git a/README.md b/README.md
+index d9f0acb..28dba4b 100644
+--- a/README.md
++++ b/README.md
+@@ -4,7 +4,7 @@
+ 
+ | Name/UID    | File        |
+ | ----------- | ----------- |
+-| ID  | |
++| ID  | [my upload](python_ex1/ID.py) run it by calling `python3 python_ex1/ID.py`|
+ | ID1 | |
+ | ID2 | |
+ | ID3 | |
+B> git add README.md
+B> git commit -m "add my exercise sheet"
+[main d9ac598] add my exercise sheet
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+B> git push
+To https://git.uibk.ac.at/c102338/ulg22_playground.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://git.uibk.ac.at/c102338/ulg22_playground.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+```
+This is to be expected so we _pull_ in the changes from remote as we learned with _rebase_:
+```bash
+B> git pull --rebase
+Auto-merging README.md
+CONFLICT (content): Merge conflict in README.md
+error: could not apply d9ac598... add my exercise sheet
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+Could not apply d9ac598... add my exercise sheet
+```
+As per usual, Git is quite helpful and tells you what to do. 
+We have several options:
+
+1. solve the _conflicts_, add the files and continue the rebase. 
+1. skip our our commit `d9ac598`, so do not apply these changes
+1. abort the procedure
+
+We opt for 1. and take a look with `git diff`
+```diff
+diff --cc README.md
+index 12ee10e,28dba4b..0000000
+--- a/README.md
++++ b/README.md
+@@@ -4,7 -4,7 +4,11 @@@
+  
+  | Name/UID    | File        |
+  | ----------- | ----------- |
+++<<<<<<< HEAD
++ | ID  | [my upload](python_ex1/ID.py) |
+++=======
++ | ID  | [my upload](python_ex1/ID.py) run it by calling `python3 python_ex1/ID.py`|
+++>>>>>>> d9ac598 (add my exercise sheet)
+
+```
+`HEAD` is the latest commit in the chain of commits on the current branch on the _remote repository_. So we see:
+
+- what `HEAD` brings in `<<<<<<< HEAD`, 
+- the end of the changes is marked with `=======`
+- and what we want to push out ended by a line `>>>>>>> d9ac598` together with the commit message.
+
+This will be repeated for every conflict in the file. 
+
+If the conflicts are more elaborate and connected it is good to use a tool to sort it out. 
+Your favourite IDE will most likely come with some toll or you look at specific Git tools for conflict resolution. 
+
+For us it is simple. We just want the file to look like 
+```markdown
+ | ID  | [my upload](python_ex1/ID.py) run it by calling `python3 python_ex1/ID.py`|
+```
+so we make these changes and call 
+```bash
+B> git add README.md
+B> git rebase --continue
+[detached HEAD 3c6b1e6] add my exercise sheet, and make a conflict resolution
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Successfully rebased and updated refs/heads/main.
+
+```
+This will prompt us to write a _commit message_. 
+Lets use `add my exercise sheet, and make a conflict resolution`.
+
+## Stashing
+
+There is one more case we need to have a look at. 
+What if we made some changes to a file, are not ready to make a commit yet, but need to pull in some changes coming from the remote?
+Another scenario would be that something in the repository needs urgent fixing so we need to switch back to a clean copy without loosing our current work. 
+Git gives us the possibility to deal with these situations with yet another area and the `git stash`command.
+
+```bash
+> git status
+On branch main
+Your branch is behind 'origin/main' by 1 commits (non-fast-forward).
+  (use "git pull" to update your local branch)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   python_ex1/ID.py
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+> git diff
+diff --git a/python_ex1/ID.py b/python_ex1/ID.py
+index f5b74fc..22038a5 100644
+--- a/python_ex1/ID.py
++++ b/python_ex1/ID.py
+@@ -61,6 +61,11 @@ print(f"Accuracy of pi with N =    100:   {get_accuracy(   100):8.5f}")
+ print(f"Accuracy of pi with N =   1000:   {get_accuracy(  1000):8.5f}")
+ print(f"Accuracy of pi with N = 100000:   {get_accuracy(100000):8.5f}")
+ 
++# ----------------------------------------------
++# Alternative Implementation for (2)
++# ----------------------------------------------
++points = np.random.uniform(0, 1, [2, N])
++
+ 
+ # ----------------------------------------------
+ # (3) Gaussian density
+```
+We have a dirty working directory as we just started to work on an alternative implementation for (2) but we are 1 commit behind the remote. 
+With `git stash push` we can tell git to put all the changes aside for us and keep them safe (an optional message can be added). 
+After pulling the remote changes back in we can finally reapply our stashed work by calling `git stash pop` (this will apply the latest stash, in case we have several). 
+
+Here it is as image and in the bash.
+
+![Stashing changes and pulling in from remote, see numbers for order](../_assets/basics/versioncontrol/stash.svg){.lightbox}
+
+```bash
+> git stash push
+Saved working directory and index state WIP on main: 4e76603 update list of participants
+
+> git status
+On branch main
+Your branch is behind 'origin/main' by 1 commits, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+
+nothing to commit, working tree clean
+
+> git pull --rebase
+Successfully rebased and updated refs/heads/main.
+
+> git stash list
+stash@{0}: WIP on main: 4e76603 update list of participants
+
+> git stash pop
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   python_ex1/ID.py
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{0} (d31654c50cfffd2b3f4b931ccf07b5c8362d365a)
+
+> git diff
+diff --git a/python_ex1/ID.py b/python_ex1/ID.py
+index f5b74fc..22038a5 100644
+--- a/python_ex1/ID.py
++++ b/python_ex1/ID.py
+@@ -61,6 +61,11 @@ print(f"Accuracy of pi with N =    100:   {get_accuracy(   100):8.5f}")
+ print(f"Accuracy of pi with N =   1000:   {get_accuracy(  1000):8.5f}")
+ print(f"Accuracy of pi with N = 100000:   {get_accuracy(100000):8.5f}")
+ 
++# ----------------------------------------------
++# Alternative Implementation for (2)
++# ----------------------------------------------
++points = np.random.uniform(0, 1, [2, N])
++
+ 
+ # ----------------------------------------------
+ # (3) Gaussian density
+```
+
+With `git stash list` we can view different stashes. 
+
+## History
+
+The last thing we look into is the _history_. 
+Of course it is possible to look what happened in the repository. 
+With `git log` we can do this
+```bash
+B> git log
+commit 3c6b1e63504e5f46d80d50d7188a4d5303a7aa86 (HEAD -> main)
+Author: {Your Name} <{Your email}>
+Date:   Fri Oct 14 08:29:36 2022 +0200
+
+    add my exercise sheet, and make a conflict resolution
+
+commit a16b809ce95b319180373c6b0c00647f2a6539f4 (origin/main, origin/HEAD)
+Author: {Your Name} <{Your email}>
+Date:   Fri Oct 14 08:25:14 2022 +0200
+
+    add my exercise sheet
+
+commit 0b8a49431b40aed9903d1ec6b76c243c20613b92
+Author: {Your Name} <{Your email}>
+Date:   Sun Oct 9 15:59:42 2022 +0200
+
+    feat: add my solution for python exercises 1
+```
+:::{.callout-note}
+Most likely we will see way more commits here as our fellow students made some commits as well. 
+:::
+
+So this is the _official_ log of the _repository_ but sometimes it is nice to see more, especially what happened when. 
+Maybe we messed up a _rebase_ and our changes are missing or something similar. 
+As Git was build with fail safes in mind it has you covered there. 
+What we want to look at is `reflog`
+
+```bash
+B> git reflog
+3c6b1e6 (HEAD -> main) HEAD@{0}: rebase (continue) (finish): returning to refs/heads/main
+3c6b1e6 (HEAD -> main) HEAD@{1}: rebase (continue): add my exercise sheet, and make a conflict resolution
+a16b809 (origin/main, origin/HEAD) HEAD@{2}: pull --rebase (start): checkout a16b809ce95b319180373c6b0c00647f2a6539f4
+d9ac598 HEAD@{3}: commit: add my exercise sheet
+5673f78 HEAD@{4}: commit: list of student ids
+0b8a494 HEAD@{5}: pull --rebase (finish): returning to refs/heads/main
+0b8a494 HEAD@{6}: pull --rebase (start): checkout 0b8a49431b40aed9903d1ec6b76c243c20613b92
+9a98eb2 HEAD@{7}: commit: feat: add my solution for python exercises 1
+a0f8f01 HEAD@{8}: clone: from https://git.uibk.ac.at/c102338/ulg22_playground.git
+```
+This command shows us what happened in our _local repository_. 
+
+## Further stuff
+There is much more to see and do but this concludes the absolute basics.
+You will learn way more when you work with Git for some time some topics that you will come across are:
+
+- The `.gitignore` file
+- More elaborate work with branches
+- Merging of branches
+- Cherry picking
+- Reverting commits
+- `git blame` to find out where this line of code comes from
+- and so much more

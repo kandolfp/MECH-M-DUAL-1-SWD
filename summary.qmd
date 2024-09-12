@@ -1,0 +1,7 @@
+# Summary {.unnumbered}
+
+TBD.
+
+## Collection of interesting reads
+
+- [Semantic Versioning](https://semver.org/) How to design the version of your project.

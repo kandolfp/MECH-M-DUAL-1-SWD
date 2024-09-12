@@ -1,0 +1,27 @@
+# Epilog {#sec-intro-epilog}
+## A note on dependency and reproducibility {#sec-intro-pm-reproducibility}
+
+Before we conclude our notes on _package managers_ we should discuss **reproducibility**.
+
+In our world of modern infrastructure we depend on a lot of other projects and quite often we do not even realize what tools we need in the background for our little program to run. 
+
+This is exquisitely illustrated in the following [xkcd comic](https://xkcd.com).
+
+::: {#fig-xkcd-dependency}
+[![](https://imgs.xkcd.com/comics/dependency.png)](https://xkcd.com/2347/)
+
+The [xkcd comic #2347](https://xkcd.com/2347/) discussing dependency. Click the image to get to the original image source [https://imgs.xkcd.com/comics/dependency.png](https://imgs.xkcd.com/comics/dependency.png). 
+:::
+
+There only needs to be one little pebble misplaced and everything collapses.
+A package manager helps you 
+
+In industry and academia it is often a problem that some computation can not be reproduces.
+Let it be an experiment that you need to rerun two years after your initial run, or generate some computations for an annual report.
+You will require your program to provide the same output for the same input. 
+
+
+
+To large extend this is also the case for reproducibility of work, your own and the one performed by your code.
+Having a properly managed project is a foundation that will help you to achieve this goal more easily.
+The hole point of having a proper package management is to be able to copy your project to a new computer and setup your environment as quickly as possible to allow your code to function properly.

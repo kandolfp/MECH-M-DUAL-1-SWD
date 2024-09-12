@@ -1,0 +1,5 @@
+# Preface {.unnumbered}
+
+This are the lecture notes for the _Softwaredesign_ class part of the _MCI | The Entrepreneurial School_ master for [Mechatronik - Automation, Robotics & AI](https://www.mci.edu/de/studium/master/mechatronik-automation-robotics-ai#im_studium).
+
+This notes are build with [Quarto](https://quarto.org/).

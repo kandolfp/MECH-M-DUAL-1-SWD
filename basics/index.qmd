@@ -1,0 +1,35 @@
+# Basics {.unnumbered}
+
+In this secton we are going to lay the ground work for our introduction into _softwaredesing_ by looking at:
+
+- our main programming language - [Python](https://www.python.org/) - see @sec-intro-python
+- our way of managing packages -  [pdm](https://pdm-project.org/en/latest/) - see @sec-intro-packagemanager
+- our way of keeping track of our code and projects - [git](https://git-scm.com/) - see @sec-intro-versioncontrol
+
+We will use these tools throughout this notes.
+Our aim is, that by the end of the notes you will use them without a second thought.
+
+::: {.callout-note}
+As mentioned earlier, this notes assume that you have some basic knowledge of programming and we build on that knowledge to widen you horizon.
+:::
+
+At the end of this part you will also find an @sec-intro-epilog where we bind them all together with some final thoughts.
+
+# Literature {.unnumbered}
+
+Here you find some literature regarding the topics covered in this section split up by the topics.
+
+### Python {.unnumbered}
+
+- @Matthes2023: Python Crash Course - A hands-on, project-based introduction to programming; [Online Material](https://ehmatthes.github.io/pcc_3e/).
+
+- @Vasiliev2022: Python for Data Science - A Hands-On Introduction
+
+- @Inden2023: Python lernen – kurz & gut; German
+
+### Git {.unnumbered}
+
+- @Ponuthorai2022: Version Control with Git: Powerful Tools and Techniques for Collaborative Software Development; 
+
+- @Siessegger2024: Git – kurz & gut; German
+
