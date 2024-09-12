@@ -1,4 +1,4 @@
-# Epilog {#sec-intro-epilog}
+# Epilogue {#sec-intro-epilog}
 ## A note on dependency and reproducibility {#sec-intro-pm-reproducibility}
 
 Before we conclude our notes on _package managers_ we should discuss **reproducibility**.
