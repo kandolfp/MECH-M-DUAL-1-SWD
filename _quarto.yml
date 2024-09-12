@@ -16,7 +16,7 @@ book:
         - basics/python.qmd
         - basics/packagemanager.qmd
         - basics/versioncontrol.qmd
-        - basics/epilog.qmd
+        - basics/epilogue.qmd
     - summary.qmd
     - references.qmd
 
