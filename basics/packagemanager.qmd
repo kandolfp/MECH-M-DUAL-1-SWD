@@ -1,6 +1,6 @@
 # Package manager {#sec-intro-packagemanager}
 
-In general a package manager (or package-management system) is a tool hat automates the process of:
+In general a package manager (or package-management system) is a tool that automates the process of:
 
 - installing,
 - upgrading,
@@ -9,17 +9,19 @@ In general a package manager (or package-management system) is a tool hat automa
 - ...
 
 for computer programs, software libraries, general data, or other tasks.
-We all use package managers on our smart phones or computers in various forms.
-They come in various forms and _accessability_ like the GUIs _Google Play_,  _App Store_,_Microsoft Store_, but also in terminal form as _apt_, _dnf_, _zypper_, _homebrew_, and may more.
-Most of these tools give us an easy way to work with some application without needing to know much about how the software is build. The same is true for _software design_.
+We all use package managers on our smart phones or computers.
+They come in various forms and _accessability_ like the GUIs _Google Play_,  _App Store_, _Microsoft Store_, but also in terminal form as _apt_, _dnf_, _zypper_, _homebrew_, and many more.
+Most of these tools give us an easy way to work with some application without needing to know much about how the software is built. The same is true for _software design_.
 
-They especially take care that your modern world of digital infrastructure works even though it often looks like this:
+They especially take care that our modern world of digital infrastructure works even though it often looks like this: 
+
+-- Image missing --
 
 Back in the days, and often still for some languages, you manually had to integrate some library you wanted to use and they often came with elaborate build scripts (with their own dependencies, ... _insert recursion here_).
-Especially cumbersome where problems where you needed different versions of the same library for different projects.
+Especially cumbersome were problems where you needed different versions of the same library for different projects.
 Nowadays, this task is performed by package managers to the relief of developers everywhere.
 If you have a good package manager you do not realize the burden it takes of your shoulders.
-It is worth highlighting, that a good package manager can define the difference between a successful programming language and a further note on the [index of programming languages](https://en.wikipedia.org/wiki/List_of_programming_languages).
+It is worth highlighting, that a good package manager can define the difference between a successful programming language and a footnote on the [index of programming languages](https://en.wikipedia.org/wiki/List_of_programming_languages).
 
 While it would be worthwhile to visit the various ways and strategies these systems take we will focus on systems for `python`.
 
@@ -35,7 +37,7 @@ The [xkcd comic #1987](https://xkcd.com/1987/) discussing python enviroments. Cl
 :::
 
 ::: {.callout-important}
-Please think about what you think are **must have** and **nice to have** features that we should have for our package manager.
+Please think about what you believe are **must have** and **nice to have** features that we should have for our package manager.
 :::
 
 {{< pagebreak >}}
@@ -44,7 +46,7 @@ Here is the (probably not complete) authors list (random order):
 
 - must haves
    - per project based environments ([venv](https://docs.python.org/3/library/venv.html))
-   - lock files for exact package versions **reproducibility**, see {@sec-intro-pm-reproducibility}
+   - lock files for exact package version **reproducibility**, see {@sec-intro-pm-reproducibility}
       - cross platform dependencies
    - readable documentation
 - nice to haves
@@ -78,7 +80,7 @@ The main thought behind selecting `pdm` for further discussions here is the expe
 Especially the `Pgk.jl` package in  `julia` was such a drastic contrast to `conda` that the authors searched for an alternative.
 :::
 
-## An introduction ot working with PDM for your `python` project
+## An introduction on working with PDM for your `python` project
 
 :::{.callout-important}
 This part is designed as a type along session!
@@ -88,7 +90,7 @@ This part is designed as a type along session!
 >
 >Unlike Poetry and Hatch, PDM is not limited to a specific build backend; users have the freedom to choose any build backend they prefer. (Source: [^1])
 
-The following screen cast give us a quick overview of its capabilities.
+The following screen cast gives us a quick overview of its capabilities.
 [![Original source from https://pdm-project.org/latest/ - asciicast](https://asciinema.org/a/jnifN30pjfXbO9We2KqOdXEhB.svg)](https://asciinema.org/a/jnifN30pjfXbO9We2KqOdXEhB)
 
 :::{.callout-note}
@@ -111,7 +113,7 @@ curl -sSL https://pdm-project.org/install-pdm.py | python3 -
 ```
 :::
 
-of course we do not just download a file from the internet without checking the content.
+Of course we do not just download a file from the internet without checking the content.
 At the time of writing the current sha256 is
 ```bash
 cdaae475a16ae781e06c7211c7b075df1b508470b0dc144bbb73acf9a8389f91  install-pdm.py
@@ -164,28 +166,28 @@ pdm completion powershell | Out-File -Encoding utf8 $PROFILE\..\Completions\pdm_
 ### Start a new project
 
 In order to start a new project you can use `pdm init`.
-This will prompt you with a couple of questions to and based on these questions the `pyproject.toml` file is initialized.
+This will prompt you with a couple of questions and based on the answers the `pyproject.toml` file is initialized.
 
 1. We need to select a python interpreter.
 `pdm` will search for all available interpreters on your path, if you need a different version than available you can use `pdm` to install a new standalone `python` version, see `pdm python` command or the [docs](https://pdm-project.org/latest/usage/project/#install-python-interpreters-with-pdm)[^2].
 
 1. By default `pdm` will create a new `virtualenv` for you as this is the recommend procedure, if you want to influence this behavior see [docs](https://pdm-project.org/latest/usage/venv/).
 
-1. We need to specify a project name. This name is used in the `pyproject.toml` and `pdm` will also generate a `src/<name>` directory for you right away (together with a `test` directory). `pdm` uses here its default template, see [docs](https://pdm-project.org/latest/usage/template/).
+1. We need to specify a project name. This name is used in the `pyproject.toml` and `pdm` will also generate a `src/<name>` directory for you right away (together with a `test` directory). `pdm` uses its default template, see [docs](https://pdm-project.org/latest/usage/template/).
 
-1. The version of you project needs to be initialized.
+1. The version of your project needs to be initialized.
 `pdm` follows [semantic versioning](https://semver.org/)[^3] by default.
 If you do not have a specific version in mind stick to `0.1.0` for a new project.
 
 1. Next we need to decide if we plan for distributing the project.
-For now `n` will suffice, but hopefully by the end of this notes you feel comfortable enough to release your own package as soon as this is the case have a look at the [docs](https://pdm-project.org/latest/usage/publish/) and the [Python Packaging User Guide](https://packaging.python.org/).
+For now `n` will suffice, but hopefully by the end of these notes you feel comfortable enough to release your own package as soon as this is the case have a look at the [docs](https://pdm-project.org/latest/usage/publish/) and the [Python Packaging User Guide](https://packaging.python.org/).
 
 1. Licensing is next. This is a rather important issue when you release software, but we need to postpone it as well. So stick to the default for now. 
 
 1. Author name and email can (and should) be a list if you have multiple contributors.
 `pdm` will try to figure out defaults from system settings.
 
-1. Last the python requires is asked.
+1. Last the python version required is asked.
 Here you can specify the compatibility of your project to various python versions[^4].
 For good reason, by default it will only allow the current version you selected in the first step. In theory you can specify something like `>=3.8,!=3.9.0,<3.13` (a python version between 3.8 and 3.13, including 3.8 but excluding 3.13 and additionally excluding 3.9.0) but be aware that might become tricky when adding dependencies.
 
@@ -256,7 +258,7 @@ $ tree -a               # <4>
 4. list all files in the directory
 5. Note: a `.gitignore` is created
 
-The last highlightes section tell us that `pdm` is designed to work with a _version control system_.
+The last highlighted section tells us that `pdm` is designed to work with a _version control system_.
 By default it uses `git` as seen by the `.gitignore` file highlighted.
 In this context:
 
