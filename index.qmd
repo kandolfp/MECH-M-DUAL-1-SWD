@@ -1,3 +1,7 @@
+:::{.callout-warning}
+The notes presented here are still under construction and can change without warning.
+:::
+
 # Preface {.unnumbered}
 
 This are the lecture notes for the _Softwaredesign_ class part of the _MCI | The Entrepreneurial School_ master for [Mechatronik - Automation, Robotics & AI](https://www.mci.edu/de/studium/master/mechatronik-automation-robotics-ai#im_studium).
