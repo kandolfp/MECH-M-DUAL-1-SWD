@@ -235,7 +235,7 @@ div.csl-indent {
    
   <ul>
   <li><a href="#package-management-for-python" id="toc-package-management-for-python" class="nav-link active" data-scroll-target="#package-management-for-python"><span class="header-section-number">2.1</span> Package management for <code>python</code></a></li>
-  <li><a href="#an-introduction-ot-working-with-pdm-for-your-python-project" id="toc-an-introduction-ot-working-with-pdm-for-your-python-project" class="nav-link" data-scroll-target="#an-introduction-ot-working-with-pdm-for-your-python-project"><span class="header-section-number">2.2</span> An introduction ot working with PDM for your <code>python</code> project</a>
+  <li><a href="#an-introduction-on-working-with-pdm-for-your-python-project" id="toc-an-introduction-on-working-with-pdm-for-your-python-project" class="nav-link" data-scroll-target="#an-introduction-on-working-with-pdm-for-your-python-project"><span class="header-section-number">2.2</span> An introduction on working with PDM for your <code>python</code> project</a>
   <ul class="collapse">
   <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation"><span class="header-section-number">2.2.1</span> Installation</a></li>
   <li><a href="#start-a-new-project" id="toc-start-a-new-project" class="nav-link" data-scroll-target="#start-a-new-project"><span class="header-section-number">2.2.2</span> Start a new project</a></li>
@@ -268,7 +268,7 @@ div.csl-indent {
 </header>
 
 
-<p>In general a package manager (or package-management system) is a tool hat automates the process of:</p>
+<p>In general a package manager (or package-management system) is a tool that automates the process of:</p>
 <ul>
 <li>installing,</li>
 <li>upgrading,</li>
@@ -276,9 +276,10 @@ div.csl-indent {
 <li>removing,</li>
 <li>…</li>
 </ul>
-<p>for computer programs, software libraries, general data, or other tasks. We all use package managers on our smart phones or computers in various forms. They come in various forms and <em>accessability</em> like the GUIs <em>Google Play</em>, <em>App Store</em>,<em>Microsoft Store</em>, but also in terminal form as <em>apt</em>, <em>dnf</em>, <em>zypper</em>, <em>homebrew</em>, and may more. Most of these tools give us an easy way to work with some application without needing to know much about how the software is build. The same is true for <em>software design</em>.</p>
-<p>They especially take care that your modern world of digital infrastructure works even though it often looks like this:</p>
-<p>Back in the days, and often still for some languages, you manually had to integrate some library you wanted to use and they often came with elaborate build scripts (with their own dependencies, … <em>insert recursion here</em>). Especially cumbersome where problems where you needed different versions of the same library for different projects. Nowadays, this task is performed by package managers to the relief of developers everywhere. If you have a good package manager you do not realize the burden it takes of your shoulders. It is worth highlighting, that a good package manager can define the difference between a successful programming language and a further note on the <a href="https://en.wikipedia.org/wiki/List_of_programming_languages">index of programming languages</a>.</p>
+<p>for computer programs, software libraries, general data, or other tasks. We all use package managers on our smart phones or computers. They come in various forms and <em>accessability</em> like the GUIs <em>Google Play</em>, <em>App Store</em>, <em>Microsoft Store</em>, but also in terminal form as <em>apt</em>, <em>dnf</em>, <em>zypper</em>, <em>homebrew</em>, and many more. Most of these tools give us an easy way to work with some application without needing to know much about how the software is built. The same is true for <em>software design</em>.</p>
+<p>They especially take care that our modern world of digital infrastructure works even though it often looks like this:</p>
+<p>– Image missing –</p>
+<p>Back in the days, and often still for some languages, you manually had to integrate some library you wanted to use and they often came with elaborate build scripts (with their own dependencies, … <em>insert recursion here</em>). Especially cumbersome were problems where you needed different versions of the same library for different projects. Nowadays, this task is performed by package managers to the relief of developers everywhere. If you have a good package manager you do not realize the burden it takes of your shoulders. It is worth highlighting, that a good package manager can define the difference between a successful programming language and a footnote on the <a href="https://en.wikipedia.org/wiki/List_of_programming_languages">index of programming languages</a>.</p>
 <p>While it would be worthwhile to visit the various ways and strategies these systems take we will focus on systems for <code>python</code>.</p>
 <section id="package-management-for-python" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="package-management-for-python"><span class="header-section-number">2.1</span> Package management for <code>python</code></h2>
@@ -304,7 +305,7 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Please think about what you think are <strong>must have</strong> and <strong>nice to have</strong> features that we should have for our package manager.</p>
+<p>Please think about what you believe are <strong>must have</strong> and <strong>nice to have</strong> features that we should have for our package manager.</p>
 </div>
 </div>
 <div style="page-break-after: always;"></div>
@@ -313,7 +314,7 @@ Important
 <li>must haves
 <ul>
 <li>per project based environments (<a href="https://docs.python.org/3/library/venv.html">venv</a>)</li>
-<li>lock files for exact package versions <strong>reproducibility</strong>, see {<a href="epilogue.html#sec-intro-pm-reproducibility" class="quarto-xref"><span>Section 4.1</span></a>}
+<li>lock files for exact package version <strong>reproducibility</strong>, see {<a href="epilogue.html#sec-intro-pm-reproducibility" class="quarto-xref"><span>Section 4.1</span></a>}
 <ul>
 <li>cross platform dependencies</li>
 </ul></li>
@@ -362,8 +363,8 @@ Note
 </div>
 </div>
 </section>
-<section id="an-introduction-ot-working-with-pdm-for-your-python-project" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="an-introduction-ot-working-with-pdm-for-your-python-project"><span class="header-section-number">2.2</span> An introduction ot working with PDM for your <code>python</code> project</h2>
+<section id="an-introduction-on-working-with-pdm-for-your-python-project" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="an-introduction-on-working-with-pdm-for-your-python-project"><span class="header-section-number">2.2</span> An introduction on working with PDM for your <code>python</code> project</h2>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -381,7 +382,7 @@ Important
 <p>PDM can manage virtual environments (venvs) in both project and centralized locations, similar to <code>Pipenv</code>. It reads project metadata from a standardized <code>pyproject.toml</code> file and supports <code>lockfiles</code>. Users can add additional functionality through plugins, which can be shared by uploading them as distributions.</p>
 <p>Unlike Poetry and Hatch, PDM is not limited to a specific build backend; users have the freedom to choose any build backend they prefer. (Source: <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>)</p>
 </blockquote>
-<p>The following screen cast give us a quick overview of its capabilities. <a href="https://asciinema.org/a/jnifN30pjfXbO9We2KqOdXEhB"><img src="https://asciinema.org/a/jnifN30pjfXbO9We2KqOdXEhB.svg" class="img-fluid" alt="Original source from https://pdm-project.org/latest/ - asciicast"></a></p>
+<p>The following screen cast gives us a quick overview of its capabilities. <a href="https://asciinema.org/a/jnifN30pjfXbO9We2KqOdXEhB"><img src="https://asciinema.org/a/jnifN30pjfXbO9We2KqOdXEhB.svg" class="img-fluid" alt="Original source from https://pdm-project.org/latest/ - asciicast"></a></p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -410,7 +411,7 @@ Note
 </div>
 </div>
 </div>
-<p>of course we do not just download a file from the internet without checking the content. At the time of writing the current sha256 is</p>
+<p>Of course we do not just download a file from the internet without checking the content. At the time of writing the current sha256 is</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">cdaae475a16ae781e06c7211c7b075df1b508470b0dc144bbb73acf9a8389f91</span>  install-pdm.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>see <a href="https://raw.githubusercontent.com/pdm-project/pdm/main/install-pdm.py.sha256">install-pdm.py.sha256</a></p>
 <p>You can check the file sha by calling:</p>
@@ -457,16 +458,16 @@ Note
 </section>
 <section id="start-a-new-project" class="level3" data-number="2.2.2">
 <h3 data-number="2.2.2" class="anchored" data-anchor-id="start-a-new-project"><span class="header-section-number">2.2.2</span> Start a new project</h3>
-<p>In order to start a new project you can use <code>pdm init</code>. This will prompt you with a couple of questions to and based on these questions the <code>pyproject.toml</code> file is initialized.</p>
+<p>In order to start a new project you can use <code>pdm init</code>. This will prompt you with a couple of questions and based on the answers the <code>pyproject.toml</code> file is initialized.</p>
 <ol type="1">
 <li><p>We need to select a python interpreter. <code>pdm</code> will search for all available interpreters on your path, if you need a different version than available you can use <code>pdm</code> to install a new standalone <code>python</code> version, see <code>pdm python</code> command or the <a href="https://pdm-project.org/latest/usage/project/#install-python-interpreters-with-pdm">docs</a><a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>.</p></li>
 <li><p>By default <code>pdm</code> will create a new <code>virtualenv</code> for you as this is the recommend procedure, if you want to influence this behavior see <a href="https://pdm-project.org/latest/usage/venv/">docs</a>.</p></li>
-<li><p>We need to specify a project name. This name is used in the <code>pyproject.toml</code> and <code>pdm</code> will also generate a <code>src/&lt;name&gt;</code> directory for you right away (together with a <code>test</code> directory). <code>pdm</code> uses here its default template, see <a href="https://pdm-project.org/latest/usage/template/">docs</a>.</p></li>
-<li><p>The version of you project needs to be initialized. <code>pdm</code> follows <a href="https://semver.org/">semantic versioning</a><a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> by default. If you do not have a specific version in mind stick to <code>0.1.0</code> for a new project.</p></li>
-<li><p>Next we need to decide if we plan for distributing the project. For now <code>n</code> will suffice, but hopefully by the end of this notes you feel comfortable enough to release your own package as soon as this is the case have a look at the <a href="https://pdm-project.org/latest/usage/publish/">docs</a> and the <a href="https://packaging.python.org/">Python Packaging User Guide</a>.</p></li>
+<li><p>We need to specify a project name. This name is used in the <code>pyproject.toml</code> and <code>pdm</code> will also generate a <code>src/&lt;name&gt;</code> directory for you right away (together with a <code>test</code> directory). <code>pdm</code> uses its default template, see <a href="https://pdm-project.org/latest/usage/template/">docs</a>.</p></li>
+<li><p>The version of your project needs to be initialized. <code>pdm</code> follows <a href="https://semver.org/">semantic versioning</a><a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> by default. If you do not have a specific version in mind stick to <code>0.1.0</code> for a new project.</p></li>
+<li><p>Next we need to decide if we plan for distributing the project. For now <code>n</code> will suffice, but hopefully by the end of these notes you feel comfortable enough to release your own package as soon as this is the case have a look at the <a href="https://pdm-project.org/latest/usage/publish/">docs</a> and the <a href="https://packaging.python.org/">Python Packaging User Guide</a>.</p></li>
 <li><p>Licensing is next. This is a rather important issue when you release software, but we need to postpone it as well. So stick to the default for now.</p></li>
 <li><p>Author name and email can (and should) be a list if you have multiple contributors. <code>pdm</code> will try to figure out defaults from system settings.</p></li>
-<li><p>Last the python requires is asked. Here you can specify the compatibility of your project to various python versions<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>. For good reason, by default it will only allow the current version you selected in the first step. In theory you can specify something like <code>&gt;=3.8,!=3.9.0,&lt;3.13</code> (a python version between 3.8 and 3.13, including 3.8 but excluding 3.13 and additionally excluding 3.9.0) but be aware that might become tricky when adding dependencies.</p></li>
+<li><p>Last the python version required is asked. Here you can specify the compatibility of your project to various python versions<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>. For good reason, by default it will only allow the current version you selected in the first step. In theory you can specify something like <code>&gt;=3.8,!=3.9.0,&lt;3.13</code> (a python version between 3.8 and 3.13, including 3.8 but excluding 3.13 and additionally excluding 3.9.0) but be aware that might become tricky when adding dependencies.</p></li>
 </ol>
 <p>Now you have a new project available and it should look like this:</p>
 <div class="sourceCode" id="annotated-cell-2"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-2-1" class="code-annotation-target"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mkdir test</span>
@@ -549,7 +550,7 @@ Note
 <span data-code-cell="annotated-cell-2" data-code-lines="50" data-code-annotation="5">Note: a <code>.gitignore</code> is created</span>
 </dd>
 </dl>
-<p>The last highlightes section tell us that <code>pdm</code> is designed to work with a <em>version control system</em>. By default it uses <code>git</code> as seen by the <code>.gitignore</code> file highlighted. In this context:</p>
+<p>The last highlighted section tells us that <code>pdm</code> is designed to work with a <em>version control system</em>. By default it uses <code>git</code> as seen by the <code>.gitignore</code> file highlighted. In this context:</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
