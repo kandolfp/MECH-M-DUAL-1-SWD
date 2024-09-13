@@ -28,6 +28,7 @@ jobs:
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
+        run: eval $(pdm venv activate)
         with:
           target: gh-pages
         env:
