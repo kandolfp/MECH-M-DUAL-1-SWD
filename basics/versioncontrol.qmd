@@ -56,7 +56,7 @@ The notes are a mix of several sources but the main ideas are based on the [git 
 1. Type `git --version`
 1. If Git is not installed use your package manager to install it (Ubuntu: `apt`, Fedora `dnf`, ...) with `sudo apt install git`
 
-## OSx
+## Mac
 1. Open the terminal
 1. Type `git --version`
 1. If Git is not installed install it via `xcode-select --install`
