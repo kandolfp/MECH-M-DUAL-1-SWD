@@ -173,61 +173,61 @@ pdm completion powershell | Out-File -Encoding utf8 $PROFILE\..\Completions\pdm_
 
 ### Start a new project
 
-In order to start a new project you can use `pdm init`.
-This will prompt you with a couple of questions and based on the answers the `pyproject.toml` file is initialized.
-
-1. We need to select a python interpreter.
-`pdm` will search for all available interpreters on your path, if you need a different version than available you can use `pdm` to install a new standalone `python` version, see `pdm python` command or the [docs](https://pdm-project.org/latest/usage/project/#install-python-interpreters-with-pdm)[^2].
-
-1. By default `pdm` will create a new `virtualenv` for you as this is the recommend procedure, if you want to influence this behavior see [docs](https://pdm-project.org/latest/usage/venv/).
-
-1. We need to specify a project name. This name is used in the `pyproject.toml` and `pdm` will also generate a `src/<name>` directory for you right away (together with a `test` directory). `pdm` uses its default template, see [docs](https://pdm-project.org/latest/usage/template/).
-
-1. The version of your project needs to be initialized.
-`pdm` follows [semantic versioning](https://semver.org/)[^3] by default.
-If you do not have a specific version in mind stick to `0.1.0` for a new project.
-
-1. Next we need to decide if we plan for distributing the project.
-For now `n` will suffice, but hopefully by the end of these notes you feel comfortable enough to release your own package as soon as this is the case have a look at the [docs](https://pdm-project.org/latest/usage/publish/) and the [Python Packaging User Guide](https://packaging.python.org/).
-
-1. Licensing is next. This is a rather important issue when you release software, but we need to postpone it as well. So stick to the default for now. 
-
-1. Author name and email can (and should) be a list if you have multiple contributors.
-`pdm` will try to figure out defaults from system settings.
-
-1. Last the python version required is asked.
-Here you can specify the compatibility of your project to various python versions[^4].
-For good reason, by default it will only allow the current version you selected in the first step. In theory you can specify something like `>=3.8,!=3.9.0,<3.13` (a python version between 3.8 and 3.13, including 3.8 but excluding 3.13 and additionally excluding 3.9.0) but be aware that might become tricky when adding dependencies.
-
-Now you have a new project available and it should look like this:
+Let us start a new project in a new directory
 ```bash
 $ mkdir test                # <1>
 mkdir: created directory 'test'
 
 $ cd test/                  # <2>
+```
+1. create a directory
+2. change into this directory
 
-$ pdm init                  # <3>
+In order to start a new `pdm` project you can use `pdm init`.
+This will prompt you with a couple of questions and based on the answers the `pyproject.toml` file is initialized.
+
+```bash
+$ pdm init                                                     # <1>
 Creating a pyproject.toml for PDM...
-Please enter the Python interpreter to use
- 0. cpython@3.11 (/usr/local/bin/python3)
- 1. cpython@3.12 (/usr/bin/python3.12)
- 2. cpython@3.11 (/usr/local/bin/python3.11)
- 3. cpython@3.8 (/usr/local/bin/python3.8)
-Please select (0): 1
-Virtualenv is created successfully at /tmp/test/.venv
-Project name (test): 
-Project version (0.1.0): 
-Do you want to build this project for distribution(such as wheel)?
-If yes, it will be installed by default when running `pdm install`. [y/n] (n): n
-License(SPDX name) (MIT):  
-Author name (John Doe): 
-Author email (John.Doe@generic.edu): 
-Python requires('*' to allow any) (==3.12.*):
+Please enter the Python interpreter to use                     # <2>
+ 0. cpython@3.11 (/usr/local/bin/python3)                      # <2>
+ 1. cpython@3.12 (/usr/bin/python3.12)                         # <2>
+ 2. cpython@3.11 (/usr/local/bin/python3.11)                   # <2>
+ 3. cpython@3.8 (/usr/local/bin/python3.8)                     # <2>
+Please select (0): 1                                           # <2>
+Virtualenv is created successfully at /tmp/test/.venv          # <3>
+Project name (test):                                           # <4>
+Project version (0.1.0):                                       # <5>
+Do you want to build this project for distribution(such as wheel)?   # <6>
+If yes, it will be installed by default when running `pdm install`. [y/n] (n): n # <6>
+License(SPDX name) (MIT):                                      # <7>
+Author name (John Doe):                                        # <8>
+Author email (John.Doe@generic.edu):                           # <8>
+Python requires('*' to allow any) (==3.12.*):                  # <9>
 Project is initialized successfully
+```
+1. start to initialize with `pdm init`
+2. We need to select a python interpreter.
+`pdm` will search for all available interpreters on your path, if you need a different version than available you can use `pdm` to install a new standalone `python` version, see `pdm python` command or the [docs](https://pdm-project.org/latest/usage/project/#install-python-interpreters-with-pdm)[^2].
+3. By default `pdm` will create a new `virtualenv` for you as this is the recommend procedure, if you want to influence this behavior see [docs](https://pdm-project.org/latest/usage/venv/).
+4. We need to specify a project name. This name is used in the `pyproject.toml` and `pdm` will also generate a `src/<name>` directory for you right away (together with a `test` directory). `pdm` uses its default template, see [docs](https://pdm-project.org/latest/usage/template/).
+5. The version of your project needs to be initialized.
+`pdm` follows [semantic versioning](https://semver.org/)[^3] by default.
+If you do not have a specific version in mind stick to `0.1.0` for a new project.
+6. Next we need to decide if we plan for distributing the project.
+For now `n` will suffice, but hopefully by the end of these notes you feel comfortable enough to release your own package as soon as this is the case have a look at the [docs](https://pdm-project.org/latest/usage/publish/) and the [Python Packaging User Guide](https://packaging.python.org/).
+7. Licensing is next. This is a rather important issue when you release software, but we need to postpone it as well. So stick to the default for now. 
+8. Author name and email can (and should) be a list if you have multiple contributors.
+`pdm` will try to figure out defaults from system settings.
+9. Last the python version required is asked.
+Here you can specify the compatibility of your project to various python versions[^4].
+For good reason, by default it will only allow the current version you selected in the first step. In theory you can specify something like `>=3.8,!=3.9.0,<3.13` (a python version between 3.8 and 3.13, including 3.8 but excluding 3.13 and additionally excluding 3.9.0) but be aware that might become tricky when adding dependencies.
 
-$ tree -a               # <4>
+Now you have a new project available and it should look like this:
+```bash
+$ tree -a               # <1>
 .
-├── .gitignore
+├── .gitignore          # <2>
 ├── .pdm-python
 ├── __pycache__
 ├── pyproject.toml
@@ -239,18 +239,18 @@ $ tree -a               # <4>
 ├── tests
 │   ├── __init__.py
 │   └── __pycache__
-└── .venv
-    ├── bin
-    │   ├── activate
-    │   ├── activate.csh
-    │   ├── activate.fish
-    │   ├── activate.nu
-    │   ├── activate.ps1
-    │   ├── activate_this.py
-    │   ├── python -> /usr/bin/python3.12
-    │   ├── python3 -> python
-    │   └── python3.12 -> python
-    ├── .gitignore                             # <5>
+└── .venv                                    # <3>
+    ├── bin                                  # <3>
+    │   ├── activate                         # <3>
+    │   ├── activate.csh                     # <3>
+    │   ├── activate.fish                    # <3>
+    │   ├── activate.nu                      # <3>
+    │   ├── activate.ps1                     # <4>
+    │   ├── activate_this.py                 # <3>
+    │   ├── python -> /usr/bin/python3.12    # <3>
+    │   ├── python3 -> python                # <3>
+    │   └── python3.12 -> python             # <3>
+    ├── .gitignore          
     ├── lib
     │   └── python3.12
     │       └── site-packages
@@ -260,13 +260,12 @@ $ tree -a               # <4>
 
 12 directories, 19 files
 ```
-1. create a directory
-2. change into this directory
-3. initialize with `pdm init`
-4. list all files in the directory
-5. Note: a `.gitignore` is created
+1. list all files in the directory
+2. A `.gitignore` file is created
+3. Virtual environment
+4. Windows activation start file (cross platform)
 
-The last highlighted section tells us that `pdm` is designed to work with a _version control system_.
+The second highlighted section tells us that `pdm` is designed to work with a _version control system_.
 By default it uses `git` as seen by the `.gitignore` file highlighted.
 In this context:
 
