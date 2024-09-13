@@ -88,7 +88,9 @@ Especially the `Pgk.jl` package in  `julia` was such a drastic contrast to `cond
 
 ## An introduction on working with PDM for your `python` project
 
-:::{.callout-important}
+:::{.callout-caution icon=false}
+## {{< fa keyboard >}} Type along
+
 This part is designed as a type along session!
 :::
 
