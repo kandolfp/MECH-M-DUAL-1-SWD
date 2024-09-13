@@ -48,13 +48,7 @@ Python will not give you as much leeway, but some.
 There is still some room to wriggle around but it is best if you hold yourself to the [Style guide - PEP 8](https://peps.python.org/pep-0008/) right from the start (we will do so in this notes, if not open an issue on GitHub, Link on the right below the section index).
 :::
 
-## Getting started
-
-:::{.callout-caution icon=false}
-## {{< fa keyboard >}} Type along
-
-This part is designed as a type along session!
-:::
+## Installation {.unnumbered}
 
 On Linux and Mac a recent Python version is usually installed.
 Check this by opening a terminal and running
@@ -66,9 +60,140 @@ and you should see something similar if not the same, if not have a look [here](
 
 For Windows 10 and above we can use the version from the Microsoft Store, if you have another version also see [here](https://docs.python.org/3/using/index.html) and search for your platform.
 
+## Getting started
+
+:::{.callout-caution icon=false}
+## {{< fa keyboard >}} Type along
+
+This part is designed as a type along session!
+:::
+
+As common for programming guides we start with:
+```{python}
+print('Hello, World')
+```
+
+:::{.callout-note}
+These notes are generated from markdown and executable code (for a lot of the Python aspects).
+For this reason and so you have an easier time to copy and past code from the notes we omit `>>>` that you will see in your REPL.
+:::
+
+Lets break down what we did above[^6]:
+
+- we called a function `print` - indicated by `(` and `)` respectively,
+- we handed the text _Hello, World_ to that function - indicated by the two `'`,
+- the REPL returned the result and printed it on screen.
+
+The text above is called a _string_ and you can do operations with strings
+
+```{python}
+print('Hello,' + 'World')
+print('Spam' * 5)
+```
+
+Here `+` and `*` are so called _operators_.
+The first combines (concatenates) two strings, the second multiplies one string. 
+
+::: {.callout-important}
+The [Style guide - PEP 8](https://peps.python.org/pep-0008/) tells us that an operator should have a leading and tailing white space.
+:::
+
+In case we want to know more about the function `print` we can use another function to get some more insight
+```{python}
+help(print)
+```
+Now let us pick up a bit of speed
+```{python}
+# Mathematical operators  # <1>
+3 + 2
+2 * 10
+4 // 2    # Integer division # <2>
+4 / 3
+(9 + 8) * 32
+```
+1. We can write comments, that get ignored by the interpreter. They start with `#`
+2. Comments can also follow a command
+
+::: {.callout-note}
+If you copy and execute the code above your output will differ and look something like:
+```python
+>>> # Mathematical operators
+>>> 3 + 2
+5
+>>> 2 * 10
+20
+>>> 4 // 2
+2
+>>> 4.0 / 2
+2.0
+>>> (9 + 8) * 32
+544
+```
+This is due to the fact that the system used to create these notes does not feed the input to the REPL one by one but rather as a _script_.
+Therefore, we will often just suppress the output or if we want to make sure something is printed in the notes we will use `print` explicitly.
+:::
+
+We can assign a value to a _variable_ and use them later on
+
+```{python}
+#| output: false
+pi = 3.1415926535897932
+x = 90
+
+# Convert degree to radiant
+x_rad = x * (pi / 180)
+
+# Convert it back to degree
+x_new = x_rad * (180 / pi)
+
+# Check if they are the same
+x == x_new
+```
+
+There are the usual _boolean_ operators for comparison
+```{python}
+#| output: false
+1 != 2
+1 < 2
+2 > 3
+1.0 >= 1
+0.99 <= 1
+
+# and combine them with logical operators
+(1.0 <= 1) and (1.0 >= 1)
+(2 < 1) or (2 > 1)
+not (1 != 2)
+```
+
+You can also change the value of a variable
+```{python}
+# We can make the printed statement more elaborate
+print('x =', x)
+x = 45
+print(f'x = {x}')
+```
+
+We also have control sequences
+```{python}
+if x < 90:
+  x = x * 2      # This section gets executed if the statement is true
+else:        # And this if it is false
+  x = x / 2
+
+print(f'x = {x}')
+
+if x < 45:
+  x = x * 2
+elif x < 90:
+  x = x * 3      # If the first statement is false but the second true
+else:
+  x = x ** 2     # If none of the above statements is true
+print(f'x = {x}')
+```
 
 [^1]: A language that has a strong abstraction level between the hardware of the computer and the user.
 [^2]: The term describes how easy it is for a human reader to follow the purpose, control flow and the single operations of source code, i.e. a program.
 [^3]: As of September 6th 2024, see [Python Source Releases](https://www.python.org/downloads/source/) for a current overview.
 [^4]: A way of specifying what the usual three numbers of a version mean, see [semver.org](https://semver.org/)
 [^5]: Read Evaluate Print Loop
+[^6]: We start easy and with a bit more explanation, but do not worry we will not always break it down as much. 
