@@ -470,76 +470,11 @@ Note
 </section>
 <section id="start-a-new-project" class="level3" data-number="2.2.2">
 <h3 data-number="2.2.2" class="anchored" data-anchor-id="start-a-new-project"><span class="header-section-number">2.2.2</span> Start a new project</h3>
-<p>In order to start a new project you can use <code>pdm init</code>. This will prompt you with a couple of questions and based on the answers the <code>pyproject.toml</code> file is initialized.</p>
-<ol type="1">
-<li><p>We need to select a python interpreter. <code>pdm</code> will search for all available interpreters on your path, if you need a different version than available you can use <code>pdm</code> to install a new standalone <code>python</code> version, see <code>pdm python</code> command or the <a href="https://pdm-project.org/latest/usage/project/#install-python-interpreters-with-pdm">docs</a><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</p></li>
-<li><p>By default <code>pdm</code> will create a new <code>virtualenv</code> for you as this is the recommend procedure, if you want to influence this behavior see <a href="https://pdm-project.org/latest/usage/venv/">docs</a>.</p></li>
-<li><p>We need to specify a project name. This name is used in the <code>pyproject.toml</code> and <code>pdm</code> will also generate a <code>src/&lt;name&gt;</code> directory for you right away (together with a <code>test</code> directory). <code>pdm</code> uses its default template, see <a href="https://pdm-project.org/latest/usage/template/">docs</a>.</p></li>
-<li><p>The version of your project needs to be initialized. <code>pdm</code> follows <a href="https://semver.org/">semantic versioning</a><a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> by default. If you do not have a specific version in mind stick to <code>0.1.0</code> for a new project.</p></li>
-<li><p>Next we need to decide if we plan for distributing the project. For now <code>n</code> will suffice, but hopefully by the end of these notes you feel comfortable enough to release your own package as soon as this is the case have a look at the <a href="https://pdm-project.org/latest/usage/publish/">docs</a> and the <a href="https://packaging.python.org/">Python Packaging User Guide</a>.</p></li>
-<li><p>Licensing is next. This is a rather important issue when you release software, but we need to postpone it as well. So stick to the default for now.</p></li>
-<li><p>Author name and email can (and should) be a list if you have multiple contributors. <code>pdm</code> will try to figure out defaults from system settings.</p></li>
-<li><p>Last the python version required is asked. Here you can specify the compatibility of your project to various python versions<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>. For good reason, by default it will only allow the current version you selected in the first step. In theory you can specify something like <code>&gt;=3.8,!=3.9.0,&lt;3.13</code> (a python version between 3.8 and 3.13, including 3.8 but excluding 3.13 and additionally excluding 3.9.0) but be aware that might become tricky when adding dependencies.</p></li>
-</ol>
-<p>Now you have a new project available and it should look like this:</p>
+<p>Let us start a new project in a new directory</p>
 <div class="sourceCode" id="annotated-cell-2"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-2-1" class="code-annotation-target"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mkdir test</span>
 <span id="annotated-cell-2-2"><a href="#annotated-cell-2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">mkdir:</span> created directory <span class="st">'test'</span></span>
 <span id="annotated-cell-2-3"><a href="#annotated-cell-2-3" aria-hidden="true" tabindex="-1"></a></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-2-4" class="code-annotation-target"><a href="#annotated-cell-2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd test/</span>
-<span id="annotated-cell-2-5"><a href="#annotated-cell-2-5" aria-hidden="true" tabindex="-1"></a></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-2-6" class="code-annotation-target"><a href="#annotated-cell-2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pdm init</span>
-<span id="annotated-cell-2-7"><a href="#annotated-cell-2-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Creating</span> a pyproject.toml for PDM...</span>
-<span id="annotated-cell-2-8"><a href="#annotated-cell-2-8" aria-hidden="true" tabindex="-1"></a><span class="ex">Please</span> enter the Python interpreter to use</span>
-<span id="annotated-cell-2-9"><a href="#annotated-cell-2-9" aria-hidden="true" tabindex="-1"></a> <span class="ex">0.</span> cpython@3.11 <span class="er">(</span><span class="ex">/usr/local/bin/python3</span><span class="kw">)</span></span>
-<span id="annotated-cell-2-10"><a href="#annotated-cell-2-10" aria-hidden="true" tabindex="-1"></a> <span class="ex">1.</span> cpython@3.12 <span class="er">(</span><span class="ex">/usr/bin/python3.12</span><span class="kw">)</span></span>
-<span id="annotated-cell-2-11"><a href="#annotated-cell-2-11" aria-hidden="true" tabindex="-1"></a> <span class="ex">2.</span> cpython@3.11 <span class="er">(</span><span class="ex">/usr/local/bin/python3.11</span><span class="kw">)</span></span>
-<span id="annotated-cell-2-12"><a href="#annotated-cell-2-12" aria-hidden="true" tabindex="-1"></a> <span class="ex">3.</span> cpython@3.8 <span class="er">(</span><span class="ex">/usr/local/bin/python3.8</span><span class="kw">)</span></span>
-<span id="annotated-cell-2-13"><a href="#annotated-cell-2-13" aria-hidden="true" tabindex="-1"></a><span class="ex">Please</span> select <span class="er">(</span><span class="ex">0</span><span class="kw">)</span><span class="bu">:</span> 1</span>
-<span id="annotated-cell-2-14"><a href="#annotated-cell-2-14" aria-hidden="true" tabindex="-1"></a><span class="ex">Virtualenv</span> is created successfully at /tmp/test/.venv</span>
-<span id="annotated-cell-2-15"><a href="#annotated-cell-2-15" aria-hidden="true" tabindex="-1"></a><span class="ex">Project</span> name <span class="er">(</span><span class="bu">test</span><span class="kw">)</span><span class="bu">:</span> </span>
-<span id="annotated-cell-2-16"><a href="#annotated-cell-2-16" aria-hidden="true" tabindex="-1"></a><span class="ex">Project</span> version <span class="er">(</span><span class="ex">0.1.0</span><span class="kw">)</span><span class="bu">:</span> </span>
-<span id="annotated-cell-2-17"><a href="#annotated-cell-2-17" aria-hidden="true" tabindex="-1"></a><span class="ex">Do</span> you want to build this project for distribution<span class="er">(</span><span class="ex">such</span> as wheel<span class="kw">)</span><span class="ex">?</span></span>
-<span id="annotated-cell-2-18"><a href="#annotated-cell-2-18" aria-hidden="true" tabindex="-1"></a><span class="ex">If</span> yes, it will be installed by default when running <span class="kw">`</span><span class="ex">pdm</span> install<span class="kw">`</span>. <span class="pp">[</span><span class="ss">y/n</span><span class="pp">]</span> <span class="er">(</span><span class="ex">n</span><span class="kw">)</span><span class="bu">:</span> n</span>
-<span id="annotated-cell-2-19"><a href="#annotated-cell-2-19" aria-hidden="true" tabindex="-1"></a><span class="ex">License</span><span class="er">(</span><span class="ex">SPDX</span> name<span class="kw">)</span> <span class="kw">(</span><span class="ex">MIT</span><span class="kw">)</span><span class="bu">:</span>  </span>
-<span id="annotated-cell-2-20"><a href="#annotated-cell-2-20" aria-hidden="true" tabindex="-1"></a><span class="ex">Author</span> name <span class="er">(</span><span class="ex">John</span> Doe<span class="kw">)</span><span class="bu">:</span> </span>
-<span id="annotated-cell-2-21"><a href="#annotated-cell-2-21" aria-hidden="true" tabindex="-1"></a><span class="ex">Author</span> email <span class="er">(</span><span class="ex">John.Doe@generic.edu</span><span class="kw">)</span><span class="bu">:</span> </span>
-<span id="annotated-cell-2-22"><a href="#annotated-cell-2-22" aria-hidden="true" tabindex="-1"></a><span class="ex">Python</span> requires<span class="er">(</span><span class="st">'*'</span> to allow any<span class="kw">)</span> <span class="kw">(</span><span class="ex">==3.12.*</span><span class="kw">)</span><span class="bu">:</span></span>
-<span id="annotated-cell-2-23"><a href="#annotated-cell-2-23" aria-hidden="true" tabindex="-1"></a><span class="ex">Project</span> is initialized successfully</span>
-<span id="annotated-cell-2-24"><a href="#annotated-cell-2-24" aria-hidden="true" tabindex="-1"></a></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-2-25" class="code-annotation-target"><a href="#annotated-cell-2-25" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tree <span class="at">-a</span></span>
-<span id="annotated-cell-2-26"><a href="#annotated-cell-2-26" aria-hidden="true" tabindex="-1"></a><span class="bu">.</span></span>
-<span id="annotated-cell-2-27"><a href="#annotated-cell-2-27" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> .gitignore</span>
-<span id="annotated-cell-2-28"><a href="#annotated-cell-2-28" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> .pdm-python</span>
-<span id="annotated-cell-2-29"><a href="#annotated-cell-2-29" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> __pycache__</span>
-<span id="annotated-cell-2-30"><a href="#annotated-cell-2-30" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> pyproject.toml</span>
-<span id="annotated-cell-2-31"><a href="#annotated-cell-2-31" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> README.md</span>
-<span id="annotated-cell-2-32"><a href="#annotated-cell-2-32" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> src</span>
-<span id="annotated-cell-2-33"><a href="#annotated-cell-2-33" aria-hidden="true" tabindex="-1"></a><span class="ex">│&nbsp;&nbsp;</span> └── test</span>
-<span id="annotated-cell-2-34"><a href="#annotated-cell-2-34" aria-hidden="true" tabindex="-1"></a><span class="ex">│&nbsp;&nbsp;</span>     ├── __init__.py</span>
-<span id="annotated-cell-2-35"><a href="#annotated-cell-2-35" aria-hidden="true" tabindex="-1"></a><span class="ex">│&nbsp;&nbsp;</span>     └── __pycache__</span>
-<span id="annotated-cell-2-36"><a href="#annotated-cell-2-36" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> tests</span>
-<span id="annotated-cell-2-37"><a href="#annotated-cell-2-37" aria-hidden="true" tabindex="-1"></a><span class="ex">│&nbsp;&nbsp;</span> ├── __init__.py</span>
-<span id="annotated-cell-2-38"><a href="#annotated-cell-2-38" aria-hidden="true" tabindex="-1"></a><span class="ex">│&nbsp;&nbsp;</span> └── __pycache__</span>
-<span id="annotated-cell-2-39"><a href="#annotated-cell-2-39" aria-hidden="true" tabindex="-1"></a><span class="ex">└──</span> .venv</span>
-<span id="annotated-cell-2-40"><a href="#annotated-cell-2-40" aria-hidden="true" tabindex="-1"></a>    <span class="ex">├──</span> bin</span>
-<span id="annotated-cell-2-41"><a href="#annotated-cell-2-41" aria-hidden="true" tabindex="-1"></a>    <span class="ex">│&nbsp;&nbsp;</span> ├── activate</span>
-<span id="annotated-cell-2-42"><a href="#annotated-cell-2-42" aria-hidden="true" tabindex="-1"></a>    <span class="ex">│&nbsp;&nbsp;</span> ├── activate.csh</span>
-<span id="annotated-cell-2-43"><a href="#annotated-cell-2-43" aria-hidden="true" tabindex="-1"></a>    <span class="ex">│&nbsp;&nbsp;</span> ├── activate.fish</span>
-<span id="annotated-cell-2-44"><a href="#annotated-cell-2-44" aria-hidden="true" tabindex="-1"></a>    <span class="ex">│&nbsp;&nbsp;</span> ├── activate.nu</span>
-<span id="annotated-cell-2-45"><a href="#annotated-cell-2-45" aria-hidden="true" tabindex="-1"></a>    <span class="ex">│&nbsp;&nbsp;</span> ├── activate.ps1</span>
-<span id="annotated-cell-2-46"><a href="#annotated-cell-2-46" aria-hidden="true" tabindex="-1"></a>    <span class="ex">│&nbsp;&nbsp;</span> ├── activate_this.py</span>
-<span id="annotated-cell-2-47"><a href="#annotated-cell-2-47" aria-hidden="true" tabindex="-1"></a>    <span class="ex">│&nbsp;&nbsp;</span> ├── python <span class="at">-</span><span class="op">&gt;</span> /usr/bin/python3.12</span>
-<span id="annotated-cell-2-48"><a href="#annotated-cell-2-48" aria-hidden="true" tabindex="-1"></a>    <span class="ex">│&nbsp;&nbsp;</span> ├── python3 <span class="at">-</span><span class="op">&gt;</span> python</span>
-<span id="annotated-cell-2-49"><a href="#annotated-cell-2-49" aria-hidden="true" tabindex="-1"></a>    <span class="ex">│&nbsp;&nbsp;</span> └── python3.12 <span class="at">-</span><span class="op">&gt;</span> python</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="5" onclick="event.preventDefault();">5</a><span id="annotated-cell-2-50" class="code-annotation-target"><a href="#annotated-cell-2-50" aria-hidden="true" tabindex="-1"></a>    <span class="ex">├──</span> .gitignore</span>
-<span id="annotated-cell-2-51"><a href="#annotated-cell-2-51" aria-hidden="true" tabindex="-1"></a>    <span class="ex">├──</span> lib</span>
-<span id="annotated-cell-2-52"><a href="#annotated-cell-2-52" aria-hidden="true" tabindex="-1"></a>    <span class="ex">│&nbsp;&nbsp;</span> └── python3.12</span>
-<span id="annotated-cell-2-53"><a href="#annotated-cell-2-53" aria-hidden="true" tabindex="-1"></a>    <span class="ex">│&nbsp;&nbsp;</span>     └── site-packages</span>
-<span id="annotated-cell-2-54"><a href="#annotated-cell-2-54" aria-hidden="true" tabindex="-1"></a>    <span class="ex">│&nbsp;&nbsp;</span>         ├── _virtualenv.pth</span>
-<span id="annotated-cell-2-55"><a href="#annotated-cell-2-55" aria-hidden="true" tabindex="-1"></a>    <span class="ex">│&nbsp;&nbsp;</span>         └── _virtualenv.py</span>
-<span id="annotated-cell-2-56"><a href="#annotated-cell-2-56" aria-hidden="true" tabindex="-1"></a>    <span class="ex">└──</span> pyvenv.cfg</span>
-<span id="annotated-cell-2-57"><a href="#annotated-cell-2-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-2-58"><a href="#annotated-cell-2-58" aria-hidden="true" tabindex="-1"></a><span class="ex">12</span> directories, 19 files</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-2-4" class="code-annotation-target"><a href="#annotated-cell-2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd test/</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-2" data-target-annotation="1">1</dt>
 <dd>
@@ -549,20 +484,118 @@ Note
 <dd>
 <span data-code-cell="annotated-cell-2" data-code-lines="4" data-code-annotation="2">change into this directory</span>
 </dd>
-<dt data-target-cell="annotated-cell-2" data-target-annotation="3">3</dt>
+</dl>
+<p>In order to start a new <code>pdm</code> project you can use <code>pdm init</code>. This will prompt you with a couple of questions and based on the answers the <code>pyproject.toml</code> file is initialized.</p>
+<div class="sourceCode" id="annotated-cell-3"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-3-1" class="code-annotation-target"><a href="#annotated-cell-3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pdm init</span>
+<span id="annotated-cell-3-2"><a href="#annotated-cell-3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Creating</span> a pyproject.toml for PDM...</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-3-3" class="code-annotation-target"><a href="#annotated-cell-3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Please</span> enter the Python interpreter to use</span>
+<span id="annotated-cell-3-4"><a href="#annotated-cell-3-4" aria-hidden="true" tabindex="-1"></a> <span class="ex">0.</span> cpython@3.11 <span class="er">(</span><span class="ex">/usr/local/bin/python3</span><span class="kw">)</span></span>
+<span id="annotated-cell-3-5"><a href="#annotated-cell-3-5" aria-hidden="true" tabindex="-1"></a> <span class="ex">1.</span> cpython@3.12 <span class="er">(</span><span class="ex">/usr/bin/python3.12</span><span class="kw">)</span></span>
+<span id="annotated-cell-3-6"><a href="#annotated-cell-3-6" aria-hidden="true" tabindex="-1"></a> <span class="ex">2.</span> cpython@3.11 <span class="er">(</span><span class="ex">/usr/local/bin/python3.11</span><span class="kw">)</span></span>
+<span id="annotated-cell-3-7"><a href="#annotated-cell-3-7" aria-hidden="true" tabindex="-1"></a> <span class="ex">3.</span> cpython@3.8 <span class="er">(</span><span class="ex">/usr/local/bin/python3.8</span><span class="kw">)</span></span>
+<span id="annotated-cell-3-8"><a href="#annotated-cell-3-8" aria-hidden="true" tabindex="-1"></a><span class="ex">Please</span> select <span class="er">(</span><span class="ex">0</span><span class="kw">)</span><span class="bu">:</span> 1</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-3-9" class="code-annotation-target"><a href="#annotated-cell-3-9" aria-hidden="true" tabindex="-1"></a><span class="ex">Virtualenv</span> is created successfully at /tmp/test/.venv</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-3-10" class="code-annotation-target"><a href="#annotated-cell-3-10" aria-hidden="true" tabindex="-1"></a><span class="ex">Project</span> name <span class="er">(</span><span class="bu">test</span><span class="kw">)</span><span class="bu">:</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="5" onclick="event.preventDefault();">5</a><span id="annotated-cell-3-11" class="code-annotation-target"><a href="#annotated-cell-3-11" aria-hidden="true" tabindex="-1"></a><span class="ex">Project</span> version <span class="er">(</span><span class="ex">0.1.0</span><span class="kw">)</span><span class="bu">:</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="6" onclick="event.preventDefault();">6</a><span id="annotated-cell-3-12" class="code-annotation-target"><a href="#annotated-cell-3-12" aria-hidden="true" tabindex="-1"></a><span class="ex">Do</span> you want to build this project for distribution<span class="er">(</span><span class="ex">such</span> as wheel<span class="kw">)</span><span class="ex">?</span></span>
+<span id="annotated-cell-3-13"><a href="#annotated-cell-3-13" aria-hidden="true" tabindex="-1"></a><span class="ex">If</span> yes, it will be installed by default when running <span class="kw">`</span><span class="ex">pdm</span> install<span class="kw">`</span>. <span class="pp">[</span><span class="ss">y/n</span><span class="pp">]</span> <span class="er">(</span><span class="ex">n</span><span class="kw">)</span><span class="bu">:</span> n</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="7" onclick="event.preventDefault();">7</a><span id="annotated-cell-3-14" class="code-annotation-target"><a href="#annotated-cell-3-14" aria-hidden="true" tabindex="-1"></a><span class="ex">License</span><span class="er">(</span><span class="ex">SPDX</span> name<span class="kw">)</span> <span class="kw">(</span><span class="ex">MIT</span><span class="kw">)</span><span class="bu">:</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="8" onclick="event.preventDefault();">8</a><span id="annotated-cell-3-15" class="code-annotation-target"><a href="#annotated-cell-3-15" aria-hidden="true" tabindex="-1"></a><span class="ex">Author</span> name <span class="er">(</span><span class="ex">John</span> Doe<span class="kw">)</span><span class="bu">:</span></span>
+<span id="annotated-cell-3-16"><a href="#annotated-cell-3-16" aria-hidden="true" tabindex="-1"></a><span class="ex">Author</span> email <span class="er">(</span><span class="ex">John.Doe@generic.edu</span><span class="kw">)</span><span class="bu">:</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="9" onclick="event.preventDefault();">9</a><span id="annotated-cell-3-17" class="code-annotation-target"><a href="#annotated-cell-3-17" aria-hidden="true" tabindex="-1"></a><span class="ex">Python</span> requires<span class="er">(</span><span class="st">'*'</span> to allow any<span class="kw">)</span> <span class="kw">(</span><span class="ex">==3.12.*</span><span class="kw">)</span><span class="bu">:</span></span>
+<span id="annotated-cell-3-18"><a href="#annotated-cell-3-18" aria-hidden="true" tabindex="-1"></a><span class="ex">Project</span> is initialized successfully</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-3" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-2" data-code-lines="6" data-code-annotation="3">initialize with <code>pdm init</code></span>
+<span data-code-cell="annotated-cell-3" data-code-lines="1" data-code-annotation="1">start to initialize with <code>pdm init</code></span>
 </dd>
-<dt data-target-cell="annotated-cell-2" data-target-annotation="4">4</dt>
+<dt data-target-cell="annotated-cell-3" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-2" data-code-lines="25" data-code-annotation="4">list all files in the directory</span>
+<span data-code-cell="annotated-cell-3" data-code-lines="3,4,5,6,7,8" data-code-annotation="2">We need to select a python interpreter. <code>pdm</code> will search for all available interpreters on your path, if you need a different version than available you can use <code>pdm</code> to install a new standalone <code>python</code> version, see <code>pdm python</code> command or the <a href="https://pdm-project.org/latest/usage/project/#install-python-interpreters-with-pdm">docs</a><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</span>
 </dd>
-<dt data-target-cell="annotated-cell-2" data-target-annotation="5">5</dt>
+<dt data-target-cell="annotated-cell-3" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-2" data-code-lines="50" data-code-annotation="5">Note: a <code>.gitignore</code> is created</span>
+<span data-code-cell="annotated-cell-3" data-code-lines="9" data-code-annotation="3">By default <code>pdm</code> will create a new <code>virtualenv</code> for you as this is the recommend procedure, if you want to influence this behavior see <a href="https://pdm-project.org/latest/usage/venv/">docs</a>.</span>
+</dd>
+<dt data-target-cell="annotated-cell-3" data-target-annotation="4">4</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-lines="10" data-code-annotation="4">We need to specify a project name. This name is used in the <code>pyproject.toml</code> and <code>pdm</code> will also generate a <code>src/&lt;name&gt;</code> directory for you right away (together with a <code>test</code> directory). <code>pdm</code> uses its default template, see <a href="https://pdm-project.org/latest/usage/template/">docs</a>.</span>
+</dd>
+<dt data-target-cell="annotated-cell-3" data-target-annotation="5">5</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-lines="11" data-code-annotation="5">The version of your project needs to be initialized. <code>pdm</code> follows <a href="https://semver.org/">semantic versioning</a><a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> by default. If you do not have a specific version in mind stick to <code>0.1.0</code> for a new project.</span>
+</dd>
+<dt data-target-cell="annotated-cell-3" data-target-annotation="6">6</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-lines="12,13" data-code-annotation="6">Next we need to decide if we plan for distributing the project. For now <code>n</code> will suffice, but hopefully by the end of these notes you feel comfortable enough to release your own package as soon as this is the case have a look at the <a href="https://pdm-project.org/latest/usage/publish/">docs</a> and the <a href="https://packaging.python.org/">Python Packaging User Guide</a>.</span>
+</dd>
+<dt data-target-cell="annotated-cell-3" data-target-annotation="7">7</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-lines="14" data-code-annotation="7">Licensing is next. This is a rather important issue when you release software, but we need to postpone it as well. So stick to the default for now.</span>
+</dd>
+<dt data-target-cell="annotated-cell-3" data-target-annotation="8">8</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-lines="15,16" data-code-annotation="8">Author name and email can (and should) be a list if you have multiple contributors. <code>pdm</code> will try to figure out defaults from system settings.</span>
+</dd>
+<dt data-target-cell="annotated-cell-3" data-target-annotation="9">9</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-lines="17" data-code-annotation="9">Last the python version required is asked. Here you can specify the compatibility of your project to various python versions<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>. For good reason, by default it will only allow the current version you selected in the first step. In theory you can specify something like <code>&gt;=3.8,!=3.9.0,&lt;3.13</code> (a python version between 3.8 and 3.13, including 3.8 but excluding 3.13 and additionally excluding 3.9.0) but be aware that might become tricky when adding dependencies.</span>
 </dd>
 </dl>
-<p>The last highlighted section tells us that <code>pdm</code> is designed to work with a <em>version control system</em>. By default it uses <code>git</code> as seen by the <code>.gitignore</code> file highlighted. In this context:</p>
+<p>Now you have a new project available and it should look like this:</p>
+<div class="sourceCode" id="annotated-cell-4"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-4-1" class="code-annotation-target"><a href="#annotated-cell-4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tree <span class="at">-a</span></span>
+<span id="annotated-cell-4-2"><a href="#annotated-cell-4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">.</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-4-3" class="code-annotation-target"><a href="#annotated-cell-4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> .gitignore</span>
+<span id="annotated-cell-4-4"><a href="#annotated-cell-4-4" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> .pdm-python</span>
+<span id="annotated-cell-4-5"><a href="#annotated-cell-4-5" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> __pycache__</span>
+<span id="annotated-cell-4-6"><a href="#annotated-cell-4-6" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> pyproject.toml</span>
+<span id="annotated-cell-4-7"><a href="#annotated-cell-4-7" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> README.md</span>
+<span id="annotated-cell-4-8"><a href="#annotated-cell-4-8" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> src</span>
+<span id="annotated-cell-4-9"><a href="#annotated-cell-4-9" aria-hidden="true" tabindex="-1"></a><span class="ex">│&nbsp;&nbsp;</span> └── test</span>
+<span id="annotated-cell-4-10"><a href="#annotated-cell-4-10" aria-hidden="true" tabindex="-1"></a><span class="ex">│&nbsp;&nbsp;</span>     ├── __init__.py</span>
+<span id="annotated-cell-4-11"><a href="#annotated-cell-4-11" aria-hidden="true" tabindex="-1"></a><span class="ex">│&nbsp;&nbsp;</span>     └── __pycache__</span>
+<span id="annotated-cell-4-12"><a href="#annotated-cell-4-12" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> tests</span>
+<span id="annotated-cell-4-13"><a href="#annotated-cell-4-13" aria-hidden="true" tabindex="-1"></a><span class="ex">│&nbsp;&nbsp;</span> ├── __init__.py</span>
+<span id="annotated-cell-4-14"><a href="#annotated-cell-4-14" aria-hidden="true" tabindex="-1"></a><span class="ex">│&nbsp;&nbsp;</span> └── __pycache__</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-4-15" class="code-annotation-target"><a href="#annotated-cell-4-15" aria-hidden="true" tabindex="-1"></a><span class="ex">└──</span> .venv</span>
+<span id="annotated-cell-4-16"><a href="#annotated-cell-4-16" aria-hidden="true" tabindex="-1"></a>    <span class="ex">├──</span> bin</span>
+<span id="annotated-cell-4-17"><a href="#annotated-cell-4-17" aria-hidden="true" tabindex="-1"></a>    <span class="ex">│&nbsp;&nbsp;</span> ├── activate</span>
+<span id="annotated-cell-4-18"><a href="#annotated-cell-4-18" aria-hidden="true" tabindex="-1"></a>    <span class="ex">│&nbsp;&nbsp;</span> ├── activate.csh</span>
+<span id="annotated-cell-4-19"><a href="#annotated-cell-4-19" aria-hidden="true" tabindex="-1"></a>    <span class="ex">│&nbsp;&nbsp;</span> ├── activate.fish</span>
+<span id="annotated-cell-4-20"><a href="#annotated-cell-4-20" aria-hidden="true" tabindex="-1"></a>    <span class="ex">│&nbsp;&nbsp;</span> ├── activate.nu</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-4-21" class="code-annotation-target"><a href="#annotated-cell-4-21" aria-hidden="true" tabindex="-1"></a>    <span class="ex">│&nbsp;&nbsp;</span> ├── activate.ps1</span>
+<span id="annotated-cell-4-22"><a href="#annotated-cell-4-22" aria-hidden="true" tabindex="-1"></a>    <span class="ex">│&nbsp;&nbsp;</span> ├── activate_this.py</span>
+<span id="annotated-cell-4-23"><a href="#annotated-cell-4-23" aria-hidden="true" tabindex="-1"></a>    <span class="ex">│&nbsp;&nbsp;</span> ├── python <span class="at">-</span><span class="op">&gt;</span> /usr/bin/python3.12</span>
+<span id="annotated-cell-4-24"><a href="#annotated-cell-4-24" aria-hidden="true" tabindex="-1"></a>    <span class="ex">│&nbsp;&nbsp;</span> ├── python3 <span class="at">-</span><span class="op">&gt;</span> python</span>
+<span id="annotated-cell-4-25"><a href="#annotated-cell-4-25" aria-hidden="true" tabindex="-1"></a>    <span class="ex">│&nbsp;&nbsp;</span> └── python3.12 <span class="at">-</span><span class="op">&gt;</span> python</span>
+<span id="annotated-cell-4-26"><a href="#annotated-cell-4-26" aria-hidden="true" tabindex="-1"></a>    <span class="ex">├──</span> .gitignore          </span>
+<span id="annotated-cell-4-27"><a href="#annotated-cell-4-27" aria-hidden="true" tabindex="-1"></a>    <span class="ex">├──</span> lib</span>
+<span id="annotated-cell-4-28"><a href="#annotated-cell-4-28" aria-hidden="true" tabindex="-1"></a>    <span class="ex">│&nbsp;&nbsp;</span> └── python3.12</span>
+<span id="annotated-cell-4-29"><a href="#annotated-cell-4-29" aria-hidden="true" tabindex="-1"></a>    <span class="ex">│&nbsp;&nbsp;</span>     └── site-packages</span>
+<span id="annotated-cell-4-30"><a href="#annotated-cell-4-30" aria-hidden="true" tabindex="-1"></a>    <span class="ex">│&nbsp;&nbsp;</span>         ├── _virtualenv.pth</span>
+<span id="annotated-cell-4-31"><a href="#annotated-cell-4-31" aria-hidden="true" tabindex="-1"></a>    <span class="ex">│&nbsp;&nbsp;</span>         └── _virtualenv.py</span>
+<span id="annotated-cell-4-32"><a href="#annotated-cell-4-32" aria-hidden="true" tabindex="-1"></a>    <span class="ex">└──</span> pyvenv.cfg</span>
+<span id="annotated-cell-4-33"><a href="#annotated-cell-4-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-4-34"><a href="#annotated-cell-4-34" aria-hidden="true" tabindex="-1"></a><span class="ex">12</span> directories, 19 files</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-4" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-4" data-code-lines="1" data-code-annotation="1">list all files in the directory</span>
+</dd>
+<dt data-target-cell="annotated-cell-4" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-4" data-code-lines="3" data-code-annotation="2">A <code>.gitignore</code> file is created</span>
+</dd>
+<dt data-target-cell="annotated-cell-4" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-4" data-code-lines="15,16,17,18,19,20,22,23,24,25" data-code-annotation="3">Virtual environment</span>
+</dd>
+<dt data-target-cell="annotated-cell-4" data-target-annotation="4">4</dt>
+<dd>
+<span data-code-cell="annotated-cell-4" data-code-lines="21" data-code-annotation="4">Windows activation start file (cross platform)</span>
+</dd>
+</dl>
+<p>The second highlighted section tells us that <code>pdm</code> is designed to work with a <em>version control system</em>. By default it uses <code>git</code> as seen by the <code>.gitignore</code> file highlighted. In this context:</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
