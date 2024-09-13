@@ -439,7 +439,7 @@ Make sure to revisit this sections and the [pdm docs](https://pdm-project.org) i
 
 [^peps]: Short for _Python Enhancement Proposals_, see [Python PEPs](https://peps.python.org/)
 [^pypa]: The Python Packaging Authority (PyPA) is a working group that maintains a core set of software projects used in Python packaging, see [https://www.pypa.io/](https://www.pypa.io/) as at 9th of September 2024
-[^1]: From the [pdm-project on github](https://github.com/pdm-project/pdm/blob/c2dad76b062a194e80d931aba2efc0614b45c525/README.md#this-project), as of 9th of September 2024
+[^1]: From the [pdm-project on GitHub](https://github.com/pdm-project/pdm/blob/c2dad76b062a194e80d931aba2efc0614b45c525/README.md#this-project), as of 9th of September 2024
 [^2]: In case you are wondering what the `.pdm-python` files is, it stores the path to your `python` interpreter and is used for subsequent calls.
 [^3]: We recommend having a read of [semver.org](https://semver.org/)
 [^4]: Python does not follow SemVer (see [docs](https://docs.python.org/3/faq/general.html#how-does-the-python-version-numbering-scheme-work)), sometimes a _minor_ version will have a breaking change, so make sure to check the _Porting to Python X.Y_ section for _What's new_.
