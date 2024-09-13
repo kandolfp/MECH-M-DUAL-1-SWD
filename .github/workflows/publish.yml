@@ -19,16 +19,12 @@ jobs:
 
       - name: Set up PDM
         uses: pdm-project/setup-pdm@v4
-        with:
-          python-version: ${{ matrix.python-version }}
-
+        
       - name: Install dependencies
         run: |
-          pdm sync 
-          echo $SHELL
-          echo $PATH
-          eval $(pdm venv activate)
-          echo $PATH
+          pdm install 
+          pdm venv activate >> $HOME/.bashrc
+          tail $HOME/.bashrc
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
