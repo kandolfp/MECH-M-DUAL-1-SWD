@@ -154,6 +154,7 @@ div.csl-indent {
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Softwaredesign</a> 
         <div class="sidebar-tools-main">
+    <a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
@@ -244,7 +245,7 @@ div.csl-indent {
   <li><a href="#running-your-code" id="toc-running-your-code" class="nav-link" data-scroll-target="#running-your-code"><span class="header-section-number">2.2.5</span> Running your code</a></li>
   </ul></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/basics/packagemanager.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -278,7 +279,16 @@ div.csl-indent {
 </ul>
 <p>for computer programs, software libraries, general data, or other tasks. We all use package managers on our smart phones or computers. They come in various forms and <em>accessability</em> like the GUIs <em>Google Play</em>, <em>App Store</em>, <em>Microsoft Store</em>, but also in terminal form as <em>apt</em>, <em>dnf</em>, <em>zypper</em>, <em>homebrew</em>, and many more. Most of these tools give us an easy way to work with some application without needing to know much about how the software is built. The same is true for <em>software design</em>.</p>
 <p>They especially take care that our modern world of digital infrastructure works even though it often looks like this:</p>
-<p>– Image missing –</p>
+<div id="fig-xkcd-dependency" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-xkcd-dependency-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<p><a href="https://xkcd.com/1579/"><img src="https://imgs.xkcd.com/comics/tech_loops.png" class="img-fluid figure-img"></a></p>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-xkcd-dependency-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.1: The <a href="https://xkcd.com/1579/">xkcd comic #1579</a> discussing python enviroments. Click the image to get to the original image source <a href="https://imgs.xkcd.com/comics/tech_loops.png">https://imgs.xkcd.com/comics/tech_loops.png</a>.
+</figcaption>
+</figure>
+</div>
 <p>Back in the days, and often still for some languages, you manually had to integrate some library you wanted to use and they often came with elaborate build scripts (with their own dependencies, … <em>insert recursion here</em>). Especially cumbersome were problems where you needed different versions of the same library for different projects. Nowadays, this task is performed by package managers to the relief of developers everywhere. If you have a good package manager you do not realize the burden it takes of your shoulders. It is worth highlighting, that a good package manager can define the difference between a successful programming language and a footnote on the <a href="https://en.wikipedia.org/wiki/List_of_programming_languages">index of programming languages</a>.</p>
 <p>While it would be worthwhile to visit the various ways and strategies these systems take we will focus on systems for <code>python</code>.</p>
 <section id="package-management-for-python" class="level2" data-number="2.1">
@@ -291,7 +301,7 @@ div.csl-indent {
 <p><a href="https://xkcd.com/1987/"><img src="https://imgs.xkcd.com/comics/python_environment.png" class="img-fluid figure-img"></a></p>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-xkcd-dependency-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.1: The <a href="https://xkcd.com/1987/">xkcd comic #1987</a> discussing python enviroments. Click the image to get to the original image source <a href="https://imgs.xkcd.com/comics/python_environment.png">https://imgs.xkcd.com/comics/python_environment.png</a>.
+Figure&nbsp;2.2: The <a href="https://xkcd.com/1987/">xkcd comic #1987</a> discussing python enviroments. Click the image to get to the original image source <a href="https://imgs.xkcd.com/comics/python_environment.png">https://imgs.xkcd.com/comics/python_environment.png</a>.
 </figcaption>
 </figure>
 </div>
@@ -346,6 +356,7 @@ Important
 <p>The <a href="https://packaging.python.org/en/latest/glossary/#term-Python-Packaging-Authority-PyPA">Python Packaging Authority (PyPA)</a><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> provides a <a href="https://packaging.python.org/">user guide</a> for how to distribute and install Python packages. As soon as you think of providing your own package for others you should carefully study this guide, but for us we currently only have a quick look into <a href="https://packaging.python.org/en/latest/guides/tool-recommendations/">Tool recommendations</a>.</p>
 <blockquote class="blockquote">
 <p>The Python packaging landscape consists of many different tools. For many tasks, the Python Packaging Authority (PyPA, the working group which encompasses many packaging tools and maintains this guide) purposefully does not make a blanket recommendation; for example, the reason there are many build backends is that the landscape was opened up in order to enable the development of new backends serving certain users’ needs better than the previously unique backend, <code>setuptools</code>. This guide does point to some tools that are widely recognized, and also makes some recommendations of tools that you should <em>not</em> use because they are deprecated or insecure.</p>
+<p><strong>Source</strong>: From the <a href="https://packaging.python.org/en/latest/guides/tool-recommendations/">PyPa Guide</a>, as of 9th of September 2024</p>
 </blockquote>
 <p>The standard tool is <code>pip</code> and for <em>scientific software</em> specifically <a href="https://conda.io/"><code>conda</code></a> and <a href="https://spack.readthedocs.io/"><code>Spack</code></a>, respectively.</p>
 <p>We are going to look at <a href="https://pdm-project.org/"><code>pdm</code></a> (see <span class="citation" data-cites="pdm">Ming (<a href="../references.html#ref-pdm" role="doc-biblioref">2019</a>)</span>) as this is a modern Python package manager that uses <code>pyproject.toml</code> files to store metadata of the project and much more.</p>
@@ -380,7 +391,8 @@ Important
 </div>
 <blockquote class="blockquote">
 <p>PDM can manage virtual environments (venvs) in both project and centralized locations, similar to <code>Pipenv</code>. It reads project metadata from a standardized <code>pyproject.toml</code> file and supports <code>lockfiles</code>. Users can add additional functionality through plugins, which can be shared by uploading them as distributions.</p>
-<p>Unlike Poetry and Hatch, PDM is not limited to a specific build backend; users have the freedom to choose any build backend they prefer. (Source: <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>)</p>
+<p>Unlike Poetry and Hatch, PDM is not limited to a specific build backend; users have the freedom to choose any build backend they prefer.</p>
+<p><strong>Source</strong>: From the <a href="https://github.com/pdm-project/pdm/blob/c2dad76b062a194e80d931aba2efc0614b45c525/README.md#this-project">pdm-project on github</a>, as of 9th of September 2024</p>
 </blockquote>
 <p>The following screen cast gives us a quick overview of its capabilities. <a href="https://asciinema.org/a/jnifN30pjfXbO9We2KqOdXEhB"><img src="https://asciinema.org/a/jnifN30pjfXbO9We2KqOdXEhB.svg" class="img-fluid" alt="Original source from https://pdm-project.org/latest/ - asciicast"></a></p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -460,14 +472,14 @@ Note
 <h3 data-number="2.2.2" class="anchored" data-anchor-id="start-a-new-project"><span class="header-section-number">2.2.2</span> Start a new project</h3>
 <p>In order to start a new project you can use <code>pdm init</code>. This will prompt you with a couple of questions and based on the answers the <code>pyproject.toml</code> file is initialized.</p>
 <ol type="1">
-<li><p>We need to select a python interpreter. <code>pdm</code> will search for all available interpreters on your path, if you need a different version than available you can use <code>pdm</code> to install a new standalone <code>python</code> version, see <code>pdm python</code> command or the <a href="https://pdm-project.org/latest/usage/project/#install-python-interpreters-with-pdm">docs</a><a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>.</p></li>
+<li><p>We need to select a python interpreter. <code>pdm</code> will search for all available interpreters on your path, if you need a different version than available you can use <code>pdm</code> to install a new standalone <code>python</code> version, see <code>pdm python</code> command or the <a href="https://pdm-project.org/latest/usage/project/#install-python-interpreters-with-pdm">docs</a><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</p></li>
 <li><p>By default <code>pdm</code> will create a new <code>virtualenv</code> for you as this is the recommend procedure, if you want to influence this behavior see <a href="https://pdm-project.org/latest/usage/venv/">docs</a>.</p></li>
 <li><p>We need to specify a project name. This name is used in the <code>pyproject.toml</code> and <code>pdm</code> will also generate a <code>src/&lt;name&gt;</code> directory for you right away (together with a <code>test</code> directory). <code>pdm</code> uses its default template, see <a href="https://pdm-project.org/latest/usage/template/">docs</a>.</p></li>
-<li><p>The version of your project needs to be initialized. <code>pdm</code> follows <a href="https://semver.org/">semantic versioning</a><a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> by default. If you do not have a specific version in mind stick to <code>0.1.0</code> for a new project.</p></li>
+<li><p>The version of your project needs to be initialized. <code>pdm</code> follows <a href="https://semver.org/">semantic versioning</a><a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> by default. If you do not have a specific version in mind stick to <code>0.1.0</code> for a new project.</p></li>
 <li><p>Next we need to decide if we plan for distributing the project. For now <code>n</code> will suffice, but hopefully by the end of these notes you feel comfortable enough to release your own package as soon as this is the case have a look at the <a href="https://pdm-project.org/latest/usage/publish/">docs</a> and the <a href="https://packaging.python.org/">Python Packaging User Guide</a>.</p></li>
 <li><p>Licensing is next. This is a rather important issue when you release software, but we need to postpone it as well. So stick to the default for now.</p></li>
 <li><p>Author name and email can (and should) be a list if you have multiple contributors. <code>pdm</code> will try to figure out defaults from system settings.</p></li>
-<li><p>Last the python version required is asked. Here you can specify the compatibility of your project to various python versions<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>. For good reason, by default it will only allow the current version you selected in the first step. In theory you can specify something like <code>&gt;=3.8,!=3.9.0,&lt;3.13</code> (a python version between 3.8 and 3.13, including 3.8 but excluding 3.13 and additionally excluding 3.9.0) but be aware that might become tricky when adding dependencies.</p></li>
+<li><p>Last the python version required is asked. Here you can specify the compatibility of your project to various python versions<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>. For good reason, by default it will only allow the current version you selected in the first step. In theory you can specify something like <code>&gt;=3.8,!=3.9.0,&lt;3.13</code> (a python version between 3.8 and 3.13, including 3.8 but excluding 3.13 and additionally excluding 3.9.0) but be aware that might become tricky when adding dependencies.</p></li>
 </ol>
 <p>Now you have a new project available and it should look like this:</p>
 <div class="sourceCode" id="annotated-cell-2"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-2-1" class="code-annotation-target"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mkdir test</span>
@@ -561,7 +573,7 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>You <strong>must</strong> commit the <code>pyproject.toml</code> file. You <strong>should</strong> commit the <code>pdm.lock</code> and <code>pdm.toml</code> file. <strong>Do not</strong> commit the <code>.pdm-python</code> file.<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a></p>
+<p>You <strong>must</strong> commit the <code>pyproject.toml</code> file. You <strong>should</strong> commit the <code>pdm.lock</code> and <code>pdm.toml</code> file. <strong>Do not</strong> commit the <code>.pdm-python</code> file.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></p>
 </div>
 </div>
 <p>To check what setup <code>pdm</code> created for you, you can use the <code>pdm info</code> command, where <code>--env</code> option provides us with more details about the environment/platform.</p>
@@ -720,11 +732,10 @@ Ming, Frost. 2019. <span>“<span class="nocase">PDM project site</span>.”</sp
 <ol>
 <li id="fn1"><p>Short for <em>Python Enhancement Proposals</em>, see <a href="https://peps.python.org/">Python PEPs</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>The Python Packaging Authority (PyPA) is a working group that maintains a core set of software projects used in Python packaging, see <a href="https://www.pypa.io/">https://www.pypa.io/</a> as at 9th of September 2024<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>From the <a href="https://github.com/pdm-project/pdm/blob/c2dad76b062a194e80d931aba2efc0614b45c525/README.md#this-project">pdm-project on github</a>, as of 9th of September 2024<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p>In case you are wondering what the <code>.pdm-python</code> files is, it stores the path to your <code>python</code> interpreter and is used for subsequent calls.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn5"><p>We recommend having a read of <a href="https://semver.org/">semver.org</a><a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn6"><p>Python does not follow SemVer (see <a href="https://docs.python.org/3/faq/general.html#how-does-the-python-version-numbering-scheme-work">docs</a>), sometimes a <em>minor</em> version will have a breaking change, so make sure to check the <em>Porting to Python X.Y</em> section for <em>What’s new</em>.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn7"><p>Quote from <a href="https://pdm-project.org/latest/usage/project/#working-with-version-control">pdm-project.org</a> as at 9th of September 2024<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>In case you are wondering what the <code>.pdm-python</code> files is, it stores the path to your <code>python</code> interpreter and is used for subsequent calls.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>We recommend having a read of <a href="https://semver.org/">semver.org</a><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Python does not follow SemVer (see <a href="https://docs.python.org/3/faq/general.html#how-does-the-python-version-numbering-scheme-work">docs</a>), sometimes a <em>minor</em> version will have a breaking change, so make sure to check the <em>Porting to Python X.Y</em> section for <em>What’s new</em>.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>Quote from <a href="https://pdm-project.org/latest/usage/project/#working-with-version-control">pdm-project.org</a> as at 9th of September 2024<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
@@ -965,7 +976,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/kandolfp\.github\.io\/MECH-M-DUAL-1-SWD\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -1313,7 +1324,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    </div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/basics/packagemanager.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
