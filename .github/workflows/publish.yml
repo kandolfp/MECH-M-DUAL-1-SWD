@@ -25,6 +25,7 @@ jobs:
       - name: Install dependencies
         run: |
           pdm sync
+          eval $(pdm venv activate)
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
