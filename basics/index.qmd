@@ -15,7 +15,7 @@ As mentioned earlier, these notes assume that you have some basic knowledge of p
 
 At the end of this part you will also find an @sec-intro-epilog where we bind them all together with some final thoughts.
 
-# Literature {.unnumbered}
+# Additional resources {.unnumbered}
 
 Here you find some literature regarding the topics covered in this section.
 
@@ -23,13 +23,30 @@ Here you find some literature regarding the topics covered in this section.
 
 - @Matthes2023: Python Crash Course - A hands-on, project-based introduction to programming; [Online Material](https://ehmatthes.github.io/pcc_3e/).
 
+- @McKinney2022-qz: Python for data analysis 3e; [Online](https://wesmckinney.com/book/) and Print 
+
 - @Vasiliev2022: Python for Data Science - A Hands-On Introduction
 
 - @Inden2023: Python lernen – kurz & gut; German
+
+### PDM {.unnumbered}
+
+- Project page [pdm-project.org](https://pdm-project.org)
+- Project on [GitHub](https://github.com/pdm-project/pdm)
 
 ### Git {.unnumbered}
 
 - @Ponuthorai2022: Version Control with Git: Powerful Tools and Techniques for Collaborative Software Development; 
 
+- @chacon2014pro: Pro Git: Everything you need to know about Git, [Online](https://git-scm.com/book/en/v2)
+
 - @Siessegger2024: Git – kurz & gut; German
+
+- @lodato2010: A Visual Git Reference, [Online](https://marklodato.github.io/visual-git-guide/index-en.html)
+
+- @coglan2014: A book that tells you how to build Git on your own, [Shop](https://shop.jcoglan.com/building-git/)
+
+- @lodato2010: Write yourself a Git; an online book that tells you how to build Git on your own, [Link](https://wyag.thb.lt/)
+
+- [Git cheat sheet](https://education.github.com/git-cheat-sheet-education.pdf) from [education.github.com](https://education.github.com)
 
