@@ -23,6 +23,8 @@ Here you find some literature regarding the topics covered in this section.
 
 - @Matthes2023: Python Crash Course - A hands-on, project-based introduction to programming; [Online Material](https://ehmatthes.github.io/pcc_3e/).
 
+- [Python Cheat Sheet](https://github.com/ehmatthes/pcc_3e/releases/download/v1.0.0/beginners_python_cheat_sheet_pcc_all.pdf) provided by @Matthes2023.
+
 - @McKinney2022-qz: Python for data analysis 3e; [Online](https://wesmckinney.com/book/) and Print 
 
 - @Vasiliev2022: Python for Data Science - A Hands-On Introduction
