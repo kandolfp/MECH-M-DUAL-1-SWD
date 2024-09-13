@@ -1,3 +1,74 @@
-# Introduction to `python` {#sec-intro-python}
+# Introduction to Python {#sec-intro-python}
 
-[Style guide - PEP 8](https://peps.python.org/pep-0008/)
+In these notes we will focus on Python as programming language of choice.
+The main reason for this is that python is currently the language where a lot of programming for _data science_ is happening.
+Other languages like [Julia](https://julialang.org) are catching up quick though.
+In general, Python is a very popular programming language.
+It currently ranks #2 in the [Redmonk Rating](https://redmonk.com/sogrady/category/programming-languages/).
+
+::: {.callout-note}
+This section is going to give a rough overview to get us started but we are not going into much detail.
+We will focus on particular aspects of the language in later parts to get a more detailed look. 
+:::
+
+So let us start with a brief introduction an than get into programming with Python, as usually there is no better way to learn a language than using it. 
+Python has the reputation of being _easy_ to learn, even though no always straight forward.
+
+Python is a so called high-level[^1] programming language that was designed with an emphasis on readability[^2] in mind.
+It was developed by [Guido van Rossum](https://gvanrossum.github.io) in the late 80s and the first release of version `0.9.0` to the public came in 1991.
+Subsequently, in October 2000 Python `2.0` and in 2008 Python `3.0` were released.
+There are currently multiple supported versions of Python available were `3.12.6`[^3] is the latest stable release, see [Wikipedia for the history of Python](https://en.wikipedia.org/wiki/History_of_Python).
+
+::: {.callout-important}
+In this notes we will focus on Python `3.12`.
+
+Python does not follow Semantic Versioning[^4], see [python docs](https://docs.python.org/3/faq/general.html#how-does-the-python-version-numbering-scheme-work)), sometimes a _minor_ version will have a breaking change, so make sure to check the _Porting to Python X.Y_ section for _What's new_ if included code is no longer working.
+:::
+
+With regards of style Python combines _imperative_ , _object oriented_, and _functional_ programming paradigms (more on that later). 
+Furthermore, it is available for all major (and minor) computing platforms and there is an ever growing library of additional packages that can be loaded to extend the base functionality.
+This allows you to write highly complex programs with a few lines of code.
+
+::: {#fig-xkcd-dependency}
+[![](https://imgs.xkcd.com/comics/python.png)](https://xkcd.com/353/)
+
+The [xkcd comic #353](https://xkcd.com/353/) discussing the python programming language. Click the image to get to the original image source [https://imgs.xkcd.com/comics/python.png](https://imgs.xkcd.com/comics/python.png). 
+:::
+
+Python is an interpreted language, meaning that the code you write is not compiled to _machine code_ (like in C/C++ or Fortran) but rather _interpreted/executed_ by an (appropriately named) interpreter.
+This allows you to write a program interactively (in the Python REPL[^5]) or provide the interpreter with a script file that is processed one line after the next.
+Theses files usually have the ending `.py`.
+The interpreter and the language are most of the time both called Python.
+
+As all programming languages, Python has a certain syntax that we need to follow otherwise the interpreter can not execute the code, this is similar to grammar in a language like (English).
+The big differences (as probably is can not be avoided in these notes) is that we still understand an English text if it is full of grammar mistakes, spelling errors or plain typos.
+Python will not give you as much leeway, but some.
+
+::: {.callout-important}
+There is still some room to wriggle around but it is best if you hold yourself to the [Style guide - PEP 8](https://peps.python.org/pep-0008/) right from the start (we will do so in this notes, if not open an issue on GitHub, Link on the right below the section index).
+:::
+
+## Getting started
+
+:::{.callout-caution icon=false}
+## {{< fa keyboard >}} Type along
+
+This part is designed as a type along session!
+:::
+
+On Linux and Mac a recent Python version is usually installed.
+Check this by opening a terminal and running
+```bash
+$ python3 --version
+Python 3.12.3
+```
+and you should see something similar if not the same, if not have a look [here](https://docs.python.org/3/using/index.html) and search for your platform.
+
+For Windows 10 and above we can use the version from the Microsoft Store, if you have another version also see [here](https://docs.python.org/3/using/index.html) and search for your platform.
+
+
+[^1]: A language that has a strong abstraction level between the hardware of the computer and the user.
+[^2]: The term describes how easy it is for a human reader to follow the purpose, control flow and the single operations of source code, i.e. a program.
+[^3]: As of September 6th 2024, see [Python Source Releases](https://www.python.org/downloads/source/) for a current overview.
+[^4]: A way of specifying what the usual three numbers of a version mean, see [semver.org](https://semver.org/)
+[^5]: Read Evaluate Print Loop
