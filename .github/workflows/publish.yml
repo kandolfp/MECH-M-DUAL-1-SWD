@@ -24,7 +24,11 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pdm sync & echo "eval $(pdm venv activate)" >> $HOME/.bashrc
+          pdm sync 
+          echo $SHELL
+          echo $PATH
+          eval $(pdm venv activate)
+          echo $PATH
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
