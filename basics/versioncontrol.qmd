@@ -33,10 +33,15 @@ The main goals in the development were (according to [wikipedia](https://en.wiki
 - Include very strong safeguards against corruption, either accidental or malicious.
 
 > The development of Git began on 3 April 2005. Torvalds announced the project on 6 April and became self-hosting the next day. The first merge of multiple branches took place on 18 April. Torvalds achieved his performance goals; on 29 April, the nascent Git was benchmarked recording patches to the Linux kernel tree at the rate of 6.7 patches per second. On 16 June, Git managed the kernel 2.6.12 release.
+>
+> **Source**: [wikipedia on Git](https://en.wikipedia.org/wiki/Git), as of 9th of September 2024
 
 Regarding the name:
 
 > Torvalds sarcastically quipped about the name git (which means "unpleasant person" in British English slang): "I'm an egotistical bastard, and I name all my projects after myself. First 'Linux', now 'git'." The man page describes Git as "the stupid content tracker". The read-me file of the source code elaborates further:
+>
+> **Source**: [wikipedia on Git](https://en.wikipedia.org/wiki/Git), as of 9th of September 2024
+
 
 "git" can mean anything, depending on your mood.
 

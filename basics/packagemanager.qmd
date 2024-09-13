@@ -70,6 +70,8 @@ The [Python Packaging Authority (PyPA)](https://packaging.python.org/en/latest/g
 As soon as you think of providing your own package for others you should carefully study this guide, but for us we currently only have a quick look into [Tool recommendations](https://packaging.python.org/en/latest/guides/tool-recommendations/).
 
 > The Python packaging landscape consists of many different tools. For many tasks, the Python Packaging Authority (PyPA, the working group which encompasses many packaging tools and maintains this guide) purposefully does not make a blanket recommendation; for example, the reason there are many build backends is that the landscape was opened up in order to enable the development of new backends serving certain users’ needs better than the previously unique backend, `setuptools`. This guide does point to some tools that are widely recognized, and also makes some recommendations of tools that you should _not_ use because they are deprecated or insecure.
+>
+> **Source**: From the [PyPa Guide](https://packaging.python.org/en/latest/guides/tool-recommendations/), as of 9th of September 2024
 
 The standard tool is `pip` and for _scientific software_ specifically [`conda`](https://conda.io/) and [`Spack`](https://spack.readthedocs.io/), respectively.
 
@@ -88,7 +90,9 @@ This part is designed as a type along session!
 
 > PDM can manage virtual environments (venvs) in both project and centralized locations, similar to `Pipenv`. It reads project metadata from a standardized `pyproject.toml` file and supports `lockfiles`. Users can add additional functionality through plugins, which can be shared by uploading them as distributions.
 >
->Unlike Poetry and Hatch, PDM is not limited to a specific build backend; users have the freedom to choose any build backend they prefer. (Source: [^1])
+>Unlike Poetry and Hatch, PDM is not limited to a specific build backend; users have the freedom to choose any build backend they prefer.
+>
+>**Source**: From the [pdm-project on github](https://github.com/pdm-project/pdm/blob/c2dad76b062a194e80d931aba2efc0614b45c525/README.md#this-project), as of 9th of September 2024
 
 The following screen cast gives us a quick overview of its capabilities.
 [![Original source from https://pdm-project.org/latest/ - asciicast](https://asciinema.org/a/jnifN30pjfXbO9We2KqOdXEhB.svg)](https://asciinema.org/a/jnifN30pjfXbO9We2KqOdXEhB)
