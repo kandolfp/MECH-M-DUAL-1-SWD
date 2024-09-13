@@ -88,12 +88,19 @@ git config --global user.email "Your University Email"
 ### Additional resources {.unnumbered}
 Obviously not everybody learns the same way and the concepts of Git can make your brain twist a bit so here are some additional resources:
 
-- [Git cheat sheet](https://education.github.com/git-cheat-sheet-education.pdf)
-- [Pro Git](https://git-scm.com/book/en/v2) a book on git
-- [A Visual Git Reference](https://marklodato.github.io/visual-git-guide/index-en.html)
-- [Building Git](https://shop.jcoglan.com/building-git/) a book that tells you how to build Git on your own
-- [Write yourself a Git](https://wyag.thb.lt/) a website that tells you how to build Git on your own
+- @Ponuthorai2022: Version Control with Git: Powerful Tools and Techniques for Collaborative Software Development; 
 
+- @chacon2014pro: Pro Git: Everything you need to know about Git, [Online](https://git-scm.com/book/en/v2)
+
+- @Siessegger2024: Git – kurz & gut; German
+
+- @lodato2010: A Visual Git Reference, [Online](https://marklodato.github.io/visual-git-guide/index-en.html)
+
+- @coglan2014: A book that tells you how to build Git on your own, [Shop](https://shop.jcoglan.com/building-git/)
+
+- @lodato2010: Write yourself a Git; an online book that tells you how to build Git on your own, [Link](https://wyag.thb.lt/)
+
+- [Git cheat sheet](https://education.github.com/git-cheat-sheet-education.pdf) from [education.github.com](https://education.github.com)
 
 ## Basics of Git
 Git is a distributed VCS, in this case this means the entire _repository_ is distributed on various machines and possible multiple _remotes_. 
