@@ -225,11 +225,11 @@ As well as loops:
 ```{python}
 #| classes: styled-output
 # the for loop works best with lists or sets
-mean = 0
+sum = 0
 for i in integers:
-  mean = mean + i
+  sum = sum + i
 
-mean = mean / len(integers)   # len computes the length of a list
+mean = sum / len(integers)   # len computes the length of a list
 print(mean)
 
 # While while loops run until a statement is no longer true
@@ -241,6 +241,10 @@ while (a > 0):
   c = c * b
 print(c)
 ```
+
+:::{.callout-caution}
+There is an internal function called `sum` and we just overwrote this function, so be careful how you choose your variable names.
+:::
 
 Of course there are easier ways to compute the sum of a list or $2^5$.
 For this we need to import additional functions
