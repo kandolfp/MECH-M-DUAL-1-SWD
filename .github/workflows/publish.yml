@@ -14,8 +14,8 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Set up Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
+#      - name: Set up Quarto
+#        uses: quarto-dev/quarto-actions/setup@v2
 
       - name: Set up PDM
         uses: pdm-project/setup-pdm@v4
@@ -23,13 +23,15 @@ jobs:
       - name: Install dependencies
         run: |
           pdm install 
-          pdm venv activate >> $HOME/.bashrc
-          tail $HOME/.bashrc
-
-      - name: Render and Publish
-        uses: quarto-dev/quarto-actions/publish@v2
-        run: eval $(pdm venv activate)
+          pdm run quarto publish  --no-browser
         with:
           target: gh-pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+#      - name: Render and Publish
+#        uses: quarto-dev/quarto-actions/publish@v2
+#        with:
+#          target: gh-pages
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
