@@ -23,7 +23,7 @@ jobs:
       - name: Install dependencies, render
         run: |
           pdm install 
-          pdm run quarto render . --no-browser
+          pdm run quarto render .
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
