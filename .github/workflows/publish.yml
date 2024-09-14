@@ -20,10 +20,8 @@ jobs:
       - name: Set up PDM
         uses: pdm-project/setup-pdm@v4
         
-      - name: Install dependencies, render and deploy
+      - name: Install dependencies, render
         run: |
-          git config --global user.email "bot@render.ci"
-        git config --global user.name "${{ inputs.GITHUB_USERNAME }}"
           pdm install 
           pdm run quarto render . --no-browser
         env:
