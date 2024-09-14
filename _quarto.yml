@@ -28,8 +28,8 @@ bibliography: references.bib
 format:
   html:
     theme:
-      light: flatly
-      dark: darkly
+      light: [flatly, style.css]
+      dark: [darkly, dark-style.css]
 #  pdf:
 #    documentclass: scrreprt
 

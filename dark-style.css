@@ -1,0 +1,6 @@
+/*-- scss:defaults --*/
+
+.styled-output .cell-output {
+  background-color: darkgray;
+  border-radius: 4px;
+}
