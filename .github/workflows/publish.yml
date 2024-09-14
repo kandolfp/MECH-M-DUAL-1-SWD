@@ -20,13 +20,21 @@ jobs:
       - name: Set up PDM
         uses: pdm-project/setup-pdm@v4
         
-      - name: Install dependencies
+      - name: Install dependencies, render and deploy
         run: |
+          git config --global user.email "bot@render.ci"
+        git config --global user.name "${{ inputs.GITHUB_USERNAME }}"
           pdm install 
-          pdm run quarto publish gh-pages --no-browser
+          pdm run quarto render . --no-browser
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+      
+      - name: Build and Deploy
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: _book
 #      - name: Render and Publish
 #        uses: quarto-dev/quarto-actions/publish@v2
 #        with:
