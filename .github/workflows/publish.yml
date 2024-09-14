@@ -23,9 +23,7 @@ jobs:
       - name: Install dependencies
         run: |
           pdm install 
-          pdm run quarto publish  --no-browser
-        with:
-          target: gh-pages
+          pdm run quarto publish gh-pages --no-browser
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
