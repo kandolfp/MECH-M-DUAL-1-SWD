@@ -70,12 +70,14 @@ This part is designed as a type along session!
 
 As common for programming guides we start with:
 ```{python}
+#| classes: styled-output
 print('Hello, World')
 ```
 
 :::{.callout-note}
 These notes are generated from markdown and executable code (for a lot of the Python aspects).
-For this reason and so you have an easier time to copy and past code from the notes we omit `>>>` that you will see in your REPL.
+This means sometimes the results are part of the text but if we need to make sure you can see the output we highlight it with some background color.
+For this reason and to make it easier to copy and past code from the notes we omit `>>>` that you see in your REPL.
 :::
 
 Lets break down what we did above[^6]:
@@ -87,6 +89,7 @@ Lets break down what we did above[^6]:
 The text above is called a _string_ and you can do operations with strings
 
 ```{python}
+#| classes: styled-output
 print('Hello,' + 'World')
 print('Spam' * 5)
 ```
@@ -100,10 +103,12 @@ The [Style guide - PEP 8](https://peps.python.org/pep-0008/) tells us that an op
 
 In case we want to know more about the function `print` we can use another function to get some more insight
 ```{python}
+#| classes: styled-output
 help(print)
 ```
 Now let us pick up a bit of speed
 ```{python}
+#| classes: styled-output
 # Mathematical operators  # <1>
 3 + 2
 2 * 10
@@ -133,8 +138,7 @@ This is due to the fact that the system used to create these notes does not feed
 Therefore, we will often just suppress the output or if we want to make sure something is printed in the notes we will use `print` explicitly.
 :::
 
-We can assign a value to a _variable_ and use them later on
-
+We can assign a value to a _variable_ and use them later on:
 ```{python}
 #| output: false
 pi = 3.1415926535897932
@@ -150,7 +154,7 @@ x_new = x_rad * (180 / pi)
 x == x_new
 ```
 
-There are the usual _boolean_ operators for comparison
+There are the usual _boolean_ operators for comparison:
 ```{python}
 #| output: false
 1 != 2
@@ -165,16 +169,42 @@ There are the usual _boolean_ operators for comparison
 not (1 != 2)
 ```
 
-You can also change the value of a variable
+We can also change the value of a variable:
 ```{python}
+#| classes: styled-output
 # We can make the printed statement more elaborate
 print('x =', x)
-x = 45
+x = 45.0
 print(f'x = {x}')
 ```
+:::{.callout-note}
+Python is dynamically typed, meaning that the type of a variable is checked during runtime and not before hand.
 
-We also have control sequences
+As a result you can change the type[^7] of a variable without the interpreter complaining about it.
+This is often the cause of strange bugs in programs so be aware that Python has types, even though we do not always see them.
+:::
+
+In order to understand some of the control sequences we also need to introduce _lists_.
+In essence, they represent an order sequence of values that can have arbitrary types.
 ```{python}
+#| output: false
+# List of integers
+[2, 4, 6, 8]
+# List of strings
+['A', 'B', 'C']
+# List of lists
+[[2, 4, 6, 8], ['A', 'B', 'C']]
+# List of mixed types
+[2, 'A']
+# Assign a list to a variable
+integers = [2, 4, 6, 8]
+# Changing values
+integers[1] = -4
+```
+
+We also have control sequences:
+```{python}
+#| classes: styled-output
 if x < 90:
   x = x * 2      # This section gets executed if the statement is true
 else:        # And this if it is false
@@ -191,9 +221,52 @@ else:
 print(f'x = {x}')
 ```
 
+As well as loops:
+```{python}
+#| classes: styled-output
+# the for loop works best with lists or sets
+mean = 0
+for i in integers:
+  mean = mean + i
+
+mean = mean / len(integers)   # len computes the length of a list
+print(mean)
+
+# While while loops run until a statement is no longer true
+a = 5
+b = 2
+c = 1
+while (a > 0):
+  a = a - 1
+  c = c * b
+print(c)
+```
+
+Of course there are easier ways to compute the sum of a list or $2^5$.
+For this we need to import additional functions
+```{python}
+#| classes: styled-output
+import math
+mean = math.fsum(integers) / len(integers)
+print(mean)
+
+c = math.pow(2, 5)
+print(c)
+```
+
+`math` is one of the [Python standard libraries](https://docs.python.org/3/library/index.html), but quite often they do not suffice for the task at hand and you need some additional libraries.
+
+In the next section we will discuss package managers and one possible solution for this.
+
+Furthermore, so far we only typed in the REPL and if we want to do the same again we need to retype everything.
+So we need to talk about scripts files which will lead us to version control.
+
+For now this ends our quick introduction to Python.
+
 [^1]: A language that has a strong abstraction level between the hardware of the computer and the user.
 [^2]: The term describes how easy it is for a human reader to follow the purpose, control flow and the single operations of source code, i.e. a program.
 [^3]: As of September 6th 2024, see [Python Source Releases](https://www.python.org/downloads/source/) for a current overview.
 [^4]: A way of specifying what the usual three numbers of a version mean, see [semver.org](https://semver.org/)
 [^5]: Read Evaluate Print Loop
-[^6]: We start easy and with a bit more explanation, but do not worry we will not always break it down as much. 
+[^6]: We start easy and with a bit more explanation, but do not worry we will not always break it down as much.
+[^7]: Type could be something like integer, float, or string
