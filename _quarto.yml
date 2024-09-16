@@ -3,10 +3,16 @@ project:
 
 book:
   title: "Softwaredesign"
+  date: last-modified
   page-footer:
-    left: Softwaredesign WS 2024 (MECH-M-DUAL-1-SWD) is written by Peter Kandolf
+    left: Softwaredesign WS 2024 (MECH-M-DUAL-1-SWD)
+    center: "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) Peter Kandolf"
     right: This book was built with <a href="https://quarto.org/">Quarto</a>.
-  author: "Peter Kandolf"
+  author:
+    - name: "Peter Kandolf"
+      orcid: 0000-0003-3601-0852
+      affiliation: "MCI | The Entrepreneurial School"
+  license: "CC BY-NC-SA"
   site-url: https://kandolfp.github.io/MECH-M-DUAL-1-SWD/
   repo-url: https://github.com/kandolfp/MECH-M-DUAL-1-SWD/
   repo-branch: main
