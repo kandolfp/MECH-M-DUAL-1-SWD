@@ -7,17 +7,17 @@ In general, Python is a very popular programming language.
 It currently ranks #2 in the [Redmonk Rating](https://redmonk.com/sogrady/category/programming-languages/).
 
 ::: {.callout-note}
-This section is going to give a rough overview to get us started but we are not going into much detail.
+This section is going to give a rough overview to get us started, but we are not going into much detail.
 We will focus on particular aspects of the language in later parts to get a more detailed look. 
 :::
 
-So let us start with a brief introduction and then get into programming with Python, as usually there is no better way to learn a language than using it. 
+So let us start with a brief introduction and then get into programming, as usually there is no better way to learn a language than using it. 
 Python has the reputation of being _easy_ to learn, even though not always straight forward.
 
 Python is a so called high-level[^1] programming language that was designed with an emphasis on readability[^2] in mind.
 It was developed by [Guido van Rossum](https://gvanrossum.github.io) in the late 80s and the first release of version `0.9.0` to the public came in 1991.
 Subsequently, in October 2000 Python `2.0` and in 2008 Python `3.0` were released.
-There are currently multiple supported versions of Python available were `3.12.6`[^3] is the latest stable release, see [Wikipedia for the history of Python](https://en.wikipedia.org/wiki/History_of_Python).
+There are currently multiple supported versions of Python available, of which `3.12.6`[^3] is the latest stable release, see [Wikipedia for the history of Python](https://en.wikipedia.org/wiki/History_of_Python).
 
 ::: {.callout-important}
 In these notes we will focus on Python `3.12`.
@@ -25,7 +25,7 @@ In these notes we will focus on Python `3.12`.
 Python does not follow Semantic Versioning[^4], see [python docs](https://docs.python.org/3/faq/general.html#how-does-the-python-version-numbering-scheme-work)), sometimes a _minor_ version will have a breaking change, so make sure to check the _Porting to Python X.Y_ section for _What's new_ if included code is no longer working.
 :::
 
-With regards to style Python combines _imperative_ , _object oriented_, and _functional_ programming paradigms (more on that later). 
+With regards to style, Python combines _imperative_ , _object oriented_, and _functional_ programming paradigms (more on that later). 
 Furthermore, it is available for all major (and minor) computing platforms and there is an ever growing library of additional packages that can be loaded to extend the base functionality.
 This allows you to write highly complex programs with a few lines of code.
 
@@ -36,13 +36,13 @@ The [xkcd comic #353](https://xkcd.com/353/) discussing the python programming l
 :::
 
 Python is an interpreted language, meaning that the code you write is not compiled to _machine code_ (like in C/C++ or Fortran) but rather _interpreted/executed_ by an (appropriately named) interpreter.
-This allows you to write a program interactively (in the Python REPL[^5]) or provide the interpreter with a script file that is processed one line after the next.
+This allows you to write a program interactively (in the Python REPL[^5]) or provide the interpreter with a script file that is processed one line after the other.
 These files usually have the ending `.py`.
 The interpreter and the language are most of the time both called Python.
 
-As all programming languages, Python has a certain syntax that we need to follow otherwise the interpreter can not execute the code, this is similar to grammar in a language like _English_.
-The big difference (as probably can not be avoided in these notes) is that we still understand an English text if it is full of grammar mistakes, spelling errors or plain typos.
-Python will not give you as much leeway, but some.
+Like all programming languages, Python has a certain syntax that we need to follow otherwise the interpreter can not execute the code, this is similar to grammar in a language like _English_.
+The big difference (which probably cannot be avoided in these notes) is that we can still understand an English text if it is full of grammar mistakes, spelling errors or plain typos.
+Python will not give you that much leeway, but some.
 
 ::: {.callout-important}
 There is still some room to wriggle around but it is best if you hold yourself to the [Style guide - PEP 8](https://peps.python.org/pep-0008/) right from the start (we will do so in these notes, if not open an issue on GitHub, Link on the right below the section index).
@@ -56,9 +56,9 @@ Check this by opening a terminal and running
 $ python3 --version
 Python 3.12.3
 ```
-and you should see something similar if not the same, if not have a look [here](https://docs.python.org/3/using/index.html) and search for your platform.
+and you should see something similar if not the same. If not have a look [here](https://docs.python.org/3/using/index.html) and search for your platform.
 
-For Windows 10 and above we can use the version from the Microsoft Store, if you have another version also see [here](https://docs.python.org/3/using/index.html) and search for your platform.
+For Windows 10 and above we can use the version from the Microsoft Store. If you have another version check [here](https://docs.python.org/3/using/index.html) too and search for your platform.
 
 ## Getting started
 
@@ -68,7 +68,7 @@ For Windows 10 and above we can use the version from the Microsoft Store, if you
 This part is designed as a type along session!
 :::
 
-As common for programming guides we start with:
+As usual for programming guides, we start with:
 ```{python}
 #| classes: styled-output
 print('Hello, World')
@@ -76,7 +76,7 @@ print('Hello, World')
 
 :::{.callout-note}
 These notes are generated from markdown and executable code (for a lot of the Python aspects).
-This means sometimes the results are part of the text but if we need to make sure you can see the output we highlight it with some background color.
+This means sometimes the results are part of the text, but if we need to make sure you can see the output we highlight it with some background color.
 For this reason and to make it easier to copy and past code from the notes we omit `>>>` that you see in your REPL.
 :::
 
@@ -86,7 +86,7 @@ Lets break down what we did above[^6]:
 - we handed the text _Hello, World_ to that function - indicated by the two `'`,
 - the REPL returned the result and printed it on screen.
 
-The text above is called a _string_ and you can do operations with strings
+The text above is called a _string_ and you can do operations with strings, like:
 
 ```{python}
 #| classes: styled-output
@@ -98,15 +98,15 @@ Here `+` and `*` are so called _operators_.
 The first combines (concatenates) two strings, the second multiplies one string. 
 
 ::: {.callout-important}
-The [Style guide - PEP 8](https://peps.python.org/pep-0008/) tells us that an operator should have a leading and tailing white space.
+The [Style guide - PEP 8](https://peps.python.org/pep-0008/) tells us that an operator should have a leading and trailing white space.
 :::
 
-In case we want to know more about the function `print` we can use another function to get some more insight
+In case we want to know more about the function `print` we can use another function to get some more insight:
 ```{python}
 #| classes: styled-output
 help(print)
 ```
-Now let us pick up a bit of speed
+Now let us pick up a bit of speed.
 ```{python}
 #| classes: styled-output
 # Mathematical operators  # <1>
@@ -138,6 +138,21 @@ This is due to the fact that the system used to create these notes does not feed
 Therefore, we will often just suppress the output or if we want to make sure something is printed in the notes we will use `print` explicitly.
 :::
 
+There are the usual _boolean_ operators for comparison:
+```{python}
+#| output: false
+1 != 2
+1 < 2
+2 > 3
+1.0 >= 1
+0.99 <= 1
+
+# and combine them with logical operators
+(1.0 <= 1) and (1.0 >= 1)
+(2 < 1) or (2 > 1)
+not (1 != 2)
+```
+
 We can assign a value to a _variable_ and use them later on:
 ```{python}
 #| output: false
@@ -152,21 +167,6 @@ x_new = x_rad * (180 / pi)
 
 # Check if they are the same
 x == x_new
-```
-
-There are the usual _boolean_ operators for comparison:
-```{python}
-#| output: false
-1 != 2
-1 < 2
-2 > 3
-1.0 >= 1
-0.99 <= 1
-
-# and combine them with logical operators
-(1.0 <= 1) and (1.0 >= 1)
-(2 < 1) or (2 > 1)
-not (1 != 2)
 ```
 
 We can also change the value of a variable:
@@ -208,8 +208,8 @@ We also have control sequences:
 #| classes: styled-output
 if x < 90:
   x = x * 2      # This section gets executed if the statement is true
-else:        # And this if it is false
-  x = x / 2
+else:            
+  x = x / 2      # And this if it is false
 
 print(f'x = {x}')
 
@@ -225,7 +225,7 @@ print(f'x = {x}')
 As well as loops:
 ```{python}
 #| classes: styled-output
-# the for loop works best with lists or sets
+# For loops work best with lists or sets
 sum = 0
 for i in integers:
   sum = sum + i
@@ -248,7 +248,7 @@ There is an internal function called `sum` and we just overwrote this function, 
 :::
 
 Of course there are easier ways to compute the sum of a list or $2^5$.
-For this we need to import additional functions
+For this we need to import additional functions:
 ```{python}
 #| classes: styled-output
 import math
