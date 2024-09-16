@@ -176,6 +176,7 @@ We can also change the value of a variable:
 print('x =', x)
 x = 45.0
 print(f'x = {x}')
+print(f'{x=}')
 ```
 :::{.callout-note}
 Python is dynamically typed, meaning that the type of a variable is checked during runtime and not beforehand.
