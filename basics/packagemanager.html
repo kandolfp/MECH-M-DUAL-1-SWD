@@ -279,7 +279,7 @@ div.csl-indent {
 <li>removing,</li>
 <li>…</li>
 </ul>
-<p>for computer programs, software libraries, general data, or other tasks. We all use package managers on our smart phones or computers. They come in various forms and <em>accessability</em> like the GUIs <em>Google Play</em>, <em>App Store</em>, <em>Microsoft Store</em>, but also in terminal form as <em>apt</em>, <em>dnf</em>, <em>zypper</em>, <em>homebrew</em>, and many more. Most of these tools give us an easy way to work with some application without needing to know much about how the software is built. The same is true for <em>software design</em>.</p>
+<p>for computer programs, software libraries, general data, or other tasks. We all use package managers on our smart phones or computers. They come in various forms and <em>accessibility</em> like the GUIs <em>Google Play</em>, <em>App Store</em>, <em>Microsoft Store</em>, but also in terminal form as <em>apt</em>, <em>dnf</em>, <em>zypper</em>, <em>homebrew</em>, and many more. Most of these tools give us an easy way to work with some application without needing to know much about how the software is built. The same is true for <em>software design</em>.</p>
 <p>They especially take care that our modern world of digital infrastructure works even though it often looks like this:</p>
 <div id="fig-xkcd-dependency" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -291,11 +291,11 @@ Figure&nbsp;2.1: The <a href="https://xkcd.com/1579/">xkcd comic #1579</a> discu
 </figcaption>
 </figure>
 </div>
-<p>Back in the days, and often still for some languages, you manually had to integrate some library you wanted to use and they often came with elaborate build scripts (with their own dependencies, … <em>insert recursion here</em>). Especially cumbersome were problems where you needed different versions of the same library for different projects. Nowadays, this task is performed by package managers to the relief of developers everywhere. If you have a good package manager you do not realize the burden it takes of your shoulders. It is worth highlighting, that a good package manager can define the difference between a successful programming language and a footnote on the <a href="https://en.wikipedia.org/wiki/List_of_programming_languages">index of programming languages</a>.</p>
-<p>While it would be worthwhile to visit the various ways and strategies these systems take we will focus on systems for <code>python</code>.</p>
+<p>Back in the days, and often still for some languages, you manually had to integrate some library you wanted to use and they often came with elaborate build scripts (with their own dependencies, … <em>insert recursion here</em>). Especially cumbersome were problems where you needed different versions of the same library for different projects. Nowadays, this task is performed by package managers to the relief of developers everywhere. If you have a good package manager you do not realize the burden it takes of your shoulders. It is worth highlighting, that a good package manager can define the difference between a successful programming language and a footnote in the <a href="https://en.wikipedia.org/wiki/List_of_programming_languages">index of programming languages</a>.</p>
+<p>While it would be worthwhile to visit the various ways and strategies these systems take, we will focus on systems for <code>python</code>.</p>
 <section id="package-management-for-python" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="package-management-for-python"><span class="header-section-number">2.1</span> Package management for <code>python</code></h2>
-<p>Before we go into detail for the package manager of choice we need to discuss what we actually want such a system to provide us with.</p>
+<p>Before we go into detail for the package manager of choice, we need to discuss what such a system is supposed to offer us.</p>
 <p>As a starting point have a look at what <a href="https://xkcd.com/">xkcd</a> has to say about it:</p>
 <div id="fig-xkcd-dependency" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -355,13 +355,13 @@ Important
 <li>have a good user interface</li>
 </ul></li>
 </ul>
-<p>The <a href="https://packaging.python.org/en/latest/glossary/#term-Python-Packaging-Authority-PyPA">Python Packaging Authority (PyPA)</a><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> provides a <a href="https://packaging.python.org/">user guide</a> for how to distribute and install Python packages. As soon as you think of providing your own package for others you should carefully study this guide, but for us we currently only have a quick look into <a href="https://packaging.python.org/en/latest/guides/tool-recommendations/">Tool recommendations</a>.</p>
+<p>The <a href="https://packaging.python.org/en/latest/glossary/#term-Python-Packaging-Authority-PyPA">Python Packaging Authority (PyPA)</a><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> provides a <a href="https://packaging.python.org/">user guide</a> for distributing and installing Python packages. As soon as you think of providing your own package for others you should carefully study this guide, but for now, we only have a quick look into <a href="https://packaging.python.org/en/latest/guides/tool-recommendations/">Tool recommendations</a>.</p>
 <blockquote class="blockquote">
 <p>The Python packaging landscape consists of many different tools. For many tasks, the Python Packaging Authority (PyPA, the working group which encompasses many packaging tools and maintains this guide) purposefully does not make a blanket recommendation; for example, the reason there are many build backends is that the landscape was opened up in order to enable the development of new backends serving certain users’ needs better than the previously unique backend, <code>setuptools</code>. This guide does point to some tools that are widely recognized, and also makes some recommendations of tools that you should <em>not</em> use because they are deprecated or insecure.</p>
 <p><strong>Source</strong>: From the <a href="https://packaging.python.org/en/latest/guides/tool-recommendations/">PyPa Guide</a>, as of 9th of September 2024</p>
 </blockquote>
-<p>The standard tool is <code>pip</code> and for <em>scientific software</em> specifically <a href="https://conda.io/"><code>conda</code></a> and <a href="https://spack.readthedocs.io/"><code>Spack</code></a>, respectively.</p>
-<p>We are going to look at <a href="https://pdm-project.org/"><code>pdm</code></a> (see <span class="citation" data-cites="pdm">Ming (<a href="../references.html#ref-pdm" role="doc-biblioref">2019</a>)</span>) as this is a modern Python package manager that uses <code>pyproject.toml</code> files to store metadata of the project and much more.</p>
+<p>The standard tool is <code>pip</code> and for <em>scientific software</em> specifically <a href="https://conda.io/"><code>conda</code></a> and <a href="https://spack.readthedocs.io/"><code>Spack</code></a>.</p>
+<p>We are going to look at <a href="https://pdm-project.org/"><code>pdm</code></a> (see <span class="citation" data-cites="pdm">Ming (<a href="../references.html#ref-pdm" role="doc-biblioref">2019</a>)</span>), as this is a modern Python package manager that uses <code>pyproject.toml</code> files to store metadata of the project and much more.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -412,8 +412,8 @@ Note
 </div>
 <section id="installation" class="level3" data-number="2.2.1">
 <h3 data-number="2.2.1" class="anchored" data-anchor-id="installation"><span class="header-section-number">2.2.1</span> Installation</h3>
-<p>First we need to install <code>pdm</code> to have it available (globally) on our system, for this to work we need python version 3.8 or higher available on the system.</p>
-<p>The recommended way os to use the provided install script.</p>
+<p>First we need to install <code>pdm</code> so that it is available (globally) on our system. For this to work, Python version 3.8 or later must available on the system.</p>
+<p>The recommended way is to use the provided install script.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Linux/Mac</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Windows</a></li></ul>
 <div class="tab-content">
@@ -440,10 +440,10 @@ Note
 </div>
 </div>
 </div>
-<p>By default, <code>pdm</code> is installed into the user space (depending on the platform) but this can be modified via arguments to script, see the help option of the script.</p>
+<p>By default, <code>pdm</code> is installed into the user space (depending on the platform), but this can be modified via arguments to the script, see the help option of the script.</p>
 <section id="optional---shell-completion" class="level4" data-number="2.2.1.1">
 <h4 data-number="2.2.1.1" class="anchored" data-anchor-id="optional---shell-completion"><span class="header-section-number">2.2.1.1</span> Optional - Shell completion</h4>
-<p>We would recommend for a better user experience to include the shell completion</p>
+<p>For a better user experience we would recommend to include the shell completion.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Bash (Linux)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Zsh (Mac)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false">Powershell (Windows)</a></li></ul>
 <div class="tab-content">
@@ -472,7 +472,7 @@ Note
 </section>
 <section id="start-a-new-project" class="level3" data-number="2.2.2">
 <h3 data-number="2.2.2" class="anchored" data-anchor-id="start-a-new-project"><span class="header-section-number">2.2.2</span> Start a new project</h3>
-<p>Let us start a new project in a new directory</p>
+<p>Let us start a new project in a new directory:</p>
 <div class="sourceCode" id="annotated-cell-2"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-2-1" class="code-annotation-target"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mkdir test</span>
 <span id="annotated-cell-2-2"><a href="#annotated-cell-2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">mkdir:</span> created directory <span class="st">'test'</span></span>
 <span id="annotated-cell-2-3"><a href="#annotated-cell-2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -509,11 +509,11 @@ Note
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-3" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-3" data-code-lines="1" data-code-annotation="1">start to initialize with <code>pdm init</code></span>
+<span data-code-cell="annotated-cell-3" data-code-lines="1" data-code-annotation="1">Start the initialization with <code>pdm init</code>.</span>
 </dd>
 <dt data-target-cell="annotated-cell-3" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-3" data-code-lines="3,4,5,6,7,8" data-code-annotation="2">We need to select a python interpreter. <code>pdm</code> will search for all available interpreters on your path, if you need a different version than available you can use <code>pdm</code> to install a new standalone <code>python</code> version, see <code>pdm python</code> command or the <a href="https://pdm-project.org/latest/usage/project/#install-python-interpreters-with-pdm">docs</a><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</span>
+<span data-code-cell="annotated-cell-3" data-code-lines="3,4,5,6,7,8" data-code-annotation="2">We need to select a python interpreter. <code>pdm</code> will search for all available interpreters on your path, if you need a different version than those available you can use <code>pdm</code> to install a new standalone <code>python</code> version, see <code>pdm python</code> command or the <a href="https://pdm-project.org/latest/usage/project/#install-python-interpreters-with-pdm">docs</a><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</span>
 </dd>
 <dt data-target-cell="annotated-cell-3" data-target-annotation="3">3</dt>
 <dd>
@@ -529,7 +529,7 @@ Note
 </dd>
 <dt data-target-cell="annotated-cell-3" data-target-annotation="6">6</dt>
 <dd>
-<span data-code-cell="annotated-cell-3" data-code-lines="12,13" data-code-annotation="6">Next we need to decide if we plan for distributing the project. For now <code>n</code> will suffice, but hopefully by the end of these notes you feel comfortable enough to release your own package as soon as this is the case have a look at the <a href="https://pdm-project.org/latest/usage/publish/">docs</a> and the <a href="https://packaging.python.org/">Python Packaging User Guide</a>.</span>
+<span data-code-cell="annotated-cell-3" data-code-lines="12,13" data-code-annotation="6">Next we need to decide if we plan to distribute the project. For now <code>n</code> (no) will suffice, but hopefully by the end of these notes you feel comfortable enough to release your own package. Once this is the case, take a look at the <a href="https://pdm-project.org/latest/usage/publish/">docs</a> and the <a href="https://packaging.python.org/">Python Packaging User Guide</a>.</span>
 </dd>
 <dt data-target-cell="annotated-cell-3" data-target-annotation="7">7</dt>
 <dd>
@@ -541,7 +541,7 @@ Note
 </dd>
 <dt data-target-cell="annotated-cell-3" data-target-annotation="9">9</dt>
 <dd>
-<span data-code-cell="annotated-cell-3" data-code-lines="17" data-code-annotation="9">Last the python version required is asked. Here you can specify the compatibility of your project to various python versions<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>. For good reason, by default it will only allow the current version you selected in the first step. In theory you can specify something like <code>&gt;=3.8,!=3.9.0,&lt;3.13</code> (a python version between 3.8 and 3.13, including 3.8 but excluding 3.13 and additionally excluding 3.9.0) but be aware that might become tricky when adding dependencies.</span>
+<span data-code-cell="annotated-cell-3" data-code-lines="17" data-code-annotation="9">Finally, you will be asked for the required python version. Here you can specify the compatibility of your project to various python versions<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>. For good reason, by default it will only allow the current version you selected in the first step. In theory you can specify something like <code>&gt;=3.8,!=3.9.0,&lt;3.13</code> (a python version between 3.8 and 3.13, including 3.8 but excluding 3.13 and additionally excluding 3.9.0) but be aware that might become tricky when adding dependencies.</span>
 </dd>
 </dl>
 <p>Now you have a new project available and it should look like this:</p>
@@ -582,7 +582,7 @@ Note
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-4" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-4" data-code-lines="1" data-code-annotation="1">list all files in the directory</span>
+<span data-code-cell="annotated-cell-4" data-code-lines="1" data-code-annotation="1">List all files in the directory</span>
 </dd>
 <dt data-target-cell="annotated-cell-4" data-target-annotation="2">2</dt>
 <dd>
@@ -611,7 +611,7 @@ Important
 <p>You <strong>must</strong> commit the <code>pyproject.toml</code> file. You <strong>should</strong> commit the <code>pdm.lock</code> and <code>pdm.toml</code> file. <strong>Do not</strong> commit the <code>.pdm-python</code> file.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></p>
 </div>
 </div>
-<p>To check what setup <code>pdm</code> created for you, you can use the <code>pdm info</code> command, where <code>--env</code> option provides us with more details about the environment/platform.</p>
+<p>To check what setup <code>pdm</code> created for you, you can use the <code>pdm info</code> command, where the <code>--env</code> option provides us with more details about the environment/platform.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pdm info</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">PDM</span> version:</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">2.18.1</span></span>
@@ -651,7 +651,7 @@ Note
 </section>
 <section id="manage-dependencies" class="level3" data-number="2.2.3">
 <h3 data-number="2.2.3" class="anchored" data-anchor-id="manage-dependencies"><span class="header-section-number">2.2.3</span> Manage dependencies</h3>
-<p>Now that the project exists we can look at the main task: <strong>managing packages</strong>. We will cover the basics what we need, for a full guide see <a href="https://pdm-project.org/latest/usage/dependency/">Manage Dependencies</a> at docs.</p>
+<p>Now that the project exists we can look at the main task: <strong>managing packages</strong>. We will cover the basics that we need, for a full guide see <a href="https://pdm-project.org/latest/usage/dependency/">Manage Dependencies</a> at docs.</p>
 <section id="add-dependencies" class="level4" data-number="2.2.3.1">
 <h4 data-number="2.2.3.1" class="anchored" data-anchor-id="add-dependencies"><span class="header-section-number">2.2.3.1</span> Add dependencies</h4>
 <p>To add a dependency you can use the <code>pdm add</code> command, where the system follows the <a href="https://peps.python.org/pep-0508/">PEP 508</a> specifications.</p>
@@ -669,7 +669,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>By default <code>pdm</code> searches for dependencies on <a href="https://pypi.org/">PyPI</a>, see <a href="https://pdm-project.org/latest/usage/config/#configure-the-package-indexes">docs</a> for how to add to or modify the package index.</p>
+<p>By default <code>pdm</code> searches for dependencies on <a href="https://pypi.org/">PyPI</a>, see <a href="https://pdm-project.org/latest/usage/config/#configure-the-package-indexes">docs</a> on how to add to or modify the package index.</p>
 <p>If you are not sure how a package is called use <code>pdm search</code> to locate it (even though the search could be improved).</p>
 </div>
 </div>
@@ -677,7 +677,7 @@ Note
 <p>In contrast to other dependency management systems such as <code>requirements.txt</code> a very handy feature of <code>pdm</code> is that it will only add the specified dependencies to the <code>pyproject.toml</code> and not all sub-dependencies. This makes it easier for somebody else to keep track of what your actual dependencies are and especially for update procedures.</p>
 <section id="add-local-dependencies" class="level5" data-number="2.2.3.1.1">
 <h5 data-number="2.2.3.1.1" class="anchored" data-anchor-id="add-local-dependencies"><span class="header-section-number">2.2.3.1.1</span> Add local dependencies</h5>
-<p>Quite often it happens that you develop a project and use it as a dependency in some other project you are working on. In this case you want to have a local dependency. This can be added by calling</p>
+<p>Quite often it happens that you develop a project and use it as a dependency in another project you are working on. In this case you want to have a local dependency. This can be added by calling:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pdm</span> add ./my-project</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>It is important to mention, that the path <strong>must</strong> start with <code>.</code> otherwise it is not interpreted as a local dependency.</p>
 </section>
@@ -702,15 +702,15 @@ Note
 </section>
 <section id="update-dependencies" class="level4" data-number="2.2.3.4">
 <h4 data-number="2.2.3.4" class="anchored" data-anchor-id="update-dependencies"><span class="header-section-number">2.2.3.4</span> Update dependencies</h4>
-<p>If you find that a package has released an update that is required for your project you can us <code>pdm</code> to update your packages:</p>
+<p>If you find that a package has released an update that is required for your project you can use <code>pdm</code> to update your packages:</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pdm</span> update</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>will update all packages (if possible) in your <code>pdm.lock</code> file</p>
+<p>will update all packages (if possible) in your <code>pdm.lock</code> file, while</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pdm</span> update requests</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>will only update the specified dependency (you can specify multiple packages).</p>
 </section>
 <section id="remove-dependencies" class="level4" data-number="2.2.3.5">
 <h4 data-number="2.2.3.5" class="anchored" data-anchor-id="remove-dependencies"><span class="header-section-number">2.2.3.5</span> Remove dependencies</h4>
-<p>If you added a dependency but no longer need it you can remove it by calling <code>pdm remove</code>. Note that all sub-dependencies will be removed as well.</p>
+<p>If you have added a dependency but no longer need it, you can remove it by calling <code>pdm remove</code>. Note that all sub-dependencies will be removed as well.</p>
 </section>
 <section id="list-outdated-dependencies" class="level4" data-number="2.2.3.6">
 <h4 data-number="2.2.3.6" class="anchored" data-anchor-id="list-outdated-dependencies"><span class="header-section-number">2.2.3.6</span> List outdated dependencies</h4>
@@ -732,11 +732,11 @@ Note
 <section id="running-your-code" class="level3" data-number="2.2.5">
 <h3 data-number="2.2.5" class="anchored" data-anchor-id="running-your-code"><span class="header-section-number">2.2.5</span> Running your code</h3>
 <p>As mentioned throughout these notes, <code>pdm</code> uses <code>virtualenv</code> to manage your project. This means you need to activate the project to work with it.</p>
-<p>If you simply want to run a python script in your environment use</p>
+<p>If you simply want to run a python script in your environment use:</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pdm</span> run python <span class="op">&lt;</span>SCRIPT.py<span class="op">&gt;</span> <span class="op">&lt;</span>arguments<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>and similar you can start the python console via</p>
+<p>Similar you can start the python console via:</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pdm</span> run python</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>If you need to work in your current terminal with the environment you created it is easier to use <code>pdm venv activate</code> that will tell you how to activate your enviroment in your current terminal. In bash you can use</p>
+<p>If you need to work in your current terminal with the environment you created it is easier to use <code>pdm venv activate</code> which will tell you how to activate the enviroment in your current terminal. In bash you can use</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="bu">eval</span> <span class="va">$(</span><span class="ex">pdm</span> venv activate<span class="va">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>to directly activate the environment.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
