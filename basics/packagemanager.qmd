@@ -10,7 +10,7 @@ In general a package manager (or package-management system) is a tool that autom
 
 for computer programs, software libraries, general data, or other tasks.
 We all use package managers on our smart phones or computers.
-They come in various forms and _accessability_ like the GUIs _Google Play_,  _App Store_, _Microsoft Store_, but also in terminal form as _apt_, _dnf_, _zypper_, _homebrew_, and many more.
+They come in various forms and _accessibility_ like the GUIs _Google Play_,  _App Store_, _Microsoft Store_, but also in terminal form as _apt_, _dnf_, _zypper_, _homebrew_, and many more.
 Most of these tools give us an easy way to work with some application without needing to know much about how the software is built. The same is true for _software design_.
 
 They especially take care that our modern world of digital infrastructure works even though it often looks like this: 
@@ -25,12 +25,12 @@ Back in the days, and often still for some languages, you manually had to integr
 Especially cumbersome were problems where you needed different versions of the same library for different projects.
 Nowadays, this task is performed by package managers to the relief of developers everywhere.
 If you have a good package manager you do not realize the burden it takes of your shoulders.
-It is worth highlighting, that a good package manager can define the difference between a successful programming language and a footnote on the [index of programming languages](https://en.wikipedia.org/wiki/List_of_programming_languages).
+It is worth highlighting, that a good package manager can define the difference between a successful programming language and a footnote in the [index of programming languages](https://en.wikipedia.org/wiki/List_of_programming_languages).
 
-While it would be worthwhile to visit the various ways and strategies these systems take we will focus on systems for `python`.
+While it would be worthwhile to visit the various ways and strategies these systems take, we will focus on systems for `python`.
 
 ## Package management for `python`
-Before we go into detail for the package manager of choice we need to discuss what we actually want such a system to provide us with.
+Before we go into detail for the package manager of choice, we need to discuss what such a system is supposed to offer us.
 
 As a starting point have a look at what [xkcd](https://xkcd.com/) has to say about it:
 
@@ -70,16 +70,16 @@ Here is the (probably not complete) authors list (random order):
    - provide a wide range of packages
    - have a good user interface
 
-The [Python Packaging Authority (PyPA)](https://packaging.python.org/en/latest/glossary/#term-Python-Packaging-Authority-PyPA)[^pypa] provides a [user guide](https://packaging.python.org/) for how to distribute and install Python packages.
-As soon as you think of providing your own package for others you should carefully study this guide, but for us we currently only have a quick look into [Tool recommendations](https://packaging.python.org/en/latest/guides/tool-recommendations/).
+The [Python Packaging Authority (PyPA)](https://packaging.python.org/en/latest/glossary/#term-Python-Packaging-Authority-PyPA)[^pypa] provides a [user guide](https://packaging.python.org/) for distributing and installing Python packages.
+As soon as you think of providing your own package for others you should carefully study this guide, but for now, we only have a quick look into [Tool recommendations](https://packaging.python.org/en/latest/guides/tool-recommendations/).
 
 > The Python packaging landscape consists of many different tools. For many tasks, the Python Packaging Authority (PyPA, the working group which encompasses many packaging tools and maintains this guide) purposefully does not make a blanket recommendation; for example, the reason there are many build backends is that the landscape was opened up in order to enable the development of new backends serving certain users’ needs better than the previously unique backend, `setuptools`. This guide does point to some tools that are widely recognized, and also makes some recommendations of tools that you should _not_ use because they are deprecated or insecure.
 >
 > **Source**: From the [PyPa Guide](https://packaging.python.org/en/latest/guides/tool-recommendations/), as of 9th of September 2024
 
-The standard tool is `pip` and for _scientific software_ specifically [`conda`](https://conda.io/) and [`Spack`](https://spack.readthedocs.io/), respectively.
+The standard tool is `pip` and for _scientific software_ specifically [`conda`](https://conda.io/) and [`Spack`](https://spack.readthedocs.io/).
 
-We are going to look at [`pdm`](https://pdm-project.org/) (see @pdm) as this is a modern Python package manager that uses `pyproject.toml` files to store metadata of the project and much more.
+We are going to look at [`pdm`](https://pdm-project.org/) (see @pdm), as this is a modern Python package manager that uses `pyproject.toml` files to store metadata of the project and much more.
 
 :::{.callout-note}
 The main thought behind selecting `pdm` for further discussions here is the experience of the authors regarding cross platform support, ease of use, and transferability to other languages like `julia`, `rust`, or `go`.
@@ -108,9 +108,9 @@ For this guide we closely follow the notes on the project page [https://pdm-proj
 ::: 
 
 ### Installation
-First we need to install `pdm` to have it available (globally) on our system, for this to work we need python version 3.8 or higher available on the system.
+First we need to install `pdm` so that it is available (globally) on our system. For this to work, Python version 3.8 or later must available on the system.
 
-The recommended way os to use the provided install script.
+The recommended way is to use the provided install script.
 
 ::: {.panel-tabset}
 ## Linux/Mac
@@ -143,10 +143,10 @@ Get-FileHash -InputStream (Invoke-WebRequest -Uri https://pdm-project.org/instal
 ```
 :::
 
-By default, `pdm` is installed into the user space (depending on the platform) but this can be modified via arguments to script, see the help option of the script.
+By default, `pdm` is installed into the user space (depending on the platform), but this can be modified via arguments to the script, see the help option of the script.
 
 #### Optional - Shell completion
-We would recommend for a better user experience to include the shell completion 
+For a better user experience we would recommend to include the shell completion. 
 
 ::: {.panel-tabset}
 ## Bash (Linux)
@@ -175,7 +175,7 @@ pdm completion powershell | Out-File -Encoding utf8 $PROFILE\..\Completions\pdm_
 
 ### Start a new project
 
-Let us start a new project in a new directory
+Let us start a new project in a new directory:
 ```bash
 $ mkdir test                # <1>
 mkdir: created directory 'test'
@@ -208,20 +208,20 @@ Author email (John.Doe@generic.edu):                           # <8>
 Python requires('*' to allow any) (==3.12.*):                  # <9>
 Project is initialized successfully
 ```
-1. start to initialize with `pdm init`
+1. Start the initialization with `pdm init`.
 2. We need to select a python interpreter.
-`pdm` will search for all available interpreters on your path, if you need a different version than available you can use `pdm` to install a new standalone `python` version, see `pdm python` command or the [docs](https://pdm-project.org/latest/usage/project/#install-python-interpreters-with-pdm)[^2].
+`pdm` will search for all available interpreters on your path, if you need a different version than those available you can use `pdm` to install a new standalone `python` version, see `pdm python` command or the [docs](https://pdm-project.org/latest/usage/project/#install-python-interpreters-with-pdm)[^2].
 3. By default `pdm` will create a new `virtualenv` for you as this is the recommend procedure, if you want to influence this behavior see [docs](https://pdm-project.org/latest/usage/venv/).
 4. We need to specify a project name. This name is used in the `pyproject.toml` and `pdm` will also generate a `src/<name>` directory for you right away (together with a `test` directory). `pdm` uses its default template, see [docs](https://pdm-project.org/latest/usage/template/).
 5. The version of your project needs to be initialized.
 `pdm` follows [semantic versioning](https://semver.org/)[^3] by default.
 If you do not have a specific version in mind stick to `0.1.0` for a new project.
-6. Next we need to decide if we plan for distributing the project.
-For now `n` will suffice, but hopefully by the end of these notes you feel comfortable enough to release your own package as soon as this is the case have a look at the [docs](https://pdm-project.org/latest/usage/publish/) and the [Python Packaging User Guide](https://packaging.python.org/).
+6. Next we need to decide if we plan to distribute the project.
+For now `n` (no) will suffice, but hopefully by the end of these notes you feel comfortable enough to release your own package. Once this is the case, take a look at the [docs](https://pdm-project.org/latest/usage/publish/) and the [Python Packaging User Guide](https://packaging.python.org/).
 7. Licensing is next. This is a rather important issue when you release software, but we need to postpone it as well. So stick to the default for now. 
 8. Author name and email can (and should) be a list if you have multiple contributors.
 `pdm` will try to figure out defaults from system settings.
-9. Last the python version required is asked.
+9. Finally, you will be asked for the required python version.
 Here you can specify the compatibility of your project to various python versions[^4].
 For good reason, by default it will only allow the current version you selected in the first step. In theory you can specify something like `>=3.8,!=3.9.0,<3.13` (a python version between 3.8 and 3.13, including 3.8 but excluding 3.13 and additionally excluding 3.9.0) but be aware that might become tricky when adding dependencies.
 
@@ -262,7 +262,7 @@ $ tree -a               # <1>
 
 12 directories, 19 files
 ```
-1. list all files in the directory
+1. List all files in the directory
 2. A `.gitignore` file is created
 3. Virtual environment
 4. Windows activation start file (cross platform)
@@ -275,7 +275,7 @@ In this context:
 You **must** commit the `pyproject.toml` file. You **should** commit the `pdm.lock` and `pdm.toml` file. **Do not** commit the `.pdm-python` file.[^5]
 :::
 
-To check what setup `pdm` created for you, you can use the `pdm info` command, where `--env` option provides us with more details about the environment/platform.
+To check what setup `pdm` created for you, you can use the `pdm info` command, where the `--env` option provides us with more details about the environment/platform.
 
 ```bash
 $ pdm info
@@ -310,7 +310,7 @@ Of course it is also possible to import from other package manager systems, see 
 ### Manage dependencies
 
 Now that the project exists we can look at the main task: **managing packages**.
-We will cover the basics what we need, for a full guide see [Manage Dependencies](https://pdm-project.org/latest/usage/dependency/) at docs.
+We will cover the basics that we need, for a full guide see [Manage Dependencies](https://pdm-project.org/latest/usage/dependency/) at docs.
 
 #### Add dependencies
 
@@ -324,7 +324,7 @@ pdm add "flask>=1.0" flask-sqlalchemy   # add multiple dependencies with differe
 ``` 
 
 :::{.callout-note}
-By default `pdm` searches for dependencies on [PyPI](https://pypi.org/), see [docs](https://pdm-project.org/latest/usage/config/#configure-the-package-indexes) for how to add to or modify the package index.
+By default `pdm` searches for dependencies on [PyPI](https://pypi.org/), see [docs](https://pdm-project.org/latest/usage/config/#configure-the-package-indexes) on how to add to or modify the package index.
 
 If you are not sure how a package is called use `pdm search` to locate it (even though the search could be improved).
 :::
@@ -338,9 +338,9 @@ This makes it easier for somebody else to keep track of what your actual depende
 
 ##### Add local dependencies
 
-Quite often it happens that you develop a project and use it as a dependency in some other project you are working on.
+Quite often it happens that you develop a project and use it as a dependency in another project you are working on.
 In this case you want to have a local dependency.
-This can be added by calling
+This can be added by calling:
 
 ```bash
 pdm add ./my-project
@@ -377,12 +377,12 @@ requests 2.32.3 [ required: >=2.32.3 ]
 
 #### Update dependencies
 
-If you find that a package has released an update that is required for your project you can us `pdm` to update your packages:
+If you find that a package has released an update that is required for your project you can use `pdm` to update your packages:
 
 ```bash
 pdm update
 ```
-will update all packages (if possible) in your `pdm.lock` file
+will update all packages (if possible) in your `pdm.lock` file, while
 ```bash
 pdm update requests
 ```
@@ -390,7 +390,7 @@ will only update the specified dependency (you can specify multiple packages).
 
 #### Remove dependencies
 
-If you added a dependency but no longer need it you can remove it by calling `pdm remove`.
+If you have added a dependency but no longer need it, you can remove it by calling `pdm remove`.
 Note that all sub-dependencies will be removed as well. 
 
 #### List outdated dependencies
@@ -420,16 +420,16 @@ to check the project file for changes, update the lock file if needed and run `p
 As mentioned throughout these notes, `pdm` uses `virtualenv` to manage your project.
 This means you need to activate the project to work with it. 
 
-If you simply want to run a python script in your environment use
+If you simply want to run a python script in your environment use:
 ```bash
 pdm run python <SCRIPT.py> <arguments>
 ```
-and similar you can start the python console via 
+Similar you can start the python console via: 
 ```bash
 pdm run python
 ```
 
-If you need to work in your current terminal with the environment you created it is easier to use `pdm venv activate` that will tell you how to activate your enviroment in your current terminal. In bash you can use
+If you need to work in your current terminal with the environment you created it is easier to use `pdm venv activate` which will tell you how to activate the enviroment in your current terminal. In bash you can use
 ```bash
 eval $(pdm venv activate)
 ```
