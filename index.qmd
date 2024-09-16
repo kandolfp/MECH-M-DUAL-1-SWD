@@ -6,4 +6,13 @@ The notes presented here are still under construction and can change without war
 
 These are the lecture notes for the _Softwaredesign_ class part of the _MCI | The Entrepreneurial School_ master for [Mechatronik - Automation, Robotics & AI](https://www.mci.edu/de/studium/master/mechatronik-automation-robotics-ai#im_studium) in the winter term 2024/25.
 
+# Acknowledgements {.unnumbered}
+
+We want to thank the open source community for providing excellent tutorial and guides for Python, Git, and Docker on the web.
+Individual sources are cited at the appropriate spot throughout document at hand.
+
+We want to thank Mirjam Ziselsberger for testing, checking, suggestions and general proofreading.
+We also want to thank Elias Tappeiner from the Department of _Biomedizinische Bildanalyse
+UMIT, Hall in Tirol, Österreich_ for his slides on Git.
+
 These notes are build with [Quarto](https://quarto.org/).
