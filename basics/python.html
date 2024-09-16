@@ -273,7 +273,7 @@ window.Quarto = {
 </header>
 
 
-<p>In these notes we will focus on Python as programming language of choice. The main reason for this is that python is currently the language where a lot of programming for <em>data science</em> is happening. Other languages like <a href="https://julialang.org">Julia</a> are catching up quick though. In general, Python is a very popular programming language. It currently ranks #2 in the <a href="https://redmonk.com/sogrady/category/programming-languages/">Redmonk Rating</a>.</p>
+<p>In these notes we will focus on Python as the programming language of choice. The main reason for this is that python is currently the language where a lot of programming for <em>data science</em> is happening. Other languages like <a href="https://julialang.org">Julia</a> are catching up quick though. In general, Python is a very popular programming language. It currently ranks #2 in the <a href="https://redmonk.com/sogrady/category/programming-languages/">Redmonk Rating</a>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -287,7 +287,7 @@ Note
 <p>This section is going to give a rough overview to get us started but we are not going into much detail. We will focus on particular aspects of the language in later parts to get a more detailed look.</p>
 </div>
 </div>
-<p>So let us start with a brief introduction an than get into programming with Python, as usually there is no better way to learn a language than using it. Python has the reputation of being <em>easy</em> to learn, even though no always straight forward.</p>
+<p>So let us start with a brief introduction and then get into programming with Python, as usually there is no better way to learn a language than using it. Python has the reputation of being <em>easy</em> to learn, even though not always straight forward.</p>
 <p>Python is a so called high-level<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> programming language that was designed with an emphasis on readability<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> in mind. It was developed by <a href="https://gvanrossum.github.io">Guido van Rossum</a> in the late 80s and the first release of version <code>0.9.0</code> to the public came in 1991. Subsequently, in October 2000 Python <code>2.0</code> and in 2008 Python <code>3.0</code> were released. There are currently multiple supported versions of Python available were <code>3.12.6</code><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> is the latest stable release, see <a href="https://en.wikipedia.org/wiki/History_of_Python">Wikipedia for the history of Python</a>.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -299,11 +299,11 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>In this notes we will focus on Python <code>3.12</code>.</p>
+<p>In these notes we will focus on Python <code>3.12</code>.</p>
 <p>Python does not follow Semantic Versioning<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>, see <a href="https://docs.python.org/3/faq/general.html#how-does-the-python-version-numbering-scheme-work">python docs</a>), sometimes a <em>minor</em> version will have a breaking change, so make sure to check the <em>Porting to Python X.Y</em> section for <em>What’s new</em> if included code is no longer working.</p>
 </div>
 </div>
-<p>With regards of style Python combines <em>imperative</em> , <em>object oriented</em>, and <em>functional</em> programming paradigms (more on that later). Furthermore, it is available for all major (and minor) computing platforms and there is an ever growing library of additional packages that can be loaded to extend the base functionality. This allows you to write highly complex programs with a few lines of code.</p>
+<p>With regards to style Python combines <em>imperative</em> , <em>object oriented</em>, and <em>functional</em> programming paradigms (more on that later). Furthermore, it is available for all major (and minor) computing platforms and there is an ever growing library of additional packages that can be loaded to extend the base functionality. This allows you to write highly complex programs with a few lines of code.</p>
 <div id="fig-xkcd-dependency" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-xkcd-dependency-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -314,8 +314,8 @@ Figure&nbsp;1.1: The <a href="https://xkcd.com/353/">xkcd comic #353</a> discuss
 </figcaption>
 </figure>
 </div>
-<p>Python is an interpreted language, meaning that the code you write is not compiled to <em>machine code</em> (like in C/C++ or Fortran) but rather <em>interpreted/executed</em> by an (appropriately named) interpreter. This allows you to write a program interactively (in the Python REPL<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>) or provide the interpreter with a script file that is processed one line after the next. Theses files usually have the ending <code>.py</code>. The interpreter and the language are most of the time both called Python.</p>
-<p>As all programming languages, Python has a certain syntax that we need to follow otherwise the interpreter can not execute the code, this is similar to grammar in a language like (English). The big differences (as probably is can not be avoided in these notes) is that we still understand an English text if it is full of grammar mistakes, spelling errors or plain typos. Python will not give you as much leeway, but some.</p>
+<p>Python is an interpreted language, meaning that the code you write is not compiled to <em>machine code</em> (like in C/C++ or Fortran) but rather <em>interpreted/executed</em> by an (appropriately named) interpreter. This allows you to write a program interactively (in the Python REPL<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>) or provide the interpreter with a script file that is processed one line after the next. These files usually have the ending <code>.py</code>. The interpreter and the language are most of the time both called Python.</p>
+<p>As all programming languages, Python has a certain syntax that we need to follow otherwise the interpreter can not execute the code, this is similar to grammar in a language like <em>English</em>. The big difference (as probably can not be avoided in these notes) is that we still understand an English text if it is full of grammar mistakes, spelling errors or plain typos. Python will not give you as much leeway, but some.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -326,7 +326,7 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>There is still some room to wriggle around but it is best if you hold yourself to the <a href="https://peps.python.org/pep-0008/">Style guide - PEP 8</a> right from the start (we will do so in this notes, if not open an issue on GitHub, Link on the right below the section index).</p>
+<p>There is still some room to wriggle around but it is best if you hold yourself to the <a href="https://peps.python.org/pep-0008/">Style guide - PEP 8</a> right from the start (we will do so in these notes, if not open an issue on GitHub, Link on the right below the section index).</p>
 </div>
 </div>
 <section id="installation" class="level2 unnumbered">
@@ -353,7 +353,7 @@ Important
 </div>
 </div>
 <p>As common for programming guides we start with:</p>
-<div id="3c9dd12c" class="cell styled-output" data-execution_count="1">
+<div id="bf9ae71b" class="cell styled-output" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Hello, World'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Hello, World</code></pre>
@@ -379,7 +379,7 @@ Note
 <li>the REPL returned the result and printed it on screen.</li>
 </ul>
 <p>The text above is called a <em>string</em> and you can do operations with strings</p>
-<div id="f546f503" class="cell styled-output" data-execution_count="2">
+<div id="fb928c51" class="cell styled-output" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Hello,'</span> <span class="op">+</span> <span class="st">'World'</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Spam'</span> <span class="op">*</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -402,7 +402,7 @@ Important
 </div>
 </div>
 <p>In case we want to know more about the function <code>print</code> we can use another function to get some more insight</p>
-<div id="9e980ca2" class="cell styled-output" data-execution_count="3">
+<div id="8e72964f" class="cell styled-output" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">help</span>(<span class="bu">print</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Help on built-in function print in module builtins:
@@ -422,7 +422,7 @@ print(*args, sep=' ', end='\n', file=None, flush=False)
 </div>
 </div>
 <p>Now let us pick up a bit of speed</p>
-<div id="44224dda" class="cell styled-output" data-execution_count="4">
+<div id="d3c9c379" class="cell styled-output" data-execution_count="4">
 <div class="sourceCode cell-code" id="annotated-cell-5"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-5-1" class="code-annotation-target"><a href="#annotated-cell-5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mathematical operators</span></span>
 <span id="annotated-cell-5-2"><a href="#annotated-cell-5-2" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="op">+</span> <span class="dv">2</span></span>
 <span id="annotated-cell-5-3"><a href="#annotated-cell-5-3" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="op">*</span> <span class="dv">10</span></span>
@@ -471,7 +471,7 @@ Note
 </div>
 </div>
 <p>We can assign a value to a <em>variable</em> and use them later on:</p>
-<div id="3bc194fb" class="cell" data-execution_count="5">
+<div id="a0450eca" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>pi <span class="op">=</span> <span class="fl">3.1415926535897932</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">90</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -485,7 +485,7 @@ Note
 <span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>x <span class="op">==</span> x_new</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>There are the usual <em>boolean</em> operators for comparison:</p>
-<div id="80ba2ac9" class="cell" data-execution_count="6">
+<div id="dad98cd8" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="op">!=</span> <span class="dv">2</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="op">&lt;</span> <span class="dv">2</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="op">&gt;</span> <span class="dv">3</span></span>
@@ -498,14 +498,16 @@ Note
 <span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="kw">not</span> (<span class="dv">1</span> <span class="op">!=</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can also change the value of a variable:</p>
-<div id="4222fe68" class="cell styled-output" data-execution_count="7">
+<div id="d80e31bf" class="cell styled-output" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We can make the printed statement more elaborate</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'x ='</span>, x)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fl">45.0</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'x = </span><span class="sc">{</span>x<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'x = </span><span class="sc">{</span>x<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>x<span class="op">=</span><span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>x = 90
-x = 45.0</code></pre>
+x = 45.0
+x=45.0</code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -518,12 +520,12 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Python is dynamically typed, meaning that the type of a variable is checked during runtime and not before hand.</p>
+<p>Python is dynamically typed, meaning that the type of a variable is checked during runtime and not beforehand.</p>
 <p>As a result you can change the type<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> of a variable without the interpreter complaining about it. This is often the cause of strange bugs in programs so be aware that Python has types, even though we do not always see them.</p>
 </div>
 </div>
-<p>In order to understand some of the control sequences we also need to introduce <em>lists</em>. In essence, they represent an order sequence of values that can have arbitrary types.</p>
-<div id="c5905b1d" class="cell" data-execution_count="8">
+<p>In order to understand some of the control sequences we also need to introduce <em>lists</em>. In essence, they represent an ordered sequence of values that can have arbitrary types.</p>
+<div id="172564d2" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># List of integers</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>]</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># List of strings</span></span>
@@ -538,7 +540,7 @@ Note
 <span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>integers[<span class="dv">1</span>] <span class="op">=</span> <span class="op">-</span><span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We also have control sequences:</p>
-<div id="1c87af65" class="cell styled-output" data-execution_count="9">
+<div id="d39235d4" class="cell styled-output" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&lt;</span> <span class="dv">90</span>:</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  x <span class="op">=</span> x <span class="op">*</span> <span class="dv">2</span>      <span class="co"># This section gets executed if the statement is true</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:        <span class="co"># And this if it is false</span></span>
@@ -559,7 +561,7 @@ x = 8100.0</code></pre>
 </div>
 </div>
 <p>As well as loops:</p>
-<div id="9e6c4a44" class="cell styled-output" data-execution_count="10">
+<div id="9fe222bf" class="cell styled-output" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># the for loop works best with lists or sets</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="bu">sum</span> <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> integers:</span>
@@ -568,7 +570,7 @@ x = 8100.0</code></pre>
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>mean <span class="op">=</span> <span class="bu">sum</span> <span class="op">/</span> <span class="bu">len</span>(integers)   <span class="co"># len computes the length of a list</span></span>
 <span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mean)</span>
 <span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="co"># While while loops run until a statement is no longer true</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="co"># While loops run until a statement is no longer true</span></span>
 <span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">5</span></span>
 <span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">2</span></span>
 <span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="dv">1</span></span>
@@ -595,7 +597,7 @@ Caution
 </div>
 </div>
 <p>Of course there are easier ways to compute the sum of a list or <span class="math inline">\(2^5\)</span>. For this we need to import additional functions</p>
-<div id="87d6268f" class="cell styled-output" data-execution_count="11">
+<div id="555971d7" class="cell styled-output" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>mean <span class="op">=</span> math.fsum(integers) <span class="op">/</span> <span class="bu">len</span>(integers)</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mean)</span>
@@ -609,8 +611,8 @@ Caution
 </div>
 <p><code>math</code> is one of the <a href="https://docs.python.org/3/library/index.html">Python standard libraries</a>, but quite often they do not suffice for the task at hand and you need some additional libraries.</p>
 <p>In the next section we will discuss package managers and one possible solution for this.</p>
-<p>Furthermore, so far we only typed in the REPL and if we want to do the same again we need to retype everything. So we need to talk about scripts files which will lead us to version control.</p>
-<p>For now this ends our quick introduction to Python.</p>
+<p>Furthermore, so far we only typed in the REPL and if we want to do the same again we need to retype everything. So we need to talk about script files which will lead us to version control.</p>
+<p>For now, this ends our brief start with Python.</p>
 
 
 </section>
