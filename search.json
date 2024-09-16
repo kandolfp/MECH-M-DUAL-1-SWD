@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Softwaredesign",
     "section": "",
-    "text": "Warning\n\n\n\nThe notes presented here are still under construction and can change without warning.\n\n\n\nPreface\nThese are the lecture notes for the Softwaredesign class part of the MCI | The Entrepreneurial School master for Mechatronik - Automation, Robotics & AI in the winter term 2024/25.\nThese notes are build with Quarto.",
+    "text": "Warning\n\n\n\nThe notes presented here are still under construction and can change without warning.\n\n\n\nPreface\nThese are the lecture notes for the Softwaredesign class part of the MCI | The Entrepreneurial School master for Mechatronik - Automation, Robotics & AI in the winter term 2024/25.\n\n\nAcknowledgements\nWe want to thank the open source community for providing excellent tutorial and guides for Python, Git, and Docker on the web. Individual sources are cited at the appropriate spot throughout document at hand.\nWe want to thank Mirjam Ziselsberger for testing, checking, suggestions and general proofreading. We also want to thank Elias Tappeiner from the Department of Biomedizinische Bildanalyse UMIT, Hall in Tirol, Österreich for his slides on Git.\nThese notes are build with Quarto.",
     "crumbs": [
       "Preface"
     ]
