@@ -7,7 +7,7 @@ These notes where originally developed for the class _971001 Software_ at the Un
 A Version Control Software (VCS) is, in its most abstract form, designed to keep track of changes to a file system. 
 This means it tracks changes in files, such as addition or deletion, but also more basic modifications to files or directories. 
 A VCS also allows teams to collaborate and therefore inform each other of changes made by others. 
-Some of the main features of a VCS is that you can: 
+Some of the main features of a VCS are: 
 
 1. Revert a file or an entire directory to a previous state.
 1. Compare files or directories to a previous version.
@@ -16,12 +16,12 @@ Some of the main features of a VCS is that you can:
 1. Keep track who changed what and when.
 1. Much more
 
-In the scope of an entire file system this is used by operation systems to minimize file loss and allows users to restore unwanted changes. 
-Most often, and that is also the main focus here, a VCS is used to track of source code. 
+In the scope of an entire file system, this is used by operation systems to minimize file loss and allowing users to restore unwanted changes. 
+Most often, and that is also the main focus here, a VCS is used to track source code. 
 This might be a software project or a term paper. 
 Nevertheless, the VCS will  keep track of additions, deletions, modifications and so forth of individual lines of _text_ within these files. 
 We will focus on *Git* but there are alternatives around such as _Mercurial_, _CVS_, or _SVN_.
-All of them have individual strengths and weaknesses but in terms of wide spread use Git is in the lead. 
+All of them have individual strengths and weaknesses but, in terms of widespread use, Git is in the lead. 
 
 ### What is git and a bit of history {.unnumbered}
 
@@ -50,7 +50,7 @@ Regarding the name:
 "Global information tracker": you're in a good mood, and it actually works for you. Angels sing, and a light suddenly fills the room.
 - "Goddamn idiotic truckload of sh&ast;t": when it breaks.
 
-In the following we try to give a pragmatic hands on introduction to the concepts of git and how it can be uses. 
+In the following we try to give a pragmatic hands on introduction to the concepts of Git and how it can be uses. 
 The notes are a mix of several sources but the main ideas are based on the [git training by the UnseenWizzard](https://github.com/UnseenWizzard/git_training).
 
 
@@ -108,10 +108,10 @@ Obviously not everybody learns the same way and the concepts of Git can make you
 - [Git cheat sheet](https://education.github.com/git-cheat-sheet-education.pdf) from [education.github.com](https://education.github.com)
 
 ## Basics of Git
-Git is a distributed VCS, in this case this means the entire _repository_ is distributed on various machines and possible multiple _remotes_. 
+Git is a distributed VCS, which means the entire _repository_ is distributed on various machines and possible multiple _remotes_. 
 This was a clear design choice that allows individual contributors to work independently of the availability of a _remote_ but still have the full history available. 
 The following is based on the [git training by the UnseenWizzard](https://github.com/UnseenWizzard/git_training). 
-The main structure as well as the basic idea in the pictures follows this notes, with a view adaptations where needed. 
+The main structure as well as the basic idea in the pictures follows these notes, with a view adaptations where needed. 
 
 In particular, such a setup could look something like this:
 
