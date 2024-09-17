@@ -418,10 +418,14 @@ Note
 <p>Like the name suggests the <em>Local (development) environment</em> sits on your machine. The <em>working directory</em> is your current version of the files contained in the repository and the <em>Local Repository</em> is the copy of the entire repository (with all changes) on your machine. We will learn more about these parts as we go along.</p>
 <section id="let-us-start-with-getting-a-remote-repository" class="level3" data-number="3.1.1">
 <h3 data-number="3.1.1" class="anchored" data-anchor-id="let-us-start-with-getting-a-remote-repository"><span class="header-section-number">3.1.1</span> Let us start with getting a <em>Remote Repository</em></h3>
-<p>In order to allow a playfield for this class I created a repository that we are going to use. In order to get it onto you local machine type the following commands in the Terminal:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Navigate to a suitable directory</span></span>
+<p>In order to allow a playfield for this class I created a repository that we are going to use. In order to get it onto you local machine, type the following commands in the Terminal:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Navigate to a suitable directory</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://{YOUR ID}@git.uibk.ac.at/c702169/ulg22_playground.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This will perform the following two actions: 1. <em>Checkout</em> the content of the <em>remote repository</em> into the <em></em>. By default this is the name of the repository, in your case the folder <code>ulg22_playground</code> is created and all files are put there. 1. A copy of the <em>remote repository</em> is stored in the <em></em>. For all intended purposes, it acts exactly the same as the <em>Remote Repository</em>, with the sole exception that is not shared with others.</p>
+<p>This will perform the following two actions:</p>
+<ol type="1">
+<li><em>Checkout</em> the content of the <em>remote repository</em> into the <em></em>. By default this is the name of the repository, in your case the folder <code>ulg22_playground</code> is created and all files are put there.</li>
+<li>A copy of the <em>remote repository</em> is stored in the <em></em>. For all intended purposes, it acts exactly the same as the <em>Remote Repository</em>, with the sole exception that is not shared with others.</li>
+</ol>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="../_assets/basics/versioncontrol/distributed2.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Clone a remote repository to your machine"><img src="../_assets/basics/versioncontrol/distributed2.svg" class="img-fluid figure-img" alt="Clone a remote repository to your machine"></a></p>
@@ -441,7 +445,7 @@ Note
 <p>In my case the command reads like this:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> cp <span class="ex">../Exercises/reference_solution.py</span> python_ex1/ID.py</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="st">'../Exercises/reference_solution.py'</span> <span class="at">-</span><span class="op">&gt;</span> <span class="st">'python_ex1/ID.py'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This has we modified our <em>working directory</em>. In order to get an idea what Git thinks about this lets run <code>git status</code> in the working directory:</p>
+<p>This has modified our <em>working directory</em>. In order to get an idea what Git thinks about this lets run <code>git status</code> in the working directory:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">On</span> branch main</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Your</span> branch is up to date with <span class="st">'origin/main'</span>.</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -450,7 +454,7 @@ Note
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="ex">python_ex1/ID.py</span></span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="ex">nothing</span> added to commit but untracked files present <span class="er">(</span><span class="ex">use</span> <span class="st">"git add"</span> to track<span class="kw">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Lets break down the output of the command. First, Git tells you on what <em>branch</em> you are on (we will hear more about that later), second, that <em>local repository</em> is different from the <em>remote repository</em> and it states that you have <em>tracked</em> and <em>untracked</em> files.</p>
+<p>Lets break down the output of the command. First, Git tells you which <em>branch</em> you are on (we will hear more about that later), second, that <em>local repository</em> is different from the <em>remote repository</em> and it states that you have <em>tracked</em> and <em>untracked</em> files.</p>
 <p>Now, a <em>tracked</em> files is a file that is part of the repository and Git is keeping <em>track</em> of what is happening to it. An <em>untracked</em> file on the other hand, is a file that is in the same directory but it is not managed by Git.</p>
 <p>Git tells you how to change the status of your <em>untracked</em> file into a <em>tracked</em> file.</p>
 <p>We do this by running <code>git add python_ex1/ID.py</code>.</p>
@@ -468,7 +472,7 @@ Note
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Changes</span> to be committed:</span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">(</span><span class="ex">use</span> <span class="st">"git restore --staged &lt;file&gt;..."</span> to unstage<span class="kw">)</span></span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="ex">new</span> file:   python_ex1/ID.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Now that we are satisfied that all our changes are in the <em>staging area</em> we are ready to <em>commit</em> the changes to the <em>local repository</em>. This is done by running <code>git commit</code>. A text editor will open and you are able to write a message telling everybody what you just did in the repository. Usually you will also see the changes you are about to commit. The <em>commit message</em> is something really important and the message should be meaningful and readable as it will be later used by others to understand your action. There are several ways to do this and it boils down to what you team wants but here are some links on good commit messages:</p>
+<p>Now that we are confident that all our changes are in the <em>staging area</em>, we are ready to <em>commit</em> the changes to the <em>local repository</em>. This is done by running <code>git commit</code>. A text editor will open and you are able to write a message telling everybody what you just did in the repository. Usually you will also see the changes you are about to commit. The <em>commit message</em> is something really important and the message should be meaningful and readable as it will be later used by others to understand your action(s). There are several ways to do this and it boils down to what your team wants, but here are some links on good commit messages:</p>
 <ul>
 <li><a href="https://www.conventionalcommits.org/en/v1.0.0/">Conventional Commits</a></li>
 <li><a href="https://cbea.ms/git-commit/">https://cbea.ms/git-commit/</a></li>
@@ -484,20 +488,7 @@ Note
 <figcaption>Committing changes the repository</figcaption>
 </figure>
 </div>
-<p>In the above message you can see that your commit get some more meta data. Specifically, it gets a <a href="https://de.wikipedia.org/wiki/Secure_Hash_Algorithm">SHA-1</a> hash, namely <code>578e48f</code> The hash is used to keep track of your commits and is one of the ground breaking ideas that makes Git so successful. The hash is much longer but due to its nature in most cases already its first seven digits will make it unique.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Any changes done to a file after running <code>git add &lt;file&gt;</code> will not be part of a <em>commit</em>. If they should be included you need to rerun <code>git add &lt;file&gt;</code>.</p>
-</div>
-</div>
+<p>In the above message you can see that your commit gets some more meta data. Specifically, it gets a <a href="https://de.wikipedia.org/wiki/Secure_Hash_Algorithm">SHA-1</a> hash, namely <code>578e48f</code> The hash is used to keep track of your commits and is one of the ground breaking ideas that makes Git so successful. The hash is much longer, but due to its nature it is in most cases unique from the first seven digits. :::{.callout-important} Any changes done to a file after running <code>git add &lt;file&gt;</code> will not be part of a <em>commit</em>. If they should be included you need to rerun <code>git add &lt;file&gt;</code>. :::</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -511,7 +502,7 @@ Important
 <p>My submitting an <em>empty</em> commit message you can abort a commit.</p>
 </div>
 </div>
-<p>Now the changes are in the <em>local repository</em> and you can continue working. In order to share your changes with others you need to get them to the <em>remote repository</em>. This is done by <em>pushing</em> the changes. We do this by calling <code>git push</code> witch gives us an output similar to:</p>
+<p>Now the changes are in the <em>local repository</em> and you can continue working. In order to share your changes with others you need to get them to the <em>remote repository</em>. This is done by <em>pushing</em> the changes. We do this by calling <code>git push</code>, which gives us an output similar to:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Enumerating</span> objects: 6, done.</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Counting</span> objects: 100% <span class="er">(</span><span class="ex">6/6</span><span class="kw">)</span><span class="ex">,</span> done.</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Delta</span> compression using up to 16 threads</span>
@@ -526,7 +517,7 @@ Important
 <figcaption>Pushing changes from the local to the remote repository</figcaption>
 </figure>
 </div>
-<p>Now, if you would do this on your own everything is working and your are happy. Unfortunately, as we are doing this in a class and all at the same time we will run into some difficulties. After all, this is a crash course for Git, eventually something hat to crash.</p>
+<p>Now, if you were to do this on your own, everything would work and you would be happy. Unfortunately, since we are doing this in a class and at the same time, we will encounter some difficulties. After all, this is a crash course for Git, so eventually something hat to crash.</p>
 <p>Some of you might get the following message for <code>git push</code>:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">To</span> https://git.uibk.ac.at/c102338/ulg22_playground.git</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a> <span class="ot">! </span><span class="ex">[rejected]</span>        main <span class="at">-</span><span class="op">&gt;</span> main <span class="er">(</span><span class="ex">non-fast-forward</span><span class="kw">)</span></span>
@@ -535,7 +526,7 @@ Important
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="ex">hint:</span> its remote counterpart. Integrate the remote changes <span class="er">(</span><span class="ex">e.g.</span></span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="ex">hint:</span> <span class="st">'git pull ...'</span><span class="kw">)</span> <span class="ex">before</span> pushing again.</span>
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="ex">hint:</span> See the <span class="st">'Note about fast-forwards'</span> in <span class="st">'git push --help'</span> for details.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This gives us the opportunity to talk about how to get changes from the <em>remote repository</em> to your <em>local repository</em> after the initial <em>clone</em>. Unfortunately, in order to do this properly we need to talk about branches first.</p>
+<p>This gives us the opportunity to talk about how to get changes from the <em>remote repository</em> to your <em>local repository</em> after the initial <em>clone</em>. But first, in order to do this properly, we need to talk about branches.</p>
 </section>
 </section>
 <section id="branches" class="level2" data-number="3.2">
@@ -553,12 +544,12 @@ Important
 <p>Now without knowing we created a branch. It is not visible to us but it is clear from the point of the <em>remote repository</em>.</p>
 <p>There are several ways of <em>integrating</em> or <em>merging</em> two branches back into one.</p>
 <p>For now we will only talk about the most elegant and simplest way, with a <code>rebase</code>.</p>
-<p>Naturally, every branch is <em>based</em> on a commit. In the above example <code>9a98eb2</code> is based on <code>e8f13f4</code>. As the name suggests, <em>rebase</em> simple changes this base. This gives us a clean way of how the entire Git commit chain is supposed to be read. One way of performing a rebase we will see shortly. But first, lets talk about how to</p>
+<p>Naturally, every branch is <em>based</em> on a commit. In the above example <code>9a98eb2</code> is based on <code>e8f13f4</code>. As the name suggests, <em>rebase</em> simple changes this base. This gives us a clean way of how the entire Git commit chain is supposed to be read. We will see one way to perform a rebase in a moment. But first we need to know how to get remote changes into your local repository.</p>
 </section>
 <section id="integrating-remote-changes-into-your-local-environment" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="integrating-remote-changes-into-your-local-environment"><span class="header-section-number">3.3</span> Integrating remote changes into your local environment</h2>
 <p>The above <em>error</em> message gives us already a hint on what to do but lets make it more structured.</p>
-<p>By running a</p>
+<p>By running:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> git <span class="ex">status</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">On</span> branch main</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Your</span> branch and <span class="st">'origin/main'</span> have diverged,</span>
@@ -574,11 +565,11 @@ Important
 <figcaption>Fetching changes from the remote to the local repository</figcaption>
 </figure>
 </div>
-<p>The important part here is, that this does not effect your <em>working directory</em> as the changes are only synchronized with the <em>local repository</em> and when you try to push again you will see the same message. It does not even effect your <em>local branches</em>, it will only make sure that all of the <em>remote branches</em> are synchronized.</p>
+<p>The important part here is, that this does not affect your <em>working directory</em> as the changes are only synchronized with the <em>local repository</em> and when you try to push again you will see the same message. It does not even affect your <em>local branches</em>, it will only make sure that all of the <em>remote branches</em> are synchronized.</p>
 <section id="pulling" class="level3" data-number="3.3.1">
 <h3 data-number="3.3.1" class="anchored" data-anchor-id="pulling"><span class="header-section-number">3.3.1</span> Pulling</h3>
 <p>In order to affect the <em>working directory</em> and your <em>local branches</em>, we need to pull the changes in. This is done with <code>git pull</code>.</p>
-<p>As we have some <em>conflicts</em> we need to define a strategy how to deal with them. At the moment we only know one so let us use</p>
+<p>As we have some <em>conflicts</em> we need to define a strategy how to deal with them. At the moment we only know one, so let us use:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> git <span class="ex">pull</span> <span class="at">--rebase</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Successfully</span> rebased and updated refs/heads/main.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This should have worked for everybody as all of you added different files to the repository and the Git tree looks something like this:</p>
@@ -593,7 +584,7 @@ Important
 </section>
 <section id="modifying-content-in-a-repository" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="modifying-content-in-a-repository"><span class="header-section-number">3.4</span> Modifying content in a repository</h2>
-<p>A good start to do this is to link our uploaded file form the <code>README</code> contained in the repository.</p>
+<p>A good start to do this is to link our uploaded file to the table in the <code>README</code> file in the repository.</p>
 <p>With your favourite editor add the following content next to your <code>ID</code> (btw. this is <a href="https://en.wikipedia.org/wiki/Markdown">markdown</a> syntax):</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># ulg22_playground</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -602,7 +593,7 @@ Important
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>| Name/UID    | File        |</span>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>| ----------- | ----------- |</span>
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>| ID     | <span class="co">[</span><span class="ot">my upload</span><span class="co">](python_ex1/ID.py)</span> |</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>If we check with <code>git status</code> we can see that <code>README.md</code> is modified</p>
+<p>If we check with <code>git status</code> we can see that <code>README.md</code> is modified.</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">On</span> branch main</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Your</span> branch is ahead of <span class="st">'origin/main'</span> by 1 commit.</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">(</span><span class="ex">use</span> <span class="st">"git push"</span> to publish your local commits<span class="kw">)</span></span>
@@ -660,7 +651,7 @@ Important
 <span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a> | csad3581 | |</span>
 <span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a> | csak1512 | |</span>
 <span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a> | csak4299 | |</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>which show the changes to the <em>staging area</em>. If we are satisfied with our changes, we can use <code>git add README.md</code> again to add the file to the <em>staging area</em> and finally commit it with <code>git commit</code>. Of course we do this <strong>with a meaningful commit message</strong>.</p>
+<p>which shows the changes to the <em>staging area</em>. If we are satisfied with our changes, we can use <code>git add README.md</code> again to add the file to the <em>staging area</em> and finally commit it with <code>git commit</code>. Of course we do this <strong>with a meaningful commit message</strong>.</p>
 <p>Depending on your timing, you might have to <em>fetch</em> and <em>pull</em> in changes to your <em>local repository</em>. By the way, you can directly call <code>git pull</code>, without first calling <code>git fetch</code>, the fetch is done implicitly. But we should not get a conflict as everybody changed a different line.</p>
 </section>
 <section id="conflicts-and-how-to-resolve-them" class="level2" data-number="3.5">
@@ -741,7 +732,7 @@ Important
 <span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="ex">hint:</span> You can instead skip this commit: run <span class="st">"git rebase --skip"</span>.</span>
 <span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="ex">hint:</span> To abort and get back to the state before <span class="st">"git rebase"</span>, run <span class="st">"git rebase --abort"</span>.</span>
 <span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="ex">Could</span> not apply d9ac598... add my exercise sheet</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>As per usual, Git is quite helpful and tells you what to do. We have several options:</p>
+<p>As usual, Git is quite helpful and tells you what to do. We have several options:</p>
 <ol type="1">
 <li>solve the <em>conflicts</em>, add the files and continue the rebase.</li>
 <li>skip our our commit <code>d9ac598</code>, so do not apply these changes</li>
@@ -768,7 +759,7 @@ Important
 <li>and what we want to push out ended by a line <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; d9ac598</code> together with the commit message.</li>
 </ul>
 <p>This will be repeated for every conflict in the file.</p>
-<p>If the conflicts are more elaborate and connected it is good to use a tool to sort it out. Your favourite IDE will most likely come with some toll or you look at specific Git tools for conflict resolution.</p>
+<p>If the conflicts are more elaborate and connected it is good to use a tool to sort it out. Your favourite IDE will most likely come with some tool or you look at specific Git tools for conflict resolution.</p>
 <p>For us it is simple. We just want the file to look like</p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a> | ID  | <span class="co">[</span><span class="ot">my upload</span><span class="co">](python_ex1/ID.py)</span> run it by calling <span class="in">`python3 python_ex1/ID.py`</span>|</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>so we make these changes and call</p>
@@ -812,7 +803,7 @@ Important
 <span id="cb27-28"><a href="#cb27-28" aria-hidden="true" tabindex="-1"></a> <span class="co"># ----------------------------------------------</span></span>
 <span id="cb27-29"><a href="#cb27-29" aria-hidden="true" tabindex="-1"></a> <span class="co"># (3) Gaussian density</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>We have a dirty working directory as we just started to work on an alternative implementation for (2) but we are 1 commit behind the remote. With <code>git stash push</code> we can tell git to put all the changes aside for us and keep them safe (an optional message can be added). After pulling the remote changes back in we can finally reapply our stashed work by calling <code>git stash pop</code> (this will apply the latest stash, in case we have several).</p>
-<p>Here it is as image and in the bash.</p>
+<p>Here it is as image and in the terminal.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="../_assets/basics/versioncontrol/stash.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Stashing changes and pulling in from remote, see numbers for order"><img src="../_assets/basics/versioncontrol/stash.svg" class="img-fluid figure-img" alt="Stashing changes and pulling in from remote, see numbers for order"></a></p>
@@ -915,7 +906,7 @@ Note
 </section>
 <section id="further-stuff" class="level2" data-number="3.8">
 <h2 data-number="3.8" class="anchored" data-anchor-id="further-stuff"><span class="header-section-number">3.8</span> Further stuff</h2>
-<p>There is much more to see and do but this concludes the absolute basics. You will learn way more when you work with Git for some time some topics that you will come across are:</p>
+<p>There is much more to see and do but this concludes the absolute basics. You will learn way more when you work with Git for some time. Some topics that you will come across are:</p>
 <ul>
 <li>The <code>.gitignore</code> file</li>
 <li>More elaborate work with branches</li>
@@ -1540,7 +1531,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","descPosition":"bottom","openEffect":"zoom","loop":false});
+<script>var lightboxQuarto = GLightbox({"loop":false,"closeEffect":"zoom","selector":".lightbox","openEffect":"zoom","descPosition":"bottom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
