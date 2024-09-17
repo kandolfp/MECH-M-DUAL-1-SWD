@@ -296,7 +296,7 @@ Note
 <p>These notes where originally developed for the class <em>971001 Software</em> at the University of Innsbruck and are slightly adapted for this notes. See <span class="citation" data-cites="pgd2024">Kandolf (<a href="../references.html#ref-pgd2024" role="doc-biblioref">2024</a>)</span> for the original source and <a href="https://kandolfp.github.io/ws22-ulg-python-git-docker/pages/git/">github pages</a> for the notes.</p>
 </div>
 </div>
-<p>A Version Control Software (VCS) is, in its most abstract form, designed to keep track of changes to a file system. This means it tracks changes in files, such as addition or deletion, but also more basic modifications to files or directories. A VCS also allows teams to collaborate and therefore inform each other of changes made by others. Some of the main features of a VCS is that you can:</p>
+<p>A Version Control Software (VCS) is, in its most abstract form, designed to keep track of changes to a file system. This means it tracks changes in files, such as addition or deletion, but also more basic modifications to files or directories. A VCS also allows teams to collaborate and therefore inform each other of changes made by others. Some of the main features of a VCS are:</p>
 <ol type="1">
 <li>Revert a file or an entire directory to a previous state.</li>
 <li>Compare files or directories to a previous version.</li>
@@ -305,7 +305,7 @@ Note
 <li>Keep track who changed what and when.</li>
 <li>Much more</li>
 </ol>
-<p>In the scope of an entire file system this is used by operation systems to minimize file loss and allows users to restore unwanted changes. Most often, and that is also the main focus here, a VCS is used to track of source code. This might be a software project or a term paper. Nevertheless, the VCS will keep track of additions, deletions, modifications and so forth of individual lines of <em>text</em> within these files. We will focus on <em>Git</em> but there are alternatives around such as <em>Mercurial</em>, <em>CVS</em>, or <em>SVN</em>. All of them have individual strengths and weaknesses but in terms of wide spread use Git is in the lead.</p>
+<p>In the scope of an entire file system, this is used by operation systems to minimize file loss and allowing users to restore unwanted changes. Most often, and that is also the main focus here, a VCS is used to track source code. This might be a software project or a term paper. Nevertheless, the VCS will keep track of additions, deletions, modifications and so forth of individual lines of <em>text</em> within these files. We will focus on <em>Git</em> but there are alternatives around such as <em>Mercurial</em>, <em>CVS</em>, or <em>SVN</em>. All of them have individual strengths and weaknesses but, in terms of widespread use, Git is in the lead.</p>
 <section id="what-is-git-and-a-bit-of-history" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="what-is-git-and-a-bit-of-history">What is git and a bit of history</h3>
 <p>Git was developed as a free and open source software by <a href="https://en.wikipedia.org/wiki/Linus_Torvalds">Linus Torvalds</a> in 2005 for the development of the Linux kernel. The main goals in the development were (according to <a href="https://en.wikipedia.org/wiki/Git">wikipedia</a>):</p>
@@ -329,7 +329,7 @@ Note
 <li>Stupid. Contemptible and despicable. Simple. Take your pick from the dictionary of slang. “Global information tracker”: you’re in a good mood, and it actually works for you. Angels sing, and a light suddenly fills the room.</li>
 <li>“Goddamn idiotic truckload of sh*t”: when it breaks.</li>
 </ul>
-<p>In the following we try to give a pragmatic hands on introduction to the concepts of git and how it can be uses. The notes are a mix of several sources but the main ideas are based on the <a href="https://github.com/UnseenWizzard/git_training">git training by the UnseenWizzard</a>.</p>
+<p>In the following we try to give a pragmatic hands on introduction to the concepts of Git and how it can be uses. The notes are a mix of several sources but the main ideas are based on the <a href="https://github.com/UnseenWizzard/git_training">git training by the UnseenWizzard</a>.</p>
 </section>
 <section id="installing-git-on-your-system" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="installing-git-on-your-system">Installing Git on your system</h3>
@@ -406,7 +406,7 @@ Note
 </section>
 <section id="basics-of-git" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="basics-of-git"><span class="header-section-number">3.1</span> Basics of Git</h2>
-<p>Git is a distributed VCS, in this case this means the entire <em>repository</em> is distributed on various machines and possible multiple <em>remotes</em>. This was a clear design choice that allows individual contributors to work independently of the availability of a <em>remote</em> but still have the full history available. The following is based on the <a href="https://github.com/UnseenWizzard/git_training">git training by the UnseenWizzard</a>. The main structure as well as the basic idea in the pictures follows this notes, with a view adaptations where needed.</p>
+<p>Git is a distributed VCS, which means the entire <em>repository</em> is distributed on various machines and possible multiple <em>remotes</em>. This was a clear design choice that allows individual contributors to work independently of the availability of a <em>remote</em> but still have the full history available. The following is based on the <a href="https://github.com/UnseenWizzard/git_training">git training by the UnseenWizzard</a>. The main structure as well as the basic idea in the pictures follows these notes, with a view adaptations where needed.</p>
 <p>In particular, such a setup could look something like this:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1540,7 +1540,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","descPosition":"bottom","selector":".lightbox","closeEffect":"zoom","loop":false});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","loop":false,"descPosition":"bottom","openEffect":"zoom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
