@@ -108,7 +108,7 @@ For this guide we closely follow the notes on the project page [https://pdm-proj
 ::: 
 
 ### Installation
-First we need to install `pdm` so that it is available (globally) on our system. For this to work, Python version 3.8 or later must available on the system.
+First we need to install `pdm` so that it is available (globally) on our system. For this to work, Python version 3.8 or later must be available on the system.
 
 The recommended way is to use the provided install script.
 
