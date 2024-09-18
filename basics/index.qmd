@@ -7,7 +7,7 @@ In this secton we are going to lay the ground work for our introduction into _so
 - our way of keeping track of our code and projects - [git](https://git-scm.com/) - see @sec-intro-versioncontrol
 
 We will use these tools throughout the notes.
-Our aim is, that by the end of the notes you will use them without a second thought.
+**Our aim is, that by the end of the notes you will use them without a second thought.**
 
 ::: {.callout-note}
 As mentioned earlier, these notes assume that you have some basic knowledge of programming and we build on that knowledge to widen your horizon.
@@ -22,13 +22,9 @@ Here you find some literature regarding the topics covered in this section.
 ### Python {.unnumbered}
 
 - @Matthes2023: Python Crash Course - A hands-on, project-based introduction to programming; [Online Material](https://ehmatthes.github.io/pcc_3e/).
-
 - [Python Cheat Sheet](https://github.com/ehmatthes/pcc_3e/releases/download/v1.0.0/beginners_python_cheat_sheet_pcc_all.pdf) provided by @Matthes2023.
-
 - @McKinney2022-qz: Python for data analysis 3e; [Online](https://wesmckinney.com/book/) and Print 
-
 - @Vasiliev2022: Python for Data Science - A Hands-On Introduction
-
 - @Inden2023: Python lernen – kurz & gut; German
 
 ### PDM {.unnumbered}
@@ -39,16 +35,10 @@ Here you find some literature regarding the topics covered in this section.
 ### Git {.unnumbered}
 
 - @Ponuthorai2022: Version Control with Git: Powerful Tools and Techniques for Collaborative Software Development; 
-
 - @chacon2014pro: Pro Git: Everything you need to know about Git, [Online](https://git-scm.com/book/en/v2)
-
 - @Siessegger2024: Git – kurz & gut; German
-
 - @lodato2010: A Visual Git Reference, [Online](https://marklodato.github.io/visual-git-guide/index-en.html)
-
 - @coglan2014: A book that tells you how to build Git on your own, [Shop](https://shop.jcoglan.com/building-git/)
-
 - @lodato2010: Write yourself a Git; an online book that tells you how to build Git on your own, [Link](https://wyag.thb.lt/)
-
 - [Git cheat sheet](https://education.github.com/git-cheat-sheet-education.pdf) from [education.github.com](https://education.github.com)
 
