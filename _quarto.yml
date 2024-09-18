@@ -4,6 +4,7 @@ project:
 book:
   title: "Softwaredesign"
   date: last-modified
+  reader-mode: true
   page-footer:
     left: Softwaredesign WS 2024 (MECH-M-DUAL-1-SWD)
     center: "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) Peter Kandolf"
