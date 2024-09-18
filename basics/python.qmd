@@ -266,7 +266,7 @@ In the next section we will discuss package managers and one possible solution f
 Furthermore, so far we only typed in the REPL and if we want to do the same again we need to retype everything.
 So we need to talk about script files which will lead us to version control.
 
-For now, this ends our brief start with Python.
+For now, this ends our brief start with Python but you should try our new knowledge by finishing the following exercise.
 
 ## Exercises
 
@@ -277,9 +277,7 @@ For two given lists `list1` and `list2` of integers with equal length define the
 
 1. `list_zip` which combines the two lists to a single list like a zip.
 So start with the first element of `list1`, followed by the first element of `list2`, than the second elements until all elements of the lists are combined.
-
 1. `list_odd` which contains only the odd integers of `list1`, followed by the odd integers of `list2`.
-
 1. `list_zip_reverse` which combines the elements of the lists like for `list_zip` but starts at the last element of `list1`.
 
 ### Example {.unnumbered}
