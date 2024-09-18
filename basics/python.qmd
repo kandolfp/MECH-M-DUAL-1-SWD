@@ -185,7 +185,26 @@ As a result you can change the type[^7] of a variable without the interpreter co
 This is often the cause of strange bugs in programs so be aware that Python has types, even though we do not always see them.
 :::
 
-In order to understand some of the control sequences we also need to introduce _lists_.
+We have simple simple control sequences that help us to run different code depending on a condition:
+```{python}
+#| classes: styled-output
+if x < 90:
+  x = x * 2      # This section gets executed if the statement is true
+else:
+  x = x / 2      # And this if it is false
+
+print(f'x = {x}')
+
+if x < 45:
+  x = x * 2
+elif x < 90:
+  x = x * 3      # If the first statement is false but the second true
+else:
+  x = x ** 2     # If none of the above statements is true
+print(f'x = {x}')
+```
+
+In order to understand loops better we first need to introduce _lists_.
 In essence, they represent an ordered sequence of values that can have arbitrary types.
 ```{python}
 #| output: false
@@ -203,26 +222,37 @@ integers = [2, 4, 6, 8]
 integers[1] = -4
 ```
 
-We also have control sequences:
+There are also functions that can generate specific types of lists for you.
+One such function is `range`, with the signature `range(start, stop[, step])`.
 ```{python}
-#| classes: styled-output
-if x < 90:
-  x = x * 2      # This section gets executed if the statement is true
-else:            
-  x = x / 2      # And this if it is false
-
-print(f'x = {x}')
-
-if x < 45:
-  x = x * 2
-elif x < 90:
-  x = x * 3      # If the first statement is false but the second true
-else:
-  x = x ** 2     # If none of the above statements is true
-print(f'x = {x}')
+# List of integers from 0 to 2
+range(3)
+# List of integers from 5 to 9
+range(5, 10)
+# List of integers from 10 to 1 in reverse order
+range(10, 0, -1)
 ```
+::: {.callout-caution}
+Note that the `stop` value is not part of the list but rather `stop -1` and technically `range` does not return a list but rather an object that behaves like a list for most parts.
+```python
+# Part of the help
+>>> help(range)
 
-As well as loops:
+Help on class range in module builtins:
+
+class range(object)
+ |  range(stop) -> range object
+ |  range(start, stop[, step]) -> range object
+ |  
+ |  Return an object that produces a sequence of integers from start (inclusive)
+ |  to stop (exclusive) by step.  range(i, j) produces i, i+1, i+2, ..., j-1.
+ |  start defaults to 0, and stop is omitted!  range(4) produces 0, 1, 2, 3.
+ |  These are exactly the valid indices for a list of 4 elements.
+ |  When step is given, it specifies the increment (or decrement).
+```
+:::
+
+Now let us introduce loops as part of our control sequences:
 ```{python}
 #| classes: styled-output
 # For loops work best with lists or sets
@@ -233,6 +263,16 @@ for i in integers:
 mean = sum / len(integers)   # len computes the length of a list
 print(mean)
 
+# Find out how many even and how many odd number are in a list
+odd = 0
+even = 0
+for i in range(1, 10):
+  if i % 2:
+    even = even + 1
+  else:
+    odd = odd + 1
+print(f'{even=}, {odd=}')
+
 # While loops run until a statement is no longer true
 a = 5
 b = 2
@@ -240,7 +280,7 @@ c = 1
 while (a > 0):
   a = a - 1
   c = c * b
-print(c)
+print(f'{b}^5 = {c}')
 ```
 
 :::{.callout-caution}
