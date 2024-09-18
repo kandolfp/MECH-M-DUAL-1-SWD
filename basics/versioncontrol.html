@@ -423,8 +423,8 @@ Note
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://{YOUR ID}@git.uibk.ac.at/c702169/ulg22_playground.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This will perform the following two actions:</p>
 <ol type="1">
-<li><em>Checkout</em> the content of the <em>remote repository</em> into the <em></em>. By default this is the name of the repository, in your case the folder <code>ulg22_playground</code> is created and all files are put there.</li>
-<li>A copy of the <em>remote repository</em> is stored in the <em></em>. For all intended purposes, it acts exactly the same as the <em>Remote Repository</em>, with the sole exception that is not shared with others.</li>
+<li><em>Checkout</em> the content of the <em>remote repository</em> into the <span style="color: #e67700;"><em>working directory</em></span>. By default this is the name of the repository, in your case the folder <code>ulg22_playground</code> is created and all files are put there.</li>
+<li>A copy of the <em>remote repository</em> is stored in the <span style="color: #1864ab;"><em>local repository</em></span>. For all intended purposes, it acts exactly the same as the <em>Remote Repository</em>, with the sole exception that is not shared with others.</li>
 </ol>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -458,7 +458,7 @@ Note
 <p>Now, a <em>tracked</em> files is a file that is part of the repository and Git is keeping <em>track</em> of what is happening to it. An <em>untracked</em> file on the other hand, is a file that is in the same directory but it is not managed by Git.</p>
 <p>Git tells you how to change the status of your <em>untracked</em> file into a <em>tracked</em> file.</p>
 <p>We do this by running <code>git add python_ex1/ID.py</code>.</p>
-<p>Now it is time to introduce another Git concept, namely the <em></em>. The stating area is the curious white spot between your <em>working directory</em> and the <em>local repository</em> in the above pictures. This is the place where Git collects all the changes to your files that you want to put into the <em>local repository</em>.</p>
+<p>Now it is time to introduce another Git concept, namely the <span style="color: #862e9c;"><em>staging area</em></span>. The stating area is the curious white spot between your <em>working directory</em> and the <em>local repository</em> in the above pictures. This is the place where Git collects all the changes to your files that you want to put into the <em>local repository</em>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="../_assets/basics/versioncontrol/staging.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Staging area with the changes that can be moved to the repository"><img src="../_assets/basics/versioncontrol/staging.svg" class="img-fluid figure-img" alt="Staging area with the changes that can be moved to the repository"></a></p>
@@ -1531,7 +1531,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"loop":false,"closeEffect":"zoom","selector":".lightbox","openEffect":"zoom","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","loop":false,"selector":".lightbox","descPosition":"bottom","openEffect":"zoom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
