@@ -71,7 +71,7 @@ This part is designed as a type along session!
 As usual for programming guides, we start with:
 ```{python}
 #| classes: styled-output
-print('Hello, World')
+print("Hello, World")
 ```
 
 :::{.callout-note}
@@ -83,15 +83,15 @@ For this reason and to make it easier to copy and past code from the notes we om
 Lets break down what we did above[^6]:
 
 - we called a function `print` - indicated by `(` and `)` respectively,
-- we handed the text _Hello, World_ to that function - indicated by the two `'`,
+- we handed the text _Hello, World_ to that function - indicated by the two `"`,
 - the REPL returned the result and printed it on screen.
 
 The text above is called a _string_ and you can do operations with strings, like:
 
 ```{python}
 #| classes: styled-output
-print('Hello,' + 'World')
-print('Spam' * 5)
+print("Hello," + "World")
+print("Spam" * 5)
 ```
 
 Here `+` and `*` are so called _operators_.
@@ -173,10 +173,10 @@ We can also change the value of a variable:
 ```{python}
 #| classes: styled-output
 # We can make the printed statement more elaborate
-print('x =', x)
+print("x =", x)
 x = 45.0
-print(f'x = {x}')
-print(f'{x=}')
+print(f"x = {x}")
+print(f"{x=}")
 ```
 :::{.callout-note}
 Python is dynamically typed, meaning that the type of a variable is checked during runtime and not beforehand.
@@ -193,7 +193,7 @@ if x < 90:
 else:
   x = x / 2      # And this if it is false
 
-print(f'x = {x}')
+print(f"x = {x}")
 
 if x < 45:
   x = x * 2
@@ -201,7 +201,7 @@ elif x < 90:
   x = x * 3      # If the first statement is false but the second true
 else:
   x = x ** 2     # If none of the above statements is true
-print(f'x = {x}')
+print(f"x = {x}")
 ```
 
 In order to understand loops better we first need to introduce _lists_.
@@ -211,11 +211,11 @@ In essence, they represent an ordered sequence of values that can have arbitrary
 # List of integers
 [2, 4, 6, 8]
 # List of strings
-['A', 'B', 'C']
+["A", "B", "C"]
 # List of lists
-[[2, 4, 6, 8], ['A', 'B', 'C']]
+[[2, 4, 6, 8], ["A", "B", "C"]]
 # List of mixed types
-[2, 'A']
+[2, "A"]
 # Assign a list to a variable
 integers = [2, 4, 6, 8]
 # Changing values
@@ -271,7 +271,7 @@ for i in range(1, 10):
     even = even + 1
   else:
     odd = odd + 1
-print(f'{even=}, {odd=}')
+print(f"{even=}, {odd=}")
 
 # While loops run until a statement is no longer true
 a = 5
@@ -280,7 +280,7 @@ c = 1
 while (a > 0):
   a = a - 1
   c = c * b
-print(f'{b}^5 = {c}')
+print(f"{b}^5 = {c}")
 ```
 
 :::{.callout-caution}
