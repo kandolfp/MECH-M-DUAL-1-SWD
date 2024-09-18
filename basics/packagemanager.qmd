@@ -11,15 +11,15 @@ In general a package manager (or package-management system) is a tool that autom
 for computer programs, software libraries, general data, or other tasks.
 We all use package managers on our smart phones or computers.
 They come in various forms and _accessibility_ like the GUIs _Google Play_,  _App Store_, _Microsoft Store_, but also in terminal form as _apt_, _dnf_, _zypper_, _homebrew_, and many more.
-Most of these tools give us an easy way to work with some application without needing to know much about how the software is built. The same is true for _software design_.
-
-They especially take care that our modern world of digital infrastructure works even though it often looks like this: 
+Most of these tools give us an easy way to work with some application without needing to know much about how the software is built. 
+Especially in our modern infrastructure, were a build process can easily start looking very similar to this:
 
 ::: {#fig-xkcd-dependency}
 [![](https://imgs.xkcd.com/comics/tech_loops.png)](https://xkcd.com/1579/)
 
 The [xkcd comic #1579](https://xkcd.com/1579/) discussing python enviroments. Click the image to get to the original image source [https://imgs.xkcd.com/comics/tech_loops.png](https://imgs.xkcd.com/comics/tech_loops.png). 
 :::
+The same is true if we change perspective, from a user installing software to an engineer designing software.
 
 Back in the days, and often still for some languages, you manually had to integrate some library you wanted to use and they often came with elaborate build scripts (with their own dependencies, ... _insert recursion here_).
 Especially cumbersome were problems where you needed different versions of the same library for different projects.
