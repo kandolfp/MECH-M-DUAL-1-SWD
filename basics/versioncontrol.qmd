@@ -85,14 +85,16 @@ In the following we will always refer to the Terminal, by which we mean the Git 
 ## {{< fa pen-to-square >}} Exercise
 
 Check your installation with the above guide. 
-Check that you can log into the git service of the University.
+Create a [GitHub Account](https://github.com/signup), if you don not already have one.
 
 Specify these global variables in the Git Bash on Windows or the Terminal:
 
 ```bash
 git config --global user.name "Your Name"
-git config --global user.email "Your University Email"
+git config --global user.email "Your Education Email"
 ```
+
+You can join [GitHub Education for Students](https://github.com/education/students) to get some extra benefits.
 :::
 
 ### Additional resources {.unnumbered}
@@ -135,11 +137,11 @@ In order to get it onto you local machine, type the following commands in the Te
 
 ```bash
 # Navigate to a suitable directory
-git clone https://{YOUR ID}@git.uibk.ac.at/c702169/ulg22_playground.git
+git clone git@github.com:kandolfp/playground.git
 ```
 This will perform the following two actions:
 
-1. _Checkout_ the content of the _remote repository_ into the [_working directory_]{colour="#e67700"}. By default this is the name of the repository, in your case the folder `ulg22_playground` is created and all files are put there. 
+1. _Checkout_ the content of the _remote repository_ into the [_working directory_]{colour="#e67700"}. By default this is the name of the repository, in your case the folder `playground` is created and all files are put there. 
 1. A copy of the _remote repository_ is stored in the [_local repository_]{colour="#1864ab"}. For all intended purposes, it acts exactly the same as the _Remote Repository_, with the sole exception that is not shared with others. 
 
 ![Clone a remote repository to your machine](../_assets/basics/versioncontrol/distributed2.svg){.lightbox}
@@ -148,7 +150,7 @@ This will perform the following two actions:
 
 With the following snippet you can view the content of the repository (the second line is the response):
 ```bash 
-> ls ulg22_playground
+> ls playground
 python_ex1 README.md
 ```
 As you can see there is currently only a `README.md` and the folder `python_ex1`. 
@@ -228,6 +230,7 @@ In the above message you can see that your commit gets some more meta data.
 Specifically, it gets a [SHA-1](https://de.wikipedia.org/wiki/Secure_Hash_Algorithm) hash, namely `578e48f`
 The hash is used to keep track of your commits and is one of the ground breaking ideas that makes Git so successful. 
 The hash is much longer, but due to its nature it is in most cases unique from the first seven digits.
+
 :::{.callout-important}
 Any changes done to a file after running `git add <file>` will not be part of a _commit_. If they should be included you need to rerun `git add <file>`.
 :::
@@ -247,7 +250,7 @@ Delta compression using up to 16 threads
 Compressing objects: 100% (4/4), done.
 Writing objects: 100% (4/4), 1.17 KiB | 1.17 MiB/s, done.
 Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
-To https://git.uibk.ac.at/c102338/ulg22_playground.git
+To https://github.com/kandolfp/playground.git
    e8f13f4..0b8a494  main -> main
 ```
 
@@ -259,9 +262,9 @@ After all, this is a crash course for Git, so eventually something hat to crash.
 
 Some of you might get the following message for `git push`:
 ```bash
-To https://git.uibk.ac.at/c102338/ulg22_playground.git
+To https://github.com/kandolfp/playground.git
  ! [rejected]        main -> main (non-fast-forward)
-error: failed to push some refs to 'https://git.uibk.ac.at/c102338/ulg22_playground.git'
+error: failed to push some refs to 'https://github.com/kandolfp/playground.git'
 hint: Updates were rejected because the tip of your current branch is behind
 hint: its remote counterpart. Integrate the remote changes (e.g.
 hint: 'git pull ...') before pushing again.
@@ -348,7 +351,7 @@ A good start to do this is to link our uploaded file to the table in the `README
 
 With your favourite editor add the following content next to your `ID` (btw. this is [markdown](https://en.wikipedia.org/wiki/Markdown) syntax):
 ```markdown
-# ulg22_playground
+# Playground
 
 ## List of submitted python exercises 
 
@@ -432,9 +435,9 @@ index 9ac3846..28dba4b 100644
  | ----------- | ----------- |
 -| ID  | [my upload](python_ex1/ID.py)|
 +| ID  | [my upload](python_ex1/ID.py) run it by calling `python3 python_ex1/ID.py`|
- | csad3581 | |
- | csak1512 | |
- | csak4299 | |
+ | ID1 | |
+ | ID2 | |
+ | ID3 | |
 ```
 which shows the changes to the _staging area_. 
 If we are satisfied with our changes, we can use `git add README.md` again to add the file to the _staging area_ and finally commit it with `git commit`.
@@ -484,7 +487,7 @@ Delta compression using up to 16 threads
 Compressing objects: 100% (6/6), done.
 Writing objects: 100% (6/6), 769 bytes | 769.00 KiB/s, done.
 Total 6 (delta 1), reused 0 (delta 0), pack-reused 0
-To https://git.uibk.ac.at/c102338/ulg22_playground.git
+To https://github.com/kandolfp/playground.git
    0b8a494..a16b809  main -> main
 ```
 
@@ -515,9 +518,9 @@ B> git commit -m "add my exercise sheet"
 [main d9ac598] add my exercise sheet
  1 file changed, 1 insertion(+), 1 deletion(-)
 B> git push
-To https://git.uibk.ac.at/c102338/ulg22_playground.git
+To https://github.com/kandolfp/playground.git
  ! [rejected]        main -> main (fetch first)
-error: failed to push some refs to 'https://git.uibk.ac.at/c102338/ulg22_playground.git'
+error: failed to push some refs to 'https://github.com/kandolfp/playground.git'
 hint: Updates were rejected because the remote contains work that you do
 hint: not have locally. This is usually caused by another repository pushing
 hint: to the same ref. You may want to first integrate the remote changes
@@ -727,7 +730,7 @@ d9ac598 HEAD@{3}: commit: add my exercise sheet
 0b8a494 HEAD@{5}: pull --rebase (finish): returning to refs/heads/main
 0b8a494 HEAD@{6}: pull --rebase (start): checkout 0b8a49431b40aed9903d1ec6b76c243c20613b92
 9a98eb2 HEAD@{7}: commit: feat: add my solution for python exercises 1
-a0f8f01 HEAD@{8}: clone: from https://git.uibk.ac.at/c102338/ulg22_playground.git
+a0f8f01 HEAD@{8}: clone: from https://github.com/kandolfp/playground.git
 ```
 This command shows us what happened in our _local repository_. 
 
