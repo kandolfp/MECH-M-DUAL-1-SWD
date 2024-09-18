@@ -214,8 +214,8 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="sec-intro-pm-reproducibility" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="sec-intro-pm-reproducibility"><span class="header-section-number">4.1</span> A note on dependency and reproducibility</h2>
-<p>Before we conclude our notes on <em>package managers</em> we should discuss <strong>reproducibility</strong>.</p>
-<p>In our world of modern infrastructure we depend on a lot of other projects and quite often we do not even realize what tools we need in the background for our little program to run.</p>
+<p>Before we conclude our introduction to <em>package managers</em> and <em>version control</em> we would like to share some thoughts on <strong>reproducibility</strong>.</p>
+<p>In our world of modern infrastructure we depend on a lot of other projects and quite often we do not even realize what tools we need in the background for our little program to run. Best example, do you have any idea what the programming languages for the commands <code>git</code>, <code>python</code>, or <code>pdm</code> are and what system dependencies they have?</p>
 <p>This is exquisitely illustrated in the following <a href="https://xkcd.com">xkcd comic</a>.</p>
 <div id="fig-xkcd-dependency" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -227,9 +227,31 @@ Figure&nbsp;4.1: The <a href="https://xkcd.com/2347/">xkcd comic #2347</a> discu
 </figcaption>
 </figure>
 </div>
-<p>There only needs to be one little pebble misplaced and everything collapses. A package manager helps you.</p>
-<p>In industry and academia it is often a problem that some computation can not be reproduced. Let it be an experiment that you need to rerun two years after your initial run, or generate some computations for an annual report. You will require your program to provide the same output for the same input.</p>
-<p>To a large extent this is also the case for reproducibility of work, your own and the one performed by your code. Having a properly managed project is a foundation that will help you to achieve this goal more easily. The whole point of having a proper package management is to be able to copy your project to a new computer and setup your environment as quickly as possible to allow your code to function properly.</p>
+<p>There only needs to be one little pebble misplaced and everything collapses.</p>
+<p>In industry and academia it is often a problem that some computation can not be reproduced. Let it be an experiment that you need to rerun two years after your initial run, or generate some computations for an annual report. Or the more trivial matter of running you code on a different machine (of a colleague or after you got a new computer). Such situations require your program to provide the same output for the same input. Quite often we do not think about this during the development of our code but if we stick to some basic concepts we are already closer to reproducibility. Trust us if we say: Sooner or later you will need this!</p>
+<p>In this last sections we discussed two tools that will help us in this quest:</p>
+<ul>
+<li>package management</li>
+<li>version control</li>
+</ul>
+<p>Our code will have dependencies and keeping the correct list and pinning the correct version helps us greatly. The dependencies also undergo development and are not standing still so we need to be aware that we run on a specific version. The same is true for our own code and version control helps us keep track of what, why, and how we did <em>it</em>. This helps us correct errors, return to an old but working versions, figure out who to blame for the error.</p>
+<p>Besides these two tools we should also write our code in such a way that it is easy to follow and we should try to keep it as little attached to our current work environment as possible - in particular with paths to files - and we can avoid a situation like the following:</p>
+<blockquote class="blockquote">
+<p>Sure I can share my code but I am glad it runs on my machine. I have no idea how to get it to run on yours.</p>
+</blockquote>
+<p>We know that this is a bit much for beginners but if we stick to it from the start we have less to change later on.</p>
+<p>Anyway, lets end with:</p>
+<div id="fig-xkcd-code-quality" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-xkcd-code-quality-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<p><a href="https://www.xkcd.com/1513/"><img src="https://imgs.xkcd.com/comics/code_quality.png" class="img-fluid figure-img"></a></p>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-xkcd-code-quality-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.2: The <a href="https://www.xkcd.com/1513/">xkcd comic #1513</a> discussing dependency. Click the image to get to the original image source <a href="https://imgs.xkcd.com/comics/code_quality.png">https://imgs.xkcd.com/comics/code_quality.png</a>.
+</figcaption>
+</figure>
+</div>
+<p>and <a href="https://peps.python.org/pep-0008/">Python style guide - PEP 8</a>.</p>
 
 
 </section>
