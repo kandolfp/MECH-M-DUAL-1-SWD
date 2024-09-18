@@ -135,7 +135,7 @@ In order to get it onto you local machine, type the following commands in the Te
 
 ```bash
 # Navigate to a suitable directory
-git clone git@github.com:kandolfp/playground.git
+git clone https://github.com/kandolfp/playground.git
 ```
 This will perform the following two actions:
 
