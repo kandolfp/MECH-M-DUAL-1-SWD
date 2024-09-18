@@ -130,6 +130,10 @@ Like the name suggests the _Local (development) environment_ sits on your machin
 The _working directory_ is your current version of the files contained in the repository and the _Local Repository_ is the copy of the entire repository (with all changes) on your machine. 
 We will learn more about these parts as we go along. 
 
+::: {.callout-note}
+We will use the small exercise from the previous Python section as `python_ex1.py` file.
+:::
+
 ### Let us start with getting a _Remote Repository_
 
 In order to allow a playfield for this class I created a repository that we are going to use. 
