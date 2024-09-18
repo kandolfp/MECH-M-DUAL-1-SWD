@@ -1,3 +1,8 @@
+---
+filters:
+  - highlight-text
+---
+
 # Version Control {#sec-intro-versioncontrol}
 
 :::{.callout-note}
@@ -134,8 +139,8 @@ git clone https://{YOUR ID}@git.uibk.ac.at/c702169/ulg22_playground.git
 ```
 This will perform the following two actions:
 
-1. _Checkout_ the content of the _remote repository_ into the _\color{#e67700}{working directory}_. By default this is the name of the repository, in your case the folder `ulg22_playground` is created and all files are put there. 
-1. A copy of the _remote repository_ is stored in the _\color{#1864ab}{local repository}_. For all intended purposes, it acts exactly the same as the _Remote Repository_, with the sole exception that is not shared with others. 
+1. _Checkout_ the content of the _remote repository_ into the [_working directory_]{colour="#e67700"}. By default this is the name of the repository, in your case the folder `ulg22_playground` is created and all files are put there. 
+1. A copy of the _remote repository_ is stored in the [_local repository_]{colour="#1864ab"}. For all intended purposes, it acts exactly the same as the _Remote Repository_, with the sole exception that is not shared with others. 
 
 ![Clone a remote repository to your machine](../_assets/basics/versioncontrol/distributed2.svg){.lightbox}
 
@@ -181,7 +186,7 @@ Git tells you how to change the status of your _untracked_ file into a _tracked_
 
 We do this by running `git add python_ex1/ID.py`.
 
-Now it is time to introduce another Git concept, namely the _\color{#862e9c}{staging area}_. 
+Now it is time to introduce another Git concept, namely the [_staging area_]{colour="#862e9c"}. 
 The stating area is the curious white spot  between your _working directory_ and the _local repository_ in the above pictures. 
 This is the place where Git collects all the changes to your files that you want to put into the _local repository_.
 
