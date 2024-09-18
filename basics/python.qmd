@@ -220,6 +220,10 @@ In essence, they represent an ordered sequence of values that can have arbitrary
 integers = [2, 4, 6, 8]
 # Changing values
 integers[1] = -4
+# append something to a list
+integers.append(10)
+# combine to lists
+integers + [1 3]
 ```
 
 There are also functions that can generate specific types of lists for you.
