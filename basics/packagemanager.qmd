@@ -17,7 +17,7 @@ Especially in our modern infrastructure, were a build process can easily start l
 ::: {#fig-xkcd-dependency}
 [![](https://imgs.xkcd.com/comics/tech_loops.png)](https://xkcd.com/1579/)
 
-The [xkcd comic #1579](https://xkcd.com/1579/) discussing python enviroments. Click the image to get to the original image source [https://imgs.xkcd.com/comics/tech_loops.png](https://imgs.xkcd.com/comics/tech_loops.png). 
+The [xkcd comic #1579](https://xkcd.com/1579/) discussing tech loops, for us a place holder on how to install packages, [explainxkcd](https://www.explainxkcd.com/wiki/index.php/1579:_Tech_Loops). Click the image to get to the original image source [https://imgs.xkcd.com/comics/tech_loops.png](https://imgs.xkcd.com/comics/tech_loops.png). 
 :::
 The same is true if we change perspective, from a user installing software to an engineer designing software.
 
@@ -37,7 +37,7 @@ As a starting point have a look at what [xkcd](https://xkcd.com/) has to say abo
 ::: {#fig-xkcd-dependency}
 [![](https://imgs.xkcd.com/comics/python_environment.png)](https://xkcd.com/1987/)
 
-The [xkcd comic #1987](https://xkcd.com/1987/) discussing python enviroments. Click the image to get to the original image source [https://imgs.xkcd.com/comics/python_environment.png](https://imgs.xkcd.com/comics/python_environment.png). 
+The [xkcd comic #1987](https://xkcd.com/1987/) discussing python environments, [explainxkcd](https://www.explainxkcd.com/wiki/index.php/1987:_Python_Environment). Click the image to get to the original image source [https://imgs.xkcd.com/comics/python_environment.png](https://imgs.xkcd.com/comics/python_environment.png). 
 :::
 
 ::: {.callout-important}

@@ -32,7 +32,7 @@ This allows you to write highly complex programs with a few lines of code.
 ::: {#fig-xkcd-dependency}
 [![](https://imgs.xkcd.com/comics/python.png)](https://xkcd.com/353/)
 
-The [xkcd comic #353](https://xkcd.com/353/) discussing the python programming language. Click the image to get to the original image source [https://imgs.xkcd.com/comics/python.png](https://imgs.xkcd.com/comics/python.png). 
+The [xkcd comic #353](https://xkcd.com/353/) discussing the python programming language, [explainxkcd](https://www.explainxkcd.com/wiki/index.php/353:_Python). Click the image to get to the original image source [https://imgs.xkcd.com/comics/python.png](https://imgs.xkcd.com/comics/python.png). 
 :::
 
 Python is an interpreted language, meaning that the code you write is not compiled to _machine code_ (like in C/C++ or Fortran) but rather _interpreted/executed_ by an (appropriately named) interpreter.
