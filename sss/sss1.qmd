@@ -15,7 +15,7 @@ In this section we are mainly concerned with the basics of Python, nevertheless 
 
 For each topic we list various materials and what is the basic idea behind it. 
 
-### Variables, Data Types, Functions, Typing and Type Hints, Modules, Decorators
+### Variables, Data Types, Functions, Typing and Type Hints, Modules
 
 Once you are familiar with how Python handles these topics you will be able to answer questions like:
 
