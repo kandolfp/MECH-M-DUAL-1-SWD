@@ -27,6 +27,7 @@ book:
         - basics/packagemanager.qmd
         - basics/versioncontrol.qmd
         - basics/epilogue.qmd
+    - part: sss/sss1.qmd
     - summary.qmd
     - references.qmd
 

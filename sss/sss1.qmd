@@ -1,0 +1,280 @@
+# Self Study Session I
+
+::: {.callout-important}
+**This lecture consists of several self study sessions!**
+
+In these sections you are supposed to work on the given topics on your own and in your own time.
+We will try to provide helpful references for books and online material that can help you but you are not limited to these materials. 
+
+In order to get an idea on how much you understand of the material we provide exercises.
+:::
+
+In this section we are mainly concerned with the basics of Python, nevertheless you are expected to use git and pdm to solve the problems at hand.
+
+## Topics
+
+For each topic we list various materials and what is the basic idea behind it. 
+
+### Variables, Data Types, Functions, Typing and Type Hints, Modules, Decorators
+
+Once you are familiar with how Python handles these topics you will be able to answer questions like:
+
+- What is a variable?
+- What is the scope of a variable?
+- What is the type of a variable?
+- How can I change the type of a variable?
+- Is Python _typed_?
+- Does talking about _casting_ makes sense?
+- What is the difference between assignment and copy?
+- What happens to objects that are no longer referenced by any variable?
+- Is Python using call by value or call by reference?
+- What is the signature of a function?
+- What are optional arguments?
+- Can I figure out or define for function arguments some basic properties?
+- etc.
+
+This topics are covered in the following resources (given in no particular order):
+
+- @McKinney2022-qz [Online](https://wesmckinney.com/book/), Section 2 and 3
+- @Matthes2023 Section 2 to 8
+- @Vasiliev2022 Chapter 2
+- MCI Lecture notes of Julian Huber and Matthias Panny [Online](https://mrp123.github.io/MCI-MECH-B-3-SWD-SWD-ILV), Section 1 (German)
+- Overview article on type hinting [dagster.io](https://dagster.io/blog/python-type-hinting)
+- Type hints at [docs.python.org](https://docs.python.org/3/library/typing.html)
+- Type hints cheat sheet form the docs of mypy [Online](https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html)
+
+
+## Exercises
+
+::: {.callout-important}
+If, **and only if**, you are actually taking the class and are not reading the notes you are expected to hand in the exercises below as a git repository.
+
+:::: {.callout-note appearance="simple" collapse="true" icon=false}
+## How you should hand in the exercises
+
+In order to get a bit of `git` and `pdm` training done we work for all exercises on [GitHub](https://https://github.com/).
+
+1. Create a new **private** project in GitHub.
+1. Use meaningful commit messages, see [Conventional commits](https://www.conventionalcommits.org/en/v1.0.0/).
+1. Give the instructors (kandolfp) access to the project, see [docs](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository) for help.
+1. Create a `pdm` project in your repository and commit the necessary files.
+1. Create an appropriate structure in your repository for the rest of the exercise (maybe have a look at the exercises to have a better idea first), not everything should be in the main folder.
+1. Try to structure your work on the exercises with `git`, i.e.
+   - Don't commit things that do not belong together in one single commit. Each exercise can be considered as a separate thing. Subparts of an exercise might be independent as well.
+   - Use meaningful commit messages, see [Conventional commits](https://www.conventionalcommits.org/en/v1.0.0/).
+   - Make sure that you do not commit something that does not work - produces an error.
+    If you have difficulties with an exercise you can also commit your best effort in this case.
+1. Add a README.md that explains what you are doing, how to run the exercises and anything else that is necessary (quick guide to \verb+pdm+), maybe note your name somewhere. 
+1. Optional
+   - Work with issues, you can reference the issue in the commit message, [docs](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls)
+::::
+:::
+
+::: {.callout-tip appearance="simple" collapse="true" icon=false}
+:::: {#exr-indent}
+
+## Indent is important in Python
+
+Explain the outputs of the following code snippets, [compare @Matthes2023, Chap. 4]:
+
+::::: {.callout-note  collapse="true" icon=false}
+## 1. Loop start to end - start
+```{python}
+#| classes: styled-output
+#| error: true
+band_members = ['Peter', 'Bjorn', 'John']
+
+for member in band_members:
+print(member)
+```
+:::::
+
+::::: {.callout-note  collapse="true" icon=false}
+## 2 Loop start and end - middle
+```{python}
+#| classes: styled-output
+#| error: true
+band_members = ['Peter', 'Bjorn', 'John']
+
+for member in band_members:
+    print(f"{member} played a great in this song.")
+print(f"I can not wait to hear {member} play in the next song.")
+```
+:::::
+
+::::: {.callout-note  collapse="true" icon=false}
+## 3 Loop start and end - end
+```{python}
+#| classes: styled-output
+#| error: true
+band_members = ['Peter', 'Bjorn', 'John']
+
+for member in band_members:
+    print(f"{member} played a great in this song.")
+    print(f"I can not wait to hear {member} play in the next song.")
+
+    print(f"I can not wait to hear all of you in the next gig.")
+```
+:::::
+
+::::: {.callout-note  collapse="true" icon=false}
+## 4 Loop start and end - everything
+```{python}
+#| classes: styled-output
+#| error: true
+band_members = ['Peter', 'Bjorn', 'John']
+
+for member in band_members:
+    print(f"{member} played a great in this song.")
+    print(f"I can not wait to hear {member} play in the next song.")
+
+print(f"I can not wait to hear all you you in the next gig.")
+```
+:::::
+
+::::
+:::
+
+
+::: {.callout-tip appearance="simple" collapse="true" icon=false}
+:::: {#exr-list_conditionals_loops}
+
+## Lists, conditionals and loops
+
+For two given lists `list1` and `list2` of integers with equal length define the following new lists:
+
+1. `list_zip` which combines the two lists to a single list like a zip.
+So start with the first element of `list1`, followed by the first element of `list2`, than the second elements until all elements of the lists are combined.
+1. `list_odd` which contains only the odd integers of `list1`, followed by the odd integers of `list2`.
+1. `list_zip_reverse` which combines the elements of the lists like for `list_zip` but starts at the last element of `list1`.
+
+Example:
+
+For `list1 = [1, 2, 3, 4, 5]` and `list2 = [11, 12, 13, 14, 15]`, we get
+
+- `list_zip = [1, 11, 2, 12, 3, 13, 4, 14, 5, 15]`
+- `list_odd = [1, 3, 5, 11, 13, 15]`
+- `list_zip_reverse = [5, 15, 4, 14, 3, 13, 2, 12, 1, 11]`
+::::
+:::
+
+::: {.callout-tip appearance="simple" collapse="true" icon=false}
+:::: {#exr-copy}
+
+## Difference between assignment, copy and deep copy
+
+Have a look at the module `copy` and the functions `copy`, `deepcopy` as well as the standard assignment operator `=`.
+
+Run the following code and explain its output:
+
+::::: {.callout-note  collapse="true" icon=false}
+## Show the code and output
+
+```{python}
+#| classes: styled-output
+import copy
+list1 = [[1, 2, 3], [4, 5, 6], ['a', 'b', 'c'], 2]
+list2 = list1
+list3 = copy.copy(list1)
+list4 = copy.deepcopy(list1)
+
+print('List # \tID\tEntries')
+print('1\t', id(list1), '\t', list1)
+print('2\t', id(list2), '\t', list2)
+print('3\t', id(list3), '\t', list3)
+print('4\t', id(list4), '\t', list4)
+
+list1[3] = -2
+
+print('List # \tID\tEntries')
+print('1\t', id(list1), '\t', list1)
+print('2\t', id(list2), '\t', list2)
+print('3\t', id(list3), '\t', list3)
+print('4\t', id(list4), '\t', list4)
+
+list2[2][2] = 9
+
+print('List # \tID\tEntries')
+print('1\t', id(list1), '\t', list1)
+print('2\t', id(list2), '\t', list2)
+print('3\t', id(list3), '\t', list3)
+print('4\t', id(list4), '\t', list4)
+
+list1.append([0, 8, 15])
+
+print('List # \tID\tEntries')
+print('1\t', id(list1), '\t', list1)
+print('2\t', id(list2), '\t', list2)
+print('3\t', id(list3), '\t', list3)
+print('4\t', id(list4), '\t', list4)
+
+```
+:::::
+::::: {.callout-tip}
+The function `id` returns the _identity_ of an object. It is guaranteed to be unique and constant for every object as long as it exists in memory.
+:::::
+::::
+:::
+
+::: {.callout-tip appearance="simple" collapse="true" icon=false}
+:::: {#exr-montecarlopi1}
+
+## Monte Carlo simulations with random numbers, functions, conditionals and loops
+
+A circle with radius $r$ has an area of 
+$$A_{circle} = \pi r^2$$
+and the square that encases it 
+$$A_{square} = 4 r^2.$$
+
+The ratio between the area of the circle and the area of the square is 
+$$
+\frac{A_{circle}}{A_{square}} = \frac{\pi r^2}{4 r^2} = \frac{\pi}{4}
+$$
+and therefore we can define $\pi$ as
+$$
+\pi = 4\frac{A_{circle}}{A_{square}}.
+$$
+The same is true if we just take the first quadrant, so $\frac14$ of the square as well as the circle. This simplification will make the code more compact and faster. 
+
+The algorithm therefore becomes:
+
+1. For a given number $N$ of uniformly scattered points in the quadrant determine if these points are in the circle (distance less than 1) or not. We call the number of points in the circle $M$. 
+1. Estimate $\pi$ by computing 
+$$
+\pi \approx 4  \frac{M}{N}.
+$$ {#eq-pi}
+
+To write this in Python follow these steps:
+
+1. Search for a module that allows to generate random values in python. 
+1. Define a function `def in_unit_circle(N)` that computes and returns $M$ from the function input $N$, which is a single positive integer. **Hint:** You can interpret two numbers between $0$ and $1$ as cartesian coordinates of a point and the squared sum of them will tell you the distance of this point from the origin. 
+1. Define a function `def estimate_pi(N)` that computes and returns the estimation of $\pi$ with @eq-pi.
+1. Search for a module that provides the exact value of $\pi$ and write a function \verb+def get_accuracy(N)+ that returns the absolute difference between the above function and $\pi$.
+1. Test your function with different values of $N$. **Hint:** $N$ needs to be quite large to have multiple digits of $\pi$ correct.
+::::
+:::
+
+::: {.callout-tip appearance="simple" collapse="true" icon=false}
+:::: {#exr-typehint}
+
+## Type hinting
+
+For the functions `extimate_pi` and `in_unit_circle` in @exr-montecarlopi1 provide type hints to make sure only `integers` are allowed. 
+
+How can you make sure that the integer is always positive?
+::::
+:::
+
+```{python}
+
+def add(x: float, y: float) -> int:
+    print("Floating point add")
+    return x + y
+
+def add(x: int, y: int) -> int:
+    print("Integer add")
+    return x + y
+
+add(1, 2)
+add(1.0, 2)
+```
