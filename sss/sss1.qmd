@@ -39,6 +39,7 @@ This topics are covered in the following resources (given in no particular order
 - @Matthes2023 Section 2 to 8
 - @Vasiliev2022 Chapter 2
 - MCI Lecture notes of Julian Huber and Matthias Panny [Online](https://mrp123.github.io/MCI-MECH-B-3-SWD-SWD-ILV), Section 1 (German)
+- MCI Lecture notes of Julian Huber [Online](https://jhumci.github.io/2023_WiSe_BioDataScience/), Section 1.2; (Access code is provided in Sakai)
 - Overview article on type hinting [dagster.io](https://dagster.io/blog/python-type-hinting)
 - Type hints at [docs.python.org](https://docs.python.org/3/library/typing.html)
 - Type hints cheat sheet form the docs of mypy [Online](https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html)
@@ -265,16 +266,3 @@ How can you make sure that the integer is always positive?
 ::::
 :::
 
-```{python}
-
-def add(x: float, y: float) -> int:
-    print("Floating point add")
-    return x + y
-
-def add(x: int, y: int) -> int:
-    print("Integer add")
-    return x + y
-
-add(1, 2)
-add(1.0, 2)
-```
