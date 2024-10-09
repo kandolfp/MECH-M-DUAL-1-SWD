@@ -229,6 +229,10 @@ window.Quarto = {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Self Study Session I</span></span>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../summary.html" class="sidebar-item-text sidebar-link">
@@ -359,7 +363,7 @@ Important
 </div>
 </div>
 <p>As usual for programming guides, we start with:</p>
-<div id="5e42f6a4" class="cell styled-output" data-execution_count="1">
+<div id="9eaad73a" class="cell styled-output" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hello, World"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Hello, World</code></pre>
@@ -385,7 +389,7 @@ Note
 <li>the REPL returned the result and printed it on screen.</li>
 </ul>
 <p>The text above is called a <em>string</em> and you can do operations with strings, like:</p>
-<div id="c2a4a788" class="cell styled-output" data-execution_count="2">
+<div id="b780d0b9" class="cell styled-output" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hello,"</span> <span class="op">+</span> <span class="st">"World"</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Spam"</span> <span class="op">*</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -408,7 +412,7 @@ Important
 </div>
 </div>
 <p>In case we want to know more about the function <code>print</code> we can use another function to get some more insight:</p>
-<div id="cf791922" class="cell styled-output" data-execution_count="3">
+<div id="ce5b93de" class="cell styled-output" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">help</span>(<span class="bu">print</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Help on built-in function print in module builtins:
@@ -428,7 +432,7 @@ print(*args, sep=' ', end='\n', file=None, flush=False)
 </div>
 </div>
 <p>Now let us pick up a bit of speed.</p>
-<div id="3667bd82" class="cell styled-output" data-execution_count="4">
+<div id="f5d1fb83" class="cell styled-output" data-execution_count="4">
 <div class="sourceCode cell-code" id="annotated-cell-5"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-5-1" class="code-annotation-target"><a href="#annotated-cell-5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mathematical operators</span></span>
 <span id="annotated-cell-5-2"><a href="#annotated-cell-5-2" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="op">+</span> <span class="dv">2</span></span>
 <span id="annotated-cell-5-3"><a href="#annotated-cell-5-3" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="op">*</span> <span class="dv">10</span></span>
@@ -477,7 +481,7 @@ Note
 </div>
 </div>
 <p>There are the usual <em>boolean</em> operators for comparison:</p>
-<div id="7373b967" class="cell" data-execution_count="5">
+<div id="f1d80bc3" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="op">!=</span> <span class="dv">2</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="op">&lt;</span> <span class="dv">2</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="op">&gt;</span> <span class="dv">3</span></span>
@@ -490,7 +494,7 @@ Note
 <span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="kw">not</span> (<span class="dv">1</span> <span class="op">!=</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can assign a value to a <em>variable</em> and use them later on:</p>
-<div id="44039cda" class="cell" data-execution_count="6">
+<div id="8ce21caf" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>pi <span class="op">=</span> <span class="fl">3.1415926535897932</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">90</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -504,7 +508,7 @@ Note
 <span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>x <span class="op">==</span> x_new</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can also change the value of a variable:</p>
-<div id="e51b38ff" class="cell styled-output" data-execution_count="7">
+<div id="f3d60da5" class="cell styled-output" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We can make the printed statement more elaborate</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"x ="</span>, x)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fl">45.0</span></span>
@@ -531,7 +535,7 @@ Note
 </div>
 </div>
 <p>We have simple simple control sequences that help us to run different code depending on a condition:</p>
-<div id="1c04ccb2" class="cell styled-output" data-execution_count="8">
+<div id="709d6da9" class="cell styled-output" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&lt;</span> <span class="dv">90</span>:</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  x <span class="op">=</span> x <span class="op">*</span> <span class="dv">2</span>      <span class="co"># This section gets executed if the statement is true</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
@@ -552,7 +556,7 @@ x = 8100.0</code></pre>
 </div>
 </div>
 <p>In order to understand loops better we first need to introduce <em>lists</em>. In essence, they represent an ordered sequence of values that can have arbitrary types.</p>
-<div id="585cce4e" class="cell" data-execution_count="9">
+<div id="9137dee0" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># List of integers</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>]</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># List of strings</span></span>
@@ -571,7 +575,7 @@ x = 8100.0</code></pre>
 <span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>integers <span class="op">+</span> [<span class="dv">1</span>, <span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>There are also functions that can generate specific types of lists for you. One such function is <code>range</code>, with the signature <code>range(start, stop[, step])</code>.</p>
-<div id="622f446f" class="cell" data-execution_count="10">
+<div id="5b7f1473" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># List of integers from 0 to 2</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="bu">range</span>(<span class="dv">3</span>)</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># List of integers from 5 to 9</span></span>
@@ -610,7 +614,7 @@ Caution
 </div>
 </div>
 <p>Now let us introduce loops as part of our control sequences:</p>
-<div id="1767b5b7" class="cell styled-output" data-execution_count="11">
+<div id="1aa3f875" class="cell styled-output" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For loops work best with lists or sets</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="bu">sum</span> <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> integers:</span>
@@ -657,7 +661,7 @@ Caution
 </div>
 </div>
 <p>Of course there are easier ways to compute the sum of a list or <span class="math inline">\(2^5\)</span>. For this we need to import additional functions:</p>
-<div id="003e1778" class="cell styled-output" data-execution_count="12">
+<div id="d016350e" class="cell styled-output" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>mean <span class="op">=</span> math.fsum(integers) <span class="op">/</span> <span class="bu">len</span>(integers)</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mean)</span>
@@ -676,26 +680,21 @@ Caution
 </section>
 <section id="exercises" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="exercises"><span class="header-section-number">1.2</span> Exercises</h2>
-<div class="callout callout-style-simple callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
-<i class="fa-solid fa-pen-to-square" aria-label="pen-to-square"></i> Exercise - Lists, conditionals and loops
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>For two given lists <code>list1</code> and <code>list2</code> of integers with equal length define the following new lists:</p>
+<div class="callout-body-container">
+<div id="exr-bla" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.1 (<i class="fa-solid fa-pen-to-square" aria-label="pen-to-square"></i> Lists, conditionals and loops)</strong></span> For two given lists <code>list1</code> and <code>list2</code> of integers with equal length define the following new lists:</p>
 <ol type="1">
 <li><code>list_zip</code> which combines the two lists to a single list like a zip. So start with the first element of <code>list1</code>, followed by the first element of <code>list2</code>, than the second elements until all elements of the lists are combined.</li>
 <li><code>list_odd</code> which contains only the odd integers of <code>list1</code>, followed by the odd integers of <code>list2</code>.</li>
 <li><code>list_zip_reverse</code> which combines the elements of the lists like for <code>list_zip</code> but starts at the last element of <code>list1</code>.</li>
 </ol>
-<section id="example" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="example">Example</h3>
+<section id="example" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="example">Example</h4>
 <p>For <code>list1 = [1, 2, 3, 4, 5]</code> and <code>list2 = [11, 12, 13, 14, 15]</code>, we get</p>
 <ul>
 <li><code>list_zip = [1, 11, 2, 12, 3, 13, 4, 14, 5, 15]</code></li>
@@ -703,6 +702,7 @@ Caution
 <li><code>list_zip_reverse = [5, 15, 4, 14, 3, 13, 2, 12, 1, 11]</code></li>
 </ul>
 </section>
+</div>
 </div>
 </div>
 </div>
