@@ -1,0 +1,14 @@
+# Self Study Sessions
+
+::: {.callout-important}
+**This lecture consists of several self study sessions!**
+
+In these sections you are supposed to work on the given topics on your own and in your own time.
+We will try to provide helpful references for books and online material that can help you but you are not limited to these materials. 
+
+In order to get an idea on how much you understand of the material we provide exercises.
+:::
+
+Sessions: 
+
+- @sec-sss-sss1 concerned with: Variables, Data Types, Functions, Typing and Type Hints, Modules
