@@ -321,6 +321,14 @@ roman = {I:1, IV: 4, V: 5, IX: 9, X: 10, XL: 40,
          M: 100}
 ```
 
+Examples
+
+| Roman | Arabic |
+| --- | --- |
+| MMMDCCXXIV | 3724 | 
+| MXCIV | 1094 |
+| VIII | 8 |
+
 ::::
 :::
 
@@ -329,7 +337,7 @@ roman = {I:1, IV: 4, V: 5, IX: 9, X: 10, XL: 40,
 
 ## Set, List and Dictionary Comprehensions
 
-(@) Transform a list of tuples into a list of numbers using (nested) list comprehension.
+(@) Transform a list of tuples into a list of numbers using (nested) list comprehension, i.e. hte list `flat` should be created and filled in one call from the content of `list_of_tuples`.
 ```{.python}
 list_of_tuples = [(1, 2, 3), (4, 5, 6), (7, 8), (9)]
 flat = [1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -383,6 +391,8 @@ Use the module created in @exr-module and build a program on it.
    - day of the week
    - week of the year
 - How can you deal with european and american styled day-month order?
+- Update your module by adding the above described function where the returned value should be a dictionary with keys: `leapyear`, `weekday`,`week`.
+- Can you use the new function in the module right away or do you need to _reinstall_ it somehow?
 ::::
 :::
 
