@@ -9,7 +9,7 @@ We will try to provide helpful references for books and online material that can
 In order to get an idea on how much you understand of the material we provide exercises.
 :::
 
-In this section we are mainly concerned with the basics of Python, nevertheless you are expected to use git and pdm to solve the problems at hand.
+In this section we are mainly concerned with the basics of Python, nevertheless you are expected to use `git` and `pdm` to solve the problems at hand.
 
 ## Topics
 
@@ -42,30 +42,30 @@ This topics are covered in the following resources (given in no particular order
 - MCI Lecture notes of Julian Huber [Online](https://jhumci.github.io/2023_WiSe_BioDataScience/), Section 1.2; (Access code is provided in Sakai)
 - Overview article on type hinting [dagster.io](https://dagster.io/blog/python-type-hinting)
 - Type hints at [docs.python.org](https://docs.python.org/3/library/typing.html)
-- Type hints cheat sheet form the docs of mypy [Online](https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html)
+- Type hints cheat sheet form the docs of `mypy` [Online](https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html)
 
 
 ## Exercises
 
 ::: {.callout-important}
-If, **and only if**, you are actually taking the class and are not reading the notes you are expected to hand in the exercises below as a git repository.
+If, **and only if**, you are taking the class at MCI and are not reading these notes on your own, you are expected to hand in the exercises below as a git repository.
 
 :::: {.callout-note appearance="simple" collapse="true" icon=false}
 ## How you should hand in the exercises
 
 In order to get a bit of `git` and `pdm` training done we work for all exercises on [GitHub](https://https://github.com/).
 
-1. Create a new **private** project in GitHub.
+1. Create a new **private** project in GitHub -> you might want to use it for all later exercises as well.
 1. Use meaningful commit messages, see [Conventional commits](https://www.conventionalcommits.org/en/v1.0.0/).
 1. Give the instructors (kandolfp) access to the project, see [docs](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository) for help.
 1. Create a `pdm` project in your repository and commit the necessary files.
 1. Create an appropriate structure in your repository for the rest of the exercise (maybe have a look at the exercises to have a better idea first), not everything should be in the main folder.
 1. Try to structure your work on the exercises with `git`, i.e.
-   - Don"t commit things that do not belong together in one single commit. Each exercise can be considered as a separate thing. Subparts of an exercise might be independent as well.
+   - Don't commit things that do not belong together in one single commit. Each exercise can be considered as a separate thing. Subparts of an exercise might be independent as well.
    - Use meaningful commit messages, see [Conventional commits](https://www.conventionalcommits.org/en/v1.0.0/).
    - Make sure that you do not commit something that does not work - produces an error.
     If you have difficulties with an exercise you can also commit your best effort in this case.
-1. Add a README.md that explains what you are doing, how to run the exercises and anything else that is necessary (quick guide to \verb+pdm+), maybe note your name somewhere. 
+1. Add a README.md that explains what you are doing, how to run the exercises and anything else that is necessary (quick guide to `pdm`), **maybe note your name somewhere** (github nicks are not always easy to track down). 
 1. Optional
    - Work with issues, you can reference the issue in the commit message, [docs](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls)
 ::::
@@ -98,7 +98,7 @@ print(member)
 band_members = ["Peter", "Bjorn", "John"]
 
 for member in band_members:
-    print(f"{member} played a great in this song.")
+    print(f"{member} played great in this song.")
 print(f"I can not wait to hear {member} play in the next song.")
 ```
 :::::
@@ -111,10 +111,10 @@ print(f"I can not wait to hear {member} play in the next song.")
 band_members = ["Peter", "Bjorn", "John"]
 
 for member in band_members:
-    print(f"{member} played a great in this song.")
+    print(f"{member} played great in this song.")
     print(f"I can not wait to hear {member} play in the next song.")
 
-    print(f"I can not wait to hear all of you in the next gig.")
+    print(f"I can not wait to hear all of you at the next gig.")
 ```
 :::::
 
@@ -126,10 +126,10 @@ for member in band_members:
 band_members = ["Peter", "Bjorn", "John"]
 
 for member in band_members:
-    print(f"{member} played a great in this song.")
+    print(f"{member} played great in this song.")
     print(f"I can not wait to hear {member} play in the next song.")
 
-print(f"I can not wait to hear all you you in the next gig.")
+print(f"I can not wait to hear all of you at the next gig.")
 ```
 :::::
 
@@ -223,9 +223,8 @@ print("4\t", id(list4), "\t", list4)
 
 ```
 :::::
-::::: {.callout-tip}
+**Hint**: 
 The function `id` returns the _identity_ of an object. It is guaranteed to be unique and constant for every object as long as it exists in memory.
-:::::
 ::::
 :::
 
@@ -251,7 +250,7 @@ The same is true if we just take the first quadrant, so $\frac14$ of the square 
 
 The algorithm therefore becomes:
 
-1. For a given number $N$ of uniformly scattered points in the quadrant determine if these points are in the circle (distance less than 1) or not. We call the number of points in the circle $M$. 
+1. For a given number $N$ of uniformly scattered points in the quadrant, determine if these points are in the circle (distance less than 1) or not. We call the number of points in the circle $M$. 
 1. Estimate $\pi$ by computing 
 $$
 \pi \approx 4  \frac{M}{N}.
@@ -285,7 +284,7 @@ Is the type enforced during runtime?
 
 ## Functions can be arguments
 
-Provide a version of the function `estimate_pi(N)` from @exr-montecarlopi1 that has a second argument that specifies the function to call e.g. "in_unit_circle".
+Provide a version of the function `estimate_pi(N)` from @exr-montecarlopi1 that has a second argument that specifies the function to call e.g. `in_unit_circle`.
 
 Provide type hints for the new function.
 
@@ -296,9 +295,9 @@ Provide type hints for the new function.
 ::: {.callout-tip appearance="simple" collapse="true" icon=false}
 :::: {#exr-fibonacci}
 
-## Recursion with fibonacci
+## Recursion with Fibonacci
 
-Create a function that computes the $n$th fibonacci number with recession, i.e. a function calling itself, here is the sequence:
+Create a function that computes the $n$th Fibonacci number with recursion, i.e. a function calling itself, here is the sequence:
 
 $$
 x_0 = 0,\quad x_1 = 1,\quad x_n = x_{n-1} + x_{n-2},\quad n\geq 2. 
@@ -345,7 +344,7 @@ words = ["I", "spy", "with", "my", "little", "eye",
          "comprehension", "coming", "up"]
 ```
 
-(@) From a list of words, get a set (therefore unique) lengths of these words. **Hint**: you might want to look into the function `map`.
+(@) From this list of words, get a set (therefore unique) lengths of these words, i.e. `spy -> 3`. **Hint**: you might want to look into the function `map`.
 
 
 (@) Combine everything to get from a sentence a dictionary with length of word as key and a set of words as value. 
@@ -363,9 +362,9 @@ Test it with a couple of different sentences.
 Create you own module.
 The module should have the following functions:
 
-- For a given year, check if it is a leap year
-- For a given date, return the day of the week, use the algorithm outlined [here](https://www.almanac.com/how-find-day-week). **Hint**: Dictionaries can help you for some of the mappings
-- Return the week number of the year of a certain date, you can use the algorithm outlined [here](https://www.geeksforgeeks.org/how-to-get-the-current-weeknumber-of-the-year/)
+- For a given year, check if it is a leap year.
+- For a given date, return the day of the week, use the algorithm outlined [here](https://www.almanac.com/how-find-day-week). **Hint**: Dictionaries can help you for some of the mappings.
+- Return the week number of the year of a certain date, you can use the algorithm outlined [here](https://www.geeksforgeeks.org/how-to-get-the-current-weeknumber-of-the-year/).
 - Provide doc strings for each of your methods and for the module itself.
 ::::
 :::
@@ -378,12 +377,12 @@ The module should have the following functions:
 
 Use the module created in @exr-module and build a program on it. 
 
-- include the local module via `pdm`
-- use the module to generate from a date
-   - leap year
+- Include the local module via `pdm`.
+- Use the module to generate from a date the following output
+   - leap year -> true/false
    - day of the week
    - week of the year
-- how can you deal with european and american styled day-month order?
+- How can you deal with european and american styled day-month order?
 ::::
 :::
 
