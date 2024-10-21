@@ -337,7 +337,7 @@ Examples
 
 ## Set, List and Dictionary Comprehensions
 
-(@) Transform a list of tuples into a list of numbers using (nested) list comprehension, i.e. hte list `flat` should be created and filled in one call from the content of `list_of_tuples`.
+(@) Transform a list of tuples into a list of numbers using (nested) list comprehension, i.e. the list `flat` should be created and filled in one call from the content of `list_of_tuples`.
 ```{.python}
 list_of_tuples = [(1, 2, 3), (4, 5, 6), (7, 8), (9)]
 flat = [1, 2, 3, 4, 5, 6, 7, 8, 9]
