@@ -15,4 +15,4 @@ We want to thank Mirjam Ziselsberger for testing, checking, suggestions and gene
 We also want to thank Elias Tappeiner from the Department of _Biomedizinische Bildanalyse
 UMIT, Hall in Tirol, Österreich_ for his slides on Git.
 
-These notes are build with [Quarto](https://quarto.org/).
+These notes are built with [Quarto](https://quarto.org/).
