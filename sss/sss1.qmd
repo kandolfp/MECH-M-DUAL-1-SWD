@@ -385,7 +385,7 @@ Test it with a couple of different sentences.
 
 ## Creating a module
 
-Create you own module.
+Create your own module.
 The module should have the following functions:
 
 - For a given year, check if it is a leap year.
