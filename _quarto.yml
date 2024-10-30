@@ -30,6 +30,7 @@ book:
     - part: sss/index.qmd
       chapters:
         - sss/sss1.qmd
+    - part: oop/index.qmd
     - summary.qmd
     - references.qmd
 
@@ -40,6 +41,8 @@ format:
     theme:
       light: [flatly, style.css]
       dark: [darkly, dark-style.css]
+    mermaid:
+      theme: neutral
 #  pdf:
 #    documentclass: scrreprt
 
