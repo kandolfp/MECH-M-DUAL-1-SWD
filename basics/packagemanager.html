@@ -228,8 +228,8 @@ div.csl-indent {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../sss/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Self Study Sessions</span></a>
+            <a href="../sc/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Scientific Computing</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -237,8 +237,31 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../sc/numpy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">NumPy</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sc/pandas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Pandas</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../sss/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Self Study Sessions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../sss/sss1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Self Study Session I</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Self Study Session I</span></span></a>
   </div>
 </li>
       </ul>
@@ -354,7 +377,7 @@ Important
 <li>must haves
 <ul>
 <li>per project based environments (<a href="https://docs.python.org/3/library/venv.html">venv</a>)</li>
-<li>lock files for exact package version <strong>reproducibility</strong>, see {<a href="epilogue.html#sec-intro-pm-reproducibility" class="quarto-xref"><span>Section 4.1</span></a>}
+<li>lock files for exact package version <strong>reproducibility</strong>, see {<a href="#sec-intro-pm-reproducibility" class="quarto-xref"><span class="quarto-unresolved-ref">sec-intro-pm-reproducibility</span></a>}
 <ul>
 <li>cross platform dependencies</li>
 </ul></li>
@@ -389,7 +412,7 @@ Important
 <p><strong>Source</strong>: From the <a href="https://packaging.python.org/en/latest/guides/tool-recommendations/">PyPa Guide</a>, as of 9th of September 2024</p>
 </blockquote>
 <p>The standard tool is <code>pip</code> and for <em>scientific software</em> specifically <a href="https://conda.io/"><code>conda</code></a> and <a href="https://spack.readthedocs.io/"><code>Spack</code></a>.</p>
-<p>We are going to look at <a href="https://pdm-project.org/"><code>pdm</code></a> (see <span class="citation" data-cites="pdm">Ming (<a href="../references.html#ref-pdm" role="doc-biblioref">2019</a>)</span>), as this is a modern Python package manager that uses <code>pyproject.toml</code> files to store metadata of the project and much more.</p>
+<p>We are going to look at <a href="https://pdm-project.org/"><code>pdm</code></a> (see <span class="citation" data-cites="pdm">Ming (<a href="#ref-pdm" role="doc-biblioref">2019</a>)</span>), as this is a modern Python package manager that uses <code>pyproject.toml</code> files to store metadata of the project and much more.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -435,7 +458,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>For this guide we closely follow the notes on the project page <a href="https://pdm-project.org/latest/">https://pdm-project.org/</a>, please note that the original code and potential updates to it can be found there, see <span class="citation" data-cites="pdm">Ming (<a href="../references.html#ref-pdm" role="doc-biblioref">2019</a>)</span>.</p>
+<p>For this guide we closely follow the notes on the project page <a href="https://pdm-project.org/latest/">https://pdm-project.org/</a>, please note that the original code and potential updates to it can be found there, see <span class="citation" data-cites="pdm">Ming (<a href="#ref-pdm" role="doc-biblioref">2019</a>)</span>.</p>
 </div>
 </div>
 <section id="installation" class="level3" data-number="2.2.1">
@@ -783,7 +806,7 @@ Tip
 <p>This concludes our little guide for package managers in python. Make sure to revisit this sections and the <a href="https://pdm-project.org">pdm docs</a> if you need them for the course of this section.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-pdm" class="csl-entry" role="listitem">
 Ming, Frost. 2019. <span>“<span class="nocase">PDM project site</span>.”</span> <em>Online: Accessed 09-September-2024</em>. <a href="https://pdm-project.org/">https://pdm-project.org/</a>.
 </div>

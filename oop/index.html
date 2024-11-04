@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../sss/index.html" rel="next">
+<link href="../sc/index.html" rel="next">
 <link href="../basics/epilogue.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -242,8 +242,8 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../sss/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Self Study Sessions</span></a>
+            <a href="../sc/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Scientific Computing</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -251,8 +251,31 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../sc/numpy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">NumPy</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sc/pandas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Pandas</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../sss/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Self Study Sessions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../sss/sss1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Self Study Session I</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Self Study Session I</span></span></a>
   </div>
 </li>
       </ul>
@@ -344,7 +367,7 @@ Tip
 </section>
 <section id="definition-of-attributes" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="definition-of-attributes"><span class="header-section-number">5.2</span> Definition of attributes</h2>
-<div id="97ef30a2" class="cell styled-output" data-execution_count="1">
+<div id="9bf233b3" class="cell styled-output" data-execution_count="1">
 <div class="sourceCode cell-code" id="annotated-cell-1"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-1-1" class="code-annotation-target"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Robot:</span>
 <span id="annotated-cell-1-2"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">""" Class representing a robot. """</span></span>
 <span id="annotated-cell-1-3"><a href="#annotated-cell-1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -380,7 +403,7 @@ Tip
 </div>
 </div>
 <p>Now that we have a simple class we can define our first objects.</p>
-<div id="1c242991" class="cell styled-output" data-execution_count="2">
+<div id="7c2b6cb8" class="cell styled-output" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>r2d2 <span class="op">=</span> Robot(<span class="st">"R2D2"</span>, (<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="dv">443</span>, <span class="dv">32</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>number5 <span class="op">=</span> Robot(<span class="st">"Number 5"</span>, (<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">3</span>), <span class="dv">80</span>, <span class="dv">20</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -396,7 +419,7 @@ I am called Number 5, I can be reached under 0.0.0.3 and my top speed is 20!</co
 </div>
 </div>
 <p>Hidden properties can not be access from outside:</p>
-<div id="6017aa6e" class="cell styled-output" data-execution_count="3">
+<div id="52a55087" class="cell styled-output" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>r2d2<span class="sc">.</span>__port<span class="op">=</span><span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
@@ -412,7 +435,7 @@ Cell <span class="ansi-green-fg">In[3], line 1</span>
 <p>The little introduction each of the robots provides us with should be part af the class, not a property but a method.</p>
 <section id="definition-of-methods" class="level3" data-number="5.2.1">
 <h3 data-number="5.2.1" class="anchored" data-anchor-id="definition-of-methods"><span class="header-section-number">5.2.1</span> Definition of methods</h3>
-<div id="a9fef4fa" class="cell styled-output" data-execution_count="4">
+<div id="f743f3e5" class="cell styled-output" data-execution_count="4">
 <div class="sourceCode cell-code" id="annotated-cell-4"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-4-1"><a href="#annotated-cell-4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Robot:</span>
 <span id="annotated-cell-4-2"><a href="#annotated-cell-4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">""" Class representing a robot. """</span></span>
 <span id="annotated-cell-4-3"><a href="#annotated-cell-4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -499,7 +522,7 @@ Important
 <section id="overwriting-methods-and-integration-with-operators" class="level3" data-number="5.2.2">
 <h3 data-number="5.2.2" class="anchored" data-anchor-id="overwriting-methods-and-integration-with-operators"><span class="header-section-number">5.2.2</span> Overwriting methods and integration with operators</h3>
 <p>A lot of the base types we have been using are actually classes and we where dealing with the objects. It stands to reason, that we should be able to treat them similar.</p>
-<div id="fdf05392" class="cell styled-output" data-execution_count="5">
+<div id="0cb03c98" class="cell styled-output" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>r2d2<span class="op">==</span>number5<span class="op">=</span><span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>r2d2<span class="op">&lt;</span>number5<span class="op">=</span><span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(r2d2)</span>
@@ -522,7 +545,7 @@ Cell <span class="ansi-green-fg">In[5], line 2</span>
 </div>
 </div>
 <p>In order to allow a seamless integration of our object into these types we should implement a couple of the <a href="https://docs.python.org/2.7/reference/datamodel.html">basic customizations</a></p>
-<div id="8b54f9ba" class="cell styled-output" data-execution_count="6">
+<div id="c8fbac98" class="cell styled-output" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Robot:</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">""" Class representing a robot. """</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -586,7 +609,7 @@ I am called R2D2♥Number 5, I can be reached under 0.0.0.4:443 and my top speed
 <section id="inheritance" class="level3" data-number="5.2.3">
 <h3 data-number="5.2.3" class="anchored" data-anchor-id="inheritance"><span class="header-section-number">5.2.3</span> Inheritance</h3>
 <p>Quite often we want to define a class not from scratch but start form another class. This concept is called <em>inheritance</em> or we can formulate it as <em>one class is the child of another class</em>.</p>
-<div id="80ca2356" class="cell styled-output" data-execution_count="7">
+<div id="24f6eb5b" class="cell styled-output" data-execution_count="7">
 <div class="sourceCode cell-code" id="annotated-cell-7"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-7" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-7-1" class="code-annotation-target"><a href="#annotated-cell-7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Cat:</span>
 <span id="annotated-cell-7-2"><a href="#annotated-cell-7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="annotated-cell-7-3"><a href="#annotated-cell-7-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name: <span class="bu">str</span>, habitat: <span class="bu">list</span>[<span class="bu">str</span>]) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
@@ -697,8 +720,8 @@ My name is Olson, I am a Cat -&gt; Lion -&gt; Tiger -&gt; Tigon (Father Tiger, M
     Cat &lt;|-- Lion
     Cat &lt;|-- Tiger
     note for Tigon "Hybrid between male lion\nand female tiger"
-    Tiger &lt;|-- Ligar
-    Lion &lt;|-- Ligar
+    Tiger &lt;|-- Liger
+    Lion &lt;|-- Liger
     Lion &lt;|-- Tigon
     Tiger &lt;|-- Tigon
     Cat : +String name
@@ -714,9 +737,9 @@ My name is Olson, I am a Cat -&gt; Lion -&gt; Tiger -&gt; Tigon (Father Tiger, M
     Cat : +run(destination)
     Cat : +sleep(hours float)
     Cat : +meow()
-    class Ligar{
+    class Liger{
         -Lion father
-        -Tigar mother
+        -Tiger mother
     }
     class Tigon{
         -Tiger father
@@ -940,7 +963,7 @@ Car "1" *.. "4" Wheel : has
 </div>
 </div>
 </div>
-<div id="a6b82368" class="cell styled-output" data-execution_count="8">
+<div id="c02b3baa" class="cell styled-output" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> abc <span class="im">import</span> ABC, abstractmethod</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Abstract Class</span></span>
@@ -1560,8 +1583,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../sss/index.html" class="pagination-link" aria-label="Self Study Sessions">
-        <span class="nav-page-text">Self Study Sessions</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../sc/index.html" class="pagination-link" aria-label="Scientific Computing">
+        <span class="nav-page-text">Scientific Computing</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1579,7 +1602,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","openEffect":"zoom","loop":false,"closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","loop":false,"selector":".lightbox","descPosition":"bottom","openEffect":"zoom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
