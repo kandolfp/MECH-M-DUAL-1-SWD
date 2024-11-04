@@ -1,0 +1,13 @@
+# Scientific Computing {#sec-scientific-computing}
+
+Scientific Computing, also known as computational science, technical computing, scientific computation is a field in science that uses computing capabilities to solve and understand complex (physical) problems. 
+The field contains many categories including:
+
+- Algorithms (numerical and non-numerical) for mathematical and computational modelling and computer based simulation form problems arising in sciences and humanities.
+- Computer hardware to develop and optimize the advanced system hardware, firmware, network and data management such as High Performance Computing (HPC).
+- Computing infrastructure to support sciences and engineering to solve their problems.
+
+We can not hope to cover all of this but we can start by looking at some specific libraries in Python that help you deal with common task in scientific computing. 
+
+- @sec-sc-numpy
+- @sec-sc-pandas

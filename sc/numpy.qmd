@@ -1,0 +1,69 @@
+# NumPy {#sec-sc-numpy}
+
+NumPy is short for Numerical Python and is the working horse of numerical computing and to that extend for scientific computing.
+
+The most important things your find in numpy are 
+
+- `ndarray`: an efficient multidimensional array class providing arithmetic operations and broadcasting capabilities.
+- Sub packages for linear algebra `linalg`, random number `random`, or fourier transform, to name some.
+- Vectorization of mathematical functions to work on entire arrays without the need of implementing functions (like all the Basic Linear Algebra Subroutines - BLAS - functions).
+- I/O tools for reading and writing arrays to disk and working with memory-mapped files
+- A C API for connecting `NumPy` with libraries from C/C++ and FORTRAN like BLAS and LAPACK.
+
+
+## Motivation
+
+Speed is often the main motivation to work in `numpy`.
+
+Let us look at the simple example of the [scalar product](https://kandolfp.github.io/MECH-M-DUAL-1-DBM/basics/linearalgebra.html#def-dotproduct) to see why.
+
+```{python}
+#| classes: styled-output
+import random
+import timeit
+import numpy as np
+
+random.seed(42)
+
+min_value = 1 
+max_value = 100
+
+# Generate the two lists of 10_000_000 random numbers each
+a = [random.randint(min_value, max_value) for _ in range(1_000_000)]
+b = [random.randint(min_value, max_value) for _ in range(1_000_000)]
+
+def dot(a, b):
+    r = 0
+    for first, second in zip(a, b):
+        r += first * second
+    return r
+
+t1 = timeit.timeit(lambda: dot(a, b), number=1000)
+
+np_a = np.array(a, dtype=np.int64)
+np_b = np.array(b, dtype=np.int64)
+
+t2 = timeit.timeit(lambda: np.vdot(np_a, np_b), number=1000)
+
+print(f"loop result {dot(a,b)}, time {t1=}")
+print(f"numpy result {np.vdot(np_a, np_b)}, time {t2=}")
+print(f"Speedup {t1/t2}")
+```
+
+For the above example we see a speed up of `{python} round(t1/t2, 0)`.
+With `numpy` we will often see a speed up of 10 to 100 or likely even more. 
+
+::: {.callout-note}
+Lately Python has invested in getting there loops faster, you will see a much higher speed up for this example with old versions of Python.
+:::
+
+## References
+
+As we cover a lot of the basics in action in the sister class [Basics of Data Science](https://kandolfp.github.io/MECH-M-DUAL-1-DBM/) this introduction ends here and we refer to others for a longer read like
+
+- @McKinney2022-qz (direct link to the [NumPy-Basics](https://wesmckinney.com/book/numpy-basics))
+- MCI Lecture notes of Julian Huber and Matthias Panny [Online](https://mrp123.github.io/MCI-MECH-B-3-SWD-SWD-ILV)
+- `NumPy` docs
+    - [NumPy quickstart](https://numpy.org/doc/stable/user/quickstart.html)
+    - [NumPy the absolute basics for beginners](https://numpy.org/doc/stable/user/absolute_beginners.html)
+    - [NumPy for MATLAB users](https://numpy.org/doc/stable/user/numpy-for-matlab-users.html)
