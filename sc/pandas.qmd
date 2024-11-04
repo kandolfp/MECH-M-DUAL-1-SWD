@@ -70,12 +70,6 @@ import pandas as pd
 ```
 :::
 
-This introduction closely follows 
-
-- [10 minutes to pandas](https://pandas.pydata.org/docs/user_guide/10min.html)
-- @McKinney2022-qz (direct link to the [Pandas section](https://wesmckinney.com/book/pandas-basics))
-- some old lecture notes
-
 The two main data structures in `pandas` are 
 
 1. `pd.Series` for one-dimensional labelled array holding dta of any type, 
@@ -240,3 +234,10 @@ Before we finish up our excursion into `pandas` we also want to show the plottin
 %config InlineBackend.figure_formats = ['svg']
 df.boxplot(column=["nm"])
 ```
+
+There are a lot of additional features contained in `pandas` that we will learn by using it. 
+Nevertheless let us recall some further references:
+
+- [10 minutes to pandas](https://pandas.pydata.org/docs/user_guide/10min.html)
+- @McKinney2022-qz (direct link to the [Pandas section](https://wesmckinney.com/book/pandas-basics))
+- [7 unique pandas functions to elevate your analysis](https://medium.com/learning-data/7-unique-pandas-functions-to-elevate-your-analysis-262fcb0db7be)
