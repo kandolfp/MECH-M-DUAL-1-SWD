@@ -209,7 +209,7 @@ Quite often it is useful to find out how often a value appears, this can be done
 df["ww0"].value_counts()
 ```
 
-Last bat not least we need to discuss merging of `Series` and `DataFrame` objects. 
+Of course we can combine or merge `Series` and `DataFrame` objects. 
 
 The handling is similar as with databases where there are different ways to _ join_ data.
 First we `concat` row-wise
@@ -234,6 +234,18 @@ Before we finish up our excursion into `pandas` we also want to show the plottin
 %config InlineBackend.figure_formats = ['svg']
 df.boxplot(column=["nm"])
 ```
+
+We can also compute the correlation between two series
+```{python}
+#| classes: styled-output
+
+df["nm"].corr(df["wfl"])
+```
+or the entire `DataFrame`
+```{python}
+df.corr()
+```
+
 
 There are a lot of additional features contained in `pandas` that we will learn by using it. 
 Nevertheless let us recall some further references:
