@@ -369,3 +369,125 @@ You read this _away from the class_:
 - a person can only sit in one car
 - a car does not need to be occupied by a person but no more than 5
 
+## Principles of OOP
+
+There are multiple principals of OOD and as the list on the german wikipedia is organised nicer we refer this version [here](https://de.wikipedia.org/wiki/Prinzipien_objektorientierten_Designs).
+
+We will pick a couple to give a first introduction.
+
+### Principle of abstraction
+
+An abstraction only needs to be as _accurate_ to the real world as the application requires.
+For example if you model an aeroplane for the dynamic simulation of the behaviour during slight you need a different model than for a ticket booking system. 
+
+```{mermaid}
+%%| fig-cap: "Aeroplane for a simulator"
+classDiagram
+    class Aeroplane{
+        - speed
+        - altitude
+        - rollAngle
+        - pitchAngle
+        - yawAngle
+        + fly()
+    }
+```
+```{mermaid}
+%%| fig-cap: "Aeroplane for a booking system"
+classDiagram
+    class Aeroplane{
+        - seets
+        + reserveSeat(n)
+    }
+```
+
+This is often refereed to as the _single responsibility principle_.
+
+### Principle of encapsulation
+
+We also want to make sure the encapsulate our objects as possible.
+So only allow access to the methods that are really needed from outside and not to everything, especially to properties, e.g. the aeroplane pitch angle should not be controlled by the airport.
+
+In a similar way we can define _interfaces_. 
+They are classes with abstract methods that can be implemented by another class. 
+
+In Python this is done with the _Abstract Base Classes_ or `ABC`.
+
+```{mermaid}
+%%| fig-cap: "Airport and its flying inhabitants"
+classDiagram
+    Airport--> FlyingTransport : Dependency
+    Helicopter --|> FlyingTransport
+    Aeroplane --|> FlyingTransport
+    Domesticated Gryphon --|> FlyingTransport
+    class FlyingTransport{
+        <<interface>>
+        + fly(origin, destination, passengers)
+    }
+    note for FlyingTransport "An interface in UML has only methods"
+    class Helicopter{
+        - ...
+        + fly(origin, destination, passengers)
+    }
+    class Aeroplane{
+        - ...
+        + fly(origin, destination, passengers)
+    }
+    class Domesticated Gryphon{
+        - ...
+        + fly(origin, destination, passengers)
+    }
+    class Airport{
+        - ...
+        + accept(FlyingTransport vehicle)
+    }
+```
+
+```{python}
+#| classes: styled-output
+from abc import ABC, abstractmethod
+
+# Abstract Class
+class FlyingTransport(ABC):
+    @abstractmethod
+    def fly(self, origin, destination, passengers):
+        pass # Abstract Method has no implementation!
+
+# Non-Abstract Class
+class Helicopter(FlyingTransport):
+    def fly(self, origin, destination, passengers):
+        print("Helicopter flying")
+
+# Non-Abstract Class
+class Aeroplane(FlyingTransport):
+    def fly(self, origin, destination, passengers):
+        print("Aeroplane flying")
+
+helicopter1 = Helicopter()
+aeroplane1 = Aeroplane()
+
+helicopter1.fly("INN", "QOJ", 2) #> Helicopter flying
+aeroplane1.fly("INN", "BER", 200) #> Aeroplane flying
+```
+
+### Principle of inheritance
+
+You can base on class on another, where a sub class will have (at least) the same interface as the super class.
+This allows you to create less copy-past code.
+
+It is necessary that we always implement all the abstract methods we might inherit from _interfaces_.
+
+### Principle of polymorphism
+
+Liskov substitution principle says that you can exchange an object within a program with a sub class of that object without breaking the program.
+Meaning, a sub class always needs to behave as the super class if you look at it like it would be a super class.
+
+You can state this in nice mathematical formulas
+$$
+S \leq T \to (\forall x: T.\phi(x) \to \forall y: S.\phi(y)),
+$$
+where $T.\phi(x)$ is a property provable about object $x$ of type T
+
+With regards to Python you can easily overwrite methods with the same name in different classes.
+
+With this we close our quick excursion into Object Oriented Programming and move to Scientific Computing.
