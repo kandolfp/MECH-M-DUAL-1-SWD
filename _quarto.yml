@@ -31,6 +31,9 @@ book:
       chapters:
         - sss/sss1.qmd
     - part: oop/index.qmd
+      chapters:
+        - oop/basics.qmd
+        - oop/uml.qmd
     - summary.qmd
     - references.qmd
 
