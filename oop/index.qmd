@@ -1,4 +1,4 @@
-# Object Oriented Programming
+# Object Oriented Programming 
 
 Object Oriented Programming (OOP) or Object Oriented Design (OOD) is a programming paradigm or way of working when developing software.
 The main idea is to structure code according to common properties and features of (real-world) _objects_.
@@ -272,8 +272,8 @@ classDiagram
     Cat <|-- Lion
     Cat <|-- Tiger
     note for Tigon "Hybrid between male lion\nand female tiger"
-    Tiger <|-- Ligar
-    Lion <|-- Ligar
+    Tiger <|-- Liger
+    Lion <|-- Liger
     Lion <|-- Tigon
     Tiger <|-- Tigon
     Cat : +String name
@@ -289,9 +289,9 @@ classDiagram
     Cat : +run(destination)
     Cat : +sleep(hours float)
     Cat : +meow()
-    class Ligar{
+    class Liger{
         -Lion father
-        -Tigar mother
+        -Tiger mother
     }
     class Tigon{
         -Tiger father
@@ -306,6 +306,7 @@ classDiagram
         -Tiger mother
     }
 ```
+
 ### One way relationships
 
 Besides _inheritance_ we can have other relationships between classes.
