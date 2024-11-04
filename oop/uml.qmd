@@ -53,6 +53,8 @@ classDiagram
     }
 ```
 ## One way relationships
+
+Besides _inheritance_ we can have other relationships between classes.
 ```{mermaid}
 %%| fig-cap: "Relationships in terms of arrows"
 classDiagram
@@ -65,6 +67,9 @@ Professor --> Student : one way Association
 1. Generalization - `Mammal` implements/is a specific variant of `Animal`
 1. Association/Link - `Math` and `Informatics` call each other
 1. one way Association - `Professor` can call `Student`'s properties and methods but not visa versa
+
+Of course we can also reflect other more complex relationships. 
+A easy to understand example is the inclusion of a professor into a higher educational institution.
 ```{mermaid}
 %%| fig-cap: "Relationships in terms of arrows part 2"
 classDiagram
@@ -73,9 +78,40 @@ Professor --o Department : Aggregation
 Professor ..> Salary : Dependency
 Professor ..|> Academic : Realization
 ```
-1. Composition - `University` has an instance of `Deparment`, `Department` cannot exist without `University`
+1. Composition - `University` has an instance of `Department`, `Department` cannot exist without `University`
 1. Aggregation - F _has a_ instance of E. E can exist if F is not present
 1. Dependency - `Professor` requires, needs or depends on `Salary`
 1. Realization - `Professor` realizes the behaviour of `Academic`
 
-### Relationships in two ways
+## Multiplicity
+
+Quite often it is necessary to describe the relation in terms of multiplicity, i.e. specifying how often a class is used in the relationship.
+
+| multiplicity | meaning |
+| :---: | --- |
+| 1 | exactly one |
+| m | exactly m |
+| + | many, none or multiple, optional |
+| 0..1 | none to one, optional |
+| m..n | m to n, including the boundary |
+| 1..* | one or more |
+| m..* | m or more than m |
+: Different multiplicities and their meaning
+
+Let us try to illustrate this with the example of a car on a parking lot:
+
+```{mermaid}
+%%| fig-cap: "Cardinality with cars on parking lots"
+classDiagram
+Car "0..5" -- "1" Person : uses
+ParkingLot "0..1" o-- "0..*" Car : occupied
+Car "1" *.. "4" Wheel : has
+```
+You read this _away from the class_:
+
+- exactly four wheels belong to one car
+- a parking lot contains zero to infinity cars (not at the same time)
+- one car is standing on at most one parking lot
+- a person can only sit in one car
+- a car does not need to be occupied by a person but no more than 5
+
