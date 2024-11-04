@@ -326,7 +326,7 @@ div.csl-indent {
 <h2 data-number="6.1" class="anchored" data-anchor-id="motivation"><span class="header-section-number">6.1</span> Motivation</h2>
 <p>Speed is often the main motivation to work in <code>numpy</code>.</p>
 <p>Let us look at the simple example of the <a href="https://kandolfp.github.io/MECH-M-DUAL-1-DBM/basics/linearalgebra.html#def-dotproduct">scalar product</a> to see why.</p>
-<div id="3cd5e91b" class="cell styled-output" data-execution_count="1">
+<div id="6c1c0d32" class="cell styled-output" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> timeit</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -357,12 +357,12 @@ div.csl-indent {
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"numpy result </span><span class="sc">{</span>np<span class="sc">.</span>vdot(np_a, np_b)<span class="sc">}</span><span class="ss">, time </span><span class="sc">{</span>t2<span class="op">=</span><span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Speedup </span><span class="sc">{</span>t1<span class="op">/</span>t2<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>loop result 2550205506, time t1=54.038549182000025
-numpy result 2550205506, time t2=0.6065312889999745
-Speedup 89.0944130369543</code></pre>
+<pre><code>loop result 2550205506, time t1=54.97681945800002
+numpy result 2550205506, time t2=0.607714671999986
+Speedup 90.46485462835969</code></pre>
 </div>
 </div>
-<p>For the above example we see a speed up of 89.0. With <code>numpy</code> we will often see a speed up of 10 to 100 or likely even more.</p>
+<p>For the above example we see a speed up of 90.0. With <code>numpy</code> we will often see a speed up of 10 to 100 or likely even more.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
