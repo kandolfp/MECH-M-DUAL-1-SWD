@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Object Oriented Programming – Softwaredesign</title>
+<title>5&nbsp; Object Oriented Programming – Softwaredesign</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../summary.html" rel="next">
-<link href="../sss/sss1.html" rel="prev">
+<link href="../sss/index.html" rel="next">
+<link href="../basics/epilogue.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -112,6 +112,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
 <link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -124,7 +153,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../oop/index.html">Object Oriented Programming</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../oop/index.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Object Oriented Programming</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -205,6 +234,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../oop/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Object Oriented Programming</span></span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../sss/index.html" class="sidebar-item-text sidebar-link">
@@ -217,14 +252,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../sss/sss1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Self Study Session I</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Self Study Session I</span></span></a>
   </div>
 </li>
       </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Object Oriented Programming</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
@@ -248,13 +279,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#definition-of-attributes" id="toc-definition-of-attributes" class="nav-link active" data-scroll-target="#definition-of-attributes">Definition of attributes</a></li>
-  <li><a href="#definition-of-methods" id="toc-definition-of-methods" class="nav-link" data-scroll-target="#definition-of-methods">Definition of methods</a></li>
-  <li><a href="#overwriting-methods-and-integration-with-operators" id="toc-overwriting-methods-and-integration-with-operators" class="nav-link" data-scroll-target="#overwriting-methods-and-integration-with-operators">Overwriting methods and integration with operators</a></li>
-  <li><a href="#inheritance" id="toc-inheritance" class="nav-link" data-scroll-target="#inheritance">Inheritance</a></li>
-  <li><a href="#definition-of-the-structure-with-uml" id="toc-definition-of-the-structure-with-uml" class="nav-link" data-scroll-target="#definition-of-the-structure-with-uml">Definition of the structure with UML</a>
+  <li><a href="#sec-oop-python" id="toc-sec-oop-python" class="nav-link active" data-scroll-target="#sec-oop-python"><span class="header-section-number">5.1</span> Object Oriented Programming in Python</a></li>
+  <li><a href="#definition-of-attributes" id="toc-definition-of-attributes" class="nav-link" data-scroll-target="#definition-of-attributes"><span class="header-section-number">5.2</span> Definition of attributes</a>
   <ul class="collapse">
-  <li><a href="#relationships-in-one-way" id="toc-relationships-in-one-way" class="nav-link" data-scroll-target="#relationships-in-one-way">Relationships in one way</a></li>
+  <li><a href="#definition-of-methods" id="toc-definition-of-methods" class="nav-link" data-scroll-target="#definition-of-methods"><span class="header-section-number">5.2.1</span> Definition of methods</a></li>
+  <li><a href="#overwriting-methods-and-integration-with-operators" id="toc-overwriting-methods-and-integration-with-operators" class="nav-link" data-scroll-target="#overwriting-methods-and-integration-with-operators"><span class="header-section-number">5.2.2</span> Overwriting methods and integration with operators</a></li>
+  <li><a href="#inheritance" id="toc-inheritance" class="nav-link" data-scroll-target="#inheritance"><span class="header-section-number">5.2.3</span> Inheritance</a></li>
+  </ul></li>
+  <li><a href="#sec-uml" id="toc-sec-uml" class="nav-link" data-scroll-target="#sec-uml"><span class="header-section-number">5.3</span> Unified Programming Language</a>
+  <ul class="collapse">
+  <li><a href="#one-way-relationships" id="toc-one-way-relationships" class="nav-link" data-scroll-target="#one-way-relationships"><span class="header-section-number">5.3.1</span> One way relationships</a></li>
+  <li><a href="#multiplicity" id="toc-multiplicity" class="nav-link" data-scroll-target="#multiplicity"><span class="header-section-number">5.3.2</span> Multiplicity</a></li>
+  </ul></li>
+  <li><a href="#principles-of-oop" id="toc-principles-of-oop" class="nav-link" data-scroll-target="#principles-of-oop"><span class="header-section-number">5.4</span> Principles of OOP</a>
+  <ul class="collapse">
+  <li><a href="#principle-of-abstraction" id="toc-principle-of-abstraction" class="nav-link" data-scroll-target="#principle-of-abstraction"><span class="header-section-number">5.4.1</span> Principle of abstraction</a></li>
+  <li><a href="#principle-of-encapsulation" id="toc-principle-of-encapsulation" class="nav-link" data-scroll-target="#principle-of-encapsulation"><span class="header-section-number">5.4.2</span> Principle of encapsulation</a></li>
+  <li><a href="#principle-of-inheritance" id="toc-principle-of-inheritance" class="nav-link" data-scroll-target="#principle-of-inheritance"><span class="header-section-number">5.4.3</span> Principle of inheritance</a></li>
+  <li><a href="#principle-of-polymorphism" id="toc-principle-of-polymorphism" class="nav-link" data-scroll-target="#principle-of-polymorphism"><span class="header-section-number">5.4.4</span> Principle of polymorphism</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/oop/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -264,7 +306,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Object Oriented Programming</h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Object Oriented Programming</span></h1>
 </div>
 
 
@@ -281,8 +323,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Object Oriented Programming (OOP) is a programming paradigm or way of working. The main idea is to structure code according to common properties and features of (real-world) <em>objects</em>.</p>
+<p>Object Oriented Programming (OOP) or Object Oriented Design (OOD) is a programming paradigm or way of working when developing software. The main idea is to structure code according to common properties and features of (real-world) <em>objects</em>.</p>
 <p>In Python this is achieved by <strong>Classes</strong> as the abstract definition and <strong>Objects</strong> as a concrete realisation.</p>
+<section id="sec-oop-python" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="sec-oop-python"><span class="header-section-number">5.1</span> Object Oriented Programming in Python</h2>
 <p>The best way to explain OOP is by defining a class and objects. So let us start creating a class.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -297,9 +341,10 @@ Tip
 <p>Right from the start we will include doc strings as descriptions and we use type hints for the functions to give an orientation.</p>
 </div>
 </div>
-<section id="definition-of-attributes" class="level2">
-<h2 class="anchored" data-anchor-id="definition-of-attributes">Definition of attributes</h2>
-<div id="3a9e0068" class="cell styled-output" data-execution_count="1">
+</section>
+<section id="definition-of-attributes" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="definition-of-attributes"><span class="header-section-number">5.2</span> Definition of attributes</h2>
+<div id="97ef30a2" class="cell styled-output" data-execution_count="1">
 <div class="sourceCode cell-code" id="annotated-cell-1"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-1-1" class="code-annotation-target"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Robot:</span>
 <span id="annotated-cell-1-2"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">""" Class representing a robot. """</span></span>
 <span id="annotated-cell-1-3"><a href="#annotated-cell-1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -335,7 +380,7 @@ Tip
 </div>
 </div>
 <p>Now that we have a simple class we can define our first objects.</p>
-<div id="91f5841b" class="cell styled-output" data-execution_count="2">
+<div id="1c242991" class="cell styled-output" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>r2d2 <span class="op">=</span> Robot(<span class="st">"R2D2"</span>, (<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="dv">443</span>, <span class="dv">32</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>number5 <span class="op">=</span> Robot(<span class="st">"Number 5"</span>, (<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">3</span>), <span class="dv">80</span>, <span class="dv">20</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -351,7 +396,7 @@ I am called Number 5, I can be reached under 0.0.0.3 and my top speed is 20!</co
 </div>
 </div>
 <p>Hidden properties can not be access from outside:</p>
-<div id="f027f98f" class="cell styled-output" data-execution_count="3">
+<div id="6017aa6e" class="cell styled-output" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>r2d2<span class="sc">.</span>__port<span class="op">=</span><span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
@@ -365,10 +410,9 @@ Cell <span class="ansi-green-fg">In[3], line 1</span>
 </div>
 </div>
 <p>The little introduction each of the robots provides us with should be part af the class, not a property but a method.</p>
-</section>
-<section id="definition-of-methods" class="level2">
-<h2 class="anchored" data-anchor-id="definition-of-methods">Definition of methods</h2>
-<div id="68c5e81e" class="cell styled-output" data-execution_count="4">
+<section id="definition-of-methods" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="definition-of-methods"><span class="header-section-number">5.2.1</span> Definition of methods</h3>
+<div id="a9fef4fa" class="cell styled-output" data-execution_count="4">
 <div class="sourceCode cell-code" id="annotated-cell-4"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-4-1"><a href="#annotated-cell-4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Robot:</span>
 <span id="annotated-cell-4-2"><a href="#annotated-cell-4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">""" Class representing a robot. """</span></span>
 <span id="annotated-cell-4-3"><a href="#annotated-cell-4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -452,10 +496,10 @@ Important
 </div>
 <p>We can see a lot of similarities between classes and modules, how we call specific functions attributed to modules and how the are organised within Python.</p>
 </section>
-<section id="overwriting-methods-and-integration-with-operators" class="level2">
-<h2 class="anchored" data-anchor-id="overwriting-methods-and-integration-with-operators">Overwriting methods and integration with operators</h2>
+<section id="overwriting-methods-and-integration-with-operators" class="level3" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="overwriting-methods-and-integration-with-operators"><span class="header-section-number">5.2.2</span> Overwriting methods and integration with operators</h3>
 <p>A lot of the base types we have been using are actually classes and we where dealing with the objects. It stands to reason, that we should be able to treat them similar.</p>
-<div id="0d004920" class="cell styled-output" data-execution_count="5">
+<div id="fdf05392" class="cell styled-output" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>r2d2<span class="op">==</span>number5<span class="op">=</span><span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>r2d2<span class="op">&lt;</span>number5<span class="op">=</span><span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(r2d2)</span>
@@ -478,7 +522,7 @@ Cell <span class="ansi-green-fg">In[5], line 2</span>
 </div>
 </div>
 <p>In order to allow a seamless integration of our object into these types we should implement a couple of the <a href="https://docs.python.org/2.7/reference/datamodel.html">basic customizations</a></p>
-<div id="91da73e4" class="cell styled-output" data-execution_count="6">
+<div id="8b54f9ba" class="cell styled-output" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Robot:</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">""" Class representing a robot. """</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -539,10 +583,10 @@ I am called R2D2♥Number 5, I can be reached under 0.0.0.4:443 and my top speed
 </div>
 </div>
 </section>
-<section id="inheritance" class="level2">
-<h2 class="anchored" data-anchor-id="inheritance">Inheritance</h2>
+<section id="inheritance" class="level3" data-number="5.2.3">
+<h3 data-number="5.2.3" class="anchored" data-anchor-id="inheritance"><span class="header-section-number">5.2.3</span> Inheritance</h3>
 <p>Quite often we want to define a class not from scratch but start form another class. This concept is called <em>inheritance</em> or we can formulate it as <em>one class is the child of another class</em>.</p>
-<div id="2a4c8f9a" class="cell styled-output" data-execution_count="7">
+<div id="80ca2356" class="cell styled-output" data-execution_count="7">
 <div class="sourceCode cell-code" id="annotated-cell-7"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-7" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-7-1" class="code-annotation-target"><a href="#annotated-cell-7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Cat:</span>
 <span id="annotated-cell-7-2"><a href="#annotated-cell-7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="annotated-cell-7-3"><a href="#annotated-cell-7-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name: <span class="bu">str</span>, habitat: <span class="bu">list</span>[<span class="bu">str</span>]) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
@@ -631,17 +675,18 @@ My name is Olson, I am a Cat -&gt; Lion -&gt; Tiger -&gt; Tigon (Father Tiger, M
 </div>
 </div>
 </section>
-<section id="definition-of-the-structure-with-uml" class="level2">
-<h2 class="anchored" data-anchor-id="definition-of-the-structure-with-uml">Definition of the structure with UML</h2>
-<p>To get an overview how classes look like and interact Unified Modelling Language (UML) is created.</p>
-<p>So let us extend our class <code>Cat</code> first with an UML diagram before we extend the code.</p>
+</section>
+<section id="sec-uml" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="sec-uml"><span class="header-section-number">5.3</span> Unified Programming Language</h2>
+<p>Now that we know about the basics of OOP and how we can deal with it in Python we can take a step back and look at an abstract interface that helps us work in the framework of OOP. The Unified Modelling Language (UML) can be used to define how classes look like and how they interact. It provides a language independent way of designing a OO program.</p>
+<p>So let us extend our class <code>Cat</code> first with an UML diagram before we extend the code. In UML we see how classes interact but in general we will not see any specific object.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="../_assets/oop/UML_class.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="UML Class diagram"><img src="../_assets/oop/UML_class.svg" class="img-fluid figure-img" alt="UML Class diagram"></a></p>
 <figcaption>UML Class diagram</figcaption>
 </figure>
 </div>
-<p>We can model relationships with arrows but most importantly, UML does not show specific objects.</p>
+<p>Furthermore, we can model different relationships with different arrow styles, how does this look like for our big cats:</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -663,12 +708,12 @@ My name is Olson, I am a Cat -&gt; Lion -&gt; Tiger -&gt; Tigon (Father Tiger, M
     Cat : -String mood
     Cat : -Cat father
     Cat : -Cat mother
-    Cat: +breath()
-    Cat: +mate(other Cat)
-    Cat: +eat(food)
-    Cat: +run(destination)
-    Cat: +sleep(hours float)
-    Cat: +meow()
+    Cat : +breath()
+    Cat : +mate(other Cat)
+    Cat : +eat(food)
+    Cat : +run(destination)
+    Cat : +sleep(hours float)
+    Cat : +meow()
     class Ligar{
         -Lion father
         -Tigar mother
@@ -691,8 +736,9 @@ My name is Olson, I am a Cat -&gt; Lion -&gt; Tiger -&gt; Tigon (Father Tiger, M
 </div>
 </div>
 </div>
-<section id="relationships-in-one-way" class="level3">
-<h3 class="anchored" data-anchor-id="relationships-in-one-way">Relationships in one way</h3>
+<section id="one-way-relationships" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="one-way-relationships"><span class="header-section-number">5.3.1</span> One way relationships</h3>
+<p>Besides <em>inheritance</em> we can have other relationships between classes.</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -715,6 +761,7 @@ Professor --&gt; Student : one way Association
 <li>Association/Link - <code>Math</code> and <code>Informatics</code> call each other</li>
 <li>one way Association - <code>Professor</code> can call <code>Student</code>’s properties and methods but not visa versa</li>
 </ol>
+<p>Of course we can also reflect other more complex relationships. A easy to understand example is the inclusion of a professor into a higher educational institution.</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -732,11 +779,210 @@ Professor ..|&gt; Academic : Realization
 </div>
 </div>
 <ol type="1">
-<li>Composition - <code>University</code> has an instance of <code>Deparment</code>, <code>Department</code> cannot exist without <code>University</code></li>
+<li>Composition - <code>University</code> has an instance of <code>Department</code>, <code>Department</code> cannot exist without <code>University</code></li>
 <li>Aggregation - F <em>has a</em> instance of E. E can exist if F is not present</li>
 <li>Dependency - <code>Professor</code> requires, needs or depends on <code>Salary</code></li>
 <li>Realization - <code>Professor</code> realizes the behaviour of <code>Academic</code></li>
 </ol>
+</section>
+<section id="multiplicity" class="level3" data-number="5.3.2">
+<h3 data-number="5.3.2" class="anchored" data-anchor-id="multiplicity"><span class="header-section-number">5.3.2</span> Multiplicity</h3>
+<p>Quite often it is necessary to describe the relation in terms of multiplicity, i.e.&nbsp;specifying how often a class is used in the relationship.</p>
+<table class="caption-top table">
+<caption>Different multiplicities and their meaning</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;">multiplicity</th>
+<th>meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td>exactly one</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">m</td>
+<td>exactly m</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">+</td>
+<td>many, none or multiple, optional</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0..1</td>
+<td>none to one, optional</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">m..n</td>
+<td>m to n, including the boundary</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1..*</td>
+<td>one or more</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">m..*</td>
+<td>m or more than m</td>
+</tr>
+</tbody>
+</table>
+<p>Let us try to illustrate this with the example of a car on a parking lot:</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">classDiagram
+Car "0..5" -- "1" Person : uses
+ParkingLot "0..1" o-- "0..*" Car : occupied
+Car "1" *.. "4" Wheel : has
+</pre>
+</div>
+<p></p><figcaption> Cardinality with cars on parking lots</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<p>You read this <em>away from the class</em>:</p>
+<ul>
+<li>exactly four wheels belong to one car</li>
+<li>a parking lot contains zero to infinity cars (not at the same time)</li>
+<li>one car is standing on at most one parking lot</li>
+<li>a person can only sit in one car</li>
+<li>a car does not need to be occupied by a person but no more than 5</li>
+</ul>
+</section>
+</section>
+<section id="principles-of-oop" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="principles-of-oop"><span class="header-section-number">5.4</span> Principles of OOP</h2>
+<p>There are multiple principals of OOD and as the list on the german wikipedia is organised nicer we refer this version <a href="https://de.wikipedia.org/wiki/Prinzipien_objektorientierten_Designs">here</a>.</p>
+<p>We will pick a couple to give a first introduction.</p>
+<section id="principle-of-abstraction" class="level3" data-number="5.4.1">
+<h3 data-number="5.4.1" class="anchored" data-anchor-id="principle-of-abstraction"><span class="header-section-number">5.4.1</span> Principle of abstraction</h3>
+<p>An abstraction only needs to be as <em>accurate</em> to the real world as the application requires. For example if you model an aeroplane for the dynamic simulation of the behaviour during slight you need a different model than for a ticket booking system.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">classDiagram
+    class Aeroplane{
+        - speed
+        - altitude
+        - rollAngle
+        - pitchAngle
+        - yawAngle
+        + fly()
+    }
+</pre>
+</div>
+<p></p><figcaption> Aeroplane for a simulator</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">classDiagram
+    class Aeroplane{
+        - seets
+        + reserveSeat(n)
+    }
+</pre>
+</div>
+<p></p><figcaption> Aeroplane for a booking system</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<p>This is often refereed to as the <em>single responsibility principle</em>.</p>
+</section>
+<section id="principle-of-encapsulation" class="level3" data-number="5.4.2">
+<h3 data-number="5.4.2" class="anchored" data-anchor-id="principle-of-encapsulation"><span class="header-section-number">5.4.2</span> Principle of encapsulation</h3>
+<p>We also want to make sure the encapsulate our objects as possible. So only allow access to the methods that are really needed from outside and not to everything, especially to properties, e.g.&nbsp;the aeroplane pitch angle should not be controlled by the airport.</p>
+<p>In a similar way we can define <em>interfaces</em>. They are classes with abstract methods that can be implemented by another class.</p>
+<p>In Python this is done with the <em>Abstract Base Classes</em> or <code>ABC</code>.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">classDiagram
+    Airport--&gt; FlyingTransport : Dependency
+    Helicopter --|&gt; FlyingTransport
+    Aeroplane --|&gt; FlyingTransport
+    Domesticated Gryphon --|&gt; FlyingTransport
+    class FlyingTransport{
+        &lt;&lt;interface&gt;&gt;
+        + fly(origin, destination, passengers)
+    }
+    note for FlyingTransport "An interface in UML has only methods"
+    class Helicopter{
+        - ...
+        + fly(origin, destination, passengers)
+    }
+    class Aeroplane{
+        - ...
+        + fly(origin, destination, passengers)
+    }
+    class Domesticated Gryphon{
+        - ...
+        + fly(origin, destination, passengers)
+    }
+    class Airport{
+        - ...
+        + accept(FlyingTransport vehicle)
+    }
+</pre>
+</div>
+<p></p><figcaption> Airport and its flying inhabitants</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<div id="a6b82368" class="cell styled-output" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> abc <span class="im">import</span> ABC, abstractmethod</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Abstract Class</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> FlyingTransport(ABC):</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">@abstractmethod</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> fly(<span class="va">self</span>, origin, destination, passengers):</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">pass</span> <span class="co"># Abstract Method has no implementation!</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Non-Abstract Class</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Helicopter(FlyingTransport):</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> fly(<span class="va">self</span>, origin, destination, passengers):</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Helicopter flying"</span>)</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Non-Abstract Class</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Aeroplane(FlyingTransport):</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> fly(<span class="va">self</span>, origin, destination, passengers):</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Aeroplane flying"</span>)</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>helicopter1 <span class="op">=</span> Helicopter()</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>aeroplane1 <span class="op">=</span> Aeroplane()</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>helicopter1.fly(<span class="st">"INN"</span>, <span class="st">"QOJ"</span>, <span class="dv">2</span>) <span class="co">#&gt; Helicopter flying</span></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>aeroplane1.fly(<span class="st">"INN"</span>, <span class="st">"BER"</span>, <span class="dv">200</span>) <span class="co">#&gt; Aeroplane flying</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Helicopter flying
+Aeroplane flying</code></pre>
+</div>
+</div>
+</section>
+<section id="principle-of-inheritance" class="level3" data-number="5.4.3">
+<h3 data-number="5.4.3" class="anchored" data-anchor-id="principle-of-inheritance"><span class="header-section-number">5.4.3</span> Principle of inheritance</h3>
+<p>You can base on class on another, where a sub class will have (at least) the same interface as the super class. This allows you to create less copy-past code.</p>
+<p>It is necessary that we always implement all the abstract methods we might inherit from <em>interfaces</em>.</p>
+</section>
+<section id="principle-of-polymorphism" class="level3" data-number="5.4.4">
+<h3 data-number="5.4.4" class="anchored" data-anchor-id="principle-of-polymorphism"><span class="header-section-number">5.4.4</span> Principle of polymorphism</h3>
+<p>Liskov substitution principle says that you can exchange an object within a program with a sub class of that object without breaking the program. Meaning, a sub class always needs to behave as the super class if you look at it like it would be a super class.</p>
+<p>You can state this in nice mathematical formulas <span class="math display">\[
+S \leq T \to (\forall x: T.\phi(x) \to \forall y: S.\phi(y)),
+\]</span> where <span class="math inline">\(T.\phi(x)\)</span> is a property provable about object <span class="math inline">\(x\)</span> of type T</p>
+<p>With regards to Python you can easily overwrite methods with the same name in different classes.</p>
+<p>With this we close our quick excursion into Object Oriented Programming and move to Scientific Computing.</p>
 
 
 </section>
@@ -1309,13 +1555,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../sss/sss1.html" class="pagination-link" aria-label="Self Study Session I">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Self Study Session I</span></span>
+      <a href="../basics/epilogue.html" class="pagination-link" aria-label="Epilogue">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Epilogue</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../summary.html" class="pagination-link" aria-label="Summary">
-        <span class="nav-page-text">Summary</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../sss/index.html" class="pagination-link" aria-label="Self Study Sessions">
+        <span class="nav-page-text">Self Study Sessions</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1333,7 +1579,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","closeEffect":"zoom","loop":false,"selector":".lightbox","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","openEffect":"zoom","loop":false,"closeEffect":"zoom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
