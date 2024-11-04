@@ -1,11 +1,371 @@
 # Object Oriented Programming
 
-Object Oriented Programming (OOP) is a programming paradigm or way of working.
+Object Oriented Programming (OOP) or Object Oriented Design (OOD) is a programming paradigm or way of working when developing software.
 The main idea is to structure code according to common properties and features of (real-world) _objects_.
 
 In Python this is achieved by **Classes** as the abstract definition and **Objects** as a concrete realisation.
 
-This section is comprised of two parts:
+## Object Oriented Programming in Python {#sec-oop-python}
 
-- @sec-oop-python
-- @sec-uml
+The best way to explain OOP is by defining a class and objects.
+So let us start creating a class.
+
+::: {.callout-tip}
+Right from the start we will include doc strings as descriptions and we use type hints for the functions to give an orientation. 
+:::
+
+## Definition of attributes
+```{python}
+#| classes: styled-output
+#| error: true
+class Robot:        # <1>
+    """ Class representing a robot. """
+
+    def __init__(self, 
+                 name: str,
+                 ip: set[int],
+                 port: int,
+                 speed: float) -> None:   # <2>
+        """ Initialize the name and the ip address of the robot"""
+        self.name = name        # <3>
+        self.ip = ip            # <2>
+        self.__port = port      # <4>
+        self.speed = speed      # <2>
+                                # <2>
+```
+1. The common convention is that classes use a capital letter.
+2. The constructor of the class is defined with `__init__` and `self` indicated that the method belongs to an object.
+3. We use attributes to store certain aspects of a object where we use `self.name` to identify the scope.
+4. We can hide attributes such that they can not be accessed from _outside_.
+
+Now that we have a simple class we can define our first objects.
+
+```{python}
+#| classes: styled-output
+#| error: true
+r2d2 = Robot("R2D2", (0, 0, 0, 1), 443, 32)
+number5 = Robot("Number 5", (0, 0, 0, 3), 80, 20)
+
+print(f"I am called {r2d2.name}, I can be reached under "
+      f"{'.'.join(str(s) for s in r2d2.ip)}"
+      f" and my top speed is {r2d2.speed}!")
+print(f"I am called {number5.name}, I can be reached under "
+      f"{'.'.join(str(s) for s in number5.ip)}"
+      f" and my top speed is {number5.speed}!")
+```
+Hidden properties can not be access from outside:
+```{python}
+#| classes: styled-output
+#| error: true
+print(f"{r2d2.__port=}")
+```
+
+The little introduction each of the robots provides us with should be part af the class, not a property but a method.
+
+### Definition of methods
+
+```{python}
+#| classes: styled-output
+#| error: true
+class Robot:
+    """ Class representing a robot. """
+
+    def __init__(self, 
+                 name: str,
+                 ip: set[int],
+                 port: int,
+                 speed: float) -> None:
+        """ Initialize the name and the ip address of the robot"""
+        self.name = name        
+        self.ip = ip            
+        self.__port = port      
+        self.speed = speed      
+                                
+
+    def introduction(self) -> str:
+        """ Short introduction of the robot"""
+        return (f"I am called {self.name}, I can be reached under "
+                f"{self.__ip2str()} and my top speed is {self.speed}!")  # <4>
+    
+
+    def __ip2str(self) -> str:
+        """ Transform the integer set with the port into a string"""
+        return f"{'.'.join(str(s) for s in self.ip)}:{self.__port}" # <1>
+
+r2d2 = Robot("R2D2", (0, 0, 0, 1), 443, 32)                         # <2>
+number5 = Robot("Number 5", (0, 0, 0, 3), 80, 20)
+
+print(r2d2.introduction())                                          # <3>
+print(number5.introduction())                                       # <3>
+```
+1. We can use the hidden attribute.
+1. We need to redefine the objects for the _new_ class.
+1. Calling an method is like calling a function but for the class object.
+1. We can call other methods inside our object and they can be hidden.
+
+::: {.callout-important}
+To summarize our first findings. 
+
+1. Class:
+    1. Our class `Robot` is an abstract description of all the Robots we can think about.
+    1. We can have _properties_ that are described by _attributes_ and _actions_ described by _methods_.
+    1. We can defined hidden attributes and methods if they should only be access from within the object.
+1. Object:
+    1. A specific object like `r2d2` is an instance of the class `Robot` and keeps track of its own set of attributes.
+    1. The methods are shared with all and we can specify and use our attributes.
+:::
+
+We can see a lot of similarities between classes and modules, how we call specific functions attributed to modules and how the are organised within Python.
+
+### Overwriting methods and integration with operators
+A lot of the base types we have been using are actually classes and we where dealing with the objects.
+It stands to reason, that we should be able to treat them similar. 
+
+```{python}
+#| classes: styled-output
+#| error: true
+print(f"{r2d2==number5=}")
+print(f"{r2d2<number5=}")
+print(r2d2)
+print(r2d2 + number5)
+```
+
+In order to allow a seamless integration of our object into these types we should implement a couple of the [basic customizations](https://docs.python.org/2.7/reference/datamodel.html)
+
+
+```{python}
+#| classes: styled-output
+#| error: true
+class Robot:
+    """ Class representing a robot. """
+
+    def __init__(self, 
+                 name: str,
+                 ip: list[int],
+                 port: int,
+                 speed: float) -> None:
+        """ Initialize the name and the ip address of the robot"""
+        self.name = name        
+        self.ip = ip            
+        self.__port = port      
+        self.speed = speed      
+
+    def introduction(self) -> str:
+        """ Short introduction of the robot"""
+        return (f"I am called {self.name}, I can be reached under "
+                f"{self.__ip2str()} and my top speed is {self.speed}!")
+    
+    def __ip2str(self) -> str:
+        """ Transform the integer set with the port into a string"""
+        return f"{'.'.join(str(s) for s in self.ip)}:{self.__port}"     
+
+    def __cmp__(self, other):
+        """ Compare two objects of type Robot"""
+        return self.speed == other.speed
+
+    def __lt__(self, other):
+        """ Less than for Robot"""
+        return self.speed < other.speed
+
+    def __str__(self):
+        """ The official string representation """
+        return self.introduction()
+    
+    def __add__(self, other):
+        return Robot(self.name + "♥" + other.name, 
+                     list(map(lambda x, y: x + y, self.ip, other.ip)),
+                     self.__port,
+                     min(self.speed, other.speed))
+
+
+r2d2 = Robot("R2D2", [0, 0, 0, 1], 443, 32)                         
+r2d3 = Robot("R2D3", [0, 0, 0, 2], 443, 32)                         
+number5 = Robot("Number 5", [0, 0, 0, 3], 80, 20)
+
+print(f"{r2d2==number5=}")
+print(f"{r2d2==r2d3=}")
+print(f"{r2d2<number5=}")
+print(r2d2)
+print(r2d2 + number5)
+```
+
+### Inheritance
+
+Quite often we want to define a class not from scratch but start form another class.
+This concept is called _inheritance_ or we can formulate it as _one class is the child of another class_.
+
+```{python}
+#| classes: styled-output
+#| error: true
+
+class Cat:                                                  # <1>
+                                                            # <1>
+    def __init__(self, name: str, habitat: list[str]) -> None:            # <1>
+        self.name = name                                    # <1>
+        self.habitat = habitat                                # <1>
+        print(f"I live in {', '.join(habitat)}")
+                                                            # <1>
+    def __str__(self) -> str:                               # <1>
+        return f"My name is {self.name}, I am a Cat"        # <1>
+
+class Tiger(Cat):                                           # <2>
+
+    def __init__(self, name: str, habitat: list[str]=["Asia"]) -> None: # <3>
+        super().__init__(name, habitat)                      # <2>
+
+    def __str__(self) -> str:                               
+        return f"{super().__str__()} -> Tiger"              # <4>
+
+class Lion(Cat):
+    
+    def __init__(self, name: str, habitat: list[str]=["Africa", "India"]) -> None:
+        super().__init__(name, habitat)                      # <2>
+
+    def __str__(self) -> str:
+        return f"{super().__str__()} -> Lion"
+
+class Liger(Lion, Tiger):                                   # <5>
+
+    def __str__(self) -> str:
+        return (f"{super().__str__()} -> Tiger"             
+               f" (Father {self.__class__.__bases__[0].__name__}," # <6>
+               f" Mother {self.__class__.__bases__[1].__name__})")
+
+class Tigon(Tiger, Lion):                                   # <7>
+
+    def __str__(self) -> str:
+        return (f"{super().__str__()} -> Tigon"
+               f" (Father {self.__class__.__bases__[0].__name__},"
+               f" Mother {self.__class__.__bases__[1].__name__})")
+
+sven = Liger("Sven")
+olson = Tigon("Olson")
+print(sven)
+print(olson)
+Liger.__mro__
+```
+1. We can define a base class with a constructor and a way of producing a string.
+1. We inherit from a class simply by putting the class name into the definition as _argument_.
+1. If we inherit from the base we do not need to overwrite everything, only the methods we want to and we can be more specific like defining defaults.
+1. We can access the parent with `super()`, similar to `self`
+1. We can inherit from multiple classes.
+1. There are multiple ways of accessing properties of _parent_ classes.
+1. The order of the classes for inheritance matters.
+
+## Unified Programming Language {#sec-uml}
+
+Now that we know about the basics of OOP and how we can deal with it in Python we can take a step back and look at an abstract interface that helps us work in the framework of OOP.
+The Unified Modelling Language (UML) can be used to define how classes look like and how they interact.
+It provides a language independent way of designing a OO program.
+
+So let us extend our class `Cat` first with an UML diagram before we extend the code. 
+In UML we see how classes interact but in general we will not see any specific object.
+
+![UML Class diagram](../_assets/oop/UML_class.svg){.lightbox}
+
+Furthermore, we can model different relationships with different arrow styles, how does this look like for our big cats:
+
+```{mermaid}
+%%| fig-cap: "Relationship between different classes"
+classDiagram
+    note "About big cats"
+    Cat <|-- Lion
+    Cat <|-- Tiger
+    note for Tigon "Hybrid between male lion\nand female tiger"
+    Tiger <|-- Ligar
+    Lion <|-- Ligar
+    Lion <|-- Tigon
+    Tiger <|-- Tigon
+    Cat : +String name
+    Cat : +List~String~ habitat
+    Cat : +String gender
+    Cat : +int age
+    Cat : -String mood
+    Cat : -Cat father
+    Cat : -Cat mother
+    Cat : +breath()
+    Cat : +mate(other Cat)
+    Cat : +eat(food)
+    Cat : +run(destination)
+    Cat : +sleep(hours float)
+    Cat : +meow()
+    class Ligar{
+        -Lion father
+        -Tigar mother
+    }
+    class Tigon{
+        -Tiger father
+        -Lion mother
+    }
+    class Lion{
+        -Lion father
+        -Lion mother
+    }
+    class Tiger{
+        -Tiger father
+        -Tiger mother
+    }
+```
+### One way relationships
+
+Besides _inheritance_ we can have other relationships between classes.
+```{mermaid}
+%%| fig-cap: "Relationships in terms of arrows"
+classDiagram
+Tiger --|> Cat : Inheritance
+Mammal ..|> Animal : Generalization
+Math -- Informatics : Association/Link
+Professor --> Student : one way Association
+```
+1. Inheritance - `Tiger` inherits from `Cat` -  _is a_ relation
+1. Generalization - `Mammal` implements/is a specific variant of `Animal`
+1. Association/Link - `Math` and `Informatics` call each other
+1. one way Association - `Professor` can call `Student`'s properties and methods but not visa versa
+
+Of course we can also reflect other more complex relationships. 
+A easy to understand example is the inclusion of a professor into a higher educational institution.
+```{mermaid}
+%%| fig-cap: "Relationships in terms of arrows part 2"
+classDiagram
+Department --* University : Composition
+Professor --o Department : Aggregation
+Professor ..> Salary : Dependency
+Professor ..|> Academic : Realization
+```
+1. Composition - `University` has an instance of `Department`, `Department` cannot exist without `University`
+1. Aggregation - F _has a_ instance of E. E can exist if F is not present
+1. Dependency - `Professor` requires, needs or depends on `Salary`
+1. Realization - `Professor` realizes the behaviour of `Academic`
+
+### Multiplicity
+
+Quite often it is necessary to describe the relation in terms of multiplicity, i.e. specifying how often a class is used in the relationship.
+
+| multiplicity | meaning |
+| :---: | --- |
+| 1 | exactly one |
+| m | exactly m |
+| + | many, none or multiple, optional |
+| 0..1 | none to one, optional |
+| m..n | m to n, including the boundary |
+| 1..* | one or more |
+| m..* | m or more than m |
+: Different multiplicities and their meaning
+
+Let us try to illustrate this with the example of a car on a parking lot:
+
+```{mermaid}
+%%| fig-cap: "Cardinality with cars on parking lots"
+classDiagram
+Car "0..5" -- "1" Person : uses
+ParkingLot "0..1" o-- "0..*" Car : occupied
+Car "1" *.. "4" Wheel : has
+```
+You read this _away from the class_:
+
+- exactly four wheels belong to one car
+- a parking lot contains zero to infinity cars (not at the same time)
+- one car is standing on at most one parking lot
+- a person can only sit in one car
+- a car does not need to be occupied by a person but no more than 5
+

@@ -27,13 +27,10 @@ book:
         - basics/packagemanager.qmd
         - basics/versioncontrol.qmd
         - basics/epilogue.qmd
+    - oop/index.qmd
     - part: sss/index.qmd
       chapters:
         - sss/sss1.qmd
-    - part: oop/index.qmd
-      chapters:
-        - oop/basics.qmd
-        - oop/uml.qmd
     - summary.qmd
     - references.qmd
 
