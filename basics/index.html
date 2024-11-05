@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>6&nbsp; NumPy – Softwaredesign</title>
+<title>Basics – Softwaredesign</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,40 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 /* CSS for citations */
 div.csl-bib-body { }
@@ -84,8 +50,8 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../sc/pandas.html" rel="next">
-<link href="../sc/index.html" rel="prev">
+<link href="../basics/python.html" rel="next">
+<link href="../intro.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -137,7 +103,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sc/index.html">Scientific Computing</a></li><li class="breadcrumb-item"><a href="../sc/numpy.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">NumPy</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../basics/index.html">Basics</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -185,7 +151,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../basics/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../basics/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Basics</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -235,7 +201,7 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sc/numpy.html" class="sidebar-item-text sidebar-link active">
+  <a href="../sc/numpy.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">NumPy</span></span></a>
   </div>
 </li>
@@ -286,17 +252,21 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation"><span class="header-section-number">6.1</span> Motivation</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">6.2</span> References</a></li>
+  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link active" data-scroll-target="#additional-resources">Additional resources</a>
+  <ul class="collapse">
+  <li><a href="#python" id="toc-python" class="nav-link" data-scroll-target="#python">Python</a></li>
+  <li><a href="#pdm" id="toc-pdm" class="nav-link" data-scroll-target="#pdm">PDM</a></li>
+  <li><a href="#git" id="toc-git" class="nav-link" data-scroll-target="#git">Git</a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/sc/numpy.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/basics/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sc/index.html">Scientific Computing</a></li><li class="breadcrumb-item"><a href="../sc/numpy.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">NumPy</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-sc-numpy" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">NumPy</span></span></h1>
+<h1 class="title">Basics</h1>
 </div>
 
 
@@ -313,56 +283,13 @@ div.csl-indent {
 </header>
 
 
-<p>NumPy is short for Numerical Python and is the working horse of numerical computing and to that extend for scientific computing.</p>
-<p>The most important things your find in numpy are</p>
+<p>In this secton we are going to lay the ground work for our introduction into <em>softwaredesign</em> by looking at:</p>
 <ul>
-<li><code>ndarray</code>: an efficient multidimensional array class providing arithmetic operations and broadcasting capabilities.</li>
-<li>Sub packages for linear algebra <code>linalg</code>, random number <code>random</code>, or fourier transform, to name some.</li>
-<li>Vectorization of mathematical functions to work on entire arrays without the need of implementing functions (like all the Basic Linear Algebra Subroutines - BLAS - functions).</li>
-<li>I/O tools for reading and writing arrays to disk and working with memory-mapped files</li>
-<li>A C API for connecting <code>NumPy</code> with libraries from C/C++ and FORTRAN like BLAS and LAPACK.</li>
+<li>our main programming language - <a href="https://www.python.org/">Python</a> - see <a href="python.html" class="quarto-xref"><span>1&nbsp; Introduction to Python</span></a></li>
+<li>our way of managing packages - <a href="https://pdm-project.org/en/latest/">pdm</a> - see <a href="packagemanager.html" class="quarto-xref"><span>2&nbsp; Package manager</span></a></li>
+<li>our way of keeping track of our code and projects - <a href="https://git-scm.com/">git</a> - see <a href="versioncontrol.html" class="quarto-xref"><span>3&nbsp; Version Control</span></a></li>
 </ul>
-<section id="motivation" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="motivation"><span class="header-section-number">6.1</span> Motivation</h2>
-<p>Speed is often the main motivation to work in <code>numpy</code>.</p>
-<p>Let us look at the simple example of the <a href="https://kandolfp.github.io/MECH-M-DUAL-1-DBM/basics/linearalgebra.html#def-dotproduct">scalar product</a> to see why.</p>
-<div id="1df557a2" class="cell styled-output" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> timeit</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>random.seed(<span class="dv">42</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>min_value <span class="op">=</span> <span class="dv">1</span> </span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>max_value <span class="op">=</span> <span class="dv">100</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate the two lists of 10_000_000 random numbers each</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> [random.randint(min_value, max_value) <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1_000_000</span>)]</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> [random.randint(min_value, max_value) <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1_000_000</span>)]</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> dot(a, b):</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    r <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> first, second <span class="kw">in</span> <span class="bu">zip</span>(a, b):</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        r <span class="op">+=</span> first <span class="op">*</span> second</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> r</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>t1 <span class="op">=</span> timeit.timeit(<span class="kw">lambda</span>: dot(a, b), number<span class="op">=</span><span class="dv">1000</span>)</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>np_a <span class="op">=</span> np.array(a, dtype<span class="op">=</span>np.int64)</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>np_b <span class="op">=</span> np.array(b, dtype<span class="op">=</span>np.int64)</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>t2 <span class="op">=</span> timeit.timeit(<span class="kw">lambda</span>: np.vdot(np_a, np_b), number<span class="op">=</span><span class="dv">1000</span>)</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"loop result </span><span class="sc">{</span>dot(a,b)<span class="sc">}</span><span class="ss">, time </span><span class="sc">{</span>t1<span class="op">=</span><span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"numpy result </span><span class="sc">{</span>np<span class="sc">.</span>vdot(np_a, np_b)<span class="sc">}</span><span class="ss">, time </span><span class="sc">{</span>t2<span class="op">=</span><span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Speedup </span><span class="sc">{</span>t1<span class="op">/</span>t2<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>loop result 2550205506, time t1=55.43006425599998
-numpy result 2550205506, time t2=0.6052215789999877
-Speedup 91.58639774144785</code></pre>
-</div>
-</div>
-<p>For the above example we see a speed up of 92.0. With <code>numpy</code> we will often see a speed up of 10 to 100 or likely even more.</p>
+<p>We will use these tools throughout the notes. <strong>Our aim is, that by the end of the notes you will use them without a second thought.</strong></p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -373,30 +300,73 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Lately Python has invested in getting there loops faster, you will see a much higher speed up for this example with old versions of Python.</p>
+<p>As mentioned earlier, these notes assume that you have some basic knowledge of programming and we build on that knowledge to widen your horizon.</p>
 </div>
 </div>
+<p>At the end of this part you will also find an <a href="epilogue.html" class="quarto-xref"><span>4&nbsp; Epilogue</span></a> where we bind them all together with some final thoughts.</p>
+<section id="additional-resources" class="level1 unnumbered">
+<h1 class="unnumbered">Additional resources</h1>
+<p>Here you find some literature regarding the topics covered in this section.</p>
+<section id="python" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="python">Python</h3>
+<ul>
+<li><span class="citation" data-cites="Matthes2023">Matthes (<a href="../references.html#ref-Matthes2023" role="doc-biblioref">2023</a>)</span>: Python Crash Course - A hands-on, project-based introduction to programming; <a href="https://ehmatthes.github.io/pcc_3e/">Online Material</a>.</li>
+<li><a href="https://github.com/ehmatthes/pcc_3e/releases/download/v1.0.0/beginners_python_cheat_sheet_pcc_all.pdf">Python Cheat Sheet</a> provided by <span class="citation" data-cites="Matthes2023">Matthes (<a href="../references.html#ref-Matthes2023" role="doc-biblioref">2023</a>)</span>.</li>
+<li><span class="citation" data-cites="McKinney2022-qz">McKinney (<a href="../references.html#ref-McKinney2022-qz" role="doc-biblioref">2022</a>)</span>: Python for data analysis 3e; <a href="https://wesmckinney.com/book/">Online</a> and Print</li>
+<li><span class="citation" data-cites="Vasiliev2022">Vasiliev (<a href="../references.html#ref-Vasiliev2022" role="doc-biblioref">2022</a>)</span>: Python for Data Science - A Hands-On Introduction</li>
+<li><span class="citation" data-cites="Inden2023">Inden (<a href="../references.html#ref-Inden2023" role="doc-biblioref">2023</a>)</span>: Python lernen – kurz &amp; gut; German</li>
+</ul>
 </section>
-<section id="references" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="references"><span class="header-section-number">6.2</span> References</h2>
-<p>As we cover a lot of the basics in action in the sister class <a href="https://kandolfp.github.io/MECH-M-DUAL-1-DBM/">Basics of Data Science</a> this introduction ends here and we refer to others for a longer read like</p>
+<section id="pdm" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="pdm">PDM</h3>
 <ul>
-<li><span class="citation" data-cites="McKinney2022-qz">McKinney (<a href="../references.html#ref-McKinney2022-qz" role="doc-biblioref">2022</a>)</span> (direct link to the <a href="https://wesmckinney.com/book/numpy-basics">NumPy-Basics</a>)</li>
-<li>MCI Lecture notes of Julian Huber and Matthias Panny <a href="https://mrp123.github.io/MCI-MECH-B-3-SWD-SWD-ILV">Online</a></li>
-<li><code>NumPy</code> docs
+<li>Project page <a href="https://pdm-project.org">pdm-project.org</a></li>
+<li>Project on <a href="https://github.com/pdm-project/pdm">GitHub</a></li>
+</ul>
+</section>
+<section id="git" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="git">Git</h3>
 <ul>
-<li><a href="https://numpy.org/doc/stable/user/quickstart.html">NumPy quickstart</a></li>
-<li><a href="https://numpy.org/doc/stable/user/absolute_beginners.html">NumPy the absolute basics for beginners</a></li>
-<li><a href="https://numpy.org/doc/stable/user/numpy-for-matlab-users.html">NumPy for MATLAB users</a></li>
-</ul></li>
+<li><span class="citation" data-cites="Ponuthorai2022">Ponuthorai and Loeliger (<a href="../references.html#ref-Ponuthorai2022" role="doc-biblioref">2022</a>)</span>: Version Control with Git: Powerful Tools and Techniques for Collaborative Software Development;</li>
+<li><span class="citation" data-cites="chacon2014pro">Chacon and Straub (<a href="../references.html#ref-chacon2014pro" role="doc-biblioref">2014</a>)</span>: Pro Git: Everything you need to know about Git, <a href="https://git-scm.com/book/en/v2">Online</a></li>
+<li><span class="citation" data-cites="Siessegger2024">Siessegger (<a href="../references.html#ref-Siessegger2024" role="doc-biblioref">2024</a>)</span>: Git – kurz &amp; gut; German</li>
+<li><span class="citation" data-cites="lodato2010">Polge (<a href="../references.html#ref-lodato2010" role="doc-biblioref">2024</a>)</span>: A Visual Git Reference, <a href="https://marklodato.github.io/visual-git-guide/index-en.html">Online</a></li>
+<li><span class="citation" data-cites="coglan2014">Coglan (<a href="../references.html#ref-coglan2014" role="doc-biblioref">2014</a>)</span>: A book that tells you how to build Git on your own, <a href="https://shop.jcoglan.com/building-git/">Shop</a></li>
+<li><span class="citation" data-cites="lodato2010">Polge (<a href="../references.html#ref-lodato2010" role="doc-biblioref">2024</a>)</span>: Write yourself a Git; an online book that tells you how to build Git on your own, <a href="https://wyag.thb.lt/">Link</a></li>
+<li><a href="https://education.github.com/git-cheat-sheet-education.pdf">Git cheat sheet</a> from <a href="https://education.github.com">education.github.com</a></li>
 </ul>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-chacon2014pro" class="csl-entry" role="listitem">
+Chacon, Scott, and Ben Straub. 2014. <em>Pro Git: Everything You Need to Know about Git</em>. 2nd ed. Apress. <a href="https://git-scm.com/book/en/v2">https://git-scm.com/book/en/v2</a>.
+</div>
+<div id="ref-coglan2014" class="csl-entry" role="listitem">
+Coglan, James. 2014. <span>“Building Git.”</span> <a href="https://shop.jcoglan.com/building-git/">https://shop.jcoglan.com/building-git/</a>.
+</div>
+<div id="ref-Inden2023" class="csl-entry" role="listitem">
+Inden, Michael. 2023. <em>Python Lernen – Kurz &amp; Gut -</em>. Sebastopol: O’Reilly.
+</div>
+<div id="ref-Matthes2023" class="csl-entry" role="listitem">
+Matthes, Eric. 2023. <em>Python Crash Course - a Hands-on, Project-Based Introduction to Programming</em>. 3rd ed. No Starch Press. <a href="https://ehmatthes.github.io/pcc_3e/">https://ehmatthes.github.io/pcc_3e/</a>.
+</div>
 <div id="ref-McKinney2022-qz" class="csl-entry" role="listitem">
 McKinney, Wes. 2022. <em>Python for Data Analysis 3e</em>. 3rd ed. Sebastopol, CA: O’Reilly Media. <a href="https://wesmckinney.com/book/">https://wesmckinney.com/book/</a>.
 </div>
+<div id="ref-lodato2010" class="csl-entry" role="listitem">
+Polge, Thibault. 2024. <span>“Write Yourself a Git!”</span> <a href="https://wyag.thb.lt/">https://wyag.thb.lt/</a>.
 </div>
+<div id="ref-Ponuthorai2022" class="csl-entry" role="listitem">
+Ponuthorai, Prem Kumar, and Jon Loeliger. 2022. <em>Version Control with Git</em>. 3rd ed. Sebastopol: "O’Reilly Media, Inc.".
+</div>
+<div id="ref-Siessegger2024" class="csl-entry" role="listitem">
+Siessegger, Nina. 2024. <em>Git – Kurz &amp; Gut</em>. 2nd ed. Sebastopol: O’Reilly.
+</div>
+<div id="ref-Vasiliev2022" class="csl-entry" role="listitem">
+Vasiliev, Yuli. 2022. <em>Python for Data Science - a Hands-on Introduction</em>. München: No Starch Press.
+</div>
+</div>
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -966,13 +936,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../sc/index.html" class="pagination-link" aria-label="Scientific Computing">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Scientific Computing</span>
+      <a href="../intro.html" class="pagination-link" aria-label="Introduction">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Introduction</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../sc/pandas.html" class="pagination-link" aria-label="Pandas">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Pandas</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../basics/python.html" class="pagination-link" aria-label="Introduction to Python">
+        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Python</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -984,7 +954,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
 <p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> Peter Kandolf</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/sc/numpy.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/basics/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
