@@ -60,7 +60,7 @@ Hidden properties can not be access from outside:
 print(f"{r2d2.__port=}")
 ```
 
-The little introduction each of the robots provides us with should be part af the class, not a property but a method.
+The little introduction each of the robots provides us with should be part of the class, not a property but a method.
 
 ### Definition of methods
 
@@ -100,7 +100,7 @@ print(number5.introduction())                                       # <3>
 ```
 1. We can use the hidden attribute.
 1. We need to redefine the objects for the _new_ class.
-1. Calling an method is like calling a function but for the class object.
+1. Calling a method is like calling a function but for the class object.
 1. We can call other methods inside our object and they can be hidden.
 
 ::: {.callout-important}
@@ -109,13 +109,13 @@ To summarize our first findings.
 1. Class:
     1. Our class `Robot` is an abstract description of all the Robots we can think about.
     1. We can have _properties_ that are described by _attributes_ and _actions_ described by _methods_.
-    1. We can defined hidden attributes and methods if they should only be access from within the object.
+    1. We can define hidden attributes and methods if they should only be access from within the object.
 1. Object:
     1. A specific object like `r2d2` is an instance of the class `Robot` and keeps track of its own set of attributes.
     1. The methods are shared with all and we can specify and use our attributes.
 :::
 
-We can see a lot of similarities between classes and modules, how we call specific functions attributed to modules and how the are organised within Python.
+We can see a lot of similarities between classes and modules, how we call specific functions attributed to modules and how they are organised within Python.
 
 ### Overwriting methods and integration with operators
 A lot of the base types we have been using are actually classes and we where dealing with the objects.
@@ -247,7 +247,7 @@ Liger.__mro__
 1. We can define a base class with a constructor and a way of producing a string.
 1. We inherit from a class simply by putting the class name into the definition as _argument_.
 1. If we inherit from the base we do not need to overwrite everything, only the methods we want to and we can be more specific like defining defaults.
-1. We can access the parent with `super()`, similar to `self`
+1. We can access the parent with `super()`, similar to `self`.
 1. We can inherit from multiple classes.
 1. There are multiple ways of accessing properties of _parent_ classes.
 1. The order of the classes for inheritance matters.
@@ -316,15 +316,15 @@ classDiagram
 Tiger --|> Cat : Inheritance
 Mammal ..|> Animal : Generalization
 Math -- Informatics : Association/Link
-Professor --> Student : one way Association
+Professor --> Student : One way Association
 ```
 1. Inheritance - `Tiger` inherits from `Cat` -  _is a_ relation
 1. Generalization - `Mammal` implements/is a specific variant of `Animal`
 1. Association/Link - `Math` and `Informatics` call each other
-1. one way Association - `Professor` can call `Student`'s properties and methods but not visa versa
+1. One way Association - `Professor` can call `Student`'s properties and methods but not visa versa
 
 Of course we can also reflect other more complex relationships. 
-A easy to understand example is the inclusion of a professor into a higher educational institution.
+An easy to understand example is the inclusion of a professor into a higher educational institution.
 ```{mermaid}
 %%| fig-cap: "Relationships in terms of arrows part 2"
 classDiagram
@@ -379,7 +379,7 @@ We will pick a couple to give a first introduction.
 ### Principle of abstraction
 
 An abstraction only needs to be as _accurate_ to the real world as the application requires.
-For example if you model an aeroplane for the dynamic simulation of the behaviour during slight you need a different model than for a ticket booking system. 
+For example if you model an aeroplane for the dynamic simulation of the behaviour during flight you need a different model than for a ticket booking system. 
 
 ```{mermaid}
 %%| fig-cap: "Aeroplane for a simulator"
@@ -397,16 +397,16 @@ classDiagram
 %%| fig-cap: "Aeroplane for a booking system"
 classDiagram
     class Aeroplane{
-        - seets
+        - seats
         + reserveSeat(n)
     }
 ```
 
-This is often refereed to as the _single responsibility principle_.
+This is often referred to as the _single responsibility principle_.
 
 ### Principle of encapsulation
 
-We also want to make sure the encapsulate our objects as possible.
+We also want to make sure to encapsulate our objects as best as possible.
 So only allow access to the methods that are really needed from outside and not to everything, especially to properties, e.g. the aeroplane pitch angle should not be controlled by the airport.
 
 In a similar way we can define _interfaces_. 
@@ -473,7 +473,7 @@ aeroplane1.fly("INN", "BER", 200) #> Aeroplane flying
 
 ### Principle of inheritance
 
-You can base on class on another, where a sub class will have (at least) the same interface as the super class.
+You can base a class on another, where a sub class will have (at least) the same interface as the super class.
 This allows you to create less copy-past code.
 
 It is necessary that we always implement all the abstract methods we might inherit from _interfaces_.
@@ -487,7 +487,7 @@ You can state this in nice mathematical formulas
 $$
 S \leq T \to (\forall x: T.\phi(x) \to \forall y: S.\phi(y)),
 $$
-where $T.\phi(x)$ is a property provable about object $x$ of type T
+where $T.\phi(x)$ is a property provable about object $x$ of type T.
 
 With regards to Python you can easily overwrite methods with the same name in different classes.
 
