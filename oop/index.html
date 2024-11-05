@@ -367,7 +367,7 @@ Tip
 </section>
 <section id="definition-of-attributes" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="definition-of-attributes"><span class="header-section-number">5.2</span> Definition of attributes</h2>
-<div id="18337ed9" class="cell styled-output" data-execution_count="1">
+<div id="3f127a9a" class="cell styled-output" data-execution_count="1">
 <div class="sourceCode cell-code" id="annotated-cell-1"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-1-1" class="code-annotation-target"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Robot:</span>
 <span id="annotated-cell-1-2"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">""" Class representing a robot. """</span></span>
 <span id="annotated-cell-1-3"><a href="#annotated-cell-1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -403,7 +403,7 @@ Tip
 </div>
 </div>
 <p>Now that we have a simple class we can define our first objects.</p>
-<div id="21ba1d8d" class="cell styled-output" data-execution_count="2">
+<div id="384616d8" class="cell styled-output" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>r2d2 <span class="op">=</span> Robot(<span class="st">"R2D2"</span>, (<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="dv">443</span>, <span class="dv">32</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>number5 <span class="op">=</span> Robot(<span class="st">"Number 5"</span>, (<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">3</span>), <span class="dv">80</span>, <span class="dv">20</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -419,7 +419,7 @@ I am called Number 5, I can be reached under 0.0.0.3 and my top speed is 20!</co
 </div>
 </div>
 <p>Hidden properties can not be access from outside:</p>
-<div id="8caef798" class="cell styled-output" data-execution_count="3">
+<div id="61917cf0" class="cell styled-output" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>r2d2<span class="sc">.</span>__port<span class="op">=</span><span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
@@ -432,10 +432,10 @@ Cell <span class="ansi-green-fg">In[3], line 1</span>
 </div>
 </div>
 </div>
-<p>The little introduction each of the robots provides us with should be part af the class, not a property but a method.</p>
+<p>The little introduction each of the robots provides us with should be part of the class, not a property but a method.</p>
 <section id="definition-of-methods" class="level3" data-number="5.2.1">
 <h3 data-number="5.2.1" class="anchored" data-anchor-id="definition-of-methods"><span class="header-section-number">5.2.1</span> Definition of methods</h3>
-<div id="7d6daa79" class="cell styled-output" data-execution_count="4">
+<div id="f74b90b0" class="cell styled-output" data-execution_count="4">
 <div class="sourceCode cell-code" id="annotated-cell-4"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-4-1"><a href="#annotated-cell-4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Robot:</span>
 <span id="annotated-cell-4-2"><a href="#annotated-cell-4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">""" Class representing a robot. """</span></span>
 <span id="annotated-cell-4-3"><a href="#annotated-cell-4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -478,7 +478,7 @@ Cell <span class="ansi-green-fg">In[3], line 1</span>
 </dd>
 <dt data-target-cell="annotated-cell-4" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-4" data-code-lines="29,30" data-code-annotation="3">Calling an method is like calling a function but for the class object.</span>
+<span data-code-cell="annotated-cell-4" data-code-lines="29,30" data-code-annotation="3">Calling a method is like calling a function but for the class object.</span>
 </dd>
 <dt data-target-cell="annotated-cell-4" data-target-annotation="4">4</dt>
 <dd>
@@ -507,7 +507,7 @@ Important
 <ol type="1">
 <li>Our class <code>Robot</code> is an abstract description of all the Robots we can think about.</li>
 <li>We can have <em>properties</em> that are described by <em>attributes</em> and <em>actions</em> described by <em>methods</em>.</li>
-<li>We can defined hidden attributes and methods if they should only be access from within the object.</li>
+<li>We can define hidden attributes and methods if they should only be access from within the object.</li>
 </ol></li>
 <li>Object:
 <ol type="1">
@@ -517,12 +517,12 @@ Important
 </ol>
 </div>
 </div>
-<p>We can see a lot of similarities between classes and modules, how we call specific functions attributed to modules and how the are organised within Python.</p>
+<p>We can see a lot of similarities between classes and modules, how we call specific functions attributed to modules and how they are organised within Python.</p>
 </section>
 <section id="overwriting-methods-and-integration-with-operators" class="level3" data-number="5.2.2">
 <h3 data-number="5.2.2" class="anchored" data-anchor-id="overwriting-methods-and-integration-with-operators"><span class="header-section-number">5.2.2</span> Overwriting methods and integration with operators</h3>
 <p>A lot of the base types we have been using are actually classes and we where dealing with the objects. It stands to reason, that we should be able to treat them similar.</p>
-<div id="bccddfc6" class="cell styled-output" data-execution_count="5">
+<div id="9ebb34fa" class="cell styled-output" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>r2d2<span class="op">==</span>number5<span class="op">=</span><span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>r2d2<span class="op">&lt;</span>number5<span class="op">=</span><span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(r2d2)</span>
@@ -545,7 +545,7 @@ Cell <span class="ansi-green-fg">In[5], line 2</span>
 </div>
 </div>
 <p>In order to allow a seamless integration of our object into these types we should implement a couple of the <a href="https://docs.python.org/2.7/reference/datamodel.html">basic customizations</a></p>
-<div id="7c2f3697" class="cell styled-output" data-execution_count="6">
+<div id="4a45509c" class="cell styled-output" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Robot:</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">""" Class representing a robot. """</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -609,7 +609,7 @@ I am called R2D2♥Number 5, I can be reached under 0.0.0.4:443 and my top speed
 <section id="inheritance" class="level3" data-number="5.2.3">
 <h3 data-number="5.2.3" class="anchored" data-anchor-id="inheritance"><span class="header-section-number">5.2.3</span> Inheritance</h3>
 <p>Quite often we want to define a class not from scratch but start form another class. This concept is called <em>inheritance</em> or we can formulate it as <em>one class is the child of another class</em>.</p>
-<div id="0cd2148d" class="cell styled-output" data-execution_count="7">
+<div id="b0e0cbdb" class="cell styled-output" data-execution_count="7">
 <div class="sourceCode cell-code" id="annotated-cell-7"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-7" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-7-1" class="code-annotation-target"><a href="#annotated-cell-7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Cat:</span>
 <span id="annotated-cell-7-2"><a href="#annotated-cell-7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="annotated-cell-7-3"><a href="#annotated-cell-7-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name: <span class="bu">str</span>, habitat: <span class="bu">list</span>[<span class="bu">str</span>]) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
@@ -671,7 +671,7 @@ I am called R2D2♥Number 5, I can be reached under 0.0.0.4:443 and my top speed
 </dd>
 <dt data-target-cell="annotated-cell-7" data-target-annotation="4">4</dt>
 <dd>
-<span data-code-cell="annotated-cell-7" data-code-lines="17" data-code-annotation="4">We can access the parent with <code>super()</code>, similar to <code>self</code></span>
+<span data-code-cell="annotated-cell-7" data-code-lines="17" data-code-annotation="4">We can access the parent with <code>super()</code>, similar to <code>self</code>.</span>
 </dd>
 <dt data-target-cell="annotated-cell-7" data-target-annotation="5">5</dt>
 <dd>
@@ -771,7 +771,7 @@ My name is Olson, I am a Cat -&gt; Lion -&gt; Tiger -&gt; Tigon (Father Tiger, M
 Tiger --|&gt; Cat : Inheritance
 Mammal ..|&gt; Animal : Generalization
 Math -- Informatics : Association/Link
-Professor --&gt; Student : one way Association
+Professor --&gt; Student : One way Association
 </pre>
 </div>
 <p></p><figcaption> Relationships in terms of arrows</figcaption> </figure><p></p>
@@ -782,9 +782,9 @@ Professor --&gt; Student : one way Association
 <li>Inheritance - <code>Tiger</code> inherits from <code>Cat</code> - <em>is a</em> relation</li>
 <li>Generalization - <code>Mammal</code> implements/is a specific variant of <code>Animal</code></li>
 <li>Association/Link - <code>Math</code> and <code>Informatics</code> call each other</li>
-<li>one way Association - <code>Professor</code> can call <code>Student</code>’s properties and methods but not visa versa</li>
+<li>One way Association - <code>Professor</code> can call <code>Student</code>’s properties and methods but not visa versa</li>
 </ol>
-<p>Of course we can also reflect other more complex relationships. A easy to understand example is the inclusion of a professor into a higher educational institution.</p>
+<p>Of course we can also reflect other more complex relationships. An easy to understand example is the inclusion of a professor into a higher educational institution.</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -882,7 +882,7 @@ Car "1" *.. "4" Wheel : has
 <p>We will pick a couple to give a first introduction.</p>
 <section id="principle-of-abstraction" class="level3" data-number="5.4.1">
 <h3 data-number="5.4.1" class="anchored" data-anchor-id="principle-of-abstraction"><span class="header-section-number">5.4.1</span> Principle of abstraction</h3>
-<p>An abstraction only needs to be as <em>accurate</em> to the real world as the application requires. For example if you model an aeroplane for the dynamic simulation of the behaviour during slight you need a different model than for a ticket booking system.</p>
+<p>An abstraction only needs to be as <em>accurate</em> to the real world as the application requires. For example if you model an aeroplane for the dynamic simulation of the behaviour during flight you need a different model than for a ticket booking system.</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -910,7 +910,7 @@ Car "1" *.. "4" Wheel : has
 <div>
 <pre class="mermaid mermaid-js">classDiagram
     class Aeroplane{
-        - seets
+        - seats
         + reserveSeat(n)
     }
 </pre>
@@ -919,11 +919,11 @@ Car "1" *.. "4" Wheel : has
 </div>
 </div>
 </div>
-<p>This is often refereed to as the <em>single responsibility principle</em>.</p>
+<p>This is often referred to as the <em>single responsibility principle</em>.</p>
 </section>
 <section id="principle-of-encapsulation" class="level3" data-number="5.4.2">
 <h3 data-number="5.4.2" class="anchored" data-anchor-id="principle-of-encapsulation"><span class="header-section-number">5.4.2</span> Principle of encapsulation</h3>
-<p>We also want to make sure the encapsulate our objects as possible. So only allow access to the methods that are really needed from outside and not to everything, especially to properties, e.g.&nbsp;the aeroplane pitch angle should not be controlled by the airport.</p>
+<p>We also want to make sure to encapsulate our objects as best as possible. So only allow access to the methods that are really needed from outside and not to everything, especially to properties, e.g.&nbsp;the aeroplane pitch angle should not be controlled by the airport.</p>
 <p>In a similar way we can define <em>interfaces</em>. They are classes with abstract methods that can be implemented by another class.</p>
 <p>In Python this is done with the <em>Abstract Base Classes</em> or <code>ABC</code>.</p>
 <div class="cell" data-layout-align="default">
@@ -963,7 +963,7 @@ Car "1" *.. "4" Wheel : has
 </div>
 </div>
 </div>
-<div id="76a5db31" class="cell styled-output" data-execution_count="8">
+<div id="4a1e53cb" class="cell styled-output" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> abc <span class="im">import</span> ABC, abstractmethod</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Abstract Class</span></span>
@@ -995,7 +995,7 @@ Aeroplane flying</code></pre>
 </section>
 <section id="principle-of-inheritance" class="level3" data-number="5.4.3">
 <h3 data-number="5.4.3" class="anchored" data-anchor-id="principle-of-inheritance"><span class="header-section-number">5.4.3</span> Principle of inheritance</h3>
-<p>You can base on class on another, where a sub class will have (at least) the same interface as the super class. This allows you to create less copy-past code.</p>
+<p>You can base a class on another, where a sub class will have (at least) the same interface as the super class. This allows you to create less copy-past code.</p>
 <p>It is necessary that we always implement all the abstract methods we might inherit from <em>interfaces</em>.</p>
 </section>
 <section id="principle-of-polymorphism" class="level3" data-number="5.4.4">
@@ -1003,7 +1003,7 @@ Aeroplane flying</code></pre>
 <p>Liskov substitution principle says that you can exchange an object within a program with a sub class of that object without breaking the program. Meaning, a sub class always needs to behave as the super class if you look at it like it would be a super class.</p>
 <p>You can state this in nice mathematical formulas <span class="math display">\[
 S \leq T \to (\forall x: T.\phi(x) \to \forall y: S.\phi(y)),
-\]</span> where <span class="math inline">\(T.\phi(x)\)</span> is a property provable about object <span class="math inline">\(x\)</span> of type T</p>
+\]</span> where <span class="math inline">\(T.\phi(x)\)</span> is a property provable about object <span class="math inline">\(x\)</span> of type T.</p>
 <p>With regards to Python you can easily overwrite methods with the same name in different classes.</p>
 <p>With this we close our quick excursion into Object Oriented Programming and move to Scientific Computing.</p>
 
@@ -1602,7 +1602,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","loop":false,"selector":".lightbox","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"loop":false,"closeEffect":"zoom","descPosition":"bottom","openEffect":"zoom","selector":".lightbox"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
