@@ -228,7 +228,7 @@ class Lion(Cat):
 class Liger(Lion, Tiger):                                   # <5>
 
     def __str__(self) -> str:
-        return (f"{super().__str__()} -> Tiger"             
+        return (f"{super().__str__()} -> Liger"             
                f" (Father {self.__class__.__bases__[0].__name__}," # <6>
                f" Mother {self.__class__.__bases__[1].__name__})")
 
