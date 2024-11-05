@@ -23,7 +23,7 @@ class Robot:        # <1>
 
     def __init__(self, 
                  name: str,
-                 ip: set[int],
+                 ip: list[int],
                  port: int,
                  speed: float) -> None:   # <2>
         """ Initialize the name and the ip address of the robot"""
@@ -43,8 +43,8 @@ Now that we have a simple class we can define our first objects.
 ```{python}
 #| classes: styled-output
 #| error: true
-r2d2 = Robot("R2D2", (0, 0, 0, 1), 443, 32)
-number5 = Robot("Number 5", (0, 0, 0, 3), 80, 20)
+r2d2 = Robot("R2D2", [0, 0, 0, 1], 443, 32)
+number5 = Robot("Number 5", [0, 0, 0, 3], 80, 20)
 
 print(f"I am called {r2d2.name}, I can be reached under "
       f"{'.'.join(str(s) for s in r2d2.ip)}"
@@ -72,7 +72,7 @@ class Robot:
 
     def __init__(self, 
                  name: str,
-                 ip: set[int],
+                 ip: list[int],
                  port: int,
                  speed: float) -> None:
         """ Initialize the name and the ip address of the robot"""
@@ -92,8 +92,8 @@ class Robot:
         """ Transform the integer set with the port into a string"""
         return f"{'.'.join(str(s) for s in self.ip)}:{self.__port}" # <1>
 
-r2d2 = Robot("R2D2", (0, 0, 0, 1), 443, 32)                         # <2>
-number5 = Robot("Number 5", (0, 0, 0, 3), 80, 20)
+r2d2 = Robot("R2D2", [0, 0, 0, 1], 443, 32)                         # <2>
+number5 = Robot("Number 5", [0, 0, 0, 3], 80, 20)
 
 print(r2d2.introduction())                                          # <3>
 print(number5.introduction())                                       # <3>
