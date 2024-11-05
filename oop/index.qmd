@@ -159,7 +159,7 @@ class Robot:
         """ Transform the integer set with the port into a string"""
         return f"{'.'.join(str(s) for s in self.ip)}:{self.__port}"     
 
-    def __cmp__(self, other):
+    def __ep__(self, other):
         """ Compare two objects of type Robot"""
         return self.speed == other.speed
 
@@ -184,6 +184,7 @@ number5 = Robot("Number 5", [0, 0, 0, 3], 80, 20)
 
 print(f"{r2d2==number5=}")
 print(f"{r2d2==r2d3=}")
+print(f"{number5<r2d2=}")
 print(f"{r2d2<number5=}")
 print(r2d2)
 print(r2d2 + number5)
