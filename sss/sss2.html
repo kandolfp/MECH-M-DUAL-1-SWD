@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>8&nbsp; NumPy – Softwaredesign</title>
+<title>6&nbsp; Self Study Session II – Softwaredesign</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -77,15 +77,15 @@ div.csl-indent {
 }</style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../sc/pandas.html" rel="next">
-<link href="../sc/index.html" rel="prev">
+<link href="../oop/index.html" rel="next">
+<link href="../sss/sss1.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -124,7 +124,43 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
+<meta name="mermaid-theme" content="neutral">
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -137,7 +173,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sc/index.html">Scientific Computing</a></li><li class="breadcrumb-item"><a href="../sc/numpy.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">NumPy</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sss/index.html">Self Study Sessions</a></li><li class="breadcrumb-item"><a href="../sss/sss2.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Self Study Session II</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -235,7 +271,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sss/sss2.html" class="sidebar-item-text sidebar-link">
+  <a href="../sss/sss2.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Self Study Session II</span></span></a>
   </div>
 </li>
@@ -258,7 +294,7 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sc/numpy.html" class="sidebar-item-text sidebar-link active">
+  <a href="../sc/numpy.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">NumPy</span></span></a>
   </div>
 </li>
@@ -292,17 +328,20 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation"><span class="header-section-number">8.1</span> Motivation</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">8.2</span> References</a></li>
+  <li><a href="#topics" id="toc-topics" class="nav-link active" data-scroll-target="#topics"><span class="header-section-number">6.1</span> Topics</a>
+  <ul class="collapse">
+  <li><a href="#object-oriented-programmingdesign-scientific-computing-decorators" id="toc-object-oriented-programmingdesign-scientific-computing-decorators" class="nav-link" data-scroll-target="#object-oriented-programmingdesign-scientific-computing-decorators"><span class="header-section-number">6.1.1</span> Object oriented programming/design, scientific computing, decorators</a></li>
+  </ul></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">6.2</span> Exercises</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/sc/numpy.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/sss/sss2.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sc/index.html">Scientific Computing</a></li><li class="breadcrumb-item"><a href="../sc/numpy.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">NumPy</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sss/index.html">Self Study Sessions</a></li><li class="breadcrumb-item"><a href="../sss/sss2.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Self Study Session II</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-sc-numpy" class="quarto-section-identifier"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">NumPy</span></span></h1>
+<h1 class="title"><span id="sec-sss-sss2" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Self Study Session II</span></span></h1>
 </div>
 
 
@@ -319,88 +358,450 @@ div.csl-indent {
 </header>
 
 
-<p>NumPy is short for Numerical Python and is the working horse of numerical computing and to that extend for scientific computing.</p>
-<p>The most important things your find in numpy are</p>
-<ul>
-<li><code>ndarray</code>: an efficient multidimensional array class providing arithmetic operations and broadcasting capabilities.</li>
-<li>Sub packages for linear algebra <code>linalg</code>, random number <code>random</code>, or fourier transform, to name some.</li>
-<li>Vectorization of mathematical functions to work on entire arrays without the need of implementing functions (like all the Basic Linear Algebra Subroutines - BLAS - functions).</li>
-<li>I/O tools for reading and writing arrays to disk and working with memory-mapped files</li>
-<li>A C API for connecting <code>NumPy</code> with libraries from C/C++ and FORTRAN like BLAS and LAPACK.</li>
-</ul>
-<section id="motivation" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="motivation"><span class="header-section-number">8.1</span> Motivation</h2>
-<p>Speed is often the main motivation to work in <code>numpy</code>.</p>
-<p>Let us look at the simple example of the <a href="https://kandolfp.github.io/MECH-M-DUAL-1-DBM/basics/linearalgebra.html#def-dotproduct">scalar product</a> to see why.</p>
-<div id="8de20f2e" class="cell styled-output" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> timeit</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>random.seed(<span class="dv">42</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>min_value <span class="op">=</span> <span class="dv">1</span> </span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>max_value <span class="op">=</span> <span class="dv">100</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate the two lists of 10_000_000 random numbers each</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> [random.randint(min_value, max_value) <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1_000_000</span>)]</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> [random.randint(min_value, max_value) <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1_000_000</span>)]</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> dot(a, b):</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    r <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> first, second <span class="kw">in</span> <span class="bu">zip</span>(a, b):</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        r <span class="op">+=</span> first <span class="op">*</span> second</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> r</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>t1 <span class="op">=</span> timeit.timeit(<span class="kw">lambda</span>: dot(a, b), number<span class="op">=</span><span class="dv">1000</span>)</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>np_a <span class="op">=</span> np.array(a, dtype<span class="op">=</span>np.int64)</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>np_b <span class="op">=</span> np.array(b, dtype<span class="op">=</span>np.int64)</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>t2 <span class="op">=</span> timeit.timeit(<span class="kw">lambda</span>: np.vdot(np_a, np_b), number<span class="op">=</span><span class="dv">1000</span>)</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"loop result </span><span class="sc">{</span>dot(a,b)<span class="sc">}</span><span class="ss">, time </span><span class="sc">{</span>t1<span class="op">=</span><span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"numpy result </span><span class="sc">{</span>np<span class="sc">.</span>vdot(np_a, np_b)<span class="sc">}</span><span class="ss">, time </span><span class="sc">{</span>t2<span class="op">=</span><span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Speedup </span><span class="sc">{</span>t1<span class="op">/</span>t2<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>loop result 2550205506, time t1=54.645653159999995
-numpy result 2550205506, time t2=0.606272697999998
-Speedup 90.1337852426272</code></pre>
-</div>
-</div>
-<p>For the above example we see a speed up of 90.0. With <code>numpy</code> we will often see a speed up of 10 to 100 or likely even more.</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Lately Python has invested in getting there loops faster, you will see a much higher speed up for this example with old versions of Python.</p>
+<p><strong>This lecture consists of several self study sessions!</strong></p>
+<p>In these sections you are supposed to work on the given topics on your own and in your own time. We will try to provide helpful references for books and online material that can help you but you are not limited to these materials.</p>
+<p>In order to get an idea on how much you understand of the material we provide exercises.</p>
 </div>
 </div>
-</section>
-<section id="references" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="references"><span class="header-section-number">8.2</span> References</h2>
-<p>As we cover a lot of the basics in action in the sister class <a href="https://kandolfp.github.io/MECH-M-DUAL-1-DBM/">Basics of Data Science</a> this introduction ends here and we refer to others for a longer read like</p>
+<p>In this section we are mainly concerned with the basics of Python, nevertheless you are expected to use <code>git</code> and <code>pdm</code> to solve the problems at hand.</p>
+<section id="topics" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="topics"><span class="header-section-number">6.1</span> Topics</h2>
+<p>For each topic we list various materials and what is the basic idea behind it.</p>
+<section id="object-oriented-programmingdesign-scientific-computing-decorators" class="level3" data-number="6.1.1">
+<h3 data-number="6.1.1" class="anchored" data-anchor-id="object-oriented-programmingdesign-scientific-computing-decorators"><span class="header-section-number">6.1.1</span> Object oriented programming/design, scientific computing, decorators</h3>
+<p>Once you are familiar with how Python handles these topics you will be able to answer questions like:</p>
 <ul>
-<li><span class="citation" data-cites="McKinney2022-qz">McKinney (<a href="../references.html#ref-McKinney2022-qz" role="doc-biblioref">2022</a>)</span> (direct link to the <a href="https://wesmckinney.com/book/numpy-basics">NumPy-Basics</a>)</li>
-<li>MCI Lecture notes of Julian Huber and Matthias Panny <a href="https://mrp123.github.io/MCI-MECH-B-3-SWD-SWD-ILV">Online</a></li>
+<li>What is a object?</li>
+<li>What is the scope of a attributes/methods?</li>
+<li>How can I inherit properties from an object?</li>
+<li>How can I implement an interface in Python?</li>
+<li>How is slicing working in <code>numpy</code> and <code>pandas</code>?</li>
+<li>What is vectorization and why should I use it?</li>
+<li>etc.</li>
+</ul>
+<p>This topics are covered in the following resources (given in no particular order):</p>
+<ul>
+<li><span class="citation" data-cites="McKinney2022-qz">McKinney (<a href="../references.html#ref-McKinney2022-qz" role="doc-biblioref">2022</a>)</span> <a href="https://wesmckinney.com/book/">Online</a>, Section 4 (<code>numpy</code>) and 5 (<code>pandas</code>)</li>
+<li><span class="citation" data-cites="Matthes2023">Matthes (<a href="../references.html#ref-Matthes2023" role="doc-biblioref">2023</a>)</span> Section 9</li>
+<li><span class="citation" data-cites="Vasiliev2022">Vasiliev (<a href="../references.html#ref-Vasiliev2022" role="doc-biblioref">2022</a>)</span> Chapter 3, 5, 6, 7</li>
+<li>MCI Lecture notes of Julian Huber and Matthias Panny <a href="https://mrp123.github.io/MCI-MECH-B-3-SWD-SWD-ILV">Online</a>, Section 1 (German)</li>
+<li>Classes t <a href="https://docs.python.org/3/tutorial/classes.html">docs.python.org</a></li>
+<li>Type hints cheat sheet form the docs of <code>mypy</code> <a href="https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html">Online</a></li>
 <li><code>NumPy</code> docs
 <ul>
 <li><a href="https://numpy.org/doc/stable/user/quickstart.html">NumPy quickstart</a></li>
 <li><a href="https://numpy.org/doc/stable/user/absolute_beginners.html">NumPy the absolute basics for beginners</a></li>
 <li><a href="https://numpy.org/doc/stable/user/numpy-for-matlab-users.html">NumPy for MATLAB users</a></li>
 </ul></li>
+<li><code>pandas</code> docs
+<ul>
+<li><a href="https://pandas.pydata.org/docs/user_guide/10min.html">10 minutes to pandas</a></li>
+</ul></li>
 </ul>
+</section>
+</section>
+<section id="exercises" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="exercises"><span class="header-section-number">6.2</span> Exercises</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If, <strong>and only if</strong>, you are taking the class at MCI and are not reading these notes on your own, you are expected to hand in the exercises below as a git repository, you can use the old one if you like.</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-umltf" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6.1 (UML fact checker)</strong></span> &nbsp;</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">classDiagram
+Student "*" --* University : Composition
+    class University{
+        - name: string
+        - address: Address 
+    }
+    class Student{
+        - name: string 
+        - fee: float 
+    }
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>Which of the following can be answered with Yes and which with No:</p>
+<ol type="1">
+<li>No two universities can have the same name?</li>
+<li>A university and a student can not have the same name?</li>
+<li>No student studies at more than one university?</li>
+<li>Each student studies at at least one university?</li>
+<li>Two students with the same name can not study at the same university?</li>
+<li>Two students with the same name con not study at different universities?</li>
+<li>Two universities can have the same address?</li>
+</ol>
+<p>Is there a way to specify a attribute in UML as unique?</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-txt2uml" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6.2 (From text to UML)</strong></span> Convert the following description into an appropriate UML diagram, with multiplicities and associations.</p>
+<ul>
+<li>Every person has a name, a phone number and an e-mail address.</li>
+<li>Every address is only occupied by one person, some addresses might have no inhabitant.</li>
+<li>Each address is associated with a street, a city, an area code, and a country.</li>
+<li>Addresses can be verified as a home address for a person and printed for post service.</li>
+<li>There are two types of persons
+<ul>
+<li>Students that can enlist for a class</li>
+<li>Professors that can receive a salary</li>
+</ul></li>
+<li>A student has a study ID and an average grade.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-uml2py" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6.3 (From UML to Python)</strong></span> Convert the UML diagram from <a href="#exr-txt2uml" class="quarto-xref">Exercise&nbsp;<span>6.2</span></a> into Python code and test your classes.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-oop_interface" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6.4 (Interface)</strong></span> Consider the following UML diagram and implement it in Python with interfaces. Set <code>lives</code> for a <code>Cat</code> to the appropriate <code>7</code>, feed some cat food generated with random integers uniformly distributed between <span class="math inline">\(-10\)</span> and <span class="math inline">\(10\)</span> and look how much food it can eat until it dies. Plot this for different initial values of <code>currentFood</code>.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">classDiagram
+    Cat --|&gt; Animal
+    Cat ..|&gt; FourLegged
+    Cat ..|&gt; OxygenBreather
+    class FourLegged{
+        &lt;&lt;interface&gt;&gt;
+        + run(destination)
+    }
+    class OxygenBreather{
+        &lt;&lt;interface&gt;&gt;
+        + breath()
+    }
+    class Animal{
+        - lives: int
+        - currentFood: int
+        + eat(food: int)
+    }
+    class Cat{
+        + getLivesLeft()
+        + getCurrentAmountofFood()
+        - decreaseLives()
+    }
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-indexing_numpy" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6.5 (Indexing in <code>numpy</code> or slicing)</strong></span> There exists a multitude of different ways to index <code>numpy</code> arrays. Create an appropriate (or multiple appropriate arrays) and provide the answer to the following questions with slicing:</p>
+<p>For a vector:</p>
+<ul>
+<li>return the last 5 elements</li>
+<li>return every second element</li>
+<li>reverse the vector</li>
+<li>return element 1, 4 and 11</li>
+<li>return all elements bigger than the mean</li>
+</ul>
+<p>For a matrix:</p>
+<ul>
+<li>flip the second and third row</li>
+<li>add the second column to the entire matrix</li>
+<li>extract the sub matrix that only consists of odd rows and even columns</li>
+<li>return the rows 1, 4, and 11</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-indexing_numpy" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6.6 (Reshape <code>numpy</code>)</strong></span> We can reshape, i.e.&nbsp;change row and column dimensions, of arrays. The important part here is the way the array is viewed by its dimensions. <strong>Hint:</strong> use <code>np.arange(x)</code> for the following exercise so you know the positions of the numbers.</p>
+<ul>
+<li>Reshape a 8 element vector into a <span class="math inline">\(4 \times 2\)</span> matrix.</li>
+<li>Reshape a 8 element vector into a <span class="math inline">\(4 \times 2\)</span> matrix and directly into a <span class="math inline">\(2 \times 4\)</span> without storing the intermediate result (in one line).</li>
+<li>Reshape a 16 element vector into a <span class="math inline">\(2 \times x\)</span> vector where <code>numpy</code> infers the second dimension from the data.</li>
+<li>Use the <code>shape</code> property of a matrix to reshape a vector.</li>
+<li>Does <code>reshape</code> create a copy of the original data?</li>
+<li>How do you <em>reverse</em> back to a flat vector?</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-montecarlopi2" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6.7 (Monte Carlo simulations in <code>numpy</code>)</strong></span> Recall <a href="sss1.html#exr-montecarlopi1" class="quarto-xref">Exercise&nbsp;<span>5.5</span></a> and implement a version of <code>in_unit_circle</code> that uses <code>numpy</code> arrays, you should take the code from <a href="sss1.html#exr-montecarlopi_fun" class="quarto-xref">Exercise&nbsp;<span>5.7</span></a> as basis and add a new function <code>in_unit_circle_np</code>.</p>
+<p>To write this in Python follow these steps:</p>
+<ol type="1">
+<li>With <code>numpy.random.unified()</code> create a <span class="math inline">\(2\times N\)</span> matrix with random numbers.</li>
+<li>Use element wise computation to get <span class="math inline">\(M\)</span>. <strong>Hint:</strong> <code>True</code> is interpreted as <code>1</code> and <code>False</code> as <code>0</code> when you try to add boolean values.</li>
+</ol>
+<p>Once you have the second implementation test it and compare it with the other version.</p>
+<ol type="1">
+<li>Is the accuracy the same?</li>
+<li>Have a look at <code>timeit</code> and see which of your two code versions is faster for which <code>N</code></li>
+<li>Plot your results, i.e.&nbsp;for different values of <span class="math inline">\(N\)</span> the different execution times for the two versions, maybe use a logarithmic axis.</li>
+<li>Are there other plots that might give you an insight for this example.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-pps" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6.8 (Predator Prey simulation)</strong></span> The Lotka-Volterra Equations <span id="eq-lve"><span class="math display">\[
+\begin{array}{c}
+\dot{x} = \alpha x - \beta x y\\
+\dot{y} = \gamma x y - \delta y
+\end{array}
+\tag{6.1}\]</span></span> can be used to describe a predator-prey system. In this case we can interpret the variables as:</p>
+<ul>
+<li><span class="math inline">\(x\)</span> prey population</li>
+<li><span class="math inline">\(y\)</span> predator population</li>
+<li><span class="math inline">\(\dot{x}\)</span> growth rate of prey population</li>
+<li><span class="math inline">\(\dot{y}\)</span> growth rate of predator population</li>
+<li><span class="math inline">\(\alpha\)</span> natural growth rate of prey</li>
+<li><span class="math inline">\(\beta\)</span> death rate of rabbits due to predators</li>
+<li><span class="math inline">\(\delta\)</span> natural death rate of predators</li>
+<li><span class="math inline">\(\gamma\)</span> growth rate of predators per consumed prey</li>
+</ul>
+<p>We assume that the prey has unlimited food and the change rate is proportional to the size. The predators only eat the specific prey and they are always hungry.</p>
+<p>Create first an UML diagram and later Python code that follows these guidelines:</p>
+<ul>
+<li>Create a predator class with the parameters <span class="math inline">\(x, \delta, \gamma\)</span> where only the first is public</li>
+<li>Create a prey class with the parameters <span class="math inline">\(y, \alpha, \beta\)</span> where only the first is public</li>
+<li>Create a class to propagate your model:
+<ul>
+<li>the constructor takes a pray and a predator object</li>
+<li>create a private method to compute the two derivatives</li>
+<li>create a second method to propagate a single time step <span class="math inline">\(\Delta t\)</span>, as time integrator we suggest to implement a <a href="https://en.wikipedia.org/wiki/Euler_method"><em>Forward Euler</em></a> but you can also use something from <code>scipy.integrate</code> if you prefer.
+<ul>
+<li>use the classes to store the current population in the appropriate variable.</li>
+</ul></li>
+<li>create a public method where you provide the final time <span class="math inline">\(t_1\)</span> and <span class="math inline">\(\Delta t\)</span> and returns <span class="math inline">\(x, y\)</span> in each time step (you need to compute the amount of steps).</li>
+</ul></li>
+<li>Plot the results</li>
+<li>Test your method with the following parameters:
+<ul>
+<li><span class="math inline">\(\alpha = 1\)</span></li>
+<li><span class="math inline">\(\beta = 0.1\)</span></li>
+<li><span class="math inline">\(\gamma = 0.5\)</span></li>
+<li><span class="math inline">\(\delta = 0.02\)</span></li>
+<li><span class="math inline">\(x = 100\)</span> (initial population)</li>
+<li><span class="math inline">\(y = 20\)</span> (initial population)</li>
+</ul></li>
+<li>Create getter/setter methods for the parameters that are private where you check that the signs and types are appropriate if they get set.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-pandas_sets" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6.9 (Use <code>pandas</code> to redo Section 2 of <a href="https://kandolfp.github.io/MECH-M-DUAL-1-DBM/basics/sets.html">MECH-M-DUAL-I-DBM</a>)</strong></span> In <a href="https://kandolfp.github.io/MECH-M-DUAL-1-DBM/basics/sets.html">MECH-M-DUAL-I-DBM</a> Section 2 we worked with the <code>mieten3.asc</code> dataset and did some computations on it.</p>
+<p>Use <code>pandas</code> to load the dataset and compute the same properties and create similar plots, where it is appropriate.</p>
+<p><strong>Hint:</strong> Data loading and some examples are done in <a href="../sc/pandas.html" class="quarto-xref"><span>Chapter 9</span></a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-pandas_sets" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6.10 (Advanced <code>pandas</code>)</strong></span> &nbsp;</p>
+<ol class="example" type="1">
+<li>The method <code>apply()</code> can <em>apply a function along an axis of a <code>DataFrame</code></em> and can be used in various ways.</li>
+</ol>
+<p>Use <code>.apply</code> to create categories, i.e.&nbsp;from</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Age'</span>: [<span class="dv">11</span>, <span class="dv">16</span>, <span class="dv">30</span>, <span class="dv">51</span>]</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>create</p>
+<div id="7dbfbc94" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-display" data-execution_count="1">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">Category</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>11</td>
+<td>Child</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>16</td>
+<td>Teenager</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>30</td>
+<td>Adult</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>51</td>
+<td>Adult</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<ol start="2" class="example" type="1">
+<li>Read in the <a href="https://raw.githubusercontent.com/ehmatthes/pcc/refs/heads/master/chapter_16/death_valley_2014.csv">death_valley_2014.csv</a> from the GitHub repo corresponding to <span class="citation" data-cites="Matthes2023">Matthes (<a href="../references.html#ref-Matthes2023" role="doc-biblioref">2023</a>)</span>.</li>
+</ol>
+<ul>
+<li>Transform the <code>PST</code> column into a <code>DataTime</code> object (various possibilities)</li>
+<li>Create a new <code>DataFrame</code> that consists of the <em>temperature</em> columns where they are converted from °F to °C</li>
+<li>Merge the two <code>DataFrame</code>s</li>
+<li>Repeat the same operation directly with <code>.apply</code></li>
+<li>Let us assume, for some reason, the entries from January where off for <span class="math inline">\(1\%\)</span>. Use the <code>.update</code> function to change them - i.e.&nbsp;correct them by the error.</li>
+<li>Use the <code>.pipe</code> function to <em>apply</em> a series of functions to your data.
+<ul>
+<li>Compute the <code>Mean Humidity</code> per month and scale this data with this value</li>
+<li>Update the <code>WindDirDegree</code> such that the values in in <span class="math inline">\([-180, 180]\)</span> instead of <span class="math inline">\([0, 360)\)</span></li>
+<li>Update the <code>PST</code> column to only contain month and day</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-pandas_sets" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6.11 (Decorators)</strong></span> In Python we can use <em>decorators</em> to modify the functionality of a function by wrapping it in another function, you can find an introductions in the following links</p>
+<ul>
+<li><a href="https://book.pythontips.com/en/latest/decorators.html">pythontips</a></li>
+<li><a href="https://www.programiz.com/python-programming/decorator">programiz</a></li>
+<li><a href="https://python101.pythonlibrary.org/chapter25_decorators.html">Python 101</a></li>
+</ul>
+<p>Write a decorator <code>@positive</code> that checks arguments to be positive and raise an Exception (with <code>raise Exception("Sorry, not positive")</code>). Test this implementation with <a href="#exr-montecarlopi2" class="quarto-xref">Exercise&nbsp;<span>6.7</span></a>. We will look at exception handling later.</p>
+<p>Can you modify the decorator such that you can give an optional argument specifying the location to check for positivity?</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="at">@positiv</span>(<span class="dv">1</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> testfun(a, b, c)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># error for</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>testfun(<span class="op">-</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># but not for</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>testfun(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-Matthes2023" class="csl-entry" role="listitem">
+Matthes, Eric. 2023. <em>Python Crash Course - a Hands-on, Project-Based Introduction to Programming</em>. 3rd ed. No Starch Press. <a href="https://ehmatthes.github.io/pcc_3e/">https://ehmatthes.github.io/pcc_3e/</a>.
+</div>
 <div id="ref-McKinney2022-qz" class="csl-entry" role="listitem">
 McKinney, Wes. 2022. <em>Python for Data Analysis 3e</em>. 3rd ed. Sebastopol, CA: O’Reilly Media. <a href="https://wesmckinney.com/book/">https://wesmckinney.com/book/</a>.
+</div>
+<div id="ref-Vasiliev2022" class="csl-entry" role="listitem">
+Vasiliev, Yuli. 2022. <em>Python for Data Science - a Hands-on Introduction</em>. München: No Starch Press.
 </div>
 </div>
 </section>
@@ -972,13 +1373,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../sc/index.html" class="pagination-link" aria-label="Scientific Computing">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Scientific Computing</span>
+      <a href="../sss/sss1.html" class="pagination-link" aria-label="Self Study Session I">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Self Study Session I</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../sc/pandas.html" class="pagination-link" aria-label="Pandas">
-        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Pandas</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../oop/index.html" class="pagination-link" aria-label="Object Oriented Programming">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Object Oriented Programming</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -990,7 +1391,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
 <p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> Peter Kandolf</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/sc/numpy.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/sss/sss2.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
