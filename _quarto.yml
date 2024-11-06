@@ -27,14 +27,15 @@ book:
         - basics/packagemanager.qmd
         - basics/versioncontrol.qmd
         - basics/epilogue.qmd
+    - part: sss/index.qmd
+      chapters:
+        - sss/sss1.qmd
+        - sss/sss2.qmd
     - oop/index.qmd
     - part: sc/index.qmd
       chapters:
         - sc/numpy.qmd
         - sc/pandas.qmd
-    - part: sss/index.qmd
-      chapters:
-        - sss/sss1.qmd
     - summary.qmd
     - references.qmd
 
