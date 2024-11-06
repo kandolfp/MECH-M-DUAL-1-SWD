@@ -418,10 +418,10 @@ In Python this is done with the _Abstract Base Classes_ or `ABC`.
 ```{mermaid}
 %%| fig-cap: "Airport and its flying inhabitants"
 classDiagram
-    Airport--> FlyingTransport : Dependency
-    Helicopter --|> FlyingTransport
-    Aeroplane --|> FlyingTransport
-    Domesticated Gryphon --|> FlyingTransport
+    Airport --> FlyingTransport : Dependency
+    Helicopter ..|> FlyingTransport
+    Aeroplane ..|> FlyingTransport
+    Domesticated Gryphon ..|> FlyingTransport
     class FlyingTransport{
         <<interface>>
         + fly(origin, destination, passengers)
