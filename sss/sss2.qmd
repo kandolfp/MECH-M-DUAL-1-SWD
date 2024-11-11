@@ -197,7 +197,7 @@ Recall @exr-montecarlopi1 and implement a version of `in_unit_circle` that uses 
 
 To write this in Python follow these steps:
 
-1. With `numpy.random.unified()` create a $2\times N$ matrix with random numbers.
+1. With `numpy.random.uniform()` create a $2\times N$ matrix with random numbers.
 1. Use element wise computation to get $M$. **Hint:** `True` is interpreted as `1` and `False` as `0` when you try to add boolean values.
 
 Once you have the second implementation test it and compare it with the other version.
