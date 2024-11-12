@@ -19,15 +19,15 @@ For each topic we list various materials and what is the basic idea behind it.
 
 Once you are familiar with how Python handles these topics you will be able to answer questions like:
 
-- What is a object?
-- What is the scope of a attributes/methods?
+- What is an object?
+- What is the scope of attributes/methods?
 - How can I inherit properties from an object?
 - How can I implement an interface in Python?
 - How is slicing working in `numpy` and `pandas`?
 - What is vectorization and why should I use it?
 - etc.
 
-This topics are covered in the following resources (given in no particular order):
+These topics are covered in the following resources (given in no particular order):
 
 - @McKinney2022-qz [Online](https://wesmckinney.com/book/), Section 4 (`numpy`) and 5 (`pandas`)
 - @Matthes2023 Section 9
@@ -74,7 +74,7 @@ Which of the following can be answered with Yes and which with No:
 1. No student studies at more than one university?
 1. Each student studies at at least one university?
 1. Two students with the same name can not study at the same university?
-1. Two students with the same name con not study at different universities?
+1. Two students with the same name can not study at different universities?
 1. Two universities can have the same address?
 
 Is there a way to specify a attribute in UML as unique?
@@ -92,7 +92,7 @@ Convert the following description into an appropriate UML diagram, with multipli
 - Every address is only occupied by one person, some addresses might have no inhabitant.
 - Each address is associated with a street, a city, an area code, and a country.
 - Addresses can be verified as a home address for a person and printed for post service.
-- There are two types of persons
+- There are two types of persons:
    - Students that can enlist for a class
    - Professors that can receive a salary
 - A student has a study ID and an average grade.
