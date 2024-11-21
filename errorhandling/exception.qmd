@@ -1,0 +1,294 @@
+# Exception handling
+
+This section deals with what to do in Python to make sure _(un)expected errors_ during the runtime are handled in such a way that the program is not closing down in an unexpected way.
+
+::: {.callout-warning}
+We will not deal with _Syntax Errors_ here.
+:::
+
+## Exceptions
+
+The `BaseException` class is the base class for the built-in exceptions [see docs](https://docs.python.org/3/library/exceptions.html) and all the built-in exception are inherited from this class. 
+For writing our own exceptions however, we should use `Exception` as the base.
+
+In order to introduce the concept let us show some of the most common exceptions
+
+```{python}
+#| classes: styled-output
+#| error: true
+numberlist = [-2, -1, 0, 1, 2, "a", 1/4]
+
+for number in numberlist:
+    inverse = 1.0 / number
+    print(f"Check: {inverse} * {number} = {inverse * number}")
+```
+
+We can see that an `ZeroDivisionError` is raised for the third entry in the list of `numberlist`.
+What happened above is not a graceful exit as our little program just stopped at the point of exception and the last action of the interpreter was to print the traceback.
+Importantly, the other elements in the list are never looked at. 
+
+We can handle exceptions with the `try`-`except` construction to actually make sure that we react appropriately.
+
+```{python}
+#| classes: styled-output
+#| error: true
+numberlist = [-2, -1, 0, 1, 2, "a", 1/4]
+
+try:                                                                    # <1>
+    for number in numberlist:                                              # <1>
+        inverse = 1.0 / number                                          # <1>
+        print(f"Check: {inverse} * {number} = {inverse * number}")      # <1>
+except ZeroDivisionError:                                               # <2>
+    print("Warning: zero does not have an inverse!")                    # <3>
+                                                                        # <2>
+```
+1. The _try clause_ starts with `try` and ends with `except` and is executed normal
+1. The _exception clause_ starts at `except`, we can specify for which exception to look for.
+1. The code in the context of `except` is only accessed if an exception occurs.
+
+From the output we can see that the exception occurred and was handled properly.
+Nevertheless, the rest of the elements in the list are still not handled.
+To make sure this is the case we need to move our `try/except` into the loop.
+
+```{python}
+#| classes: styled-output
+#| error: true
+numberlist = [-2, -1, 0, 1, 2, "a", 1/4]
+                                                                  
+for number in numberlist:                                            # <1>
+    try:                                                          # <2>  
+        inverse = 1.0 / number                                    # <2>
+        print(f"Check: {inverse} * {number} = {inverse * number}")# <2>
+    except ZeroDivisionError:                                     # <3>
+        print("Warning: zero does not have an inverse!")          # <3>
+                                                                  # <1>
+```
+1. Context of the `for` loop
+1. Context of the `try` clause
+1. Context of the `except` clause
+
+Now everything works as expected and we see our second error `TypeError` happen for `"a"` in the list.
+We have multiple options as this point how to deal with more than one exception.
+
+::: {.panel-tabset}
+## Separate error handing
+
+If we use multiple `except` we can interpret them similar to `if`, `elif`, and `else` statements, where we jump into one part as soon as we match. 
+
+```{python}
+#| classes: styled-output
+#| error: true
+numberlist = [-2, -1, 0, 1, 2, "a", 1/4]
+                                                                  
+for number in numberlist:                                            
+    try:                                                            
+        inverse = 1.0 / number                                    
+        print(f"Check: {inverse} * {number} = {inverse * number}")
+    except ZeroDivisionError:                                     # <1>
+        print("Warning: zero does not have an inverse!")          # <1>
+    except TypeError:                                             # <2>
+        print("Error: The inverse is only defined for a number!")        # <2>
+                                                                  # <1>
+```
+1. Context of the `ZeroDivisionError`
+1. Context of the `TypeError`
+
+## Single error handling
+
+Similar to when we inherited for multiple classes, we can combine exceptions by putting them into a `set` (with `(` and `)`).
+```{python}
+#| classes: styled-output
+#| error: true
+numberlist = [-2, -1, 0, 1, 2, "a", 1/4]
+                                                                  
+for number in numberlist:                                            
+    try:                                                            
+        inverse = 1.0 / number                                    
+        print(f"Check: {inverse} * {number} = {inverse * number}")
+    except (ZeroDivisionError, TypeError):                          # <1>      
+        print("Error: I can not compute the inverse!")            
+```
+1. Handling multiple errors in one `except` clause.
+:::
+
+The construct has one further extension.
+After all of the `except` blocks we can place an `else` as well `finally` at the very end. 
+The `else` block is called if no exception occurred and the `finally` is always called.
+
+```{python}
+#| classes: styled-output
+#| error: true
+numberlist = [-2, -1, 0, 1, 2, "a", 1/4]
+                                                                  
+for number in numberlist:                                            
+    try:                                                            
+        inverse = 1.0 / number                                    
+    except BaseException as be:                                         # <1>
+        print(f"Error: I can not compute the inverse of {number}!")     # <2>
+        print(f"Message is: {be}")                                      # <2>
+    else:                                                               # <3>
+        print(f"Check: {inverse} * {number} = {inverse * number}")      # <3>
+    finally:                                                            # <4>    
+        print("Let us work on the next element")                        # <5>
+```
+1. Inheritance allows you to match for all child error classes
+1. If we give the exception a name we can access it during the error handling.
+1. This block is only called if no exception occurred
+1. This block is always called and normally used to clean up
+
+Of course you can also work with exception and raise them yourself, see [docs](https://docs.python.org/3/tutorial/errors.html) for all the details.
+
+To raise an exception we use
+```{python}
+#| classes: styled-output
+#| error: true
+raise ValueError("No value given.")
+```
+
+We can _chain_ exceptions in case something happens during the handling of an exception
+```{python}
+#| classes: styled-output
+#| error: true
+try:
+    open("missing.txt")
+except OSError as e:
+    raise RuntimeError("Oh good, I can not handle this at the moment.") from e
+```
+
+To deactivate the chaining we use `from None`.
+
+Alternatively, you can enrich the error with a note:
+```{python}
+#| classes: styled-output
+#| error: true
+try:
+    raise ValueError("No value given.")
+except ValueError as e:
+    e.add_note("Oh good, I can not handle this at the moment.")
+    raise
+```
+
+## `with` statements
+
+For certain objects it is clear that some _clean-up_ is required.
+The prime example is accessing a file:
+
+```{python}
+#| classes: styled-output
+#| error: true
+path = "exception.qmd"                  
+file = open(path, "r")              # <1>
+try:
+    print(file.readline())          # <2>
+finally:
+    file.close()                    # <3>
+```
+1. Open the file
+2. Read from the file
+3. We always need to close the file again.
+
+The short and easier to read version is
+```{python}
+#| classes: styled-output
+#| error: true
+path = "exception.qmd"
+with open(path, "r") as file:        # <1>
+    print(file.readline())
+```
+1. Automatically closes the file as soon as the context is closed.
+
+::: {.callout-caution}
+This is not a full replacement of a `try-except` block.
+:::
+
+```{python}
+#| classes: styled-output
+#| error: true
+path = "exception1.qmd"
+try:
+    with open(path, "r") as file:
+        print(file.readline())
+except OSError as os:
+    print(f"Something happened: {os}")
+```
+
+If you write your own class you can include the necessary functions for the `with` statement as follows, Example from [GeeksForGeeks](https://www.geeksforgeeks.org/with-statement-in-python/):
+
+```{python}
+#| classes: styled-output
+#| error: true
+class MessageWriter(object):
+    def __init__(self, file_name):
+        self.file_name = file_name
+    
+    def __enter__(self):
+        self.file = open(self.file_name, "w")
+        return self.file
+
+    def __exit__(self, *args):
+        self.file.close()
+
+# using with statement with MessageWriter
+
+with MessageWriter("my_file.txt") as xfile:
+    xfile.write("hello world")
+```
+
+```{python}
+#| classes: styled-output
+#| echo: false
+
+import os
+os.remove("my_file.txt")
+```
+
+It is also possible to _collect_ exceptions and raise them in a group.
+```{python}
+#| classes: styled-output
+#| error: true
+numberlist = [-2, -1, 0, 1, 2, "a", 1/4]
+errors = []
+
+for i, number in enumerate(numberlist):
+    try:                                                            
+        inverse = 1.0 / number
+    except BaseException as be:
+        be.add_note(f"Happened for entry {i}")
+        errors.append(be)
+if len(errors) > 0:
+    raise ExceptionGroup("The following exceptions occurred:", errors)
+```
+
+## Assertions
+
+There is an additional feature that is a good way to make sure that conditions are met before working on something.
+For this `assert` can be used.
+It tests if a condition is true and if this is not the case an `AssertionError` is raised.
+
+```{python}
+#| classes: styled-output
+#| error: true
+import numbers
+numberlist = [-2, -1, 0, 1, 2, "a", 1/4]
+
+for number in numberlist:
+    try:
+        assert isinstance(number, numbers.Number)
+        assert number != 0
+        inverse = 1.0 / number
+    except AssertionError:
+        print(f"Error: I can not compute the inverse of {number}!")
+    else:
+        print(f"Check: {inverse} * {number} = {inverse * number}")
+
+```
+This feature is usually used during development. 
+Therefore, there is an option `-O` to deactivate it during the run of a python program.
+
+This is often done, due to the fact that each of these `assert` statements takes some time to be processed.
+```{python}
+#| classes: styled-output
+#| error: true
+%%bash
+pdm run python -O ../_assets/errorhandling/test_assert.py
+```

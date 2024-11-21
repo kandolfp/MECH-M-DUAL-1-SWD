@@ -36,6 +36,9 @@ book:
       chapters:
         - sc/numpy.qmd
         - sc/pandas.qmd
+    - part: errorhandling/index.qmd
+      chapters:
+        - errorhandling/exception.qmd
     - summary.qmd
     - references.qmd
 

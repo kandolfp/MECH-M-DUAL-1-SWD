@@ -1,0 +1,10 @@
+# Runtime stability {.unnumbered}
+
+When we write code there are going to be errors in different parts of the software at hand.
+Some errors are purely in the structure of the code and we will discuss how **unit tests** and **static code analysis** can help to find such errors early.
+One class of errors you see here are _Syntax Errors_ (`SyntaxError`) that prevents an application from running all together as the Python parser does not know how to interpret the code. 
+
+Other errors occur during the runtime of the application and are often not avoidable, e.g. the connection to a database is not available, data is corrupted, etc..
+In order to deal with such situations we will discuss **exception handling** and how do _gracefully shut down_. 
+
+For all of these issues it is often necessary that we as developer get feedback on how, where, when, etc. an error occurred and therefore **logging** is introduced. 
