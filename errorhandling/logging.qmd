@@ -1,0 +1,99 @@
+# Logging
+
+Logging is the concept of that is used to protocol _everything_ or at least every important _action/result_ that happens in a program in order to allow track how the program is doing. 
+
+This is particularly useful for the developer of an application to perform
+
+- error analysis
+- performance analysis
+- general tracking
+- debugging 🐛
+
+::: {.callout-tip}
+A logger is particularly useful when an application is not running under the supervision of the developer.
+For example by another user, on an embedded system, a server, etc..
+:::
+
+Python provides an extensive module named  `logging` for these purposes.
+
+```{python}
+#| classes: styled-output
+#| error: true
+import logging                                                          # <1>
+numberlist = [-2, -1, 0, 1, 2, "a", 1/4]
+
+for number in numberlist:    
+    try:
+        logging.info(f"Working on number {number}")                     # <2>
+        inverse = 1.0 / number
+    except ZeroDivisionError as e:
+        logging.error(f"Tried to divide by zero, error is {e}")         # <2>
+    except TypeError:
+        logging.warning(f"The list does not only contain numbers")      # <2>
+```
+1. Include the module
+1. We can classify what type of content we are logging, the correspond to the _log level_
+
+By default the logger write to the terminal.
+This might not always be what you want so this can be changed easily:
+
+```{python}
+#| classes: styled-output
+#| error: true
+import logging
+logging.basicConfig(filename="app.log",                                 # <1>
+                    level=logging.INFO)                                 # <2>
+numberlist = [-2, -1, 0, 1, 2, "a", 1/4]
+
+for number in numberlist:    
+    try:
+        logging.info(f"Working on number {number}")
+        inverse = 1.0 / number
+    except ZeroDivisionError as e:
+        logging.error(f"Tried to divide by zero, error is {e}")
+    except TypeError:
+        logging.warning(f"The list does not only contain numbers")
+```
+1. we can specify a filename
+1. we can also specify what the current log level, i.e. what kind of messages are actually put into the logger.
+
+There is a range of levels available that can always be extended.
+The default levels are in the following table and if you set the level only message of a type equal or higher (numeric value) are written to the output.:
+
+| Level | Numeric value | What it means / When to use it |
+| ----  | ------------- | :------------------------------|
+| logging.NOTSET | 0 | When set on a logger, indicates that ancestor loggers are to be consulted to determine the effective level. If that still resolves to NOTSET, then all events are logged. When set on a handler, all events are handled. |
+| logging.DEBUG | 10 | Detailed information, typically only of interest to a developer trying to diagnose a problem. |
+| logging.INFO | 20 | Confirmation that things are working as expected. |
+| logging.WARNING | 30 | An indication that something unexpected happened, or that a problem might occur in the near future (e.g. ‘disk space low’). The software is still working as expected. | 
+|  logging.ERROR | 40 | Due to a more serious problem, the software has not been able to perform some function. |
+| logging.CRITICAL | 50 | A serious error, indicating that the program itself may be unable to continue running.| 
+: The different log levels explained. The table is copied from [docs](https://docs.python.org/3/library/logging.html#logging-levels), accessed on the 21st Nov. 24.
+
+
+::: {.callout-tip}
+Note that the `logger` module does not automatically flush to the file. Meaning it might not be a real time logging process.
+:::
+
+An important additional feature is to specify the format of the message. 
+This is particularly useful to get debugging information with certain timing information.
+```{python}
+#| classes: styled-output
+#| error: true
+import logging                                                          
+logging.basicConfig(format="%(asctime)s %(message)s",
+                    level=logging.WARNING)
+numberlist = [-2, -1, 0, 1, 2, "a", 1/4]
+
+for number in numberlist:    
+    try:
+        logging.debug(f"Working on number {number}")                     # <2>
+        inverse = 1.0 / number
+    except ZeroDivisionError as e:
+        logging.error(f"Tried to divide by zero, error is {e}")         # <2>
+    except TypeError:
+        logging.warning(f"The list does not only contain numbers")      # <2>
+```
+
+
+See [docs](https://docs.python.org/3/library/logging.html) for more information.

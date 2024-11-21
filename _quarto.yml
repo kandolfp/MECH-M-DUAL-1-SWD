@@ -39,6 +39,7 @@ book:
     - part: errorhandling/index.qmd
       chapters:
         - errorhandling/exception.qmd
+        - errorhandling/logging.qmd
     - summary.qmd
     - references.qmd
 
