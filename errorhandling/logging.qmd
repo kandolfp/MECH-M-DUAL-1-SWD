@@ -15,7 +15,12 @@ For example by another user, on an embedded system, a server, etc..
 :::
 
 Python provides an extensive module named  `logging` for these purposes.
-
+```{python}
+#| echo: false
+# Code to consistently have the same output, not shown
+import logging
+logging.basicConfig(level=logging.WARNING, force=True)
+```
 ```{python}
 #| classes: styled-output
 #| error: true
@@ -35,7 +40,16 @@ for number in numberlist:
 1. We can classify what type of content we are logging, the correspond to the _log level_
 
 By default the logger write to the terminal.
-This might not always be what you want so this can be changed easily:
+This might not always be what you want so this can be changed easily, together with the _log level_:
+
+```{python}
+#| echo: false
+# Code to consistently have the same output, not shown
+import logging
+logging.basicConfig(filename="app.log",
+                    level=logging.DEBUG,
+                    force=True)
+```
 
 ```{python}
 #| classes: styled-output
