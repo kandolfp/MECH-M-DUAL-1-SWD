@@ -1,0 +1,95 @@
+# CI/CD
+
+The term _CI/CD_ is most commonly attributed to _continuous integration, continuous delivery, and continuous deployment_. 
+By introducing automation and continuous monitoring of the code lifecycle - from integration and testing to delivering and deploying - it helps keep the codebase working and our _product_ up and running. 
+
+The concept is often used in DevOps, MLOps or similar approaches. 
+
+(@) Continuous integration \
+The main idea of _continuous integration_ is to automate building and testing such that your merge to a shared branch or repository is known to work. 
+The idea is that multiple people can work on the same code base and conflicts get recognized early and not after two months of developing. 
+Typically, the CI _pipeline_ does unit and integration tests that make sure that the chances have not broken the code. 
+This allows for regular, hopefully daily, merge pushes to the shared repository. 
+\
+In Git therms this would be a common _remote repository_ for the developers. 
+
+(@) Continuous delivery \
+Now that you know that the code is automatically build and unit as well as integration tested the automated delivery to a shared repository is the next step.
+\
+This means your code base is always ready to be deployed to a production environment, meaning that it is not just used by you but by others and even other programs build on it. 
+
+(@) Continuous deployment \
+The last step in this automation pipeline is the automatic deployment of the code to a production environment where it can be used.
+
+::: {.callout-tip appearance="simple" collapse="true" icon=false}
+:::: {#exm-errorhandling-cicd-self}
+
+## Working procedure for these notes
+
+Let us use these notes as example to illustrate this process:
+
+1. The authors write some new material about e.g. CI/CD stuff.
+This might take some time until the pictures are ready, the text has the correct format and code blocks are tested and developed.
+1. In the next step the new section is _committed_ to the local repository.
+This goes on for a couple of commits and separate for each author. 
+1. After the author is happy with the local changes it pushes the commits to the _remote repository_. 
+1. The repository living on [github](https://github.com/kandolfp/MECH-M-DUAL-1-SWD) uses [github workflows](https://docs.github.com/en/actions/using-workflows) to 
+   - Checkout the repository
+   - Test if the page can be build, if not tell the author
+   - If the build was successful the page is moved over to [github pages](https://pages.github.com/)
+1. The reader of the notes always has the latest working copy of the notes. 
+::::
+:::
+
+::: {.callout-note}
+Obviously, this does not prevent the notes from having some errors or typos but the authors always get a quick feedback if their work can still be displayed.
+:::
+
+## GitHub actions
+
+As we are working on GitHub for the lecture it is natural to look at a CI/CD solutions compatible with this system but we note that there are platform independent solutions and solutions for each of the major platform (GitLab, Azure DevOps, BitBucket, gitea, ...) though with different styles and capabilities.
+
+On GitHub this part is controlled by so called _GitHub Actions_, their documentation can be found [here](https://docs.github.com/en/actions).
+
+Let us discuss here how to integrate the actions with a Python repository in our setup, so `pdm` and executing our unit tests.
+
+Everything is controlled via the directory `.github/workflows` were we find `yml` files to control what is happening after a push to github.
+
+Let us consider this `testing.yml` file and have a look what is happening
+```yml
+on:                                     # <1>
+  workflow_dispatch:                    # <1>
+  push:                                 # <1>
+    branches: main                      # <1>
+
+name: Testing                           # <2>
+
+jobs:                                   # <3>
+  testing:                              
+    runs-on: ubuntu-latest              # <4>
+    steps:                      
+        - uses: actions/checkout@v4     # <5>
+        - name: Set up PDM              # <6>
+          uses: pdm-project/setup-pdm@v4 # <7>
+        - name: Install dependencies    # <8>
+          run: |
+            pdm sync
+        - name: Run Tests               # <9>
+          run: |
+            pdm run -v pytest tests
+```
+1. specify when to run all actions in this file
+1. specify a name to display on gitHub
+1. all jobs to run are listed in this section
+1. we need to specify on what system to run (this depends on the runner - docker)
+1. checkout the git repository into the runner
+1. we can give a step a name
+1. setup and install the `pdm` project
+1. synchronize the `pdm` project
+1. run the tests
+
+The entire job is executed on a so called [public runner](https://docs.github.com/en/actions/writing-workflows/choosing-where-your-workflow-runs/choosing-the-runner-for-a-job#standard-github-hosted-runners-for-public-repositories), provided by GitHub.
+In the case of GitHub these are virtual machines where all users have some resources to work with.
+
+To see the output of the job we need to look into the section `Actions` in the project section. 
+In our case, we will see that the action failed and we will receive an email telling us this as we have an error in our tests.
