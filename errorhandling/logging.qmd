@@ -111,11 +111,19 @@ Note that the `logger` module does not automatically flush to the file. Meaning 
 An important additional feature is to specify the format of the message. 
 This is particularly useful to get debugging information with certain timing information.
 ```{python}
+#| echo: false
+# Code to consistently have the same output, not shown
+import logging
+logging.basicConfig(format="%(asctime)s:%(levelname)s: %(message)s",
+                    level=logging.DEBUG,
+                    force=True)
+```
+```{python}
 #| classes: styled-output
 #| error: true
 import logging                                                          
-logging.basicConfig(format="%(asctime)s %(message)s",
-                    level=logging.WARNING)
+logging.basicConfig(format="%(asctime)s:%(levelname)s: %(message)s",
+                    level=logging.DEBUG)
 numberlist = [-2, -1, 0, 1, 2, "a", 1/4]
 
 for number in numberlist:    
@@ -128,5 +136,32 @@ for number in numberlist:
         logging.warning(f"The list does not only contain numbers")      # <2>
 ```
 
+::: {.callout-tip}
+We can use multiple loggers in a project.
+The usual convention is to use `__name__`
+```{python}
+#| echo: false
+# Code to consistently have the same output, not shown
+import logging
+logging.basicConfig(level=logging.WARNING, force=True)
+```
+```{python}
+#| classes: styled-output
+#| error: true
+import logging                                                          
+logger = logging.getLogger(__name__)
+numberlist = [-2, -1, 0, 1, 2, "a", 1/4]
+
+for number in numberlist:    
+    try:
+        logger.debug(f"Working on number {number}")                     # <2>
+        inverse = 1.0 / number
+    except ZeroDivisionError as e:
+        logger.error(f"Tried to divide by zero, error is {e}")         # <2>
+    except TypeError:
+        logger.warning(f"The list does not only contain numbers")      # <2>
+```
+We can just use it in the same fashion but the output includes the new name (if configured).
+:::
 
 See [docs](https://docs.python.org/3/library/logging.html) for more information.
