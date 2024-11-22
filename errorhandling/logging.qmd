@@ -70,6 +70,22 @@ for number in numberlist:
 ```
 1. we can specify a filename
 1. we can also specify what the current log level, i.e. what kind of messages are actually put into the logger.
+```{python}
+#| classes: styled-output
+%%bash
+cat app.log
+```
+```{python}
+#| echo: false
+%%bash
+# Code to consistently have the same output, not shown
+rm app.log
+```
+::: {.callout-caution}
+We currently use the `root` logger and as soon as one handler is defined, i.e. the logger is called for the first time, calling `{.python} logging.basicConfig` has no effect, unless `force=True` is included.
+
+As e consequence you need to restart Python if you want to use the code below as is consecutively. 
+:::
 
 There is a range of levels available that can always be extended.
 The default levels are in the following table and if you set the level only message of a type equal or higher (numeric value) are written to the output.:
