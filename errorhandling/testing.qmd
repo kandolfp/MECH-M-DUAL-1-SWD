@@ -1,0 +1,158 @@
+# Testing
+
+It is of great importance to test our code.
+This allows us not only to avoid errors and problems while running our code but can save in total a lot of time. 
+
+Writing tests is hardly ever the main focus of a developer but it should be included as an essential part of every piece of code.
+There exist a style of developing called _test driven development_ summarized in @fig-testdriven.
+
+::: {#fig-testdriven}
+[![](https://upload.wikimedia.org/wikipedia/commons/0/0b/TDD_Global_Lifecycle.png)](https://commons.wikimedia.org/wiki/File:TDD_Global_Lifecycle.png)
+
+Lifecycle of the Test-Driven Development method - 
+Xarawn, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons
+:::
+
+There are different types of tests that are appropriate for different types of software and are necessary in different kinds of projects, the following descriptions are adopted  from 
+[Atlassian, accessed 22.11.2024](https://www.atlassian.com/continuous-delivery/software-testing/types-of-software-testing).
+
+1. Unit tests\
+Unit tests are very low level and close to the source of an application. They consist in testing individual methods and functions of the classes, components, or modules used by your software. Unit tests are generally quite cheap to automate and can run very quickly by a continuous integration server.
+
+1. Integration tests\
+Integration tests verify that different modules or services used by your application work well together. For example, it can be testing the interaction with the database or making sure that microservices work together as expected. These types of tests are more expensive to run as they require multiple parts of the application to be up and running.
+
+1. Functional tests\
+Functional tests focus on the business requirements of an application. They only verify the output of an action and do not check the intermediate states of the system when performing that action.\
+\
+There is sometimes a confusion between integration tests and functional tests as they both require multiple components to interact with each other. The difference is that an integration test may simply verify that you can query the database while a functional test would expect to get a specific value from the database as defined by the product requirements.
+
+1. End-to-end tests\
+End-to-end testing replicates a user behavior with the software in a complete application environment. It verifies that various user flows work as expected and can be as simple as loading a web page or logging in or much more complex scenarios verifying email notifications, online payments, etc...\
+\
+End-to-end tests are very useful, but they're expensive to perform and can be hard to maintain when they're automated. It is recommended to have a few key end-to-end tests and rely more on lower level types of testing (unit and integration tests) to be able to quickly identify breaking changes.
+
+1. Acceptance testing\
+Acceptance tests are formal tests that verify if a system satisfies business requirements. They require the entire application to be running while testing and focus on replicating user behaviors. But they can also go further and measure the performance of the system and reject changes if certain goals are not met.
+
+1. Performance testing\
+Performance tests evaluate how a system performs under a particular workload. These tests help to measure the reliability, speed, scalability, and responsiveness of an application. For instance, a performance test can observe response times when executing a high number of requests, or determine how a system behaves with a significant amount of data. It can determine if an application meets performance requirements, locate bottlenecks, measure stability during peak traffic, and more. 
+
+1. Smoke testing\
+Smoke tests are basic tests that check the basic functionality of an application. They are meant to be quick to execute, and their goal is to give you the assurance that the major features of your system are working as expected.\
+\
+Smoke tests can be useful right after a new build is made to decide whether or not you can run more expensive tests, or right after a deployment to make sure that they application is running properly in the newly deployed environment.
+
+We are going to look primarily on Unit tests here.
+
+## Unit Tests
+
+As mentioned above unit tests are meant to make sure single sections of your code provide the functionality as they should.
+
+### Via `assert`
+
+One way to write a unit test is via `assert` statements, as they can also be deactivated during runtime, see @sec-error-assert, for this kind of unit tests an `AssertionError` signals a not successful test. 
+Usually we write a separate function to perform the tests with the prefix `test_`
+
+```{python}
+#| classes: styled-output
+#| error: true
+import numbers
+import numpy as np
+import traceback
+
+def add(a: numbers.Number, b: numbers.Number) -> numbers.Number:
+    return a + b
+
+def test_add():
+    assert add(2, 1) == 3
+    assert add(0, 0) == 0
+    assert add(0.4, 1/3) == 0.7333333333333334
+    assert add(1, 1e-16) == 1
+    np.testing.assert_almost_equal(add(1, 1e-16), 1)
+
+try:
+  test_add()
+except AssertionError as ae:
+  print(f"Test failed!, {traceback.print_exception(ae)}")
+else:
+  print("Test passed!")
+```
+
+This is tedious and not very convenient to handle and work with.
+
+### Via `unittest`
+
+The module `unittest` is a much more comprehensive way of running your test.
+This is also where the directory `tests` from our introduction to `pdm` comes into play, see @sec-intro-packagemanager.
+
+Tests are structured in this directory.
+We constructed a dummy project to show how testing can be done.
+```bash
+$ tree dummy/
+dummy/
+├── src
+│   └── rectangle
+│       ├── __init__.py
+│       └── rectangle.py
+└── test
+    ├── __init__.py
+    └── rectangle                   # <1>
+        ├── __init__.py             # <2>
+        └── rectangle.py            # <3>
+```
+1. create a directory per module (directory) in your `src` folder with the same name
+1. make the test folder a module as well
+1. create a file containing the tests with the same name
+
+::: {.callout-tip appearance="simple" collapse="true" icon=false}
+
+## {{< fa pen-to-square >}} Code for the example
+
+(@) `dummy/src/rectangle/__init__.py`
+```python
+{{< include ../_assets/errorhandling/dummy/src/rectangle/__init__.py >}}
+```
+(@) `dummy/src/rectangle/rectangle.py`
+```python
+{{< include ../_assets/errorhandling/dummy/src/rectangle/rectangle.py >}}
+```
+(@) `dummy/test/rectangle/__init__.py`
+```python
+{{< include ../_assets/errorhandling/dummy/test/rectangle/__init__.py >}}
+```
+(@) `dummy/test/rectangle/rectangle.py`
+```python
+{{< include ../_assets/errorhandling/dummy/test/rectangle/rectangle.py >}}
+```
+:::
+
+We can run the tests from the terminal (note the change of directory is only necessary for these notes)
+```bash
+pdm run python -m unittest -v test.rectangle
+```
+```{python}
+#| error: true
+#| echo: false
+#| classes: styled-output
+%%script --no-raise-error bash
+cd ../_assets/errorhandling/dummy
+pdm run python -m unittest -v test.rectangle
+```
+
+### Via `pytest`
+
+A third party option is the module `pytest` [docs](https://docs.pytest.org/en/stable/) that is often considered easier to handle than `unittest`.
+As there is a compability between `pytest` and `unittest` we can run 
+```bash
+pdm run pytest -q test/rectangle/rectangle.py
+```
+```{python}
+#| error: true
+#| echo: false
+#| classes: styled-output
+%%script --no-raise-error bash
+cd ../_assets/errorhandling/dummy
+pdm run pytest -q test/rectangle/rectangle.py
+```
+
