@@ -8,7 +8,7 @@ We will not deal with _Syntax Errors_ here.
 
 ## Exceptions
 
-The `BaseException` class is the base class for the built-in exceptions [see docs](https://docs.python.org/3/library/exceptions.html) and all the built-in exception are inherited from this class. 
+The `BaseException` class is the base class for the built-in exceptions ([see docs](https://docs.python.org/3/library/exceptions.html) and [tutorials](https://docs.python.org/3/tutorial/errors.html)) and all the built-in exception are inherited from this class. 
 For writing our own exceptions however, we should use `Exception` as the base.
 
 In order to introduce the concept let us show some of the most common exceptions
@@ -259,7 +259,7 @@ if len(errors) > 0:
     raise ExceptionGroup("The following exceptions occurred:", errors)
 ```
 
-## Assertions
+## Assertions {#sec-error-assert}
 
 There is an additional feature that is a good way to make sure that conditions are met before working on something.
 For this `assert` can be used.
@@ -286,9 +286,13 @@ This feature is usually used during development.
 Therefore, there is an option `-O` to deactivate it during the run of a python program.
 
 This is often done, due to the fact that each of these `assert` statements takes some time to be processed.
+```bash
+pdm run python -O test_assert.py
+```
 ```{python}
 #| classes: styled-output
 #| error: true
-%%bash
+#| echo: false
+%%script --no-raise-error bash
 pdm run python -O ../_assets/errorhandling/test_assert.py
 ```
