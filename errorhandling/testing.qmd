@@ -95,14 +95,14 @@ dummy/
 │   └── rectangle
 │       ├── __init__.py
 │       └── rectangle.py
-└── test
+└── tests
     ├── __init__.py
     └── rectangle                   # <1>
         ├── __init__.py             # <2>
-        └── rectangle.py            # <3>
+        └── test_rectangle.py            # <3>
 ```
 1. create a directory per module (directory) in your `src` folder with the same name
-1. make the test folder a module as well
+1. optionally make the test folder a module as well
 1. create a file containing the tests with the same name
 
 ::: {.callout-tip appearance="simple" collapse="true" icon=false}
@@ -117,19 +117,19 @@ dummy/
 ```python
 {{< include ../_assets/errorhandling/dummy/src/rectangle/rectangle.py >}}
 ```
-(@) `dummy/test/rectangle/__init__.py`
+(@) `dummy/tests/rectangle/__init__.py`
 ```python
-{{< include ../_assets/errorhandling/dummy/test/rectangle/__init__.py >}}
+{{< include ../_assets/errorhandling/dummy/tests/rectangle/__init__.py >}}
 ```
-(@) `dummy/test/rectangle/rectangle.py`
+(@) `dummy/tests/rectangle/test_rectangle.py`
 ```python
-{{< include ../_assets/errorhandling/dummy/test/rectangle/rectangle.py >}}
+{{< include ../_assets/errorhandling/dummy/tests/rectangle/test_rectangle.py >}}
 ```
 :::
 
 We can run the tests from the terminal (note the change of directory is only necessary for these notes)
 ```bash
-pdm run python -m unittest -v test.rectangle
+pdm run python -m unittest -v tests.rectangle
 ```
 ```{python}
 #| error: true
@@ -137,15 +137,15 @@ pdm run python -m unittest -v test.rectangle
 #| classes: styled-output
 %%script --no-raise-error bash
 cd ../_assets/errorhandling/dummy
-pdm run python -m unittest -v test.rectangle
+pdm run python -m unittest -v tests.rectangle
 ```
 
 ### Via `pytest`
 
 A third party option is the module `pytest` [docs](https://docs.pytest.org/en/stable/) that is often considered easier to handle than `unittest`.
-As there is a compability between `pytest` and `unittest` we can run 
+As there is a compatibility between `pytest` and `unittest` we can run 
 ```bash
-pdm run pytest -q test/rectangle/rectangle.py
+pdm run pytest -q
 ```
 ```{python}
 #| error: true
@@ -153,6 +153,6 @@ pdm run pytest -q test/rectangle/rectangle.py
 #| classes: styled-output
 %%script --no-raise-error bash
 cd ../_assets/errorhandling/dummy
-pdm run pytest -q test/rectangle/rectangle.py
+pdm run pytest -q
 ```
-
+as it will automatically search in the directory `tests` for files with the prefix `test_`.
