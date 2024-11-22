@@ -70,10 +70,16 @@ for number in numberlist:
 ```
 1. we can specify a filename
 1. we can also specify what the current log level, i.e. what kind of messages are actually put into the logger.
+
+```bash
+cat app.log
+```
 ```{python}
 #| classes: styled-output
+#| echo: false
 %%bash
 cat app.log
+# Code to consistently have the same output, not shown
 ```
 ```{python}
 #| echo: false
@@ -82,7 +88,7 @@ cat app.log
 rm app.log
 ```
 ::: {.callout-caution}
-We currently use the `root` logger and as soon as one handler is defined, i.e. the logger is called for the first time, calling `{.python} logging.basicConfig` has no effect, unless `force=True` is included.
+We currently use the `root` logger and as soon as one handler is defined, i.e. the logger is called for the first time, calling `logging.basicConfig` has no effect, unless `force=True` is included.
 
 As e consequence you need to restart Python if you want to use the code below as is consecutively. 
 :::
@@ -92,7 +98,7 @@ The default levels are in the following table and if you set the level only mess
 
 | Level | Numeric value | What it means / When to use it |
 | ----  | ------------- | :------------------------------|
-| `logging.NOTSET` | 0 | When set on a logger, indicates that ancestor loggers are to be consulted to determine the effective level. If that still resolves to NOTSET, then all events are logged. When set on a handler, all events are handled. |
+| `logging.NOTSET` | 0 | When set on a logger, indicates that ancestor loggers are to be consulted to determine the effective level. If that still resolves to `NOTSET`, then all events are logged. When set on a handler, all events are handled. |
 | `logging.DEBUG` | 10 | Detailed information, typically only of interest to a developer trying to diagnose a problem. |
 | `logging.INFO` | 20 | Confirmation that things are working as expected. |
 | `logging.WARNING` | 30 | An indication that something unexpected happened, or that a problem might occur in the near future (e.g. ‘disk space low’). The software is still working as expected. | 
@@ -138,7 +144,7 @@ for number in numberlist:
 
 ::: {.callout-tip}
 We can use multiple loggers in a project.
-The usual convention is to use `__name__`
+The usual convention is to use `__name__` as the name by calling  `logging.getLogger(__name__)`.
 ```{python}
 #| echo: false
 # Code to consistently have the same output, not shown
@@ -161,7 +167,8 @@ for number in numberlist:
     except TypeError:
         logger.warning(f"The list does not only contain numbers")      # <2>
 ```
-We can just use it in the same fashion but the output includes the new name (if configured).
+Once the logger is defined, we can use it in the same fashion as we did before.
+This allows us to use multiple logger in the same application.
 :::
 
 See [docs](https://docs.python.org/3/library/logging.html) for more information.
