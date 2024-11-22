@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Self Study Sessions – Softwaredesign</title>
+<title>Runtime stability – Softwaredesign</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../sss/sss1.html" rel="next">
-<link href="../basics/epilogue.html" rel="prev">
+<link href="../errorhandling/exception.html" rel="next">
+<link href="../sc/pandas.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -83,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sss/index.html">Self Study Sessions</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../errorhandling/index.html">Runtime stability</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -166,7 +166,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../sss/index.html" class="sidebar-item-text sidebar-link active">
+            <a href="../sss/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Self Study Sessions</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -218,7 +218,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../errorhandling/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../errorhandling/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Runtime stability</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -270,7 +270,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Self Study Sessions</h1>
+<h1 class="title">Runtime stability</h1>
 </div>
 
 
@@ -287,25 +287,9 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>This lecture consists of several self study sessions!</strong></p>
-<p>In these sections you are supposed to work on the given topics on your own and in your own time. We will try to provide helpful references for books and online material that can help you but you are not limited to these materials.</p>
-<p>In order to get an idea on how much you understand of the material we provide exercises.</p>
-</div>
-</div>
-<p>Sessions:</p>
-<ul>
-<li><a href="sss1.html" class="quarto-xref"><span>5&nbsp; Self Study Session I</span></a> concerned with: Variables, Data Types, Functions, Typing and Type Hints, Modules</li>
-</ul>
+<p>When we write code there are going to be errors in different parts of the software at hand. Some errors are purely in the structure of the code and we will discuss how <strong>unit tests</strong> and <strong>static code analysis</strong> can help to find such errors early. One class of errors you see here are <em>Syntax Errors</em> (<code>SyntaxError</code>) that prevents an application from running all together as the Python parser does not know how to interpret the code.</p>
+<p>Other errors occur during the runtime of the application and are often not avoidable, e.g.&nbsp;the connection to a database is not available, data is corrupted, etc.. In order to deal with such situations we will discuss <strong>exception handling</strong> and how do <em>gracefully shut down</em>.</p>
+<p>For all of these issues it is often necessary that we as developer get feedback on how, where, when, etc. an error occurred and therefore <strong>logging</strong> is introduced.</p>
 
 
 
@@ -876,13 +860,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../basics/epilogue.html" class="pagination-link" aria-label="Epilogue">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Epilogue</span></span>
+      <a href="../sc/pandas.html" class="pagination-link" aria-label="Pandas">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Pandas</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../sss/sss1.html" class="pagination-link" aria-label="Self Study Session I">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Self Study Session I</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../errorhandling/exception.html" class="pagination-link" aria-label="Exception handling">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Exception handling</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -894,7 +878,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
 <p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> Peter Kandolf</p>
-<div class="toc-actions"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/sss/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/errorhandling/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

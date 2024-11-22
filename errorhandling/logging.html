@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Self Study Sessions – Softwaredesign</title>
+<title>11&nbsp; Logging – Softwaredesign</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../sss/sss1.html" rel="next">
-<link href="../basics/epilogue.html" rel="prev">
+<link href="../errorhandling/testing.html" rel="next">
+<link href="../errorhandling/exception.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -83,7 +117,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sss/index.html">Self Study Sessions</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../errorhandling/index.html">Runtime stability</a></li><li class="breadcrumb-item"><a href="../errorhandling/logging.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Logging</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -166,7 +200,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../sss/index.html" class="sidebar-item-text sidebar-link active">
+            <a href="../sss/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Self Study Sessions</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -233,7 +267,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../errorhandling/logging.html" class="sidebar-item-text sidebar-link">
+  <a href="../errorhandling/logging.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Logging</span></span></a>
   </div>
 </li>
@@ -268,9 +302,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../errorhandling/index.html">Runtime stability</a></li><li class="breadcrumb-item"><a href="../errorhandling/logging.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Logging</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Self Study Sessions</h1>
+<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Logging</span></h1>
 </div>
 
 
@@ -287,25 +321,244 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-important callout-titled">
+<p>Logging is the concept of that is used to protocol <em>everything</em> or at least every important <em>action/result</em> that happens in a program in order to allow track how the program is doing.</p>
+<p>This is particularly useful for the developer of an application to perform</p>
+<ul>
+<li>error analysis</li>
+<li>performance analysis</li>
+<li>general tracking</li>
+<li>debugging 🐛</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Important
+Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>This lecture consists of several self study sessions!</strong></p>
-<p>In these sections you are supposed to work on the given topics on your own and in your own time. We will try to provide helpful references for books and online material that can help you but you are not limited to these materials.</p>
-<p>In order to get an idea on how much you understand of the material we provide exercises.</p>
+<p>A logger is particularly useful when an application is not running under the supervision of the developer. For example by another user, on an embedded system, a server, etc..</p>
 </div>
 </div>
-<p>Sessions:</p>
-<ul>
-<li><a href="sss1.html" class="quarto-xref"><span>5&nbsp; Self Study Session I</span></a> concerned with: Variables, Data Types, Functions, Typing and Type Hints, Modules</li>
-</ul>
+<p>Python provides an extensive module named <code>logging</code> for these purposes.</p>
+<div id="0ec2537f" class="cell styled-output" data-execution_count="2">
+<div class="sourceCode cell-code" id="annotated-cell-1"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-1-1" class="code-annotation-target"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> logging</span>
+<span id="annotated-cell-1-2"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a>numberlist <span class="op">=</span> [<span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="st">"a"</span>, <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>]</span>
+<span id="annotated-cell-1-3"><a href="#annotated-cell-1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-1-4"><a href="#annotated-cell-1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> number <span class="kw">in</span> numberlist:    </span>
+<span id="annotated-cell-1-5"><a href="#annotated-cell-1-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-1-6" class="code-annotation-target"><a href="#annotated-cell-1-6" aria-hidden="true" tabindex="-1"></a>        logging.info(<span class="ss">f"Working on number </span><span class="sc">{</span>number<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="annotated-cell-1-7"><a href="#annotated-cell-1-7" aria-hidden="true" tabindex="-1"></a>        inverse <span class="op">=</span> <span class="fl">1.0</span> <span class="op">/</span> number</span>
+<span id="annotated-cell-1-8"><a href="#annotated-cell-1-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">ZeroDivisionError</span> <span class="im">as</span> e:</span>
+<span id="annotated-cell-1-9"><a href="#annotated-cell-1-9" aria-hidden="true" tabindex="-1"></a>        logging.error(<span class="ss">f"Tried to divide by zero, error is </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="annotated-cell-1-10"><a href="#annotated-cell-1-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">TypeError</span>:</span>
+<span id="annotated-cell-1-11"><a href="#annotated-cell-1-11" aria-hidden="true" tabindex="-1"></a>        logging.warning(<span class="ss">f"The list does not only contain numbers"</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="1" data-code-annotation="1">Include the module</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="6,9,11" data-code-annotation="2">We can classify what type of content we are logging, the correspond to the <em>log level</em></span>
+</dd>
+</dl>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ERROR:root:Tried to divide by zero, error is float division by zero
+WARNING:root:The list does not only contain numbers</code></pre>
+</div>
+</div>
+<p>By default the logger write to the terminal. This might not always be what you want so this can be changed easily, together with the <em>log level</em>:</p>
+<div id="5e0bd8bb" class="cell styled-output" data-execution_count="4">
+<div class="sourceCode cell-code" id="annotated-cell-2"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-2-1"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> logging</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-2-2" class="code-annotation-target"><a href="#annotated-cell-2-2" aria-hidden="true" tabindex="-1"></a>logging.basicConfig(filename<span class="op">=</span><span class="st">"app.log"</span>,</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-2-3" class="code-annotation-target"><a href="#annotated-cell-2-3" aria-hidden="true" tabindex="-1"></a>                    level<span class="op">=</span>logging.INFO)</span>
+<span id="annotated-cell-2-4"><a href="#annotated-cell-2-4" aria-hidden="true" tabindex="-1"></a>numberlist <span class="op">=</span> [<span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="st">"a"</span>, <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>]</span>
+<span id="annotated-cell-2-5"><a href="#annotated-cell-2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-2-6"><a href="#annotated-cell-2-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> number <span class="kw">in</span> numberlist:    </span>
+<span id="annotated-cell-2-7"><a href="#annotated-cell-2-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="annotated-cell-2-8"><a href="#annotated-cell-2-8" aria-hidden="true" tabindex="-1"></a>        logging.info(<span class="ss">f"Working on number </span><span class="sc">{</span>number<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="annotated-cell-2-9"><a href="#annotated-cell-2-9" aria-hidden="true" tabindex="-1"></a>        inverse <span class="op">=</span> <span class="fl">1.0</span> <span class="op">/</span> number</span>
+<span id="annotated-cell-2-10"><a href="#annotated-cell-2-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">ZeroDivisionError</span> <span class="im">as</span> e:</span>
+<span id="annotated-cell-2-11"><a href="#annotated-cell-2-11" aria-hidden="true" tabindex="-1"></a>        logging.error(<span class="ss">f"Tried to divide by zero, error is </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="annotated-cell-2-12"><a href="#annotated-cell-2-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">TypeError</span>:</span>
+<span id="annotated-cell-2-13"><a href="#annotated-cell-2-13" aria-hidden="true" tabindex="-1"></a>        logging.warning(<span class="ss">f"The list does not only contain numbers"</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-2" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-lines="2" data-code-annotation="1">we can specify a filename</span>
+</dd>
+<dt data-target-cell="annotated-cell-2" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-lines="3" data-code-annotation="2">we can also specify what the current log level, i.e.&nbsp;what kind of messages are actually put into the logger.</span>
+</dd>
+</dl>
+</div>
+</div>
+<div id="17bda3d9" class="cell styled-output" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>bash</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>cat app.log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>INFO:root:Working on number -2
+INFO:root:Working on number -1
+INFO:root:Working on number 0
+ERROR:root:Tried to divide by zero, error is float division by zero
+INFO:root:Working on number 1
+INFO:root:Working on number 2
+INFO:root:Working on number a
+WARNING:root:The list does not only contain numbers
+INFO:root:Working on number 0.25
+DEBUG:asyncio:Using selector: EpollSelector</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We currently use the <code>root</code> logger and as soon as one handler is defined, i.e.&nbsp;the logger is called for the first time, calling <code>{.python} logging.basicConfig</code> has no effect, unless <code>force=True</code> is included.</p>
+<p>As e consequence you need to restart Python if you want to use the code below as is consecutively.</p>
+</div>
+</div>
+<p>There is a range of levels available that can always be extended. The default levels are in the following table and if you set the level only message of a type equal or higher (numeric value) are written to the output.:</p>
+<table class="caption-top table">
+<caption>The different log levels explained. The table is copied from <a href="https://docs.python.org/3/library/logging.html#logging-levels">docs</a>, accessed on the 21st Nov.&nbsp;24.</caption>
+<thead>
+<tr class="header">
+<th>Level</th>
+<th>Numeric value</th>
+<th style="text-align: left;">What it means / When to use it</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>logging.NOTSET</code></td>
+<td>0</td>
+<td style="text-align: left;">When set on a logger, indicates that ancestor loggers are to be consulted to determine the effective level. If that still resolves to NOTSET, then all events are logged. When set on a handler, all events are handled.</td>
+</tr>
+<tr class="even">
+<td><code>logging.DEBUG</code></td>
+<td>10</td>
+<td style="text-align: left;">Detailed information, typically only of interest to a developer trying to diagnose a problem.</td>
+</tr>
+<tr class="odd">
+<td><code>logging.INFO</code></td>
+<td>20</td>
+<td style="text-align: left;">Confirmation that things are working as expected.</td>
+</tr>
+<tr class="even">
+<td><code>logging.WARNING</code></td>
+<td>30</td>
+<td style="text-align: left;">An indication that something unexpected happened, or that a problem might occur in the near future (e.g.&nbsp;‘disk space low’). The software is still working as expected.</td>
+</tr>
+<tr class="odd">
+<td><code>logging.ERROR</code></td>
+<td>40</td>
+<td style="text-align: left;">Due to a more serious problem, the software has not been able to perform some function.</td>
+</tr>
+<tr class="even">
+<td><code>logging.CRITICAL</code></td>
+<td>50</td>
+<td style="text-align: left;">A serious error, indicating that the program itself may be unable to continue running.</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The default logging level setting is <code>logging.WARNING</code> as can be seen in the output of the first listing.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Note that the <code>logger</code> module does not automatically flush to the file. Meaning it might not be a real time logging process.</p>
+</div>
+</div>
+<p>An important additional feature is to specify the format of the message. This is particularly useful to get debugging information with certain timing information.</p>
+<div id="d736ddde" class="cell styled-output" data-execution_count="8">
+<div class="sourceCode cell-code" id="annotated-cell-4"><pre class="sourceCode python code-annotation-code code-with-copy"><code class="sourceCode python"><span id="annotated-cell-4-1"><a href="#annotated-cell-4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> logging                                                          </span>
+<span id="annotated-cell-4-2"><a href="#annotated-cell-4-2" aria-hidden="true" tabindex="-1"></a>logging.basicConfig(<span class="bu">format</span><span class="op">=</span><span class="st">"</span><span class="sc">%(asctime)s</span><span class="st">:</span><span class="sc">%(levelname)s</span><span class="st">: </span><span class="sc">%(message)s</span><span class="st">"</span>,</span>
+<span id="annotated-cell-4-3"><a href="#annotated-cell-4-3" aria-hidden="true" tabindex="-1"></a>                    level<span class="op">=</span>logging.DEBUG)</span>
+<span id="annotated-cell-4-4"><a href="#annotated-cell-4-4" aria-hidden="true" tabindex="-1"></a>numberlist <span class="op">=</span> [<span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="st">"a"</span>, <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>]</span>
+<span id="annotated-cell-4-5"><a href="#annotated-cell-4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-4-6"><a href="#annotated-cell-4-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> number <span class="kw">in</span> numberlist:    </span>
+<span id="annotated-cell-4-7"><a href="#annotated-cell-4-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="annotated-cell-4-8"><a href="#annotated-cell-4-8" aria-hidden="true" tabindex="-1"></a>        logging.debug(<span class="ss">f"Working on number </span><span class="sc">{</span>number<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="annotated-cell-4-9"><a href="#annotated-cell-4-9" aria-hidden="true" tabindex="-1"></a>        inverse <span class="op">=</span> <span class="fl">1.0</span> <span class="op">/</span> number</span>
+<span id="annotated-cell-4-10"><a href="#annotated-cell-4-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">ZeroDivisionError</span> <span class="im">as</span> e:</span>
+<span id="annotated-cell-4-11"><a href="#annotated-cell-4-11" aria-hidden="true" tabindex="-1"></a>        logging.error(<span class="ss">f"Tried to divide by zero, error is </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="annotated-cell-4-12"><a href="#annotated-cell-4-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">TypeError</span>:</span>
+<span id="annotated-cell-4-13"><a href="#annotated-cell-4-13" aria-hidden="true" tabindex="-1"></a>        logging.warning(<span class="ss">f"The list does not only contain numbers"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>2024-11-22 11:18:39,981:DEBUG: Working on number -2
+2024-11-22 11:18:39,981:DEBUG: Working on number -1
+2024-11-22 11:18:39,982:DEBUG: Working on number 0
+2024-11-22 11:18:39,982:ERROR: Tried to divide by zero, error is float division by zero
+2024-11-22 11:18:39,983:DEBUG: Working on number 1
+2024-11-22 11:18:39,983:DEBUG: Working on number 2
+2024-11-22 11:18:39,984:DEBUG: Working on number a
+2024-11-22 11:18:39,984:WARNING: The list does not only contain numbers
+2024-11-22 11:18:39,985:DEBUG: Working on number 0.25</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We can use multiple loggers in a project. The usual convention is to use <code>__name__</code></p>
+<div id="1e80a7c6" class="cell styled-output" data-execution_count="10">
+<div class="sourceCode cell-code" id="annotated-cell-8"><pre class="sourceCode python code-annotation-code code-with-copy"><code class="sourceCode python"><span id="annotated-cell-8-1"><a href="#annotated-cell-8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> logging                                                          </span>
+<span id="annotated-cell-8-2"><a href="#annotated-cell-8-2" aria-hidden="true" tabindex="-1"></a>logger <span class="op">=</span> logging.getLogger(<span class="va">__name__</span>)</span>
+<span id="annotated-cell-8-3"><a href="#annotated-cell-8-3" aria-hidden="true" tabindex="-1"></a>numberlist <span class="op">=</span> [<span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="st">"a"</span>, <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>]</span>
+<span id="annotated-cell-8-4"><a href="#annotated-cell-8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-8-5"><a href="#annotated-cell-8-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> number <span class="kw">in</span> numberlist:    </span>
+<span id="annotated-cell-8-6"><a href="#annotated-cell-8-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="annotated-cell-8-7"><a href="#annotated-cell-8-7" aria-hidden="true" tabindex="-1"></a>        logger.debug(<span class="ss">f"Working on number </span><span class="sc">{</span>number<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="annotated-cell-8-8"><a href="#annotated-cell-8-8" aria-hidden="true" tabindex="-1"></a>        inverse <span class="op">=</span> <span class="fl">1.0</span> <span class="op">/</span> number</span>
+<span id="annotated-cell-8-9"><a href="#annotated-cell-8-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">ZeroDivisionError</span> <span class="im">as</span> e:</span>
+<span id="annotated-cell-8-10"><a href="#annotated-cell-8-10" aria-hidden="true" tabindex="-1"></a>        logger.error(<span class="ss">f"Tried to divide by zero, error is </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="annotated-cell-8-11"><a href="#annotated-cell-8-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">TypeError</span>:</span>
+<span id="annotated-cell-8-12"><a href="#annotated-cell-8-12" aria-hidden="true" tabindex="-1"></a>        logger.warning(<span class="ss">f"The list does not only contain numbers"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ERROR:__main__:Tried to divide by zero, error is float division by zero
+WARNING:__main__:The list does not only contain numbers</code></pre>
+</div>
+</div>
+<p>We can just use it in the same fashion but the output includes the new name (if configured).</p>
+</div>
+</div>
+<p>See <a href="https://docs.python.org/3/library/logging.html">docs</a> for more information.</p>
 
 
 
@@ -876,13 +1129,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../basics/epilogue.html" class="pagination-link" aria-label="Epilogue">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Epilogue</span></span>
+      <a href="../errorhandling/exception.html" class="pagination-link" aria-label="Exception handling">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Exception handling</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../sss/sss1.html" class="pagination-link" aria-label="Self Study Session I">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Self Study Session I</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../errorhandling/testing.html" class="pagination-link" aria-label="Testing">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Testing</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -894,7 +1147,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
 <p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> Peter Kandolf</p>
-<div class="toc-actions"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/sss/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/errorhandling/logging.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
