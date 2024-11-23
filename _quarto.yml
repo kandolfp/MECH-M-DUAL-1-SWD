@@ -42,6 +42,9 @@ book:
         - errorhandling/logging.qmd
         - errorhandling/testing.qmd
         - errorhandling/cicd.qmd
+    - part: containerization/index.qmd
+      chapters:
+        - containerization/docker.qmd    
     - summary.qmd
     - references.qmd
 
