@@ -285,6 +285,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../containerization/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Containerization</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../containerization/docker.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Docker</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../summary.html" class="sidebar-item-text sidebar-link">
@@ -349,7 +366,7 @@ Tip
 </div>
 </div>
 <p>Python provides an extensive module named <code>logging</code> for these purposes.</p>
-<div id="29f13480" class="cell styled-output" data-execution_count="2">
+<div id="2d4a4361" class="cell styled-output" data-execution_count="2">
 <div class="sourceCode cell-code" id="annotated-cell-1"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-1-1" class="code-annotation-target"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> logging</span>
 <span id="annotated-cell-1-2"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a>numberlist <span class="op">=</span> [<span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="st">"a"</span>, <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>]</span>
 <span id="annotated-cell-1-3"><a href="#annotated-cell-1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -379,7 +396,7 @@ WARNING:root:The list does not only contain numbers</code></pre>
 </div>
 </div>
 <p>By default the logger write to the terminal. This might not always be what you want so this can be changed easily, together with the <em>log level</em>:</p>
-<div id="49e17ef9" class="cell styled-output" data-execution_count="4">
+<div id="f3495780" class="cell styled-output" data-execution_count="4">
 <div class="sourceCode cell-code" id="annotated-cell-2"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-2-1"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> logging</span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-2-2" class="code-annotation-target"><a href="#annotated-cell-2-2" aria-hidden="true" tabindex="-1"></a>logging.basicConfig(filename<span class="op">=</span><span class="st">"app.log"</span>,</span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-2-3" class="code-annotation-target"><a href="#annotated-cell-2-3" aria-hidden="true" tabindex="-1"></a>                    level<span class="op">=</span>logging.INFO)</span>
@@ -407,7 +424,7 @@ WARNING:root:The list does not only contain numbers</code></pre>
 </div>
 </div>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> app.log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="a74677c3" class="cell styled-output" data-execution_count="5">
+<div id="1c52fc92" class="cell styled-output" data-execution_count="5">
 <div class="cell-output cell-output-stdout">
 <pre><code>INFO:root:Working on number -2
 INFO:root:Working on number -1
@@ -505,7 +522,7 @@ Tip
 </div>
 </div>
 <p>An important additional feature is to specify the format of the message. This is particularly useful to get debugging information with certain timing information.</p>
-<div id="c149f1d6" class="cell styled-output" data-execution_count="8">
+<div id="ea1f4af5" class="cell styled-output" data-execution_count="8">
 <div class="sourceCode cell-code" id="annotated-cell-4"><pre class="sourceCode python code-annotation-code code-with-copy"><code class="sourceCode python"><span id="annotated-cell-4-1"><a href="#annotated-cell-4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> logging                                                          </span>
 <span id="annotated-cell-4-2"><a href="#annotated-cell-4-2" aria-hidden="true" tabindex="-1"></a>logging.basicConfig(<span class="bu">format</span><span class="op">=</span><span class="st">"</span><span class="sc">%(asctime)s</span><span class="st">:</span><span class="sc">%(levelname)s</span><span class="st">: </span><span class="sc">%(message)s</span><span class="st">"</span>,</span>
 <span id="annotated-cell-4-3"><a href="#annotated-cell-4-3" aria-hidden="true" tabindex="-1"></a>                    level<span class="op">=</span>logging.DEBUG)</span>
@@ -520,15 +537,15 @@ Tip
 <span id="annotated-cell-4-12"><a href="#annotated-cell-4-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">TypeError</span>:</span>
 <span id="annotated-cell-4-13"><a href="#annotated-cell-4-13" aria-hidden="true" tabindex="-1"></a>        logging.warning(<span class="ss">f"The list does not only contain numbers"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>2024-11-22 17:46:58,969:DEBUG: Working on number -2
-2024-11-22 17:46:58,970:DEBUG: Working on number -1
-2024-11-22 17:46:58,970:DEBUG: Working on number 0
-2024-11-22 17:46:58,971:ERROR: Tried to divide by zero, error is float division by zero
-2024-11-22 17:46:58,971:DEBUG: Working on number 1
-2024-11-22 17:46:58,971:DEBUG: Working on number 2
-2024-11-22 17:46:58,972:DEBUG: Working on number a
-2024-11-22 17:46:58,972:WARNING: The list does not only contain numbers
-2024-11-22 17:46:58,973:DEBUG: Working on number 0.25</code></pre>
+<pre><code>2024-11-23 11:20:46,252:DEBUG: Working on number -2
+2024-11-23 11:20:46,253:DEBUG: Working on number -1
+2024-11-23 11:20:46,253:DEBUG: Working on number 0
+2024-11-23 11:20:46,254:ERROR: Tried to divide by zero, error is float division by zero
+2024-11-23 11:20:46,254:DEBUG: Working on number 1
+2024-11-23 11:20:46,256:DEBUG: Working on number 2
+2024-11-23 11:20:46,256:DEBUG: Working on number a
+2024-11-23 11:20:46,256:WARNING: The list does not only contain numbers
+2024-11-23 11:20:46,257:DEBUG: Working on number 0.25</code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -542,7 +559,7 @@ Tip
 </div>
 <div class="callout-body-container callout-body">
 <p>We can use multiple loggers in a project. The usual convention is to use <code>__name__</code> as the name by calling <code>logging.getLogger(__name__)</code>.</p>
-<div id="02fe9be8" class="cell styled-output" data-execution_count="10">
+<div id="15eadea5" class="cell styled-output" data-execution_count="10">
 <div class="sourceCode cell-code" id="annotated-cell-8"><pre class="sourceCode python code-annotation-code code-with-copy"><code class="sourceCode python"><span id="annotated-cell-8-1"><a href="#annotated-cell-8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> logging                                                          </span>
 <span id="annotated-cell-8-2"><a href="#annotated-cell-8-2" aria-hidden="true" tabindex="-1"></a>logger <span class="op">=</span> logging.getLogger(<span class="va">__name__</span>)</span>
 <span id="annotated-cell-8-3"><a href="#annotated-cell-8-3" aria-hidden="true" tabindex="-1"></a>numberlist <span class="op">=</span> [<span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="st">"a"</span>, <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>]</span>

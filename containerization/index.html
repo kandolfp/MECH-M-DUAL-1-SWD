@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>13&nbsp; CI/CD – Softwaredesign</title>
+<title>Containerization – Softwaredesign</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -64,8 +30,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../containerization/index.html" rel="next">
-<link href="../errorhandling/testing.html" rel="prev">
+<link href="../containerization/docker.html" rel="next">
+<link href="../errorhandling/cicd.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -117,7 +83,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../errorhandling/index.html">Runtime stability</a></li><li class="breadcrumb-item"><a href="../errorhandling/cicd.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">CI/CD</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../containerization/index.html">Containerization</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -279,7 +245,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../errorhandling/cicd.html" class="sidebar-item-text sidebar-link active">
+  <a href="../errorhandling/cicd.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">CI/CD</span></span></a>
   </div>
 </li>
@@ -287,7 +253,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../containerization/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../containerization/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Containerization</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -324,16 +290,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#github-actions" id="toc-github-actions" class="nav-link active" data-scroll-target="#github-actions"><span class="header-section-number">13.1</span> GitHub actions</a></li>
+  <li><a href="#virtualisation-and-containerisation" id="toc-virtualisation-and-containerisation" class="nav-link active" data-scroll-target="#virtualisation-and-containerisation">Virtualisation and containerisation</a></li>
+  <li><a href="#virtualisation" id="toc-virtualisation" class="nav-link" data-scroll-target="#virtualisation">Virtualisation</a></li>
+  <li><a href="#containerisation" id="toc-containerisation" class="nav-link" data-scroll-target="#containerisation">Containerisation</a></li>
+  <li><a href="#different-container-solutions" id="toc-different-container-solutions" class="nav-link" data-scroll-target="#different-container-solutions">Different container solutions</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/errorhandling/cicd.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/containerization/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../errorhandling/index.html">Runtime stability</a></li><li class="breadcrumb-item"><a href="../errorhandling/cicd.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">CI/CD</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">CI/CD</span></h1>
+<h1 class="title">Containerization</h1>
 </div>
 
 
@@ -350,122 +319,140 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>The term <em>CI/CD</em> is most commonly attributed to <em>continuous integration, continuous delivery, and continuous deployment</em>. By introducing automation and continuous monitoring of the code lifecycle - from integration and testing to delivering and deploying - it helps keep the codebase working and our <em>product</em> up and running.</p>
-<p>The concept is often used in DevOps, MLOps or similar approaches.</p>
-<ol class="example" type="1">
-<li><p>Continuous integration<br>
-The main idea of <em>continuous integration</em> is to automate building and testing such that your merge to a shared branch or repository is known to work. The idea is that multiple people can work on the same code base and conflicts get recognized early and not after two months of developing. Typically, the CI <em>pipeline</em> does unit and integration tests that make sure that the chances have not broken the code. This allows for regular, hopefully daily, merge pushes to the shared repository.<br>
-In Git therms this would be a common <em>remote repository</em> for the developers.</p></li>
-<li><p>Continuous delivery<br>
-Now that you know that the code is automatically build and unit as well as integration tested the automated delivery to a shared repository is the next step.<br>
-This means your code base is always ready to be deployed to a production environment, meaning that it is not just used by you but by others and even other programs build on it.</p></li>
-<li><p>Continuous deployment<br>
-The last step in this automation pipeline is the automatic deployment of the code to a production environment where it can be used.</p></li>
-</ol>
-<div class="callout callout-style-simple callout-tip no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<div id="exm-errorhandling-cicd-self" class="theorem example">
-<p><span class="theorem-title"><strong>Example 13.1 (Working procedure for these notes)</strong></span> Let us use these notes as example to illustrate this process:</p>
-<ol type="1">
-<li>The authors write some new material about e.g.&nbsp;CI/CD stuff. This might take some time until the pictures are ready, the text has the correct format and code blocks are tested and developed.</li>
-<li>In the next step the new section is <em>committed</em> to the local repository. This goes on for a couple of commits and separate for each author.</li>
-<li>After the author is happy with the local changes it pushes the commits to the <em>remote repository</em>.</li>
-<li>The repository living on <a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD">github</a> uses <a href="https://docs.github.com/en/actions/using-workflows">github workflows</a> to
+<p>In this section we are going to talk about <em>containerisation</em> but before we can do that let us discuss some common issues in (scientific) computing that will give rise to why containerization is an important issue.</p>
+<section id="you-need-a-different-softwarelibrary-than-installed" class="level4">
+<h4 class="anchored" data-anchor-id="you-need-a-different-softwarelibrary-than-installed">You need a different software/library than installed</h4>
+<p>Quite often the software that is installed on a machine that you have access to or are allowed to work with does not have the specific library, software, software version that you need to work with. Even more often you do not have the rights to install software at your own freedom on the machine and the admin takes quite long to install what you need.</p>
+</section>
+<section id="you-need-to-assure-reproducibility-i.e.reproducible-science" class="level4">
+<h4 class="anchored" data-anchor-id="you-need-to-assure-reproducibility-i.e.reproducible-science">You need to assure reproducibility (i.e.~reproducible science)</h4>
+<p>Another frequent scenario is that you should always be able to reproduce your results. This means that you need to be able to run the same experiments two, three or twenty years later. Some reasons for this are:</p>
 <ul>
-<li>Checkout the repository</li>
-<li>Test if the page can be build, if not tell the author</li>
-<li>If the build was successful the page is moved over to <a href="https://pages.github.com/">github pages</a></li>
+<li>a client gets an error and you need to verify it with the version this client has</li>
+<li>you switch operating system</li>
+<li>the review process for a paper takes longer</li>
+<li>you need to update a library or switch to a new library and you need to verify your results</li>
+<li>you now work with library version <em>x</em> but you need to regenerate some input variable that still use version <em>y</em></li>
+<li>you need to make sure that on <em>machine a</em> and <em>machine b</em> the results are the same</li>
+</ul>
+</section>
+<section id="i-need-specific-software-dependencies-dependency-hell" class="level4">
+<h4 class="anchored" data-anchor-id="i-need-specific-software-dependencies-dependency-hell">I need specific software dependencies (dependency hell)</h4>
+<p>If you haven not run into this problem by now you are either new to programming or just plain and simple lucky.</p>
+<p>In programming languages like Python or Julia you usually work with a multitude of libraries depending on your needs. It will come as no surprise to you that most of these libraries again depend on other libraries. This vast ecosystem is constantly growing and quickly <em>library a</em> will depend on <em>library b</em> with <em>version y</em> while <em>library c</em> needs <em>version z</em> of <em>library b</em>. As you can see it is already confusing to write down so actually sorting it out on your system is even more difficult. While modern package managers have become better at this you will often still run into the so called <em>dependency hell</em>.<br>
+Now consider that most likely your code will start to have these issues as well if you move from one version of a library to the next and combine it with the above paint.</p>
+</section>
+<section id="you-need-to-run-software-compiled-for-x-but-run-y" class="level4">
+<h4 class="anchored" data-anchor-id="you-need-to-run-software-compiled-for-x-but-run-y">You need to run software compiled for X but run Y</h4>
+<p>If you are running a windows machine but need to run some Linux software as there is no Windows version available. Or maybe you have a new Apple with an Mx chip and still want to use some software that is compiled for x86.</p>
+</section>
+<section id="you-need-to-test-your-software-for-x-but-you-run-y" class="level4">
+<h4 class="anchored" data-anchor-id="you-need-to-test-your-software-for-x-but-you-run-y">You need to test your software for X but you run Y</h4>
+<p>Maybe you are developing software on Windows but it should also run on Linux but it should also work on Android iOS and so forth.</p>
+</section>
+<section id="you-have-no-rights-to-install-software-but-you-can-run-jobs-high-performance-computing" class="level4">
+<h4 class="anchored" data-anchor-id="you-have-no-rights-to-install-software-but-you-can-run-jobs-high-performance-computing">You have no rights to install software but you can run jobs (High Performance Computing)</h4>
+<p>When you have a massive workload that requires a multitude of CPUs, GPUs, or simply runs for quite a long time you do not want to do this on your own computer as it will limit your work experience significantly for everything else. Here dedicated servers or High Performance Computing infrastructure becomes useful as it can provide you with these resources. On most of these systems you will not be allowed to install software randomly and the admins will also not be able to provide you with every wish.</p>
+</section>
+<section id="you-need-to-share-your-software-but-how" class="level4">
+<h4 class="anchored" data-anchor-id="you-need-to-share-your-software-but-how">You need to share your software but how?</h4>
+<p>Let us assume you created some nice data processing pipeline and you want to make it available to others. Sure everybody can install the same environment that you have and run the code but you will get a lot of calls because something is not working. Often the colleagues work on other operating systems and you barely know how you got it to run on your machine.</p>
+</section>
+<section id="you-need-to-archive-a-working-version-limited" class="level4">
+<h4 class="anchored" data-anchor-id="you-need-to-archive-a-working-version-limited">You need to archive a working version (limited)</h4>
+<p>This is something that you already came across in the context of <em>git</em> but let us consider you have some old data that can only be processed with a specific version of your software, how do you keep that software alive over a long period of time?</p>
+</section>
+<section id="legacy-code-on-old-os" class="level4">
+<h4 class="anchored" data-anchor-id="legacy-code-on-old-os">Legacy code on old OS</h4>
+<p>Maybe you have some code that is only working on some old operating system but from a security point of view you can no longer run this system for your daily work and you only need it for some specific task that you need maybe once a month.</p>
+<p>In the above scenarios (and more) virtualisation or containerisation can help. So what is this and what are the differences?</p>
+</section>
+<section id="virtualisation-and-containerisation" class="level2">
+<h2 class="anchored" data-anchor-id="virtualisation-and-containerisation">Virtualisation and containerisation</h2>
+<p>Your computer or <em>physical machine</em> is organised approximately like in <a href="#fig-containerization-pm" class="quarto-xref">Figure&nbsp;<span>1</span></a>.</p>
+<div id="fig-containerization-pm" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-containerization-pm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../_assets/containerization/physical_machine.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-containerization-pm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Organisation of process on a machine.
+</figcaption>
+</figure>
+</div>
+<p>As virtualisation and containerisation is something that lives next to this the prefix <em>host</em> is used to make sure everybody knows what we are talking about.</p>
+<p>Starting from the bottom you have some hardware. This is your CPU, various levels and layers of storage, your network device, keyboard, monitor, and so forth.</p>
+<p>The <em>host kernel</em> is mainly the operating system. It provides you with a standardized interface to the hardware so you do not need to use different programs depending on the brand of monitor you use.</p>
+<p>The <em>host process</em> is what you mainly interface with on a computer. This could be MS Word, you favourite internet browser or music player, in short applications are made up of processes.</p>
+</section>
+<section id="virtualisation" class="level2">
+<h2 class="anchored" data-anchor-id="virtualisation">Virtualisation</h2>
+<p>Now you can run some virtualisation on your machine. As the name suggests it will provide a virtual environment. For example <a href="https://www.virtualbox.org/">Virtual Box</a> is a widely used way to bring Linux to your Windows machine or the other way around. This way you only need set of hardware but have the possibilities of different operation systems available to you. This looks something like the following</p>
+<div id="fig-containerization-vm" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-containerization-vm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../_assets/containerization/virtual_machine.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-containerization-vm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Organisation of process within a virtual machine.
+</figcaption>
+</figure>
+</div>
+<p>From the view of the <em>host</em> the entire virtualisation is one (or more) <em>guest processes</em>, illustrated above by the green box.</p>
+<p>The <em>hypervisor</em> is translating between the <em>host kernel</em> and the virtual hardware that is needed for the <em>guest kernel</em>. This means, the <em>guest kernel</em> is seeing its own set of hardware (CPU, GPU, Keyboard, and so forth). Quite often you can for example decide if a connected USB Drive is used by the guest or the host. On top of the <em>hypervisor</em> everything is the same as on the host. This also means you use up resources to provide this.</p>
+</section>
+<section id="containerisation" class="level2">
+<h2 class="anchored" data-anchor-id="containerisation">Containerisation</h2>
+<p>Now containerisation is a operating system based virtualisation.</p>
+<div id="fig-containerization-container" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-containerization-container-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../_assets/containerization/container_machine.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-containerization-container-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Organisation of process within a container.
+</figcaption>
+</figure>
+</div>
+<p>You have a specific <em>runtime</em> but not a second kernel. The runtime takes care of the separation on the level of namespaces. We only discuss Linux containers in this detail and do not guarantee that Windows containers use a different mechanism. Namespaces are a mechanism of the kernel that separates or <em>partitions</em> resources such that different processes use different set of resources. For examples, the container might only see 4 of your 16 CPUs, no network drive, can only use 2 GB of main storage and so forth. This separation also makes sure that there is no leakage of information from one process to the other. You can also have a different set of rights or run as a different user. Other than with a virtualisation the <em>host kernel</em> is used and also the <em>host hardware</em> if is allowed via the namespace configuration.</p>
+</section>
+<section id="different-container-solutions" class="level2">
+<h2 class="anchored" data-anchor-id="different-container-solutions">Different container solutions</h2>
+<p>The containerisation started with <a href="https://docs.docker.com/">Docker</a>. Nowadays, there are a different solutions available with a different focus and different set of functionalities:</p>
+<ol type="1">
+<li><a href="https://opencontainers.org/">Open Container Initiative</a> for example <a href="https://podman.io/">Podman</a>
+<ul>
+<li>open industry standards for container format &amp; runtime</li>
+<li>Allows for a daemon-less container engine for running OCI containers (root or rootless)</li>
 </ul></li>
-<li>The reader of the notes always has the latest working copy of the notes.</li>
+<li><a href="https://apptainer.org/">AppTainer</a> - formally know as Singularity.
+<ul>
+<li>designed for HPC</li>
+<li>uses Linux namespaces but leaves resource limitations to the batch system</li>
+<li>feels like running a program</li>
+<li>allows access to <em>all</em> host resources</li>
+<li>runs in the user namespace</li>
+</ul></li>
+<li><a href="https://docs.docker.com/">Docker</a>
+<ul>
+<li>based on Linux namespaces and resource limitations</li>
+<li>client server model (<em>dockerd</em>)</li>
+<li>typical <em>microservices</em> (see <a href="https://docs.docker.com/compose/">docker-compose</a> for a swarm)</li>
+<li>very popular with a huge collection on dockerhub</li>
+</ul></li>
 </ol>
+<p>If you want to fully understand what a container actually is it is very instructive to have a look at this video by <a href="https://www.lizrice.com/">Liz Rice</a> <em>Learn how to code a container using Go code</em>.</p>
+<div id="fig-containerization-video" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-containerization-video-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/8fi7uSYlOdc" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-containerization-video-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Containers From Scratch by Liz Rice.
+</figcaption>
+</figure>
 </div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Obviously, this does not prevent the notes from having some errors or typos but the authors always get a quick feedback if their work can still be displayed.</p>
-</div>
-</div>
-<section id="github-actions" class="level2" data-number="13.1">
-<h2 data-number="13.1" class="anchored" data-anchor-id="github-actions"><span class="header-section-number">13.1</span> GitHub actions</h2>
-<p>As we are working on GitHub for the lecture it is natural to look at a CI/CD solutions compatible with this system but we note that there are platform independent solutions and solutions for each of the major platform (GitLab, Azure DevOps, BitBucket, gitea, …) though with different styles and capabilities.</p>
-<p>On GitHub this part is controlled by so called <em>GitHub Actions</em>, their documentation can be found <a href="https://docs.github.com/en/actions">here</a>.</p>
-<p>Let us discuss here how to integrate the actions with a Python repository in our setup, so <code>pdm</code> and executing our unit tests.</p>
-<p>Everything is controlled via the directory <code>.github/workflows</code> were we find <code>yml</code> files to control what is happening after a push to github.</p>
-<p>Let us consider this <code>testing.yml</code> file and have a look what is happening</p>
-<div class="sourceCode" id="annotated-cell-1"><pre class="sourceCode yml code-annotation-code code-with-copy code-annotated"><code class="sourceCode yaml"><a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-1-1" class="code-annotation-target"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">on</span><span class="kw">:</span></span>
-<span id="annotated-cell-1-2"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">workflow_dispatch</span><span class="kw">:</span></span>
-<span id="annotated-cell-1-3"><a href="#annotated-cell-1-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">push</span><span class="kw">:</span></span>
-<span id="annotated-cell-1-4"><a href="#annotated-cell-1-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">branches</span><span class="kw">:</span><span class="at"> main</span></span>
-<span id="annotated-cell-1-5"><a href="#annotated-cell-1-5" aria-hidden="true" tabindex="-1"></a></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-1-6" class="code-annotation-target"><a href="#annotated-cell-1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Testing</span></span>
-<span id="annotated-cell-1-7"><a href="#annotated-cell-1-7" aria-hidden="true" tabindex="-1"></a></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-1-8" class="code-annotation-target"><a href="#annotated-cell-1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">jobs</span><span class="kw">:</span></span>
-<span id="annotated-cell-1-9"><a href="#annotated-cell-1-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">testing</span><span class="kw">:</span><span class="at">                              </span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-1-10" class="code-annotation-target"><a href="#annotated-cell-1-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
-<span id="annotated-cell-1-11"><a href="#annotated-cell-1-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span><span class="at">                      </span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="5" onclick="event.preventDefault();">5</a><span id="annotated-cell-1-12" class="code-annotation-target"><a href="#annotated-cell-1-12" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="6" onclick="event.preventDefault();">6</a><span id="annotated-cell-1-13" class="code-annotation-target"><a href="#annotated-cell-1-13" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Set up PDM</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="7" onclick="event.preventDefault();">7</a><span id="annotated-cell-1-14" class="code-annotation-target"><a href="#annotated-cell-1-14" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> pdm-project/setup-pdm@v4</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="8" onclick="event.preventDefault();">8</a><span id="annotated-cell-1-15" class="code-annotation-target"><a href="#annotated-cell-1-15" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Install dependencies</span></span>
-<span id="annotated-cell-1-16"><a href="#annotated-cell-1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">          run</span><span class="kw">: </span><span class="ch">|</span></span>
-<span id="annotated-cell-1-17"><a href="#annotated-cell-1-17" aria-hidden="true" tabindex="-1"></a>            pdm sync</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="9" onclick="event.preventDefault();">9</a><span id="annotated-cell-1-18" class="code-annotation-target"><a href="#annotated-cell-1-18" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Run Tests</span></span>
-<span id="annotated-cell-1-19"><a href="#annotated-cell-1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">          run</span><span class="kw">: </span><span class="ch">|</span></span>
-<span id="annotated-cell-1-20"><a href="#annotated-cell-1-20" aria-hidden="true" tabindex="-1"></a>            pdm run -v pytest tests</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="1,2,3,4" data-code-annotation="1">specify when to run all actions in this file</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="6" data-code-annotation="2">specify a name to display on gitHub</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="3">3</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="8" data-code-annotation="3">all jobs to run are listed in this section</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="4">4</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="10" data-code-annotation="4">we need to specify on what system to run (this depends on the runner - docker)</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="5">5</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="12" data-code-annotation="5">checkout the git repository into the runner</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="6">6</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="13" data-code-annotation="6">we can give a step a name</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="7">7</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="14" data-code-annotation="7">setup and install the <code>pdm</code> project</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="8">8</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="15" data-code-annotation="8">synchronize the <code>pdm</code> project</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="9">9</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="18" data-code-annotation="9">run the tests</span>
-</dd>
-</dl>
-<p>The entire job is executed on a so called <a href="https://docs.github.com/en/actions/writing-workflows/choosing-where-your-workflow-runs/choosing-the-runner-for-a-job#standard-github-hosted-runners-for-public-repositories">public runner</a>, provided by GitHub. In the case of GitHub these are virtual machines where all users have some resources to work with.</p>
-<p>To see the output of the job we need to look into the section <code>Actions</code> in the project section. In our case, we will see that the action failed and we will receive an email telling us this as we have an error in our tests.</p>
+<p>Our focus will be on Docker.</p>
 
 
 </section>
@@ -1037,13 +1024,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../errorhandling/testing.html" class="pagination-link" aria-label="Testing">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Testing</span></span>
+      <a href="../errorhandling/cicd.html" class="pagination-link" aria-label="CI/CD">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">CI/CD</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../containerization/index.html" class="pagination-link" aria-label="Containerization">
-        <span class="nav-page-text">Containerization</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../containerization/docker.html" class="pagination-link" aria-label="Docker">
+        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Docker</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1055,7 +1042,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
 <p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> Peter Kandolf</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/errorhandling/cicd.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/containerization/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

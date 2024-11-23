@@ -1,0 +1,1539 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>14&nbsp; Docker – Softwaredesign</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../summary.html" rel="next">
+<link href="../containerization/index.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../containerization/index.html">Containerization</a></li><li class="breadcrumb-item"><a href="../containerization/docker.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Docker</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Softwaredesign</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../basics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Basics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../basics/python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Python</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../basics/packagemanager.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Package manager</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../basics/versioncontrol.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Version Control</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../basics/epilogue.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Epilogue</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../sss/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Self Study Sessions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sss/sss1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Self Study Session I</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sss/sss2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Self Study Session II</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../oop/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Object Oriented Programming</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../sc/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Scientific Computing</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sc/numpy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">NumPy</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sc/pandas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Pandas</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../errorhandling/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Runtime stability</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../errorhandling/exception.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Exception handling</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../errorhandling/logging.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Logging</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../errorhandling/testing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Testing</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../errorhandling/cicd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">CI/CD</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../containerization/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Containerization</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../containerization/docker.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Docker</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Summary</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#basics-of-docker" id="toc-basics-of-docker" class="nav-link active" data-scroll-target="#basics-of-docker"><span class="header-section-number">14.1</span> Basics of Docker</a>
+  <ul class="collapse">
+  <li><a href="#the-docker-daemon" id="toc-the-docker-daemon" class="nav-link" data-scroll-target="#the-docker-daemon"><span class="header-section-number">14.1.1</span> The Docker daemon</a></li>
+  <li><a href="#the-docker-client" id="toc-the-docker-client" class="nav-link" data-scroll-target="#the-docker-client"><span class="header-section-number">14.1.2</span> The Docker client</a></li>
+  <li><a href="#the-docker-registries" id="toc-the-docker-registries" class="nav-link" data-scroll-target="#the-docker-registries"><span class="header-section-number">14.1.3</span> The Docker registries</a></li>
+  <li><a href="#images" id="toc-images" class="nav-link" data-scroll-target="#images"><span class="header-section-number">14.1.4</span> Images</a></li>
+  <li><a href="#container" id="toc-container" class="nav-link" data-scroll-target="#container"><span class="header-section-number">14.1.5</span> Container</a></li>
+  </ul></li>
+  <li><a href="#hands-on" id="toc-hands-on" class="nav-link" data-scroll-target="#hands-on"><span class="header-section-number">14.2</span> Hands on</a>
+  <ul class="collapse">
+  <li><a href="#docker-commands" id="toc-docker-commands" class="nav-link" data-scroll-target="#docker-commands"><span class="header-section-number">14.2.1</span> Docker commands</a></li>
+  <li><a href="#jupyter-lab-images" id="toc-jupyter-lab-images" class="nav-link" data-scroll-target="#jupyter-lab-images"><span class="header-section-number">14.2.2</span> Jupyter Lab images</a></li>
+  <li><a href="#running-the-first-instance" id="toc-running-the-first-instance" class="nav-link" data-scroll-target="#running-the-first-instance"><span class="header-section-number">14.2.3</span> Running the first instance</a></li>
+  <li><a href="#looking-around-in-the-container" id="toc-looking-around-in-the-container" class="nav-link" data-scroll-target="#looking-around-in-the-container"><span class="header-section-number">14.2.4</span> Looking around in the container</a></li>
+  <li><a href="#bind-mounting-data-into-the-container" id="toc-bind-mounting-data-into-the-container" class="nav-link" data-scroll-target="#bind-mounting-data-into-the-container"><span class="header-section-number">14.2.5</span> Bind mounting data into the container</a></li>
+  <li><a href="#dockerfile" id="toc-dockerfile" class="nav-link" data-scroll-target="#dockerfile"><span class="header-section-number">14.2.6</span> Dockerfile</a></li>
+  <li><a href="#add-a-second-kernel-to-the-notebook" id="toc-add-a-second-kernel-to-the-notebook" class="nav-link" data-scroll-target="#add-a-second-kernel-to-the-notebook"><span class="header-section-number">14.2.7</span> Add a second kernel to the notebook</a></li>
+  <li><a href="#additional-notes-on-dockerfiles" id="toc-additional-notes-on-dockerfiles" class="nav-link" data-scroll-target="#additional-notes-on-dockerfiles"><span class="header-section-number">14.2.8</span> Additional notes on Dockerfiles</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/containerization/docker.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../containerization/index.html">Containerization</a></li><li class="breadcrumb-item"><a href="../containerization/docker.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Docker</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Docker</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>These notes where originally developed for the class <em>971001 Software</em> at the University of Innsbruck and are slightly adapted for this notes. See <span class="citation" data-cites="pgd2024">Kandolf (<a href="../references.html#ref-pgd2024" role="doc-biblioref">2024</a>)</span> for the original source and <a href="https://kandolfp.github.io/ws22-ulg-python-git-docker/pages/docker/basics">github pages</a> for the notes.</p>
+</div>
+</div>
+<section id="basics-of-docker" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="basics-of-docker"><span class="header-section-number">14.1</span> Basics of Docker</h2>
+<p>Docker understands itself as an <em>open platform for developing, shipping, and running applications</em>. By separating the application form the infrastructure it allows you to develop independent of the platform the <em>container</em> is running on later.</p>
+<p>The <em>docker platform</em> allows you to run many applications in isolated environments in so called <em>containers</em>. This allows you to split up your application into different containers, for example the database is separate from your application and so forth. This allows you to update different parts independently from each other and revert changes if required. This approach is often summed up under the term <em>micro services</em>.</p>
+<p>Docker uses a specific architecture to achieve this, see <a href="#fig-containerization-docker-arch" class="quarto-xref">Figure&nbsp;<span>14.1</span></a>.</p>
+<div id="fig-containerization-docker-arch" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-containerization-docker-arch-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../_assets/containerization/docker_architecture.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-containerization-docker-arch-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14.1: The docker architecture.
+</figcaption>
+</figure>
+</div>
+<p>Mainly docker consists of a client <code>docker</code> and server <code>dockerd</code> (docker daemon) approach.</p>
+<section id="the-docker-daemon" class="level3" data-number="14.1.1">
+<h3 data-number="14.1.1" class="anchored" data-anchor-id="the-docker-daemon"><span class="header-section-number">14.1.1</span> The Docker daemon</h3>
+<p>The Docker daemon is in charge of all the Docker objects such as images, containers, networks, volumes and listens for API calls. Furthermore, it is able to communicate with other daemons.</p>
+</section>
+<section id="the-docker-client" class="level3" data-number="14.1.2">
+<h3 data-number="14.1.2" class="anchored" data-anchor-id="the-docker-client"><span class="header-section-number">14.1.2</span> The Docker client</h3>
+<p>The docker client is your way to interact with Docker. Instructions like <code>docker pull</code> are sent as an API call to <code>dockerd</code> and executed there. The daemon that you communicate with does not necessarily be on the local machine nor does it always have to be the same.</p>
+</section>
+<section id="the-docker-registries" class="level3" data-number="14.1.3">
+<h3 data-number="14.1.3" class="anchored" data-anchor-id="the-docker-registries"><span class="header-section-number">14.1.3</span> The Docker registries</h3>
+<p>The Docker registries are separate and strictly speaking not necessary for you to use Docker. There purpose is to store Docker images. This can be public like <a href="https://hub.docker.com/">Docker Hub</a> and <a href="https://autamus.io/registry/">Autamus</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> or private for your organisation and tools like GitLab provide registries as well.</p>
+<p>When you use a command like <code>docker pull</code> you pull an image from a registry and with <code>docker push</code> you push it to a registry, the same as with Git.</p>
+<p>Again, the client can talk to multiple registries.</p>
+<p>The various docker objects in the above image are</p>
+</section>
+<section id="images" class="level3" data-number="14.1.4">
+<h3 data-number="14.1.4" class="anchored" data-anchor-id="images"><span class="header-section-number">14.1.4</span> Images</h3>
+<blockquote class="blockquote">
+<p>An image is a read-only template with instructions for creating a Docker container. Often, an image is based on another image, with some additional customization. For example, you may build an image which is based on the ubuntu image, but installs the Apache web server and your application, as well as the configuration details needed to make your application run.</p>
+</blockquote>
+<p>In order to build you own image you need a so called <code>Dockerfile</code> which uses a specific syntax to allow the Docker daemon to build an image from it. Each step in this image is called a layer and whenever you build an image only the layers that have changed need to be rebuild.</p>
+</section>
+<section id="container" class="level3" data-number="14.1.5">
+<h3 data-number="14.1.5" class="anchored" data-anchor-id="container"><span class="header-section-number">14.1.5</span> Container</h3>
+<blockquote class="blockquote">
+<p>A container is a runnable instance of an image. You can create, start, stop, move, or delete a container using the Docker API or CLI. You can connect a container to one or more networks, attach storage to it, or even create a new image based on its current state.</p>
+</blockquote>
+<p>The container is isolated from the host machine due to the use of <em>namespaces</em> but you can allow interaction with the host machine like opening a network port or <em>mounting</em> a directory into the image.</p>
+<blockquote class="blockquote">
+<p>A container is defined by its image as well as any configuration options you provide to it when you create or start it. When a container is removed, any changes to its state that are not stored in persistent storage disappear.</p>
+</blockquote>
+</section>
+</section>
+<section id="hands-on" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="hands-on"><span class="header-section-number">14.2</span> Hands on</h2>
+<p>In order to get to know Docker you need to work with it.</p>
+<section id="docker-commands" class="level3" data-number="14.2.1">
+<h3 data-number="14.2.1" class="anchored" data-anchor-id="docker-commands"><span class="header-section-number">14.2.1</span> Docker commands</h3>
+<p>The Docker client or CLI provides you with a multitude of commands:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> docker <span class="ex">--help</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Usage:</span>  docker <span class="pp">[</span><span class="ss">OPTIONS</span><span class="pp">]</span> COMMAND</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">A</span> self-sufficient runtime for containers</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Options:</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>      <span class="ex">--config</span> string      Location of client config files <span class="er">(</span><span class="ex">default</span> <span class="st">"/home/c102338/.docker"</span><span class="kw">)</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-c,</span> <span class="at">--context</span> string     Name of the context to use to connect to the daemon <span class="er">(</span><span class="ex">overrides</span> DOCKER_HOST env var and default context set with <span class="st">"docker context use"</span><span class="kw">)</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-D,</span> <span class="at">--debug</span>              Enable debug mode</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-H,</span> <span class="at">--host</span> list          Daemon socket<span class="er">(</span><span class="ex">s</span><span class="kw">)</span> <span class="ex">to</span> connect to</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-l,</span> <span class="at">--log-level</span> string   Set the logging level <span class="er">(</span><span class="st">"debug"</span><span class="kw">|</span><span class="st">"info"</span><span class="kw">|</span><span class="st">"warn"</span><span class="kw">|</span><span class="st">"error"</span><span class="kw">|</span><span class="st">"fatal"</span><span class="kw">)</span> <span class="kw">(</span><span class="ex">default</span> <span class="st">"info"</span><span class="kw">)</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>      <span class="ex">--tls</span>                Use TLS<span class="kw">;</span> <span class="ex">implied</span> by <span class="at">--tlsverify</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>      <span class="ex">--tlscacert</span> string   Trust certs signed only by this CA <span class="er">(</span><span class="ex">default</span> <span class="st">"/home/c102338/.docker/ca.pem"</span><span class="kw">)</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>      <span class="ex">--tlscert</span> string     Path to TLS certificate file <span class="er">(</span><span class="ex">default</span> <span class="st">"/home/c102338/.docker/cert.pem"</span><span class="kw">)</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>      <span class="ex">--tlskey</span> string      Path to TLS key file <span class="er">(</span><span class="ex">default</span> <span class="st">"/home/c102338/.docker/key.pem"</span><span class="kw">)</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>      <span class="ex">--tlsverify</span>          Use TLS and verify the remote</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-v,</span> <span class="at">--version</span>            Print version information and quit</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="ex">Management</span> Commands:</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="ex">builder</span>     Manage builds</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="ex">buildx*</span>     Docker Buildx <span class="er">(</span><span class="ex">Docker</span> Inc., v0.9.1<span class="kw">)</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="ex">compose*</span>    Docker Compose <span class="er">(</span><span class="ex">Docker</span> Inc., v2.11.1<span class="kw">)</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="ex">config</span>      Manage Docker configs</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="ex">container</span>   Manage containers</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="ex">context</span>     Manage contexts</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="ex">image</span>       Manage images</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  <span class="ex">manifest</span>    Manage Docker image manifests and manifest lists</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  <span class="ex">network</span>     Manage networks</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  <span class="ex">node</span>        Manage Swarm nodes</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  <span class="ex">plugin</span>      Manage plugins</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  <span class="ex">secret</span>      Manage Docker secrets</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  <span class="ex">service</span>     Manage services</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  <span class="ex">stack</span>       Manage Docker stacks</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>  <span class="ex">swarm</span>       Manage Swarm</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  <span class="ex">system</span>      Manage Docker</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>  <span class="ex">trust</span>       Manage trust on Docker images</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>  <span class="ex">volume</span>      Manage volumes</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="ex">Commands:</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>  <span class="ex">attach</span>      Attach local standard input, output, and error streams to a running container</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>  <span class="ex">build</span>       Build an image from a Dockerfile</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>  <span class="ex">commit</span>      Create a new image from a container<span class="st">'s changes</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="st">  cp          Copy files/folders between a container and the local filesystem</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="st">  create      Create a new container</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="st">  diff        Inspect changes to files or directories on a container'</span>s filesystem</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>  <span class="ex">events</span>      Get real time events from the server</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>  <span class="bu">exec</span>        Run a command in a running container</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>  <span class="bu">export</span>      <span class="va">Export</span> <span class="va">a</span> <span class="va">container</span><span class="st">'s filesystem as a tar archive</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="st">  history     Show the history of an image</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="st">  images      List images</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="st">  import      Import the contents from a tarball to create a filesystem image</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="st">  info        Display system-wide information</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="st">  inspect     Return low-level information on Docker objects</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="st">  kill        Kill one or more running containers</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="st">  load        Load an image from a tar archive or STDIN</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="st">  login       Log in to a Docker registry</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="st">  logout      Log out from a Docker registry</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="st">  logs        Fetch the logs of a container</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="st">  pause       Pause all processes within one or more containers</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="st">  port        List port mappings or a specific mapping for the container</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="st">  ps          List containers</span></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="st">  pull        Pull an image or a repository from a registry</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="st">  push        Push an image or a repository to a registry</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="st">  rename      Rename a container</span></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="st">  restart     Restart one or more containers</span></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="st">  rm          Remove one or more containers</span></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="st">  rmi         Remove one or more images</span></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="st">  run         Run a command in a new container</span></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="st">  save        Save one or more images to a tar archive (streamed to STDOUT by default)</span></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="st">  search      Search the Docker Hub for images</span></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="st">  start       Start one or more stopped containers</span></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="st">  stats       Display a live stream of container(s) resource usage statistics</span></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a><span class="st">  stop        Stop one or more running containers</span></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="st">  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE</span></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a><span class="st">  top         Display the running processes of a container</span></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a><span class="st">  unpause     Unpause all processes within one or more containers</span></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a><span class="st">  update      Update configuration of one or more containers</span></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="st">  version     Show the Docker version information</span></span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a><span class="st">  wait        Block until one or more containers stop, then print their exit codes</span></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="st">Run '</span>docker <span class="va">COMMAND</span> <span class="at">--help</span><span class="st">' for more information on a command.</span></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a><span class="st">To get more help with docker, check out our guides at https://docs.docker.com/go/guides/</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Docker provides you with a nice <em>Getting Started</em> tutorial that, no wonder, uses Docker.</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exm-containerization-docker-gettingstarted" class="theorem example">
+<p><span class="theorem-title"><strong>Example 14.1 (Getting started with docker)</strong></span> By running:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> docker <span class="ex">run</span> <span class="at">-dp</span> 80:80 docker/getting-started</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>and than accessing <a href="http://localhost">localhost</a> will give you a step by step introduction on what is happening and gives you step by step instructions to build an application in Docker.</p>
+</div>
+</div>
+</div>
+</div>
+<p>In order to get a closer connection to what is happening in the rest of this course we go a different path. We will get a <a href="https://jupyter.org/">Jupyter Lab</a> image and install additional resources as well as additional <em>kernels</em>,</p>
+</section>
+<section id="jupyter-lab-images" class="level3" data-number="14.2.2">
+<h3 data-number="14.2.2" class="anchored" data-anchor-id="jupyter-lab-images"><span class="header-section-number">14.2.2</span> Jupyter Lab images</h3>
+<p>The Jupyter project provides us with a lot of <a href="https://jupyter-docker-stacks.readthedocs.io/en/latest/">Docker images</a> on <a href="https://hub.docker.com/u/jupyter">Docker Hub</a>.</p>
+<p>In order to have a bit of work to do we start with the <em>minimal-notebook</em> By default Docker will communicate with Docker Hub so if you call</p>
+<div class="sourceCode" id="annotated-cell-2"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><span id="annotated-cell-2-1"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> docker <span class="ex">pull</span> jupyter/minimal-notebook</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-2-2" class="code-annotation-target"><a href="#annotated-cell-2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> default tag: latest</span>
+<span id="annotated-cell-2-3"><a href="#annotated-cell-2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">latest:</span> Pulling from jupyter/minimal-notebook</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-2-4" class="code-annotation-target"><a href="#annotated-cell-2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">6e3729cf69e0:</span> Downloading [=================================<span class="op">&gt;</span>                 ]   20.3MB/30.43MB</span>
+<span id="annotated-cell-2-5"><a href="#annotated-cell-2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">77950dd14dd3:</span> Download complete</span>
+<span id="annotated-cell-2-6"><a href="#annotated-cell-2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">6cca258439f9:</span> Download complete</span>
+<span id="annotated-cell-2-7"><a href="#annotated-cell-2-7" aria-hidden="true" tabindex="-1"></a><span class="ex">4f4fb700ef54:</span> Download complete</span>
+<span id="annotated-cell-2-8"><a href="#annotated-cell-2-8" aria-hidden="true" tabindex="-1"></a><span class="ex">2e32caa4e229:</span> Download complete</span>
+<span id="annotated-cell-2-9"><a href="#annotated-cell-2-9" aria-hidden="true" tabindex="-1"></a><span class="ex">cd2cab437071:</span> Download complete</span>
+<span id="annotated-cell-2-10"><a href="#annotated-cell-2-10" aria-hidden="true" tabindex="-1"></a><span class="ex">7d6f92933408:</span> Download complete</span>
+<span id="annotated-cell-2-11"><a href="#annotated-cell-2-11" aria-hidden="true" tabindex="-1"></a><span class="ex">e7f578d273e6:</span> Download complete</span>
+<span id="annotated-cell-2-12"><a href="#annotated-cell-2-12" aria-hidden="true" tabindex="-1"></a><span class="ex">b0173d44f264:</span> Downloading [=================<span class="op">&gt;</span>                                 ]  31.78MB/91.89MB</span>
+<span id="annotated-cell-2-13"><a href="#annotated-cell-2-13" aria-hidden="true" tabindex="-1"></a><span class="ex">bd04425a2ce4:</span> Download complete</span>
+<span id="annotated-cell-2-14"><a href="#annotated-cell-2-14" aria-hidden="true" tabindex="-1"></a><span class="ex">0580703d6738:</span> Downloading [===================<span class="op">&gt;</span>                               ]  11.85MB/30.5MB</span>
+<span id="annotated-cell-2-15"><a href="#annotated-cell-2-15" aria-hidden="true" tabindex="-1"></a><span class="ex">8213e60e2a09:</span> Pulling fs layer</span>
+<span id="annotated-cell-2-16"><a href="#annotated-cell-2-16" aria-hidden="true" tabindex="-1"></a><span class="ex">29e508695ebe:</span> Waiting</span>
+<span id="annotated-cell-2-17"><a href="#annotated-cell-2-17" aria-hidden="true" tabindex="-1"></a><span class="ex">9530616136f0:</span> Waiting</span>
+<span id="annotated-cell-2-18"><a href="#annotated-cell-2-18" aria-hidden="true" tabindex="-1"></a><span class="ex">4ee249fa7dd9:</span> Waiting</span>
+<span id="annotated-cell-2-19"><a href="#annotated-cell-2-19" aria-hidden="true" tabindex="-1"></a><span class="ex">903968ec1329:</span> Waiting</span>
+<span id="annotated-cell-2-20"><a href="#annotated-cell-2-20" aria-hidden="true" tabindex="-1"></a><span class="ex">6cf9a67917c1:</span> Waiting</span>
+<span id="annotated-cell-2-21"><a href="#annotated-cell-2-21" aria-hidden="true" tabindex="-1"></a><span class="ex">2bacb72b4222:</span> Waiting</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-2-22" class="code-annotation-target"><a href="#annotated-cell-2-22" aria-hidden="true" tabindex="-1"></a> <span class="ex">Digest:</span> sha256:109283771021997caa770d367052d5c6ff640a76f8ace0bb3e60d8710fdddd8a</span>
+<span id="annotated-cell-2-23"><a href="#annotated-cell-2-23" aria-hidden="true" tabindex="-1"></a><span class="ex">Status:</span> Downloaded newer image for jupyter/minimal-notebook:latest</span>
+<span id="annotated-cell-2-24"><a href="#annotated-cell-2-24" aria-hidden="true" tabindex="-1"></a><span class="ex">docker.io/jupyter/minimal-notebook:latest</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-2" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-lines="2,3" data-code-annotation="1">When you store an image in a <em>registry</em> it gets a <em>tag</em> or <em>image id</em>, where the <em>tag</em> is usually a human readable alias to an <em>image id</em>. This is very similar to the commit id in Git. In fact it is again a hash, this time with a SHA256 of the image’s JSON configuration.</span>
+</dd>
+<dt data-target-cell="annotated-cell-2" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-lines="4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21" data-code-annotation="2">The next lines all look similar. An image ID and than the status (Downloading, Download complete, Pulling fs layer, Waiting).<br>
+We can see that an image is not a single <em>file</em> but consists of multiple images that in return consist of <em>layers</em>. Each <em>layer</em> is packed as an <em>tar</em> ball (similar to <em>zip</em>).</span>
+</dd>
+<dt data-target-cell="annotated-cell-2" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-lines="22,23,24" data-code-annotation="3">Here, and with the additional two lines, the Docker daemon tells us what image was downloaded, from where, and if the download was a success.</span>
+</dd>
+</dl>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A note of caution right away. Please be careful when working with Docker! As you could see there is no need to log in to get an image and we also don’t directly see what these images do. Don’t just randomly run images without considering the risks! When you base your image on something be careful that the source is trustworthy. In this case Docker Hub helps us as <em>jupyter</em> is a verified source.</p>
+</div>
+</div>
+<p>Now we have the image and we can run it. Let us do so by calling:</p>
+</section>
+<section id="running-the-first-instance" class="level3" data-number="14.2.3">
+<h3 data-number="14.2.3" class="anchored" data-anchor-id="running-the-first-instance"><span class="header-section-number">14.2.3</span> Running the first instance</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> docker <span class="ex">run</span> jupyter/minimal-notebook:latest</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Entered</span> start.sh with args: jupyter lab</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Executing</span> the command: jupyter lab</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ex">[I</span> 2023-01-05 14:33:26.282 ServerApp] jupyter_server_terminals <span class="kw">|</span> <span class="ex">extension</span> was successfully linked.</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="ex">[I</span> 2023-01-05 14:33:26.285 ServerApp] jupyterlab <span class="kw">|</span> <span class="ex">extension</span> was successfully linked.</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="ex">[W</span> 2023-01-05 14:33:26.286 NotebookApp] <span class="st">'ip'</span> has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="ex">[W</span> 2023-01-05 14:33:26.286 NotebookApp] <span class="st">'port'</span> has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="ex">[W</span> 2023-01-05 14:33:26.286 NotebookApp] <span class="st">'port'</span> has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="ex">[I</span> 2023-01-05 14:33:26.288 ServerApp] nbclassic <span class="kw">|</span> <span class="ex">extension</span> was successfully linked.</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="ex">[I</span> 2023-01-05 14:33:26.288 ServerApp] Writing Jupyter server cookie secret to /home/jovyan/.local/share/jupyter/runtime/jupyter_cookie_secret</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="ex">[I</span> 2023-01-05 14:33:26.401 ServerApp] notebook_shim <span class="kw">|</span> <span class="ex">extension</span> was successfully linked.</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="ex">[I</span> 2023-01-05 14:33:26.512 ServerApp] notebook_shim <span class="kw">|</span> <span class="ex">extension</span> was successfully loaded.</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="ex">[I</span> 2023-01-05 14:33:26.513 ServerApp] jupyter_server_terminals <span class="kw">|</span> <span class="ex">extension</span> was successfully loaded.</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="ex">[I</span> 2023-01-05 14:33:26.513 LabApp] JupyterLab extension loaded from /opt/conda/lib/python3.10/site-packages/jupyterlab</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="ex">[I</span> 2023-01-05 14:33:26.513 LabApp] JupyterLab application directory is /opt/conda/share/jupyter/lab</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="ex">[I</span> 2023-01-05 14:33:26.515 ServerApp] jupyterlab <span class="kw">|</span> <span class="ex">extension</span> was successfully loaded.</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="ex">[I</span> 2023-01-05 14:33:26.517 ServerApp] nbclassic <span class="kw">|</span> <span class="ex">extension</span> was successfully loaded.</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="ex">[I</span> 2023-01-05 14:33:26.517 ServerApp] Serving notebooks from local directory: /home/jovyan</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="ex">[I</span> 2023-01-05 14:33:26.517 ServerApp] Jupyter Server 2.0.6 is running at:</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="ex">[I</span> 2023-01-05 14:33:26.517 ServerApp] http://b702c7cbc0b9:8888/lab<span class="pp">?</span>token=074a04006ad89060e18cfc1bb3814d323741a832d2dcaa88</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="ex">[I</span> 2023-01-05 14:33:26.517 ServerApp]  or http://127.0.0.1:8888/lab<span class="pp">?</span>token=074a04006ad89060e18cfc1bb3814d323741a832d2dcaa88</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="ex">[I</span> 2023-01-05 14:33:26.517 ServerApp] Use Control-C to stop this server and shut down all kernels <span class="er">(</span><span class="ex">twice</span> to skip confirmation<span class="kw">)</span><span class="bu">.</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="ex">[C</span> 2023-01-05 14:33:26.519 ServerApp] </span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    <span class="ex">To</span> access the server, open this file in a browser:</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>        <span class="ex">file:///home/jovyan/.local/share/jupyter/runtime/jpserver-7-open.html</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Or</span> copy and paste one of these URLs:</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>        <span class="ex">http://b702c7cbc0b9:8888/lab?token=074a04006ad89060e18cfc1bb3814d323741a832d2dcaa88</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>     <span class="ex">or</span> http://127.0.0.1:8888/lab<span class="pp">?</span>token=074a04006ad89060e18cfc1bb3814d323741a832d2dcaa88</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <code>:latest</code> is not required as this is the only image you have here, but to have the syntax correct from the start never hurts.</p>
+</div>
+</div>
+<p>You see a couple of log messages and at the end you are invited to access the server via <code>http://127.0.0.1:8888/lab?token=&lt;token&gt;</code></p>
+<p>If you try this you will see that the page can not be reached.</p>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="fa-solid fa-pen-to-square" aria-label="pen-to-square"></i> Do you have any idea why?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>As mentioned earlier a container is separated from the host resources. In particular this means that the network is not shared. <code>127.0.0.1</code> is the localhost, meaning the network interface that this process has access to locally. There are several commands in Linux to list open ports one possibility is <code>netstat -lntup</code></p>
+<p>The Jupyter Lab Server tries to communicate on port <code>8888</code> but on its local host, which is not the <em>host machine</em>.</p>
+</div>
+</div>
+</div>
+<p>In order to interface with the container we need to establish the connection to the port. By running <code>docker run --help</code> we can have a look on at the options for the subcommand <code>run</code>.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> docker <span class="ex">run</span> <span class="at">--help</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Usage:</span>  docker run <span class="pp">[</span><span class="ss">OPTIONS</span><span class="pp">]</span> IMAGE <span class="pp">[</span><span class="ss">COMMAND</span><span class="pp">]</span> <span class="pp">[</span><span class="ss">ARG...</span><span class="pp">]</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Run</span> a command in a new container</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Options:</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>      <span class="ex">--add-host</span> list                  Add a custom host-to-IP mapping <span class="er">(</span><span class="ex">host:ip</span><span class="kw">)</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-a,</span> <span class="at">--attach</span> list                    Attach to STDIN, STDOUT or STDERR</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>      <span class="ex">--blkio-weight</span> uint16            Block IO <span class="er">(</span><span class="ex">relative</span> weight<span class="kw">)</span><span class="ex">,</span> between 10 and 1000, or 0 to disable <span class="er">(</span><span class="ex">default</span> 0<span class="kw">)</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>      <span class="ex">--blkio-weight-device</span> list       Block IO weight <span class="er">(</span><span class="ex">relative</span> device weight<span class="kw">)</span> <span class="kw">(</span><span class="ex">default</span> []<span class="kw">)</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>      <span class="ex">--cap-add</span> list                   Add Linux capabilities</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>      <span class="ex">--cap-drop</span> list                  Drop Linux capabilities</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>      <span class="ex">--cgroup-parent</span> string           Optional parent cgroup for the container</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>      <span class="ex">--cgroupns</span> string                Cgroup namespace to use <span class="er">(</span><span class="ex">host</span><span class="kw">|</span><span class="ex">private</span><span class="kw">)</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>                                       <span class="st">'host'</span><span class="ex">:</span>    Run the container in the Docker host<span class="st">'s cgroup namespace</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="st">                                       '</span>private<span class="st">': Run the container in its own private cgroup namespace</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="st">                                       '':        Use the cgroup namespace as configured by the</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="st">                                                  default-cgroupns-mode option on the daemon (default)</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="st">      --cidfile string                 Write the container ID to the file</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="st">      --cpu-period int                 Limit CPU CFS (Completely Fair Scheduler) period</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="st">      --cpu-quota int                  Limit CPU CFS (Completely Fair Scheduler) quota</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="st">      --cpu-rt-period int              Limit CPU real-time period in microseconds</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="st">      --cpu-rt-runtime int             Limit CPU real-time runtime in microseconds</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="st">  -c, --cpu-shares int                 CPU shares (relative weight)</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="st">      --cpus decimal                   Number of CPUs</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="st">      --cpuset-cpus string             CPUs in which to allow execution (0-3, 0,1)</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="st">      --cpuset-mems string             MEMs in which to allow execution (0-3, 0,1)</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="st">  -d, --detach                         Run container in background and print container ID</span></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="st">      --detach-keys string             Override the key sequence for detaching a container</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a><span class="st">      --device list                    Add a host device to the container</span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="st">      --device-cgroup-rule list        Add a rule to the cgroup allowed devices list</span></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a><span class="st">      --device-read-bps list           Limit read rate (bytes per second) from a device (default [])</span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="st">      --device-read-iops list          Limit read rate (IO per second) from a device (default [])</span></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a><span class="st">      --device-write-bps list          Limit write rate (bytes per second) to a device (default [])</span></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a><span class="st">      --device-write-iops list         Limit write rate (IO per second) to a device (default [])</span></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a><span class="st">      --disable-content-trust          Skip image verification (default true)</span></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a><span class="st">      --dns list                       Set custom DNS servers</span></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a><span class="st">      --dns-option list                Set DNS options</span></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a><span class="st">      --dns-search list                Set custom DNS search domains</span></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a><span class="st">      --domainname string              Container NIS domain name</span></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a><span class="st">      --entrypoint string              Overwrite the default ENTRYPOINT of the image</span></span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a><span class="st">  -e, --env list                       Set environment variables</span></span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a><span class="st">      --env-file list                  Read in a file of environment variables</span></span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a><span class="st">      --expose list                    Expose a port or a range of ports</span></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a><span class="st">      --gpus gpu-request               GPU devices to add to the container ('</span>all<span class="st">' to pass all GPUs)</span></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a><span class="st">      --group-add list                 Add additional groups to join</span></span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a><span class="st">      --health-cmd string              Command to run to check health</span></span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a><span class="st">      --health-interval duration       Time between running the check (ms|s|m|h) (default 0s)</span></span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a><span class="st">      --health-retries int             Consecutive failures needed to report unhealthy</span></span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a><span class="st">      --health-start-period duration   Start period for the container to initialize before starting health-retries countdown (ms|s|m|h) (default 0s)</span></span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a><span class="st">      --health-timeout duration        Maximum time to allow one check to run (ms|s|m|h) (default 0s)</span></span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a><span class="st">      --help                           Print usage</span></span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a><span class="st">  -h, --hostname string                Container host name</span></span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a><span class="st">      --init                           Run an init inside the container that forwards signals and reaps processes</span></span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a><span class="st">  -i, --interactive                    Keep STDIN open even if not attached</span></span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a><span class="st">      --ip string                      IPv4 address (e.g., 172.30.100.104)</span></span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a><span class="st">      --ip6 string                     IPv6 address (e.g., 2001:db8::33)</span></span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a><span class="st">      --ipc string                     IPC mode to use</span></span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a><span class="st">      --isolation string               Container isolation technology</span></span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a><span class="st">      --kernel-memory bytes            Kernel memory limit</span></span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a><span class="st">  -l, --label list                     Set meta data on a container</span></span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a><span class="st">      --label-file list                Read in a line delimited file of labels</span></span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a><span class="st">      --link list                      Add link to another container</span></span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a><span class="st">      --link-local-ip list             Container IPv4/IPv6 link-local addresses</span></span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a><span class="st">      --log-driver string              Logging driver for the container</span></span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a><span class="st">      --log-opt list                   Log driver options</span></span>
+<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a><span class="st">      --mac-address string             Container MAC address (e.g., 92:d0:c6:0a:29:33)</span></span>
+<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a><span class="st">  -m, --memory bytes                   Memory limit</span></span>
+<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a><span class="st">      --memory-reservation bytes       Memory soft limit</span></span>
+<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a><span class="st">      --memory-swap bytes              Swap limit equal to memory plus swap: '</span>-1<span class="st">' to enable unlimited swap</span></span>
+<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a><span class="st">      --memory-swappiness int          Tune container memory swappiness (0 to 100) (default -1)</span></span>
+<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a><span class="st">      --mount mount                    Attach a filesystem mount to the container</span></span>
+<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a><span class="st">      --name string                    Assign a name to the container</span></span>
+<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a><span class="st">      --network network                Connect a container to a network</span></span>
+<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a><span class="st">      --network-alias list             Add network-scoped alias for the container</span></span>
+<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a><span class="st">      --no-healthcheck                 Disable any container-specified HEALTHCHECK</span></span>
+<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a><span class="st">      --oom-kill-disable               Disable OOM Killer</span></span>
+<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a><span class="st">      --oom-score-adj int              Tune host'</span>s OOM preferences <span class="er">(</span><span class="ex">-1000</span> to 1000<span class="kw">)</span></span>
+<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a>      <span class="ex">--pid</span> string                     PID namespace to use</span>
+<span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a>      <span class="ex">--pids-limit</span> int                 Tune container pids limit <span class="er">(</span><span class="bu">set</span> <span class="at">-1</span> for unlimited<span class="kw">)</span></span>
+<span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a>      <span class="ex">--platform</span> string                Set platform if server is multi-platform capable</span>
+<span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a>      <span class="ex">--privileged</span>                     Give extended privileges to this container</span>
+<span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-p,</span> <span class="at">--publish</span> list                   Publish a container<span class="st">'s port(s) to the host</span></span>
+<span id="cb4-85"><a href="#cb4-85" aria-hidden="true" tabindex="-1"></a><span class="st">  -P, --publish-all                    Publish all exposed ports to random ports</span></span>
+<span id="cb4-86"><a href="#cb4-86" aria-hidden="true" tabindex="-1"></a><span class="st">      --pull string                    Pull image before running ("always"|"missing"|"never") (default "missing")</span></span>
+<span id="cb4-87"><a href="#cb4-87" aria-hidden="true" tabindex="-1"></a><span class="st">      --read-only                      Mount the container'</span>s root filesystem as read only</span>
+<span id="cb4-88"><a href="#cb4-88" aria-hidden="true" tabindex="-1"></a>      <span class="ex">--restart</span> string                 Restart policy to apply when a container exits <span class="er">(</span><span class="ex">default</span> <span class="st">"no"</span><span class="kw">)</span></span>
+<span id="cb4-89"><a href="#cb4-89" aria-hidden="true" tabindex="-1"></a>      <span class="ex">--rm</span>                             Automatically remove the container when it exits</span>
+<span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a>      <span class="ex">--runtime</span> string                 Runtime to use for this container</span>
+<span id="cb4-91"><a href="#cb4-91" aria-hidden="true" tabindex="-1"></a>      <span class="ex">--security-opt</span> list              Security Options</span>
+<span id="cb4-92"><a href="#cb4-92" aria-hidden="true" tabindex="-1"></a>      <span class="ex">--shm-size</span> bytes                 Size of /dev/shm</span>
+<span id="cb4-93"><a href="#cb4-93" aria-hidden="true" tabindex="-1"></a>      <span class="ex">--sig-proxy</span>                      Proxy received signals to the process <span class="er">(</span><span class="ex">default</span> true<span class="kw">)</span></span>
+<span id="cb4-94"><a href="#cb4-94" aria-hidden="true" tabindex="-1"></a>      <span class="ex">--stop-signal</span> string             Signal to stop a container <span class="er">(</span><span class="ex">default</span> <span class="st">"SIGTERM"</span><span class="kw">)</span></span>
+<span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a>      <span class="ex">--stop-timeout</span> int               Timeout <span class="er">(in</span> <span class="ex">seconds</span><span class="kw">)</span> <span class="ex">to</span> stop a container</span>
+<span id="cb4-96"><a href="#cb4-96" aria-hidden="true" tabindex="-1"></a>      <span class="ex">--storage-opt</span> list               Storage driver options for the container</span>
+<span id="cb4-97"><a href="#cb4-97" aria-hidden="true" tabindex="-1"></a>      <span class="ex">--sysctl</span> map                     Sysctl options <span class="er">(</span><span class="ex">default</span> map[]<span class="kw">)</span></span>
+<span id="cb4-98"><a href="#cb4-98" aria-hidden="true" tabindex="-1"></a>      <span class="ex">--tmpfs</span> list                     Mount a tmpfs directory</span>
+<span id="cb4-99"><a href="#cb4-99" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-t,</span> <span class="at">--tty</span>                            Allocate a pseudo-TTY</span>
+<span id="cb4-100"><a href="#cb4-100" aria-hidden="true" tabindex="-1"></a>      <span class="ex">--ulimit</span> ulimit                  Ulimit options <span class="er">(</span><span class="ex">default</span> []<span class="kw">)</span></span>
+<span id="cb4-101"><a href="#cb4-101" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-u,</span> <span class="at">--user</span> string                    Username or UID <span class="er">(</span><span class="ex">format:</span> <span class="op">&lt;</span>name<span class="kw">|</span><span class="ex">uid</span><span class="op">&gt;</span>[:<span class="op">&lt;</span>group<span class="kw">|</span><span class="ex">gid</span><span class="op">&gt;</span>]<span class="kw">)</span></span>
+<span id="cb4-102"><a href="#cb4-102" aria-hidden="true" tabindex="-1"></a>      <span class="ex">--userns</span> string                  User namespace to use</span>
+<span id="cb4-103"><a href="#cb4-103" aria-hidden="true" tabindex="-1"></a>      <span class="ex">--uts</span> string                     UTS namespace to use</span>
+<span id="cb4-104"><a href="#cb4-104" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-v,</span> <span class="at">--volume</span> list                    Bind mount a volume</span>
+<span id="cb4-105"><a href="#cb4-105" aria-hidden="true" tabindex="-1"></a>      <span class="ex">--volume-driver</span> string           Optional volume driver for the container</span>
+<span id="cb4-106"><a href="#cb4-106" aria-hidden="true" tabindex="-1"></a>      <span class="ex">--volumes-from</span> list              Mount volumes from the specified container<span class="er">(</span><span class="ex">s</span><span class="kw">)</span></span>
+<span id="cb4-107"><a href="#cb4-107" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-w,</span> <span class="at">--workdir</span> string                 Working directory inside the container</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You have a look at</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">-p,</span> <span class="at">--publish</span> list                   Publish a container<span class="st">'s port(s) to the host</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>and with a bit more help from the <a href="https://docs.docker.com/engine/reference/commandline/run/">Docs</a> you figure out the syntax with <code>&lt;port host&gt;:&lt;port container&gt;</code> and we run:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> docker <span class="ex">run</span> <span class="at">-p</span> 8888:8888 jupyter/minimal-notebook</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>and you have access to the <code>Jupyter Lab</code>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The Server itself does not know what port you use on your <em>host machine</em> and therefore it will always tell you to connect to <code>http://127.0.0.1:8888/lab?token=&lt;token&gt;</code>, unless you tell it to change this.</p>
+</div>
+</div>
+<p>Now you can use it just like any other Jupyter lab instance with - most likely - the latest version of Python (<code>3.10.8</code> when typing these notes).</p>
+</section>
+<section id="looking-around-in-the-container" class="level3" data-number="14.2.4">
+<h3 data-number="14.2.4" class="anchored" data-anchor-id="looking-around-in-the-container"><span class="header-section-number">14.2.4</span> Looking around in the container</h3>
+<p>Obviously, the first thing you want to do is to have a look and run your latest homework. Nevertheless, checking in the <em>Terminal</em> (you find it in the <em>Launcher</em> under <em>Other</em>) where you currently are located with a quick <code>pwd</code> you will get the following</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">base</span><span class="kw">)</span> <span class="ex">jovyan@0648fadeef68:~$</span> pwd</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">/home/jovyan</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Unless your parents are big fans your name is not <code>jovyan</code> and you have no user on your <em>host machine</em> with that name.</p>
+<p>This is actually your container file system and user management. You can spot it right away in the terminal prompt. <code>&lt;user name&gt;@&lt;container id&gt;:</code> and you can verify it by listing all the containers currently running. With an educated guess you try to find the command:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> docker <span class="ex">--help</span> <span class="kw">|</span> <span class="fu">grep</span> List</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">images</span>      List images</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">port</span>        List port mappings or a specific mapping for the container</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ps</span>          List containers</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>and run</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> ps</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">CONTAINER</span> ID   IMAGE                      COMMAND                  CREATED          STATUS                    PORTS                                       NAMES</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="ex">0648fadeef68</span>   jupyter/minimal-notebook   <span class="st">"tini -g -- start-no…"</span>   24 minutes ago   Up 24 minutes <span class="er">(</span><span class="ex">healthy</span><span class="kw">)</span>   <span class="ex">0.0.0.0:8888-</span><span class="op">&gt;</span>8888/tcp, :::8888-<span class="op">&gt;</span>8888/tcp   suspicious_solomon</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now you know what is happening but you still can not run your files. If you have a look around in the file navigation you will not get lucky either. Again, the container separates the file systems by default. But no need to despair, the file browser has an upload feature and you go for that.</p>
+<p>You can open your file make some changes and save them again.</p>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="fa-solid fa-pen-to-square" aria-label="pen-to-square"></i> What happens if we restart the container?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The content inside a container is not persistent. Meaning, if a new container is created from an image (which is done by the <code>docker run</code> command) the previous changes are no longer visible.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="bind-mounting-data-into-the-container" class="level3" data-number="14.2.5">
+<h3 data-number="14.2.5" class="anchored" data-anchor-id="bind-mounting-data-into-the-container"><span class="header-section-number">14.2.5</span> Bind mounting data into the container</h3>
+<p>With another educated guess you figure out the option to do a <em>bind mount</em> inside the container.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> docker <span class="ex">run</span> <span class="at">--help</span> <span class="kw">|</span> <span class="fu">grep</span> mount</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>      <span class="ex">--mount</span> mount                    Attach a filesystem mount to the container</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-v,</span> <span class="at">--volume</span> list                    Bind mount a volume</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>So you run your container again with</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> docker <span class="ex">run</span> <span class="at">-p</span> 8888:8888 <span class="at">-v</span> <span class="st">"</span><span class="va">${PWD}</span><span class="st">"</span>:/home/jovyan/work jupyter/minimal-notebook</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>and when navigating to the <code>work</code> folder you see everything in the local directory (on the host) you ran the container.</p>
+<p>Changes done to files in this directory are now also visible on the <em>host machine</em>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>It is important to remember that you are nevertheless inside a container. This means all your action - including storing data - are run by the user that is present in the container.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">base</span><span class="kw">)</span> <span class="ex">jovyan@82a302b74f60:~/work$</span> id</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="va">uid</span><span class="op">=</span>1000<span class="kw">(</span><span class="ex">jovyan</span><span class="kw">)</span> <span class="va">gid</span><span class="op">=</span>100<span class="kw">(</span><span class="fu">users</span><span class="kw">)</span> <span class="va">groups</span><span class="op">=</span>100<span class="kw">(</span><span class="fu">users</span><span class="kw">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>As a consequence, files that do not have these access rights will not be shown and if you save a file it will belong to user <code>1000</code> on the <em>host machine</em>, whoever that is. If your <em>host user</em> is different you can change the user inside the container by adding the option <code>--user &lt;uid&gt;:&lt;gid&gt;</code> to the run command.</p>
+</div>
+</div>
+</section>
+<section id="dockerfile" class="level3" data-number="14.2.6">
+<h3 data-number="14.2.6" class="anchored" data-anchor-id="dockerfile"><span class="header-section-number">14.2.6</span> Dockerfile</h3>
+<p>Now that you have all this in order you run your examples but are greeted with the response that <code>numpy</code> is not available. Of course you can install it in the terminal - via pip - or directly via Python but next time you start the image you need to do it again.</p>
+<p>So we decide to create a new image and use that instead. A new image is created with a <code>Dockerfile</code>, see<a href="https://docs.docker.com/engine/reference/builder/">Dockerfile reference</a> for full details.</p>
+<p>So we create a the file <code>Dockerfile</code> with the following content, see <a href="https://jupyter-docker-stacks.readthedocs.io/en/latest/using/recipes.html#add-a-custom-conda-environment-and-jupyter-kernel">Documentation</a></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode dockerfile code-with-copy"><code class="sourceCode dockerfile"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Start from a core stack version</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> jupyter/minimal-notebook:latest</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Install in the default python3 environment</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="kw">RUN</span> <span class="ex">pip</span> install <span class="at">--quiet</span> <span class="at">--no-cache-dir</span> <span class="st">'numpy'</span> <span class="kw">&amp;&amp;</span> <span class="dt">\</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="ex">fix-permissions</span> <span class="st">"</span><span class="va">${CONDA_DIR}</span><span class="st">"</span> <span class="kw">&amp;&amp;</span> <span class="dt">\</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="ex">fix-permissions</span> <span class="st">"/home/</span><span class="va">${NB_USER}</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol type="1">
+<li>This file first specifies that it starts working <code>FROM</code> the <code>jupyter/minimal-notebook:latest</code> image.</li>
+<li>Second <code>pip</code> is used to install <code>numpy</code> and to fix some permissions that are required due to the fact that <code>root</code> is not used in this image.</li>
+</ol>
+<p>You can build you own image by calling:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> docker <span class="ex">build</span> <span class="at">-t</span> ulg22:latest .</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Sending</span> build context to Docker daemon  114.2kB</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Step</span> 1/2 : FROM jupyter/minimal-notebook:latest</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a> <span class="ex">---</span><span class="op">&gt;</span> f0246d6dd87f</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Step</span> 2/2 : RUN pip install <span class="at">--quiet</span> <span class="at">--no-cache-dir</span> <span class="st">'numpy'</span> <span class="kw">&amp;&amp;</span>     <span class="ex">fix-permissions</span> <span class="st">"</span><span class="va">${CONDA_DIR}</span><span class="st">"</span> <span class="kw">&amp;&amp;</span>     <span class="ex">fix-permissions</span> <span class="st">"/home/</span><span class="va">${NB_USER}</span><span class="st">"</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a> <span class="ex">---</span><span class="op">&gt;</span> Running in 18628a817de6</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Removing</span> intermediate container 18628a817de6</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a> <span class="ex">---</span><span class="op">&gt;</span> 2265b09a0add</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="ex">Successfully</span> built 2265b09a0add</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="ex">Successfully</span> tagged ulg22:latest</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>and run it with</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> docker <span class="ex">run</span> <span class="at">-it</span> <span class="at">-p</span> 8888:8888 ulg22</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now lets do something more fancy.</p>
+</section>
+<section id="add-a-second-kernel-to-the-notebook" class="level3" data-number="14.2.7">
+<h3 data-number="14.2.7" class="anchored" data-anchor-id="add-a-second-kernel-to-the-notebook"><span class="header-section-number">14.2.7</span> Add a second kernel to the notebook</h3>
+<p>The second language used in the class is R so why not include it into the container. Checking the documentation of R reveals that we need the <a href="https://irkernel.github.io/installation/"><code>IRkernel</code> package</a> and the installation instructions translate to</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode dockerfile code-with-copy"><code class="sourceCode dockerfile"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Start from a core stack version</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> jupyter/minimal-notebook:latest</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="kw">RUN</span> <span class="ex">mamba</span> install <span class="at">--quiet</span> <span class="at">--yes</span> R <span class="kw">&amp;&amp;</span> <span class="dt">\</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="ex">mamba</span> clean <span class="at">--all</span> <span class="at">-f</span> <span class="at">-y</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="kw">RUN</span> <span class="ex">Rscript</span> <span class="at">-e</span> <span class="st">"install.packages(c(</span><span class="dt">\"</span><span class="st">IRkernel</span><span class="dt">\"</span><span class="st">), repos = c(</span><span class="dt">\"</span><span class="st">http://cran.rstudio.com</span><span class="dt">\"</span><span class="st">))"</span> <span class="kw">&amp;&amp;</span> <span class="dt">\</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Rscript</span> <span class="at">-e</span> <span class="st">"IRkernel::installspec()"</span> <span class="kw">&amp;&amp;</span> <span class="dt">\</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    <span class="ex">jupyter</span> labextension install @techrah/text-shortcuts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="additional-notes-on-dockerfiles" class="level3" data-number="14.2.8">
+<h3 data-number="14.2.8" class="anchored" data-anchor-id="additional-notes-on-dockerfiles"><span class="header-section-number">14.2.8</span> Additional notes on Dockerfiles</h3>
+<p>There are several more commands that can be used in the <a href="https://docs.docker.com/engine/reference/builder/">Dockerfile</a>:</p>
+<p>As seen above the <code>#</code> symbol can used for comments in a Dockerfile.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode dockerfile code-with-copy"><code class="sourceCode dockerfile"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">WORKDIR</span> /path/to/workdir</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>to set the working directory for most of the next instruction inside the image/container,</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode dockerfile code-with-copy"><code class="sourceCode dockerfile"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">COPY</span> [--chown=&lt;user&gt;:&lt;group&gt;] &lt;src&gt;... &lt;dest&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>to copy files from the host file system (relative path to the context of the build) to the image/container file system (relative path to <code>WORKDIR</code>),</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode dockerfile code-with-copy"><code class="sourceCode dockerfile"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ENTRYPOINT</span> [<span class="st">"executable"</span>, <span class="st">"param1"</span>, <span class="st">"param2"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>to allow you to configure a container that will run as an <em>executable</em>, in our case the <code>ENTRYPOINT</code> is defined such that <em>Jupyter Lab</em> starts automatically. Only the last specified <code>ENTRYPOINT</code> is used.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode dockerfile code-with-copy"><code class="sourceCode dockerfile"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">USER</span> &lt;user&gt;[:&lt;group&gt;]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>or</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode dockerfile code-with-copy"><code class="sourceCode dockerfile"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">USER</span> &lt;UID&gt;[:&lt;GID&gt;]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>to specify the user (and group) to use for the remainder of the current stage. It is therefore used for the instructions <code>RUN</code>, <code>ENTRYPOINT</code>, etc.</p>
+<p>Similar to the <code>.gitignore</code> there is also the possibility to specify a <code>.dockerignore</code> file. Before the Docker CLI sends the context of the build to the docker daemon (remote or local) it excludes the files and paths that are specified in this file. This can be used to exclude sensitive or large files from being sent to the daemon.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-pgd2024" class="csl-entry" role="listitem">
+Kandolf, Peter. 2024. <span>“ULG Data Science - WS22 971001 Software - Introduction to Python, Git, and Docker.”</span> <a href="https://doi.org/10.5281/zenodo.10532424">https://doi.org/10.5281/zenodo.10532424</a>.
+</div>
+</div>
+</section>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>A Semi-Autonomous Build System for Scientific Containers<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/kandolfp\.github\.io\/MECH-M-DUAL-1-SWD\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../containerization/index.html" class="pagination-link" aria-label="Containerization">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Containerization</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../summary.html" class="pagination-link" aria-label="Summary">
+        <span class="nav-page-text">Summary</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Softwaredesign WS 2024 (MECH-M-DUAL-1-SWD)</p>
+</div>   
+    <div class="nav-footer-center">
+<p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> Peter Kandolf</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/containerization/docker.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
