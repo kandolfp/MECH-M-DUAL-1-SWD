@@ -89,17 +89,18 @@ This is also where the directory `tests` from our introduction to `pdm` comes in
 Tests are structured in this directory.
 We constructed a dummy project to show how testing can be done.
 ```bash
-$ tree dummy/
-dummy/
+$ tree module/
+module/
+├── pdm.lock
+├── pyproject.toml
 ├── src
 │   └── rectangle
 │       ├── __init__.py
 │       └── rectangle.py
 └── tests
-    ├── __init__.py
-    └── rectangle                   # <1>
-        ├── __init__.py             # <2>
-        └── test_rectangle.py            # <3>
+    └── rectangle                 # <1>
+        ├── __init__.py           # <2>
+        └── test_rectangle.py     # <3>
 ```
 1. create a directory per module (directory) in your `src` folder with the same name
 1. optionally make the test folder a module as well
@@ -109,21 +110,21 @@ dummy/
 
 ## {{< fa pen-to-square >}} Code for the example
 
-(@) `dummy/src/rectangle/__init__.py`
+(@) `module/src/rectangle/__init__.py`
 ```python
-{{< include ../_assets/errorhandling/dummy/src/rectangle/__init__.py >}}
+{{< include ../_assets/errorhandling/module/src/rectangle/__init__.py >}}
 ```
-(@) `dummy/src/rectangle/rectangle.py`
+(@) `module/src/rectangle/rectangle.py`
 ```python
-{{< include ../_assets/errorhandling/dummy/src/rectangle/rectangle.py >}}
+{{< include ../_assets/errorhandling/module/src/rectangle/rectangle.py >}}
 ```
-(@) `dummy/tests/rectangle/__init__.py`
+(@) `module/tests/rectangle/__init__.py`
 ```python
-{{< include ../_assets/errorhandling/dummy/tests/rectangle/__init__.py >}}
+{{< include ../_assets/errorhandling/module/tests/rectangle/__init__.py >}}
 ```
-(@) `dummy/tests/rectangle/test_rectangle.py`
+(@) `module/tests/rectangle/test_rectangle.py`
 ```python
-{{< include ../_assets/errorhandling/dummy/tests/rectangle/test_rectangle.py >}}
+{{< include ../_assets/errorhandling/module/tests/rectangle/test_rectangle.py >}}
 ```
 :::
 
@@ -136,7 +137,7 @@ pdm run python -m unittest -v tests.rectangle
 #| echo: false
 #| classes: styled-output
 %%script --no-raise-error bash
-cd ../_assets/errorhandling/dummy
+cd ../_assets/errorhandling/module
 pdm run python -m unittest -v tests.rectangle
 ```
 
@@ -152,7 +153,7 @@ pdm run pytest -q
 #| echo: false
 #| classes: styled-output
 %%script --no-raise-error bash
-cd ../_assets/errorhandling/dummy
+cd ../_assets/errorhandling/module
 pdm run pytest -q
 ```
 as it will automatically search in the directory `tests` for files with the prefix `test_`.
