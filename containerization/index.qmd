@@ -1,3 +1,6 @@
+---
+lightbox: true
+---
 # Containerization {.unnumbered}
 
 In this section we are going to talk about _containerisation_ but before we can do that let us discuss some common issues in (scientific) computing that will give rise to why containerization is an important issue.

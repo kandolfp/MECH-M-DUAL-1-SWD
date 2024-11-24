@@ -1,3 +1,6 @@
+---
+lightbox: true
+---
 # Docker
 
 :::{.callout-note}
