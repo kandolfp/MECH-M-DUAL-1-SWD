@@ -1,5 +1,7 @@
 ---
 lightbox: true
+filters:
+  - highlight-text
 ---
 # Containerization {.unnumbered}
 
@@ -102,9 +104,9 @@ This looks something like the following
 Organisation of process within a virtual machine.
 :::
 
-From the view of the _host_ the entire virtualisation is one (or more) _guest processes_, illustrated above by the green box. 
+From the view of the _host_ the entire virtualisation is one (or more) _guest processes_, illustrated above by the [green box]{colour='#2f9e44'}. 
 
-The _hypervisor_ is translating between the _host kernel_ and the virtual hardware that is needed for the _guest kernel_.
+The [_hypervisor_]{colour='#fa5252'} is translating between the _host kernel_ and the virtual hardware that is needed for the [_guest kernel_]{colour='#fa5252'}.
 This means, the _guest kernel_ is seeing its own set of hardware (CPU, GPU, Keyboard, and so forth). 
 Quite often you can for example decide if a connected USB Drive is used by the guest or the host. 
 On top of the _hypervisor_ everything is the same as on the host. 
@@ -119,7 +121,7 @@ Now containerisation is a operating system based virtualisation.
 Organisation of process within a container.
 :::
 
-You have a specific _runtime_ but not a second kernel. 
+You have a specific [_runtime_]{colour='#fa5252'} but not a second kernel. 
 The runtime takes care of the separation on the level of namespaces. 
 We only discuss Linux containers in this detail and do not guarantee that Windows containers use a different mechanism. 
 Namespaces are a mechanism of the kernel that separates or _partitions_ resources such that different processes use different set of resources. 
