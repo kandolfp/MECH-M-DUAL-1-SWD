@@ -692,15 +692,15 @@ Student "*" --* University : Composition
 <li><span class="math inline">\(\dot{x}\)</span> growth rate of prey population</li>
 <li><span class="math inline">\(\dot{y}\)</span> growth rate of predator population</li>
 <li><span class="math inline">\(\alpha\)</span> natural growth rate of prey</li>
-<li><span class="math inline">\(\beta\)</span> death rate of rabbits due to predators</li>
+<li><span class="math inline">\(\beta\)</span> death rate of prey due to predators</li>
 <li><span class="math inline">\(\delta\)</span> natural death rate of predators</li>
 <li><span class="math inline">\(\gamma\)</span> growth rate of predators per consumed prey</li>
 </ul>
 <p>We assume that the prey has unlimited food and the change rate is proportional to the size. The predators only eat the specific prey and they are always hungry.</p>
 <p>Create first an UML diagram and later Python code that follows these guidelines:</p>
 <ul>
-<li>Create a predator class with the parameters <span class="math inline">\(x, \delta, \gamma\)</span> where only the first is public</li>
-<li>Create a prey class with the parameters <span class="math inline">\(y, \alpha, \beta\)</span> where only the first is public</li>
+<li>Create a predator class with the parameters <span class="math inline">\(x, \alpha, \beta\)</span> where only the first is public</li>
+<li>Create a prey class with the parameters <span class="math inline">\(y, \delta, \gamma\)</span> where only the first is public</li>
 <li>Create a class to propagate your model:
 <ul>
 <li>the constructor takes a pray and a predator object</li>
@@ -757,7 +757,7 @@ Student "*" --* University : Composition
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Age'</span>: [<span class="dv">11</span>, <span class="dv">16</span>, <span class="dv">30</span>, <span class="dv">51</span>]</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>create</p>
-<div id="1ecef733" class="cell" data-execution_count="1">
+<div id="525405a6" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display" data-execution_count="1">
 <div>
 
