@@ -229,7 +229,7 @@ In this case we can interpret the variables as:
 - $\dot{x}$ growth rate of prey population
 - $\dot{y}$ growth rate of predator population
 - $\alpha$ natural growth rate of prey
-- $\beta$ death rate of rabbits due to predators
+- $\beta$ death rate of prey due to predators
 - $\delta$ natural death rate of predators
 - $\gamma$ growth rate of predators per consumed prey
 
@@ -238,8 +238,8 @@ The predators only eat the specific prey and they are always hungry.
 
 Create first an UML diagram and later Python code that follows these guidelines:
 
-- Create a predator class with the parameters $x, \delta, \gamma$ where only the first is public
-- Create a prey class with the parameters $y, \alpha, \beta$ where only the first is public
+- Create a predator class with the parameters $x, \alpha, \beta$ where only the first is public
+- Create a prey class with the parameters $y, \delta, \gamma$ where only the first is public
 - Create a class to propagate your model:
     - the constructor takes a pray and a predator object 
     - create a private method to compute the two derivatives
