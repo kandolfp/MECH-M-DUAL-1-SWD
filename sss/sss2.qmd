@@ -241,7 +241,7 @@ Create first an UML diagram and later Python code that follows these guidelines:
 - Create a predator class with the parameters $x, \alpha, \beta$ where only the first is public
 - Create a prey class with the parameters $y, \delta, \gamma$ where only the first is public
 - Create a class to propagate your model:
-    - the constructor takes a pray and a predator object 
+    - the constructor takes a prey and a predator object 
     - create a private method to compute the two derivatives
     - create a second method to propagate a single time step $\Delta t$, as time integrator we suggest to implement a [_Forward Euler_](https://en.wikipedia.org/wiki/Euler_method) but you can also use something from `scipy.integrate` if you prefer.
        - use the classes to store the current population in the appropriate variable. 
