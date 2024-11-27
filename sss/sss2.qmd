@@ -218,7 +218,7 @@ The Lotka-Volterra Equations
 $$
 \begin{array}{c}
 \dot{x} = \alpha x - \beta x y\\
-\dot{y} = \gamma x y - \delta y
+\dot{y} = \delta x y - \gamma y
 \end{array}
 $$ {#eq-lve}
 can be used to describe a predator-prey system.
