@@ -512,7 +512,7 @@ RUN pip install --quiet --no-cache-dir 'numpy' && \
 
 You can build you own image by calling:
 ```bash
-> docker build -t ulg22:latest .
+> docker build -t swd:latest .
 Sending build context to Docker daemon  114.2kB
 Step 1/2 : FROM jupyter/minimal-notebook:latest
  ---> f0246d6dd87f
@@ -521,11 +521,11 @@ Step 2/2 : RUN pip install --quiet --no-cache-dir 'numpy' &&     fix-permissions
 Removing intermediate container 18628a817de6
  ---> 2265b09a0add
 Successfully built 2265b09a0add
-Successfully tagged ulg22:latest
+Successfully tagged swd:latest
 ```
 and run it with
 ```bash
-> docker run -it -p 8888:8888 ulg22
+> docker run -it -p 8888:8888 swd
 ```
 Now lets do something more fancy.
 
