@@ -27,10 +27,6 @@ book:
         - basics/packagemanager.qmd
         - basics/versioncontrol.qmd
         - basics/epilogue.qmd
-    - part: sss/index.qmd
-      chapters:
-        - sss/sss1.qmd
-        - sss/sss2.qmd
     - oop/index.qmd
     - part: sc/index.qmd
       chapters:
@@ -47,6 +43,9 @@ book:
         - containerization/docker.qmd    
     - summary.qmd
     - references.qmd
+  appendices:
+    - sss/sss1.qmd
+    - sss/sss2.qmd
 
 bibliography: references.bib
 
