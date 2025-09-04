@@ -1,0 +1,34 @@
+# Programming paradigms {.unnumbered}
+
+There exists a multitude of different programming paradigms.
+This is due to the fact that different problems require different ways of thinking and here programming paradigms can help. 
+Quite often programming languages reflect certain programming paradigms but modern languages often support a _multi-paradigm_ approach and therefore we can use different styles in the language.
+This is the case for Python.
+
+So far we have followed mainly the _imperative_ model: 
+
+::: {.callout-note}
+In imperative programming, the code directly determines/controls the flow of the execution and explicit statements change the state of a program. 
+:::
+
+Imperative programming has a couple of subgenres that we will explore in time:
+
+- _structured programming_ when we use constructs like `if` and `for`
+- _procedural programming_ when we with procedures/functions that call each other
+- _modular programming_ when we combine logical structures into modules and include this into our
+- _object oriented programming_ when we organise our code with objects that contain data structures and associated behaviour.
+
+We introduce these concepts in the progress of this class where [Object Oriented Programming](./oop.qmd) has its own section. 
+
+A second model that is often used is call _declarative_:
+
+::: {.callout-note}
+In declarative programming, the code declares the desired result but not how to compute it.
+It describes what computation should be performed without specifying detailed state changes.
+:::
+
+The most common of these is _functional programming_ where the concept of mathematical functions is used to declare the desired result as a series of function evaluations and it avoids state and mutable data.
+
+We are also going to investigate the possibilities Python provides here in a dedicated chapter, [functional programming](fp.qmd), but list comprehension and recursion are some of the main features.
+
+A comprehensive guide to these concepts can be found in @Van_Roy2004-li and in the article @Vasiliev2022.

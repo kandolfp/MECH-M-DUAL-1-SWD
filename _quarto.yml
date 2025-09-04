@@ -27,7 +27,10 @@ book:
         - basics/packagemanager.qmd
         - basics/versioncontrol.qmd
         - basics/epilogue.qmd
-    - oop/index.qmd
+    - part: pp/index.qmd
+      chapters:
+        - pp/oop.qmd
+        - pp/fp.qmd
     - part: sc/index.qmd
       chapters:
         - sc/numpy.qmd
