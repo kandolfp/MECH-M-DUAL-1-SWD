@@ -297,7 +297,8 @@ Provide type hints for the new function.
 
 ## Recursion with Fibonacci
 
-Create a function that computes the $n$th Fibonacci number with recursion, i.e. a function calling itself, here is the sequence:
+Create a function that computes the $n$th Fibonacci number with recursion, i.e. a function calling itself.
+Here is the sequence:
 
 $$
 x_0 = 0,\quad x_1 = 1,\quad x_n = x_{n-1} + x_{n-2},\quad n\geq 2. 
