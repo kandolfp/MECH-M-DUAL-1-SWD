@@ -488,7 +488,7 @@ You can state this in nice mathematical formulas
 $$
 S \leq T \to (\forall x: T.\phi(x) \to \forall y: S.\phi(y)),
 $$
-where $T.\phi(x)$ is a property provable about object $x$ of type T.
+where $T.\phi(x)$ is a property provable about object $x$ of type $T$.
 
 With regards to Python you can easily overwrite methods with the same name in different classes.
 
