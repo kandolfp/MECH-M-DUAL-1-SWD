@@ -278,42 +278,42 @@ Use `pandas` to load the dataset and compute the same properties and create simi
 
 (@) The method `apply()` can _apply a function along an axis of a `DataFrame`_ and can be used in various ways. 
 
-Use `.apply` to create categories, i.e. from 
-```python
-data = pd.DataFrame({
-    'Age': [11, 16, 30, 51]
-})
-```
-create 
-```{python}
-#| echo: false
-import pandas as pd
-data = pd.DataFrame({
-    'Age': [11, 16, 30, 51]
-})
-
-def category(x):
-    if x <= 12:
-        return "Child"
-    if x <= 18: 
-        return "Teenager"
-    return "Adult"
-
-data['Category'] = data['Age'].apply(lambda x: category(x))
-data
-```
+    Use `.apply` to create categories, i.e. from 
+    ```python
+    data = pd.DataFrame({
+        'Age': [11, 16, 30, 51]
+    })
+    ```
+    create 
+    ```{python}
+    #| echo: false
+    import pandas as pd
+    data = pd.DataFrame({
+        'Age': [11, 16, 30, 51]
+    })
+    
+    def category(x):
+        if x <= 12:
+            return "Child"
+        if x <= 18: 
+            return "Teenager"
+        return "Adult"
+    
+    data['Category'] = data['Age'].apply(lambda x: category(x))
+    data
+    ```
 
 (@) Read in the [death_valley_2014.csv](https://raw.githubusercontent.com/ehmatthes/pcc/refs/heads/master/chapter_16/death_valley_2014.csv) from the GitHub repo corresponding to @Matthes2023. 
 
-- Transform the `PST` column into a `DataTime` object (various possibilities)
-- Create a new `DataFrame` that consists of the _temperature_ columns where they are converted from °F to °C
-- Merge the two `DataFrame`s
-- Repeat the same operation directly with `.apply`
-- Let us assume, for some reason, the entries from January where off for $1\%$. Use the `.update` function to change them - i.e. correct them by the error.
-- Use the `.pipe` function to _apply_ a series of functions to your data. 
-   - Compute the `Mean Humidity` per month and scale this data with this value
-   - Update the `WindDirDegree` such that the values in in $[-180, 180]$ instead of $[0, 360)$
-    - Update the `PST` column to only contain month and day
+    - Transform the `PST` column into a `DataTime` object (various possibilities)
+    - Create a new `DataFrame` that consists of the _temperature_ columns where they are converted from °F to °C
+    - Merge the two `DataFrame`s
+    - Repeat the same operation directly with `.apply`
+    - Let us assume, for some reason, the entries from January where off for $1\%$. Use the `.update` function to change them - i.e. correct them by the error.
+    - Use the `.pipe` function to _apply_ a series of functions to your data. 
+        - Compute the `Mean Humidity` per month and scale this data with this value
+        - Update the `WindDirDegree` such that the values in in $[-180, 180]$ instead of $[0, 360)$
+        - Update the `PST` column to only contain month and day
 ::::
 :::
 
