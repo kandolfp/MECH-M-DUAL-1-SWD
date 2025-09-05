@@ -204,6 +204,19 @@ Use it for the following tasks:
 :::
 
 ::: {.callout-tip appearance="simple" collapse="true" icon=false}
+:::: {#exr-filter}
+
+## Filter
+
+Use functional programming and in particular the filter function to:
+
+1. Find all [palindromes](https://de.wikipedia.org/wiki/Palindrom) in a list of strings. 
+
+1. Count the number of vowels in a string.
+::::
+:::
+
+::: {.callout-tip appearance="simple" collapse="true" icon=false}
 :::: {#exr-indexing_numpy}
 
 ## Indexing in `numpy` or slicing
