@@ -1,1 +1,206 @@
 # Functional Programming
+
+Functional programming is a programming paradigm or way of developing software.
+The main idea is to work with functions that operate on their input and produce some output and are in this sense deterministic.
+This implies that side effects are not wanted and are therefore strongly discouraged.
+A side effect is something that modifies some _internal state_ or some other change that is not visible in the output/return value of the function.
+
+::: {.callout-note}
+If we have no side effects we do not use data structures that are updated while running the program.
+
+This also means, functions like `print()` or `time.sleep()` that are purely called for there side effect (showing text on the screen, pausing execution for some time), are not allowed.
+:::
+
+There are some advantages to functional programming:
+
+- formal provability - it is easy to construct a (mathematical) proof that a function is correct.
+- modularity - a program needs to be split up into smaller parts, resulting in a modular design by default.
+- composability - functions can easily be reused in other contexts, e.g. mathematical functions like `exp` or `sin`.
+- testing and debugging - as the output of each function only depends on the input it is easy to debug and test the code. 
+
+With all this in mind, functional programming is often considered the opposite of object oriented programming, where we mainly manipulate the state of an object.
+Nevertheless, we can also combine the two concepts if need arises. 
+In fact, we already have. 
+
+In Python we can use functional programming but most of the time not in the strictest sense.
+For example we will use assignment to a local function but no modify global variables. 
+
+## Functional programming in Python {#sec-fpp}
+
+To explain the concept of functional programming in python we introduce some of the basic concepts and functions provide in the language. 
+
+### Recursion
+
+Programming a recursive function is one of the easiest ways to show a function that follows functional programming. 
+
+::: {.callout appearance="simple"}
+:::: {#def-factorial}
+# Factorial
+
+For a natural number $n$ the _factorial_ is the products of all numbers from $1$ to $n$:
+$$
+n! = \prod_{k=1}^n k = 1 \cdot 2 \cdot 3 \cdots n,\quad 0! = 1,
+$$
+
+and in a recursive fashion
+
+$$
+n! = \begin{cases} 1, & n=0\\
+                   n \cdot (n-1)!, & n > 0.
+    \end{cases}
+$$
+::::
+:::
+
+We can translate @def-factorial into a Python program as.
+
+```{python}
+#| classes: styled-output
+#| error: true
+def factorial(n):
+    return 1 if n <= 0 else n * factorial(n -1)
+
+print(f"{factorial(3) = }")
+print(f"{factorial(5) = }")
+```
+
+We can see, that the function `factorial` purely depends on the input `n` and is fully determined by this number.
+
+::: {.callout-important}
+As Python is not (strongly) typed and therefore the above function can not be restricted to `int` or even better a natural number. 
+We can work with type hints and validators to keep this in check if needed.
+
+Note, there is a _limit_ to the number of function calls that can be stored in the stack, therefore the recursion is limited.
+:::
+
+### Built-in functions
+
+A lot of the functions (or functionality) we use in _set, list and dictionary comprehensions_ (see @exr-comprehensions) are from functional programming.
+
+One of the basic concepts employed there is the [iterator](https://docs.python.org/3/glossary.html#term-iterator).
+An iterator is an object (as we stated, paradigms are mixed) that returns data one element at the time.
+This is used in 
+```{python}
+#| classes: styled-output
+#| error: true
+for i in range(1, 5):
+    print(i)
+```
+where the loop depends on `range` providing the iterator interface, mainly the method `__next__()`.
+The built-in function `iter()`  tries to provide an iterator for its argument.
+We call an object [iterable](https://docs.python.org/3/glossary.html#term-iterable) if an iterator can be provided for it. 
+
+Next to comprehensions iterators are also quite useful in connection with `map`, `filter`, and `reduce`.
+These functions are provided in [`functools`](https://docs.python.org/3/library/functions.html) together with a lot more useful functions.
+
+#### Anonymous functions
+
+Before we look into how to use these concepts we introduce anonymous functions. 
+It is often useful to define a function without giving it a proper name.
+This is done with the keyword `lambda` inspired by the [_lambda calculus_](https://en.wikipedia.org/wiki/Lambda_calculus). 
+The syntax is straight forward.
+```{python}
+#| classes: styled-output
+#| error: true
+square = lambda a: a ** 2
+
+print(f"{square(2) = }")
+print(f"{square(-1) = }")
+```
+
+#### Map
+
+Now, `map` is used to apply a function to something iterable and returns a new iterator that applies function to the result of `next()`.
+
+```{python}
+#| classes: styled-output
+#| error: true
+iterator = map(square, range(1, 5))
+
+for i in iterator:
+    print(i)
+```
+
+#### Filter
+
+The next function that comes in handy is `filter`. 
+It can be used to only return certain elements from an iterator.
+
+```{python}
+#| classes: styled-output
+#| error: true
+is_even = lambda x: (x % 2) == 0
+
+even = filter(is_even, range(10))
+print(f"{list(even) = }")
+
+# This is equivalent to 
+even = list(x for x in range(10) if is_even(x))
+print(f"{even = }")
+
+# For the odd elements
+odd = list(x for x in range(10) if not is_even(x))
+print(f"{odd = }")
+```
+
+In order to allow filter to work we actually do not need to return `True` or `False` but just something that Python interprets in that fashion.
+For example, we can filter all empty strings from a list of strings in the following fashion
+
+```{python}
+#| classes: styled-output
+#| error: true
+strings = ["", "Something", "something", "", "dark", " ", "side", " "]
+sentence = " ".join(filter(lambda s: s.strip(), strings))
+print(sentence)
+```
+
+#### Reduce
+
+It is also often useful to _reduce_ an iterable to a single value. 
+This is for example the case of `sum` or we can also use it to compute the factorial @def-factorial.
+
+The `reduce` function can be found in `functools` and as we do not want to write the multiplication ourself we can import it from `operator`.
+Note, the function provided to `reduce` must take exactly two arguments.
+
+```{python}
+#| classes: styled-output
+#| error: true
+from functools import reduce
+from operator import mul
+
+def factorial_reduce(n):
+    return reduce(mul, range(1, n + 1))
+
+print(f"{factorial_reduce(3) = }")
+print(f"{factorial_reduce(5) = }")
+```
+
+A nice feature of the reduce function is that you can call it with an initial value.
+
+```{python}
+#| classes: styled-output
+#| error: true
+from functools import reduce
+from operator import add
+
+print(f"{reduce(add, [1, 2, 3], 100) = }")
+```
+
+::: {.callout-important}
+In contrast to the other functions we discussed, we had to import `reduce` before we could us it. 
+
+This is due to the fact, that it is not considered to be very _Pythonic_ and therefore it is hidden away.
+::::
+
+
+This concludes our introduction to functional programming in python. 
+There are more things to discover, please have a look into the provided references. 
+
+## References
+
+We only provide a glimpse into the concept of functional programming in Python.
+There are more guides out there, like
+
+- The Python HowTo guide on functional programming, [link](https://docs.python.org/3/howto/functional.html)
+- A _RealPython_ guide on functional programming, [link](https://realpython.com/python-functional-programming/)
+- A _RealPython_ guide on the `filter` function, [link](https://realpython.com/python-filter-function/)
