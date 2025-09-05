@@ -1,8 +1,6 @@
-# Epilogue {#sec-intro-epilog}
+# Dependency and reproducibility {#sec-intro-pm-reproducibility}
 
-## A note on dependency and reproducibility {#sec-intro-pm-reproducibility}
-
-Before we conclude our introduction to _package managers_ and _version control_ we would like to share some thoughts on **reproducibility**.
+Before we conclude our introduction to _package managers_ and _version control_ we would like to share some thoughts on **dependencies** and **reproducibility**.
 
 In our world of modern infrastructure we depend on a lot of other projects and quite often we do not even realize what tools we need in the background for our little program to run.
 Best example, do you have any idea what the programming languages for the commands `git`, `python`, or `pdm` are and what system dependencies they have?

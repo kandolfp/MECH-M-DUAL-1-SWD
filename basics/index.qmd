@@ -13,7 +13,7 @@ We will use these tools throughout the notes.
 As mentioned earlier, these notes assume that you have some basic knowledge of programming and we build on that knowledge to widen your horizon.
 :::
 
-At the end of this part you will also find an @sec-intro-epilog where we bind them all together with some final thoughts.
+At the end of this part you will also find an @sec-intro-pm-reproducibility where we bind them all together with some final thoughts.
 
 # Additional resources {.unnumbered}
 
