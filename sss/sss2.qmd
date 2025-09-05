@@ -190,7 +190,7 @@ Use it for the following tasks:
 
 1. Compute a running maximum in a list of numbers.
 1. Compute an [amortization schedule](https://en.wikipedia.org/wiki/Amortization_schedule) for a loan of $1000$ with an interest of $5%$ and a payment of $100$ for $10$ years.
-Hint: You should see a result like and you can provide an initial value as a third argument:
+**Hint:** You should see a result like and you can provide an initial value as a third argument:
    ```{python}
    #| echo: false
    #| classes: styled-output
@@ -199,6 +199,7 @@ Hint: You should see a result like and you can provide an initial value as a thi
    update = lambda balance, payment: round(balance * 1.05) - payment
    list(accumulate(repeat(100, 10), update, initial=1_000))
    ```
+   Feel free to add account fees to make it more realistic.
 ::::
 :::
 
