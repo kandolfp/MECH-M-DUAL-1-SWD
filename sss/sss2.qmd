@@ -345,3 +345,13 @@ testfun(-1, 1, -1)
 :::
 
 
+::: {.callout-tip appearance="simple" collapse="true" icon=false}
+:::: {#exr-pydantic}
+
+## Pydantic
+
+In Python the [`Pydantic`](https://docs.pydantic.dev/latest/) package is a widely used data validation library. 
+
+Have a look at [Validators](https://docs.pydantic.dev/latest/concepts/validators/) and see if they can help with @exr-decorators.
+::::
+:::
