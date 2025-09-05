@@ -189,8 +189,8 @@ print(f"{list(accumulate([1, 2, 3, 4, 5], mul)) = }")
 Use it for the following tasks:
 
 1. Compute a running maximum in a list of numbers.
-1. Compute an [amortization schedule](https://en.wikipedia.org/wiki/Amortization_schedule) for a loan of $1000$ with an interest of $5%$ and a payment of $100$ for $10$ years.
-**Hint:** You should see a result like and you can provide an initial value as a third argument:
+1. Compute an [amortization schedule](https://en.wikipedia.org/wiki/Amortization_schedule) for a loan of $1000$ with an interest of $5\%$ and a payment of $100$ for $10$ years.
+**Hint:** You can provide an initial value as third argument to `accumulate` and the result should look something like the following:
    ```{python}
    #| echo: false
    #| classes: styled-output
