@@ -319,7 +319,7 @@ Use `pandas` to load the dataset and compute the same properties and create simi
 
 
 ::: {.callout-tip appearance="simple" collapse="true" icon=false}
-:::: {#exr-pandas_sets}
+:::: {#exr-decorators}
 
 ## Decorators
 
