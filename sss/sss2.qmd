@@ -146,6 +146,63 @@ classDiagram
 :::
 
 ::: {.callout-tip appearance="simple" collapse="true" icon=false}
+:::: {#exr-iterators}
+
+## Iterators
+
+Explain the output of the following code fragment, see @sec-fpp:
+```{python}
+#| classes: styled-output
+#| error: true
+square = lambda a: a ** 2
+iterator = map(square, range(1, 5))
+
+for i in iterator:
+    print(i)
+
+print(f"{list(iterator) = }")
+iterator = map(square, range(1, 5))
+print(f"{list(iterator) = }")
+```
+::::
+:::
+
+::: {.callout-tip appearance="simple" collapse="true" icon=false}
+:::: {#exr-accumulate}
+
+## Accumulator
+
+In @sec-fpp we discussed the `functools` module. 
+On function included there is `accumulate` that takes an iterator and a function to apply to it.
+It can, for example be used to compute partial sum or product:
+
+```{python}
+#| classes: styled-output
+#| error: true
+from itertools import accumulate
+from operator import add, mul
+
+print(f"{list(accumulate([1, 2, 3, 4, 5], add)) = }")
+print(f"{list(accumulate([1, 2, 3, 4, 5], mul)) = }")
+```
+
+Use it for the following tasks:
+
+1. Compute a running maximum in a list of numbers.
+1. Compute an [amortization schedule](https://en.wikipedia.org/wiki/Amortization_schedule) for a loan of $1000$ with an interest of $5%$ and a payment of $100$ for $10$ years.
+Hint: You should see a result like and you can provide an initial value as a third argument:
+   ```{python}
+   #| echo: false
+   #| classes: styled-output
+   from itertools import accumulate, repeat
+
+   update = lambda balance, payment: round(balance * 1.05) - payment
+   list(accumulate(repeat(100, 10), update, initial=1_000))
+   ```
+::::
+:::
+
+::: {.callout-tip appearance="simple" collapse="true" icon=false}
 :::: {#exr-indexing_numpy}
 
 ## Indexing in `numpy` or slicing
