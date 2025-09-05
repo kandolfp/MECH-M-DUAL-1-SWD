@@ -4,7 +4,7 @@ The notes presented here are still under construction and can change without war
 
 # Preface {.unnumbered}
 
-These are the lecture notes for the _Softwaredesign_ class part of the _MCI | The Entrepreneurial School_ master for [Mechatronik - Automation, Robotics & AI](https://www.mci.edu/de/studium/master/mechatronik-automation-robotics-ai#im_studium) in the winter term 2024/25.
+These are the lecture notes for the _Softwaredesign_ class part of the _MCI | The Entrepreneurial School_ master for [Mechatronik - Automation, Robotics & AI](https://www.mci.edu/de/studium/master/mechatronik-automation-robotics-ai#im_studium) in the winter term 2025/26, they are a revised version of the previous year.
 
 # Acknowledgements {.unnumbered}
 
@@ -14,5 +14,7 @@ Individual sources are cited at the appropriate spot throughout document at hand
 We want to thank Mirjam Ziselsberger for testing, checking, suggestions and general proofreading.
 We also want to thank Elias Tappeiner from the Department of _Biomedizinische Bildanalyse
 UMIT, Hall in Tirol, Österreich_ for his slides on Git.
+
+Furthermore, the students of the class in the winter term 2024/25 helped to improve the notes due to their feedback and providing issues.
 
 These notes are built with [Quarto](https://quarto.org/).
