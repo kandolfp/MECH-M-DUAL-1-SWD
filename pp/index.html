@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Containerization – Softwaredesign</title>
+<title>Programming paradigms – Softwaredesign</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -30,8 +50,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../containerization/docker.html" rel="next">
-<link href="../errorhandling/cicd.html" rel="prev">
+<link href="../pp/oop.html" rel="next">
+<link href="../basics/epilogue.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -46,9 +66,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-d2b0d12b45c08fc6e02230f9c3d12f5b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark-7ee7f6d30a8146128559a2974676ffe3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../site_libs/bootstrap/bootstrap-d2b0d12b45c08fc6e02230f9c3d12f5b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
-<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -251,7 +268,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../containerization/index.html">Containerization</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pp/index.html">Programming paradigms</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -334,7 +351,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../pp/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../pp/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Programming paradigms</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -421,7 +438,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../containerization/index.html" class="sidebar-item-text sidebar-link active">
+            <a href="../containerization/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Containerization</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -476,17 +493,8 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#virtualisation-and-containerisation" id="toc-virtualisation-and-containerisation" class="nav-link active" data-scroll-target="#virtualisation-and-containerisation">Virtualisation and containerisation</a></li>
-  <li><a href="#virtualisation" id="toc-virtualisation" class="nav-link" data-scroll-target="#virtualisation">Virtualisation</a></li>
-  <li><a href="#containerisation" id="toc-containerisation" class="nav-link" data-scroll-target="#containerisation">Containerisation</a></li>
-  <li><a href="#different-container-solutions" id="toc-different-container-solutions" class="nav-link" data-scroll-target="#different-container-solutions">Different container solutions</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/containerization/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -494,7 +502,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Containerization</h1>
+<h1 class="title">Programming paradigms</h1>
 </div>
 
 
@@ -511,143 +519,56 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>In this section we are going to talk about <em>containerisation</em> but before we can do that let us discuss some common issues in (scientific) computing that will give rise to why containerization is an important issue.</p>
-<section id="you-need-a-different-softwarelibrary-than-installed" class="level4">
-<h4 class="anchored" data-anchor-id="you-need-a-different-softwarelibrary-than-installed">You need a different software/library than installed</h4>
-<p>Quite often the software that is installed on a machine that you have access to or are allowed to work with does not have the specific library, software, software version that you need to work with. Even more often you do not have the rights to install software at your own freedom on the machine and the admin takes quite long to install what you need.</p>
-</section>
-<section id="you-need-to-assure-reproducibility-i.e.reproducible-science" class="level4">
-<h4 class="anchored" data-anchor-id="you-need-to-assure-reproducibility-i.e.reproducible-science">You need to assure reproducibility (i.e.~reproducible science)</h4>
-<p>Another frequent scenario is that you should always be able to reproduce your results. This means that you need to be able to run the same experiments two, three or twenty years later. Some reasons for this are:</p>
+<p>There exists a multitude of different programming paradigms. This is due to the fact that different problems require different ways of thinking and here programming paradigms can help. Quite often programming languages reflect certain programming paradigms but modern languages often support a <em>multi-paradigm</em> approach and therefore we can use different styles in the language. This is the case for Python.</p>
+<p>So far we have followed mainly the <em>imperative</em> model:</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In imperative programming, the code directly determines/controls the flow of the execution and explicit statements change the state of a program.</p>
+</div>
+</div>
+<p>Imperative programming has a couple of subgenres that we will explore in time:</p>
 <ul>
-<li>a client gets an error and you need to verify it with the version this client has</li>
-<li>you switch operating system</li>
-<li>the review process for a paper takes longer</li>
-<li>you need to update a library or switch to a new library and you need to verify your results</li>
-<li>you now work with library version <em>x</em> but you need to regenerate some input variable that still use version <em>y</em></li>
-<li>you need to make sure that on <em>machine a</em> and <em>machine b</em> the results are the same</li>
+<li><em>structured programming</em> when we use constructs like <code>if</code> and <code>for</code></li>
+<li><em>procedural programming</em> when we with procedures/functions that call each other</li>
+<li><em>modular programming</em> when we combine logical structures into modules and include this into our</li>
+<li><em>object oriented programming</em> when we organise our code with objects that contain data structures and associated behaviour.</li>
 </ul>
-</section>
-<section id="i-need-specific-software-dependencies-dependency-hell" class="level4">
-<h4 class="anchored" data-anchor-id="i-need-specific-software-dependencies-dependency-hell">I need specific software dependencies (dependency hell)</h4>
-<p>If you haven not run into this problem by now you are either new to programming or just plain and simple lucky.</p>
-<p>In programming languages like Python or Julia you usually work with a multitude of libraries depending on your needs. It will come as no surprise to you that most of these libraries again depend on other libraries. This vast ecosystem is constantly growing and quickly <em>library a</em> will depend on <em>library b</em> with <em>version y</em> while <em>library c</em> needs <em>version z</em> of <em>library b</em>. As you can see it is already confusing to write down so actually sorting it out on your system is even more difficult. While modern package managers have become better at this you will often still run into the so called <em>dependency hell</em>.<br>
-Now consider that most likely your code will start to have these issues as well if you move from one version of a library to the next and combine it with the above paint.</p>
-</section>
-<section id="you-need-to-run-software-compiled-for-x-but-run-y" class="level4">
-<h4 class="anchored" data-anchor-id="you-need-to-run-software-compiled-for-x-but-run-y">You need to run software compiled for X but run Y</h4>
-<p>If you are running a windows machine but need to run some Linux software as there is no Windows version available. Or maybe you have a new Apple with an Mx chip and still want to use some software that is compiled for x86.</p>
-</section>
-<section id="you-need-to-test-your-software-for-x-but-you-run-y" class="level4">
-<h4 class="anchored" data-anchor-id="you-need-to-test-your-software-for-x-but-you-run-y">You need to test your software for X but you run Y</h4>
-<p>Maybe you are developing software on Windows but it should also run on Linux but it should also work on Android iOS and so forth.</p>
-</section>
-<section id="you-have-no-rights-to-install-software-but-you-can-run-jobs-high-performance-computing" class="level4">
-<h4 class="anchored" data-anchor-id="you-have-no-rights-to-install-software-but-you-can-run-jobs-high-performance-computing">You have no rights to install software but you can run jobs (High Performance Computing)</h4>
-<p>When you have a massive workload that requires a multitude of CPUs, GPUs, or simply runs for quite a long time you do not want to do this on your own computer as it will limit your work experience significantly for everything else. Here dedicated servers or High Performance Computing infrastructure becomes useful as it can provide you with these resources. On most of these systems you will not be allowed to install software randomly and the admins will also not be able to provide you with every wish.</p>
-</section>
-<section id="you-need-to-share-your-software-but-how" class="level4">
-<h4 class="anchored" data-anchor-id="you-need-to-share-your-software-but-how">You need to share your software but how?</h4>
-<p>Let us assume you created some nice data processing pipeline and you want to make it available to others. Sure everybody can install the same environment that you have and run the code but you will get a lot of calls because something is not working. Often the colleagues work on other operating systems and you barely know how you got it to run on your machine.</p>
-</section>
-<section id="you-need-to-archive-a-working-version-limited" class="level4">
-<h4 class="anchored" data-anchor-id="you-need-to-archive-a-working-version-limited">You need to archive a working version (limited)</h4>
-<p>This is something that you already came across in the context of <em>git</em> but let us consider you have some old data that can only be processed with a specific version of your software, how do you keep that software alive over a long period of time?</p>
-</section>
-<section id="legacy-code-on-old-os" class="level4">
-<h4 class="anchored" data-anchor-id="legacy-code-on-old-os">Legacy code on old OS</h4>
-<p>Maybe you have some code that is only working on some old operating system but from a security point of view you can no longer run this system for your daily work and you only need it for some specific task that you need maybe once a month.</p>
-<p>In the above scenarios (and more) virtualisation or containerisation can help. So what is this and what are the differences?</p>
-</section>
-<section id="virtualisation-and-containerisation" class="level2">
-<h2 class="anchored" data-anchor-id="virtualisation-and-containerisation">Virtualisation and containerisation</h2>
-<p>Your computer or <em>physical machine</em> is organised approximately like in <a href="#fig-containerization-pm" class="quarto-xref">Figure&nbsp;<span>1</span></a>.</p>
-<div id="fig-containerization-pm" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-containerization-pm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../_assets/containerization/physical_machine.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Organisation of process on a machine."><img src="../_assets/containerization/physical_machine.svg" class="img-fluid figure-img"></a>
+<p>We introduce these concepts in the progress of this class where <a href="../pp/oop.html">Object Oriented Programming</a> has its own section.</p>
+<p>A second model that is often used is call <em>declarative</em>:</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-containerization-pm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Organisation of process on a machine.
-</figcaption>
-</figure>
+<div class="callout-title-container flex-fill">
+Note
 </div>
-<p>As virtualisation and containerisation is something that lives next to this the prefix <em>host</em> is used to make sure everybody knows what we are talking about.</p>
-<p>Starting from the bottom you have some hardware. This is your CPU, various levels and layers of storage, your network device, keyboard, monitor, and so forth.</p>
-<p>The <em>host kernel</em> is mainly the operating system. It provides you with a standardized interface to the hardware so you do not need to use different programs depending on the brand of monitor you use.</p>
-<p>The <em>host process</em> is what you mainly interface with on a computer. This could be MS Word, you favourite internet browser or music player, in short applications are made up of processes.</p>
-</section>
-<section id="virtualisation" class="level2">
-<h2 class="anchored" data-anchor-id="virtualisation">Virtualisation</h2>
-<p>Now you can run some virtualisation on your machine. As the name suggests it will provide a virtual environment. For example <a href="https://www.virtualbox.org/">Virtual Box</a> is a widely used way to bring Linux to your Windows machine or the other way around. This way you only need set of hardware but have the possibilities of different operation systems available to you. This looks something like the following</p>
-<div id="fig-containerization-vm" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-containerization-vm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../_assets/containerization/virtual_machine.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: Organisation of process within a virtual machine."><img src="../_assets/containerization/virtual_machine.svg" class="img-fluid figure-img"></a>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-containerization-vm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Organisation of process within a virtual machine.
-</figcaption>
-</figure>
+<div class="callout-body-container callout-body">
+<p>In declarative programming, the code declares the desired result but not how to compute it. It describes what computation should be performed without specifying detailed state changes.</p>
 </div>
-<p>From the view of the <em>host</em> the entire virtualisation is one (or more) <em>guest processes</em>, illustrated above by the <span style="color: #2f9e44;">green box</span>.</p>
-<p>The <span style="color: #fa5252;"><em>hypervisor</em></span> is translating between the <em>host kernel</em> and the virtual hardware that is needed for the <span style="color: #fa5252;"><em>guest kernel</em></span>. This means, the <em>guest kernel</em> is seeing its own set of hardware (CPU, GPU, Keyboard, and so forth). Quite often you can for example decide if a connected USB Drive is used by the guest or the host. On top of the <em>hypervisor</em> everything is the same as on the host. This also means you use up resources to provide this.</p>
-</section>
-<section id="containerisation" class="level2">
-<h2 class="anchored" data-anchor-id="containerisation">Containerisation</h2>
-<p>Now containerisation is a operating system based virtualisation.</p>
-<div id="fig-containerization-container" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-containerization-container-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../_assets/containerization/container_machine.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: Organisation of process within a container."><img src="../_assets/containerization/container_machine.svg" class="img-fluid figure-img"></a>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-containerization-container-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: Organisation of process within a container.
-</figcaption>
-</figure>
-</div>
-<p>You have a specific <span style="color: #fa5252;"><em>runtime</em></span> but not a second kernel. The runtime takes care of the separation on the level of namespaces. We only discuss Linux containers in this detail and do not guarantee that Windows containers use a different mechanism. Namespaces are a mechanism of the kernel that separates or <em>partitions</em> resources such that different processes use different set of resources. For examples, the container might only see 4 of your 16 CPUs, no network drive, can only use 2 GB of main storage and so forth. This separation also makes sure that there is no leakage of information from one process to the other. You can also have a different set of rights or run as a different user. Other than with a virtualisation the <em>host kernel</em> is used and also the <em>host hardware</em> if is allowed via the namespace configuration.</p>
-</section>
-<section id="different-container-solutions" class="level2">
-<h2 class="anchored" data-anchor-id="different-container-solutions">Different container solutions</h2>
-<p>The containerisation started with <a href="https://docs.docker.com/">Docker</a>. Nowadays, there are a different solutions available with a different focus and different set of functionalities:</p>
-<ol type="1">
-<li><a href="https://opencontainers.org/">Open Container Initiative</a> for example <a href="https://podman.io/">Podman</a>
-<ul>
-<li>open industry standards for container format &amp; runtime</li>
-<li>Allows for a daemon-less container engine for running OCI containers (root or rootless)</li>
-</ul></li>
-<li><a href="https://apptainer.org/">AppTainer</a> - formally know as Singularity.
-<ul>
-<li>designed for HPC</li>
-<li>uses Linux namespaces but leaves resource limitations to the batch system</li>
-<li>feels like running a program</li>
-<li>allows access to <em>all</em> host resources</li>
-<li>runs in the user namespace</li>
-</ul></li>
-<li><a href="https://docs.docker.com/">Docker</a>
-<ul>
-<li>based on Linux namespaces and resource limitations</li>
-<li>client server model (<em>dockerd</em>)</li>
-<li>typical <em>microservices</em> (see <a href="https://docs.docker.com/compose/">docker-compose</a> for a swarm)</li>
-<li>very popular with a huge collection on dockerhub</li>
-</ul></li>
-</ol>
-<p>If you want to fully understand what a container actually is it is very instructive to have a look at this video by <a href="https://www.lizrice.com/">Liz Rice</a> <em>Learn how to code a container using Go code</em>.</p>
-<div id="fig-containerization-video" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-containerization-video-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/8fi7uSYlOdc" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-containerization-video-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4: Containers From Scratch by Liz Rice.
-</figcaption>
-</figure>
-</div>
-<p>Our focus will be on Docker.</p>
+<p>The most common of these is <em>functional programming</em> where the concept of mathematical functions is used to declare the desired result as a series of function evaluations and it avoids state and mutable data.</p>
+<p>We are also going to investigate the possibilities Python provides here in a dedicated chapter, <a href="../pp/fp.html">functional programming</a>, but list comprehension and recursion are some of the main features.</p>
+<p>A comprehensive guide to these concepts can be found in <span class="citation" data-cites="Van_Roy2004-li">Van Roy and Haridi (<a href="../references.html#ref-Van_Roy2004-li" role="doc-biblioref">2004</a>)</span> and in the article <span class="citation" data-cites="Vasiliev2022">Vasiliev (<a href="../references.html#ref-Vasiliev2022" role="doc-biblioref">2022</a>)</span>.</p>
 
 
-</section>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-Van_Roy2004-li" class="csl-entry" role="listitem">
+Van Roy, Peter, and Seif Haridi. 2004. <em>Concepts, Techniques, and Models of Computer Programming</em>. The MIT Press. London, England: MIT Press.
+</div>
+<div id="ref-Vasiliev2022" class="csl-entry" role="listitem">
+Vasiliev, Yuli. 2022. <em>Python for Data Science - a Hands-on Introduction</em>. München: No Starch Press.
+</div>
+</div>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1064,13 +985,13 @@ Figure&nbsp;4: Containers From Scratch by Liz Rice.
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../errorhandling/cicd.html" class="pagination-link" aria-label="CI/CD">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">CI/CD</span></span>
+      <a href="../basics/epilogue.html" class="pagination-link" aria-label="Dependency and reproducibility">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Dependency and reproducibility</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../containerization/docker.html" class="pagination-link" aria-label="Docker">
-        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Docker</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../pp/oop.html" class="pagination-link" aria-label="Object Oriented Programming">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Object Oriented Programming</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1082,44 +1003,12 @@ Figure&nbsp;4: Containers From Scratch by Liz Rice.
 </div>   
     <div class="nav-footer-center">
 <p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> Peter Kandolf</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/containerization/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/pp/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
-(function() {
-  let previousOnload = window.onload;
-  window.onload = () => {
-    if (previousOnload) {
-      previousOnload();
-    }
-    lightboxQuarto.on('slide_before_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      const href = trigger.getAttribute('href');
-      if (href !== null) {
-        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-        if (imgEl !== null) {
-          const srcAttr = imgEl.getAttribute("src");
-          if (srcAttr && srcAttr.startsWith("data:")) {
-            slideConfig.href = srcAttr;
-          }
-        }
-      } 
-    });
-  
-    lightboxQuarto.on('slide_after_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(slideNode);
-      }
-    });
-  
-  };
-  
-})();
-          </script>
 
 
 

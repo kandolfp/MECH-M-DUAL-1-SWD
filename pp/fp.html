@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Containerization – Softwaredesign</title>
+<title>6&nbsp; Functional Programming – Softwaredesign</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +65,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../containerization/docker.html" rel="next">
-<link href="../errorhandling/cicd.html" rel="prev">
+<link href="../sc/index.html" rel="next">
+<link href="../pp/oop.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -46,9 +81,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-d2b0d12b45c08fc6e02230f9c3d12f5b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark-7ee7f6d30a8146128559a2974676ffe3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../site_libs/bootstrap/bootstrap-d2b0d12b45c08fc6e02230f9c3d12f5b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
-<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -77,6 +109,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -251,7 +312,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../containerization/index.html">Containerization</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pp/index.html">Programming paradigms</a></li><li class="breadcrumb-item"><a href="../pp/fp.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Functional Programming</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -349,7 +410,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../pp/fp.html" class="sidebar-item-text sidebar-link">
+  <a href="../pp/fp.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Functional Programming</span></span></a>
   </div>
 </li>
@@ -421,7 +482,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../containerization/index.html" class="sidebar-item-text sidebar-link active">
+            <a href="../containerization/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Containerization</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -481,20 +542,22 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#virtualisation-and-containerisation" id="toc-virtualisation-and-containerisation" class="nav-link active" data-scroll-target="#virtualisation-and-containerisation">Virtualisation and containerisation</a></li>
-  <li><a href="#virtualisation" id="toc-virtualisation" class="nav-link" data-scroll-target="#virtualisation">Virtualisation</a></li>
-  <li><a href="#containerisation" id="toc-containerisation" class="nav-link" data-scroll-target="#containerisation">Containerisation</a></li>
-  <li><a href="#different-container-solutions" id="toc-different-container-solutions" class="nav-link" data-scroll-target="#different-container-solutions">Different container solutions</a></li>
+  <li><a href="#sec-fpp" id="toc-sec-fpp" class="nav-link active" data-scroll-target="#sec-fpp"><span class="header-section-number">6.1</span> Functional programming in Python</a>
+  <ul class="collapse">
+  <li><a href="#recursion" id="toc-recursion" class="nav-link" data-scroll-target="#recursion"><span class="header-section-number">6.1.1</span> Recursion</a></li>
+  <li><a href="#built-in-functions" id="toc-built-in-functions" class="nav-link" data-scroll-target="#built-in-functions"><span class="header-section-number">6.1.2</span> Built-in functions</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">6.2</span> References</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/containerization/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/pp/fp.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pp/index.html">Programming paradigms</a></li><li class="breadcrumb-item"><a href="../pp/fp.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Functional Programming</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Containerization</h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Functional Programming</span></h1>
 </div>
 
 
@@ -511,140 +574,216 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>In this section we are going to talk about <em>containerisation</em> but before we can do that let us discuss some common issues in (scientific) computing that will give rise to why containerization is an important issue.</p>
-<section id="you-need-a-different-softwarelibrary-than-installed" class="level4">
-<h4 class="anchored" data-anchor-id="you-need-a-different-softwarelibrary-than-installed">You need a different software/library than installed</h4>
-<p>Quite often the software that is installed on a machine that you have access to or are allowed to work with does not have the specific library, software, software version that you need to work with. Even more often you do not have the rights to install software at your own freedom on the machine and the admin takes quite long to install what you need.</p>
-</section>
-<section id="you-need-to-assure-reproducibility-i.e.reproducible-science" class="level4">
-<h4 class="anchored" data-anchor-id="you-need-to-assure-reproducibility-i.e.reproducible-science">You need to assure reproducibility (i.e.~reproducible science)</h4>
-<p>Another frequent scenario is that you should always be able to reproduce your results. This means that you need to be able to run the same experiments two, three or twenty years later. Some reasons for this are:</p>
+<p>Functional programming is a programming paradigm or way of developing software. The main idea is to work with functions that operate on their input and produce some output and are in this sense deterministic. This implies that side effects are not wanted and are therefore strongly discouraged. A side effect is something that modifies some <em>internal state</em> or some other change that is not visible in the output/return value of the function.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If we have no side effects we do not use data structures that are updated while running the program.</p>
+<p>This also means, functions like <code>print()</code> or <code>time.sleep()</code> that are purely called for there side effect (showing text on the screen, pausing execution for some time), are not allowed.</p>
+</div>
+</div>
+<p>There are some advantages to functional programming:</p>
 <ul>
-<li>a client gets an error and you need to verify it with the version this client has</li>
-<li>you switch operating system</li>
-<li>the review process for a paper takes longer</li>
-<li>you need to update a library or switch to a new library and you need to verify your results</li>
-<li>you now work with library version <em>x</em> but you need to regenerate some input variable that still use version <em>y</em></li>
-<li>you need to make sure that on <em>machine a</em> and <em>machine b</em> the results are the same</li>
+<li>formal provability - it is easy to construct a (mathematical) proof that a function is correct.</li>
+<li>modularity - a program needs to be split up into smaller parts, resulting in a modular design by default.</li>
+<li>composability - functions can easily be reused in other contexts, e.g.&nbsp;mathematical functions like <code>exp</code> or <code>sin</code>.</li>
+<li>testing and debugging - as the output of each function only depends on the input it is easy to debug and test the code.</li>
 </ul>
-</section>
-<section id="i-need-specific-software-dependencies-dependency-hell" class="level4">
-<h4 class="anchored" data-anchor-id="i-need-specific-software-dependencies-dependency-hell">I need specific software dependencies (dependency hell)</h4>
-<p>If you haven not run into this problem by now you are either new to programming or just plain and simple lucky.</p>
-<p>In programming languages like Python or Julia you usually work with a multitude of libraries depending on your needs. It will come as no surprise to you that most of these libraries again depend on other libraries. This vast ecosystem is constantly growing and quickly <em>library a</em> will depend on <em>library b</em> with <em>version y</em> while <em>library c</em> needs <em>version z</em> of <em>library b</em>. As you can see it is already confusing to write down so actually sorting it out on your system is even more difficult. While modern package managers have become better at this you will often still run into the so called <em>dependency hell</em>.<br>
-Now consider that most likely your code will start to have these issues as well if you move from one version of a library to the next and combine it with the above paint.</p>
-</section>
-<section id="you-need-to-run-software-compiled-for-x-but-run-y" class="level4">
-<h4 class="anchored" data-anchor-id="you-need-to-run-software-compiled-for-x-but-run-y">You need to run software compiled for X but run Y</h4>
-<p>If you are running a windows machine but need to run some Linux software as there is no Windows version available. Or maybe you have a new Apple with an Mx chip and still want to use some software that is compiled for x86.</p>
-</section>
-<section id="you-need-to-test-your-software-for-x-but-you-run-y" class="level4">
-<h4 class="anchored" data-anchor-id="you-need-to-test-your-software-for-x-but-you-run-y">You need to test your software for X but you run Y</h4>
-<p>Maybe you are developing software on Windows but it should also run on Linux but it should also work on Android iOS and so forth.</p>
-</section>
-<section id="you-have-no-rights-to-install-software-but-you-can-run-jobs-high-performance-computing" class="level4">
-<h4 class="anchored" data-anchor-id="you-have-no-rights-to-install-software-but-you-can-run-jobs-high-performance-computing">You have no rights to install software but you can run jobs (High Performance Computing)</h4>
-<p>When you have a massive workload that requires a multitude of CPUs, GPUs, or simply runs for quite a long time you do not want to do this on your own computer as it will limit your work experience significantly for everything else. Here dedicated servers or High Performance Computing infrastructure becomes useful as it can provide you with these resources. On most of these systems you will not be allowed to install software randomly and the admins will also not be able to provide you with every wish.</p>
-</section>
-<section id="you-need-to-share-your-software-but-how" class="level4">
-<h4 class="anchored" data-anchor-id="you-need-to-share-your-software-but-how">You need to share your software but how?</h4>
-<p>Let us assume you created some nice data processing pipeline and you want to make it available to others. Sure everybody can install the same environment that you have and run the code but you will get a lot of calls because something is not working. Often the colleagues work on other operating systems and you barely know how you got it to run on your machine.</p>
-</section>
-<section id="you-need-to-archive-a-working-version-limited" class="level4">
-<h4 class="anchored" data-anchor-id="you-need-to-archive-a-working-version-limited">You need to archive a working version (limited)</h4>
-<p>This is something that you already came across in the context of <em>git</em> but let us consider you have some old data that can only be processed with a specific version of your software, how do you keep that software alive over a long period of time?</p>
-</section>
-<section id="legacy-code-on-old-os" class="level4">
-<h4 class="anchored" data-anchor-id="legacy-code-on-old-os">Legacy code on old OS</h4>
-<p>Maybe you have some code that is only working on some old operating system but from a security point of view you can no longer run this system for your daily work and you only need it for some specific task that you need maybe once a month.</p>
-<p>In the above scenarios (and more) virtualisation or containerisation can help. So what is this and what are the differences?</p>
-</section>
-<section id="virtualisation-and-containerisation" class="level2">
-<h2 class="anchored" data-anchor-id="virtualisation-and-containerisation">Virtualisation and containerisation</h2>
-<p>Your computer or <em>physical machine</em> is organised approximately like in <a href="#fig-containerization-pm" class="quarto-xref">Figure&nbsp;<span>1</span></a>.</p>
-<div id="fig-containerization-pm" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-containerization-pm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../_assets/containerization/physical_machine.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Organisation of process on a machine."><img src="../_assets/containerization/physical_machine.svg" class="img-fluid figure-img"></a>
+<p>With all this in mind, functional programming is often considered the opposite of object oriented programming, where we mainly manipulate the state of an object. Nevertheless, we can also combine the two concepts if need arises. In fact, we already have.</p>
+<p>In Python we can use functional programming but most of the time not in the strictest sense. For example we will use assignment to a local function but no modify global variables.</p>
+<section id="sec-fpp" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="sec-fpp"><span class="header-section-number">6.1</span> Functional programming in Python</h2>
+<p>To explain the concept of functional programming in python we introduce some of the basic concepts and functions provide in the language.</p>
+<section id="recursion" class="level3" data-number="6.1.1">
+<h3 data-number="6.1.1" class="anchored" data-anchor-id="recursion"><span class="header-section-number">6.1.1</span> Recursion</h3>
+<p>Programming a recursive function is one of the easiest ways to show a function that follows functional programming.</p>
+<div class="callout callout-style-simple callout-none no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-containerization-pm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Organisation of process on a machine.
-</figcaption>
-</figure>
+<div class="callout-body-container">
+<div id="def-factorial" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 6.1 (Factorial)</strong></span> For a natural number <span class="math inline">\(n\)</span> the <em>factorial</em> is the products of all numbers from <span class="math inline">\(1\)</span> to <span class="math inline">\(n\)</span>: <span class="math display">\[
+n! = \prod_{k=1}^n k = 1 \cdot 2 \cdot 3 \cdots n,\quad 0! = 1,
+\]</span></p>
+<p>and in a recursive fashion</p>
+<p><span class="math display">\[
+n! = \begin{cases} 1, &amp; n=0\\
+                   n \cdot (n-1)!, &amp; n &gt; 0.
+    \end{cases}
+\]</span></p>
 </div>
-<p>As virtualisation and containerisation is something that lives next to this the prefix <em>host</em> is used to make sure everybody knows what we are talking about.</p>
-<p>Starting from the bottom you have some hardware. This is your CPU, various levels and layers of storage, your network device, keyboard, monitor, and so forth.</p>
-<p>The <em>host kernel</em> is mainly the operating system. It provides you with a standardized interface to the hardware so you do not need to use different programs depending on the brand of monitor you use.</p>
-<p>The <em>host process</em> is what you mainly interface with on a computer. This could be MS Word, you favourite internet browser or music player, in short applications are made up of processes.</p>
+</div>
+</div>
+</div>
+<p>We can translate <a href="#def-factorial" class="quarto-xref">Definition&nbsp;<span>6.1</span></a> into a Python program as.</p>
+<div id="f754243c" class="cell styled-output" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> factorial(n):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">1</span> <span class="cf">if</span> n <span class="op">&lt;=</span> <span class="dv">0</span> <span class="cf">else</span> n <span class="op">*</span> factorial(n <span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>factorial(<span class="dv">3</span>) <span class="op">=</span> <span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>factorial(<span class="dv">5</span>) <span class="op">=</span> <span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>factorial(3) = 6
+factorial(5) = 120</code></pre>
+</div>
+</div>
+<p>We can see, that the function <code>factorial</code> purely depends on the input <code>n</code> and is fully determined by this number.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>As Python is not (strongly) typed and therefore the above function can not be restricted to <code>int</code> or even better a natural number. We can work with type hints and validators to keep this in check if needed.</p>
+<p>Note, there is a <em>limit</em> to the number of function calls that can be stored in the stack, therefore the recursion is limited.</p>
+</div>
+</div>
 </section>
-<section id="virtualisation" class="level2">
-<h2 class="anchored" data-anchor-id="virtualisation">Virtualisation</h2>
-<p>Now you can run some virtualisation on your machine. As the name suggests it will provide a virtual environment. For example <a href="https://www.virtualbox.org/">Virtual Box</a> is a widely used way to bring Linux to your Windows machine or the other way around. This way you only need set of hardware but have the possibilities of different operation systems available to you. This looks something like the following</p>
-<div id="fig-containerization-vm" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-containerization-vm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../_assets/containerization/virtual_machine.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: Organisation of process within a virtual machine."><img src="../_assets/containerization/virtual_machine.svg" class="img-fluid figure-img"></a>
+<section id="built-in-functions" class="level3" data-number="6.1.2">
+<h3 data-number="6.1.2" class="anchored" data-anchor-id="built-in-functions"><span class="header-section-number">6.1.2</span> Built-in functions</h3>
+<p>A lot of the functions (or functionality) we use in <em>set, list and dictionary comprehensions</em> (see <a href="../sss/sss1.html#exr-comprehensions" class="quarto-xref">Exercise&nbsp;<span>A.10</span></a>) are from functional programming.</p>
+<p>One of the basic concepts employed there is the <a href="https://docs.python.org/3/glossary.html#term-iterator">iterator</a>. An iterator is an object (as we stated, paradigms are mixed) that returns data one element at the time. This is used in</p>
+<div id="26ff0575" class="cell styled-output" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">5</span>):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1
+2
+3
+4</code></pre>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-containerization-vm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Organisation of process within a virtual machine.
-</figcaption>
-</figure>
 </div>
-<p>From the view of the <em>host</em> the entire virtualisation is one (or more) <em>guest processes</em>, illustrated above by the <span style="color: #2f9e44;">green box</span>.</p>
-<p>The <span style="color: #fa5252;"><em>hypervisor</em></span> is translating between the <em>host kernel</em> and the virtual hardware that is needed for the <span style="color: #fa5252;"><em>guest kernel</em></span>. This means, the <em>guest kernel</em> is seeing its own set of hardware (CPU, GPU, Keyboard, and so forth). Quite often you can for example decide if a connected USB Drive is used by the guest or the host. On top of the <em>hypervisor</em> everything is the same as on the host. This also means you use up resources to provide this.</p>
+<p>where the loop depends on <code>range</code> providing the iterator interface, mainly the method <code>__next__()</code>. The built-in function <code>iter()</code> tries to provide an iterator for its argument. We call an object <a href="https://docs.python.org/3/glossary.html#term-iterable">iterable</a> if an iterator can be provided for it.</p>
+<p>Next to comprehensions iterators are also quite useful in connection with <code>map</code>, <code>filter</code>, and <code>reduce</code>. These functions are provided in <a href="https://docs.python.org/3/library/functions.html"><code>functools</code></a> together with a lot more useful functions.</p>
+<section id="anonymous-functions" class="level4" data-number="6.1.2.1">
+<h4 data-number="6.1.2.1" class="anchored" data-anchor-id="anonymous-functions"><span class="header-section-number">6.1.2.1</span> Anonymous functions</h4>
+<p>Before we look into how to use these concepts we introduce anonymous functions. It is often useful to define a function without giving it a proper name. This is done with the keyword <code>lambda</code> inspired by the <a href="https://en.wikipedia.org/wiki/Lambda_calculus"><em>lambda calculus</em></a>. The syntax is straight forward.</p>
+<div id="b10d55e4" class="cell styled-output" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>square <span class="op">=</span> <span class="kw">lambda</span> a: a <span class="op">**</span> <span class="dv">2</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>square(<span class="dv">2</span>) <span class="op">=</span> <span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>square(<span class="op">-</span><span class="dv">1</span>) <span class="op">=</span> <span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>square(2) = 4
+square(-1) = 1</code></pre>
+</div>
+</div>
 </section>
-<section id="containerisation" class="level2">
-<h2 class="anchored" data-anchor-id="containerisation">Containerisation</h2>
-<p>Now containerisation is a operating system based virtualisation.</p>
-<div id="fig-containerization-container" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-containerization-container-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../_assets/containerization/container_machine.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: Organisation of process within a container."><img src="../_assets/containerization/container_machine.svg" class="img-fluid figure-img"></a>
+<section id="map" class="level4" data-number="6.1.2.2">
+<h4 data-number="6.1.2.2" class="anchored" data-anchor-id="map"><span class="header-section-number">6.1.2.2</span> Map</h4>
+<p>Now, <code>map</code> is used to apply a function to something iterable and returns a new iterator that applies function to the result of <code>next()</code>.</p>
+<div id="3ed42c73" class="cell styled-output" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>iterator <span class="op">=</span> <span class="bu">map</span>(square, <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">5</span>))</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> iterator:</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1
+4
+9
+16</code></pre>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-containerization-container-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: Organisation of process within a container.
-</figcaption>
-</figure>
 </div>
-<p>You have a specific <span style="color: #fa5252;"><em>runtime</em></span> but not a second kernel. The runtime takes care of the separation on the level of namespaces. We only discuss Linux containers in this detail and do not guarantee that Windows containers use a different mechanism. Namespaces are a mechanism of the kernel that separates or <em>partitions</em> resources such that different processes use different set of resources. For examples, the container might only see 4 of your 16 CPUs, no network drive, can only use 2 GB of main storage and so forth. This separation also makes sure that there is no leakage of information from one process to the other. You can also have a different set of rights or run as a different user. Other than with a virtualisation the <em>host kernel</em> is used and also the <em>host hardware</em> if is allowed via the namespace configuration.</p>
 </section>
-<section id="different-container-solutions" class="level2">
-<h2 class="anchored" data-anchor-id="different-container-solutions">Different container solutions</h2>
-<p>The containerisation started with <a href="https://docs.docker.com/">Docker</a>. Nowadays, there are a different solutions available with a different focus and different set of functionalities:</p>
-<ol type="1">
-<li><a href="https://opencontainers.org/">Open Container Initiative</a> for example <a href="https://podman.io/">Podman</a>
+<section id="filter" class="level4" data-number="6.1.2.3">
+<h4 data-number="6.1.2.3" class="anchored" data-anchor-id="filter"><span class="header-section-number">6.1.2.3</span> Filter</h4>
+<p>The next function that comes in handy is <code>filter</code>. It can be used to only return certain elements from an iterator.</p>
+<div id="ad78a87d" class="cell styled-output" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>is_even <span class="op">=</span> <span class="kw">lambda</span> x: (x <span class="op">%</span> <span class="dv">2</span>) <span class="op">==</span> <span class="dv">0</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>even <span class="op">=</span> <span class="bu">filter</span>(is_even, <span class="bu">range</span>(<span class="dv">10</span>))</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="bu">list</span>(even) <span class="op">=</span> <span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># This is equivalent to </span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>even <span class="op">=</span> <span class="bu">list</span>(x <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>) <span class="cf">if</span> is_even(x))</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>even <span class="op">=</span> <span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co"># For the odd elements</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>odd <span class="op">=</span> <span class="bu">list</span>(x <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>) <span class="cf">if</span> <span class="kw">not</span> is_even(x))</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>odd <span class="op">=</span> <span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>list(even) = [0, 2, 4, 6, 8]
+even = [0, 2, 4, 6, 8]
+odd = [1, 3, 5, 7, 9]</code></pre>
+</div>
+</div>
+<p>In order to allow filter to work we actually do not need to return <code>True</code> or <code>False</code> but just something that Python interprets in that fashion. For example, we can filter all empty strings from a list of strings in the following fashion</p>
+<div id="d6322db2" class="cell styled-output" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>strings <span class="op">=</span> [<span class="st">""</span>, <span class="st">"Something"</span>, <span class="st">"something"</span>, <span class="st">""</span>, <span class="st">"dark"</span>, <span class="st">" "</span>, <span class="st">"side"</span>, <span class="st">" "</span>]</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>sentence <span class="op">=</span> <span class="st">" "</span>.join(<span class="bu">filter</span>(<span class="kw">lambda</span> s: s.strip(), strings))</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sentence)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Something something dark side</code></pre>
+</div>
+</div>
+</section>
+<section id="reduce" class="level4" data-number="6.1.2.4">
+<h4 data-number="6.1.2.4" class="anchored" data-anchor-id="reduce"><span class="header-section-number">6.1.2.4</span> Reduce</h4>
+<p>It is also often useful to <em>reduce</em> an iterable to a single value. This is for example the case of <code>sum</code> or we can also use it to compute the factorial <a href="#def-factorial" class="quarto-xref">Definition&nbsp;<span>6.1</span></a>.</p>
+<p>The <code>reduce</code> function can be found in <code>functools</code> and as we do not want to write the multiplication ourself we can import it from <code>operator</code>. Note, the function provided to <code>reduce</code> must take exactly two arguments.</p>
+<div id="f7df4313" class="cell styled-output" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> functools <span class="im">import</span> <span class="bu">reduce</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> operator <span class="im">import</span> mul</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> factorial_reduce(n):</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">reduce</span>(mul, <span class="bu">range</span>(<span class="dv">1</span>, n <span class="op">+</span> <span class="dv">1</span>))</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>factorial_reduce(<span class="dv">3</span>) <span class="op">=</span> <span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>factorial_reduce(<span class="dv">5</span>) <span class="op">=</span> <span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>factorial_reduce(3) = 6
+factorial_reduce(5) = 120</code></pre>
+</div>
+</div>
+<p>A nice feature of the reduce function is that you can call it with an initial value.</p>
+<div id="a698e21d" class="cell styled-output" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> functools <span class="im">import</span> <span class="bu">reduce</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> operator <span class="im">import</span> add</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="bu">reduce</span>(add, [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], <span class="dv">100</span>) <span class="op">=</span> <span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>reduce(add, [1, 2, 3], 100) = 106</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In contrast to the other functions we discussed, we had to import <code>reduce</code> before we could us it.</p>
+<p>This is due to the fact, that it is not considered to be very <em>Pythonic</em> and therefore it is hidden away.</p>
+</div>
+</div>
+<p>This concludes our introduction to functional programming in python. There are more things to discover, please have a look into the provided references.</p>
+</section>
+</section>
+</section>
+<section id="references" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="references"><span class="header-section-number">6.2</span> References</h2>
+<p>We only provide a glimpse into the concept of functional programming in Python. There are more guides out there, like</p>
 <ul>
-<li>open industry standards for container format &amp; runtime</li>
-<li>Allows for a daemon-less container engine for running OCI containers (root or rootless)</li>
-</ul></li>
-<li><a href="https://apptainer.org/">AppTainer</a> - formally know as Singularity.
-<ul>
-<li>designed for HPC</li>
-<li>uses Linux namespaces but leaves resource limitations to the batch system</li>
-<li>feels like running a program</li>
-<li>allows access to <em>all</em> host resources</li>
-<li>runs in the user namespace</li>
-</ul></li>
-<li><a href="https://docs.docker.com/">Docker</a>
-<ul>
-<li>based on Linux namespaces and resource limitations</li>
-<li>client server model (<em>dockerd</em>)</li>
-<li>typical <em>microservices</em> (see <a href="https://docs.docker.com/compose/">docker-compose</a> for a swarm)</li>
-<li>very popular with a huge collection on dockerhub</li>
-</ul></li>
-</ol>
-<p>If you want to fully understand what a container actually is it is very instructive to have a look at this video by <a href="https://www.lizrice.com/">Liz Rice</a> <em>Learn how to code a container using Go code</em>.</p>
-<div id="fig-containerization-video" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-containerization-video-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/8fi7uSYlOdc" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-containerization-video-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4: Containers From Scratch by Liz Rice.
-</figcaption>
-</figure>
-</div>
-<p>Our focus will be on Docker.</p>
+<li>The Python HowTo guide on functional programming, <a href="https://docs.python.org/3/howto/functional.html">link</a></li>
+<li>A <em>RealPython</em> guide on functional programming, <a href="https://realpython.com/python-functional-programming/">link</a></li>
+<li>A <em>RealPython</em> guide on the <code>filter</code> function, <a href="https://realpython.com/python-filter-function/">link</a></li>
+</ul>
 
 
 </section>
@@ -1064,13 +1203,13 @@ Figure&nbsp;4: Containers From Scratch by Liz Rice.
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../errorhandling/cicd.html" class="pagination-link" aria-label="CI/CD">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">CI/CD</span></span>
+      <a href="../pp/oop.html" class="pagination-link" aria-label="Object Oriented Programming">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Object Oriented Programming</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../containerization/docker.html" class="pagination-link" aria-label="Docker">
-        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Docker</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../sc/index.html" class="pagination-link" aria-label="Scientific Computing">
+        <span class="nav-page-text">Scientific Computing</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1082,44 +1221,12 @@ Figure&nbsp;4: Containers From Scratch by Liz Rice.
 </div>   
     <div class="nav-footer-center">
 <p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> Peter Kandolf</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/containerization/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/pp/fp.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
-(function() {
-  let previousOnload = window.onload;
-  window.onload = () => {
-    if (previousOnload) {
-      previousOnload();
-    }
-    lightboxQuarto.on('slide_before_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      const href = trigger.getAttribute('href');
-      if (href !== null) {
-        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-        if (imgEl !== null) {
-          const srcAttr = imgEl.getAttribute("src");
-          if (srcAttr && srcAttr.startsWith("data:")) {
-            slideConfig.href = srcAttr;
-          }
-        }
-      } 
-    });
-  
-    lightboxQuarto.on('slide_after_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(slideNode);
-      }
-    });
-  
-  };
-  
-})();
-          </script>
 
 
 
