@@ -1,0 +1,128 @@
+# Path and file handling {#sec-pathfile}
+
+Input and output (I/O) functionality is an important part of software development. 
+In this section we introduce the [`pathlib`](https://docs.python.org/3/library/pathlib.html) module as a structure and pythonic way to deal with paths.
+Furthermore, we show some basic file read and write interaction to round off the topic. 
+
+The module `pathlib` allows us to move away from paths as strings and combines all the file and path operations into a single module, where a _path_ is represented by the class `Path`.
+Before `pathlib` these operations where spread over `os`, `glob`, and `shutil`.
+Furthermore, `pathlib` provides a cross-platform way to read, write, move, and delete files. 
+
+The main object we are going to work with is `Path`, which is a superclass of `PosixPath` and `WindowsPath` and the platform agnostic version of a file system path. 
+
+Let us look at an example here first, we always call the same function on different systems:
+```{.python}
+from pathlib import Path
+
+Path.cwd()
+```
+::: {.panel-tabset}
+## Linux
+```{python}
+#| classes: styled-output
+#| error: true
+#| echo: false
+print("PosixPath('/home/lecturer/lectures/MECH-M-DUAL-1-SWD')")
+```
+
+## Mac
+```{python}
+#| classes: styled-output
+#| error: true
+#| echo: false
+print("PosixPath('/Users/lecturer/lectures/MECH-M-DUAL-1-SWD')")
+```
+
+## Windows
+```{python}
+#| classes: styled-output
+#| error: true
+#| echo: false
+print("WindowsPath('C:/Users/lecturer/lectures/MECH-M-DUAL-1-SWD')")
+```
+:::
+
+As we can see from the different outputs per platform, the module takes care of the differences but allows us a unified experience. 
+
+::: {.callout-warning}
+
+Of course we can use the specific versions like `PosixPath` but be aware that this results in a problems when using we are on the _wrong_ platform.
+
+```{python}
+#| classes: styled-output
+#| error: true
+from pathlib import WindowsPath
+
+WindowsPath('test.txt')
+```
+:::
+
+Of course we can define our path via a string and convert it back to a string.
+```{python}
+#| classes: styled-output
+#| error: true
+#| eval: false
+from pathlib import Path
+p = Path()
+print(str(p))
+```
+```{python}
+#| classes: styled-output
+#| error: true
+#| echo: false
+from pathlib import Path
+p = Path('/home/lecturer/lectures/MECH-M-DUAL-1-SWD')
+print(str(p))
+```
+Again, `pathlib` will make sure to respect the platform specifics.
+
+If we want to join paths we can use the `/` operator 
+```{python}
+#| classes: styled-output
+#| error: true
+intro = p / 'intro.qmd'
+print(intro)
+```
+
+or `joinpath()`
+```{python}
+#| classes: styled-output
+#| error: true
+intro = p.joinpath('intro.qmd')
+print(intro)
+```
+
+As mentioned we can use the same interface for file access so 
+
+```{python}
+#| classes: styled-output
+#| echo: false
+intro = Path() / '..' / 'intro.qmd'
+```
+
+```{python}
+#| classes: styled-output
+#| error: true
+with intro.open() as f:
+    print(f.readline())
+```
+
+will allow us to read the first line of the introduction to these notes. 
+We can use the usual functions to read as bytes or with a specific encoding like `utf-8`.
+
+::: {.callout-important}
+
+`pathlib` provides us with great possibilities to work with the file system in our program.
+Furthermore, as we can see from the above examples, it allows us to **always us relative paths** in the code and still have the absolute path on the system.
+
+This greatly helps us to make the code portable to different locations and work on different platforms.
+:::
+
+Have a look into the following references to get an idea of the further possibilities and to help you solve the exercises in the appendix. 
+
+## References
+
+You can find further information in the following sources:
+
+- The official documentation, [link](https://docs.python.org/3/library/pathlib.html)
+- A nice _RealPython_ introduction to the topic [link](https://realpython.com/python-pathlib/)

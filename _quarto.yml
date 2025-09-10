@@ -39,6 +39,7 @@ book:
       chapters:
         - errorhandling/exception.qmd
         - errorhandling/logging.qmd
+        - errorhandling/paths.qmd
         - errorhandling/testing.qmd
         - errorhandling/cicd.qmd
     - part: containerization/index.qmd
