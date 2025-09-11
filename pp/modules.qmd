@@ -1,0 +1,172 @@
+# Working with modules and packages {#sec-pp-modules}
+
+As we have seen in @sec-pp-oop and @sec-pp-fp it makes sense to pack functionality together that _belongs_ together.
+In Python this is done via [modules and packages](https://docs.python.org/3/tutorial/modules.html).
+
+From the Python [glossary](https://docs.python.org/3/glossary.html) we get:
+
+> [**module** ](https://docs.python.org/3/glossary.html#term-module)
+>
+> An object that serves as an organizational unit of Python code. Modules have a namespace containing arbitrary Python objects. Modules are loaded into Python by the process of importing.
+> 
+> See also package.
+
+> [**package**](https://docs.python.org/3/glossary.html#term-package)
+>
+> A Python module which can contain submodules or recursively, subpackages. Technically, a package is a Python module with a __path__ attribute.
+> 
+> See also regular package and namespace package.
+
+::: {.callout-note}
+We use the same example here as later on in @sec-error-testing.
+:::
+
+We define a class `Rectangle` with some functions and in addition we include a function `is_square` in the file but not the class. 
+Everything together it looks like
+
+::: {.callout-tip appearance="simple" collapse="true" icon=false}
+
+## Code for the example
+```python
+{{< include ../_assets/errorhandling/module/src/rectangle/rectangle.py >}}
+```
+::::
+
+and we store it in the root directory of our project as `rectangle.py`.
+
+Now, if we call Python we can import the module via its name `rectangle` (the extension is not used)
+```{python}
+#| echo: false
+%%bash
+# Code to remove above files
+cp ../_assets/errorhandling/module/src/rectangle/rectangle.py .
+```
+```{python}
+#| classes: styled-output
+#| error: true
+import rectangle
+
+rect = rectangle.Rectangle(1, 1)
+print(f"{rect.get_area() = }")
+print(f"{rectangle.is_square(rect) =}")
+```
+
+We can also get a specific resource and we can rename it
+
+```{python}
+#| classes: styled-output
+#| error: true
+from rectangle import is_square as check_square
+
+rect = rectangle.Rectangle(1, 1)
+print(f"{check_square(rect) =}")
+```
+
+or everything
+
+```{python}
+#| classes: styled-output
+#| error: true
+from rectangle import *
+
+rect = Rectangle(1, 1)
+print(f"{is_square(rect) =}")
+```
+
+::: {.callout-note}
+We can see in the last two examples, that we no longer need to specify the module, i.e. the [namespace](https://docs.python.org/3/glossary.html#term-namespace), to access.
+:::
+
+We can also execute the module, which will result in not anything happening for our original file but if we add [^1]
+```{.python}
+if __name__ == "__main__":
+    import sys
+    r = Rectangle(int(sys.argv[1]), int(sys.argv[2]))
+    print(f"{r.get_area() = }")
+
+```
+[^1]: The magic of `__name__ == "__main__"` is explained in the [docs](https://docs.python.org/3/library/__main__.html)
+
+at the end we can call it and we get a result:
+```{python}
+#| echo: false
+%%bash
+cat <<EOL >> rectangle.py
+if __name__ == "__main__":
+    import sys
+    r = Rectangle(int(sys.argv[1]), int(sys.argv[2]))
+    print(f"{r.get_area() = }")
+EOL
+```
+```bash
+python rectangle.py 1 2 
+```
+
+
+```{python}
+#| classes: styled-output
+#| error: true
+#| echo: false
+%%bash
+python rectangle.py 1 2 
+```
+
+Now, depending on the input provided the area of the rectangle is computed.
+
+When including or calling a module, Python needs to know where the module is located.
+This is realised via the [module search path](https://docs.python.org/3/tutorial/modules.html#the-module-search-path).
+When calling `import` the following locations are processed:
+
+1. The build in modules.
+1. The directory containing the input script or file, most of the time this is the _current directory_
+1. The environment variable `PYTHONPATH` (a list of directory names, with the same syntax as the shell variable `PATH`).
+1. The installation-dependent default (by convention including a `site-packages` directory, handled by the `site` module), we use `pdm` to manage these in `.venv`.
+
+Consequently, if we want to include something in subdirectory we can use `src.rectangle` where `.` replaces the path separator `/`.
+
+We can see this in action when using _packages_, as we know a collection of modules.
+For example, `numpy` or `pandas` are packages, that contain various modules and we discuss them in the next section.
+
+In order to create a package the `__init__.py` file needs to be part of a directory, to let Python know that this is a package.
+As example we have a look at our toy example module again. 
+
+```bash
+$ tree module/
+module/
+├── pdm.lock
+├── pyproject.toml
+├── src
+    └── rectangle                # <1>
+        ├── __init__.py          # <2>
+        └── rectangle.py         # <3>
+```
+1. The directory containing the module, in our case `src.rectangle`.
+1. The init file.
+1. The actual code.
+
+We have two such files where for the module part the content is.
+```python
+{{< include ../_assets/errorhandling/module/src/rectangle/__init__.py >}}
+```
+This explicitly uses the current directory and imports everything into the namespace of the module.
+Therefore, we do not need to write `rectangle.rectangle.Rectangle` to use the `Rectangle` class but just `rectangle.Rectangle`.
+
+```{python}
+#| echo: false
+#| eval: true
+%%bash
+# Code to remove above files
+rm ./rectangle.py
+rm -rf __pycache__
+```
+
+This concludes our short introduction to modules, for further details we suggest the following references.
+
+## References
+
+We only provide a glimpse into the concept of functional programming in Python.
+There are more guides out there, like
+
+- @Matthes2023 has a section about modules.
+- The Python Tutorial on Modules and Packages, [link](https://docs.python.org/3/tutorial/modules.html)
+- A RealPython guide on modules and packages, [link](https://realpython.com/python-modules-packages/)

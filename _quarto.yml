@@ -31,6 +31,7 @@ book:
       chapters:
         - pp/oop.qmd
         - pp/fp.qmd
+        - pp/modules.qmd
     - part: sc/index.qmd
       chapters:
         - sc/numpy.qmd
@@ -58,6 +59,9 @@ format:
     theme:
       light: [flatly, style.css]
       dark: [darkly, dark-style.css]
+    lightbox: true
+    respect-user-color-scheme: true
+    default-image-extension: svg
     mermaid:
       theme: neutral
 #  pdf:
