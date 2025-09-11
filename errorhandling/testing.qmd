@@ -1,4 +1,4 @@
-# Testing
+# Testing {#sec-error-testing}
 
 It is of great importance to test our code.
 This allows us not only to avoid errors and problems while running our code but can save in total a lot of time. 

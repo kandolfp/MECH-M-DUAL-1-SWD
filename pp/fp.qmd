@@ -1,4 +1,4 @@
-# Functional Programming
+# Functional Programming {#sec-pp-fp}
 
 Functional programming is a programming paradigm or way of developing software.
 The main idea is to work with functions that operate on their input and produce some output and are in this sense deterministic.

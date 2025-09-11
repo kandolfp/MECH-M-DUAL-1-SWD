@@ -1,4 +1,4 @@
-# Object Oriented Programming 
+# Object Oriented Programming {#sec-pp-oop}
 
 Object Oriented Programming (OOP) or Object Oriented Design (OOD) is a programming paradigm or way of working when developing software.
 The main idea is to structure code according to common properties and features of (real-world) _objects_.
