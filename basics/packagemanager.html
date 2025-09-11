@@ -103,6 +103,9 @@ div.csl-indent {
 <link href="../site_libs/bootstrap/bootstrap-d2b0d12b45c08fc6e02230f9c3d12f5b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -277,7 +280,8 @@ div.csl-indent {
       }
     };
     const authorPrefersDark = false;
-    const darkModeDefault = authorPrefersDark;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
       document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
       document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
     let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
@@ -290,6 +294,14 @@ div.csl-indent {
       toggleGiscusIfUsed(toAlternate, darkModeDefault);
       window.dispatchEvent(new Event('resize'));
     };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
     // Switch to dark mode if need be
     if (hasAlternateSentinel()) {
       toggleColorMode(true);
@@ -407,6 +419,12 @@ div.csl-indent {
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Functional Programming</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pp/modules.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Working with modules and packages</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -421,13 +439,13 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../sc/numpy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">NumPy</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">NumPy</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../sc/pandas.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Pandas</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Pandas</span></span></a>
   </div>
 </li>
       </ul>
@@ -444,31 +462,31 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../errorhandling/exception.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Exception handling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Exception handling</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../errorhandling/logging.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Logging</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Logging</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../errorhandling/paths.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Path and file handling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Path and file handling</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../errorhandling/testing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Testing</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Testing</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../errorhandling/cicd.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">CI/CD</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">CI/CD</span></span></a>
   </div>
 </li>
       </ul>
@@ -485,7 +503,7 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../containerization/docker.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Docker</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Docker</span></span></a>
   </div>
 </li>
       </ul>
@@ -582,7 +600,7 @@ div.csl-indent {
 <div id="fig-xkcd-dependency" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-xkcd-dependency-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p><a href="https://xkcd.com/1579/"><img src="https://imgs.xkcd.com/comics/tech_loops.png" class="img-fluid figure-img"></a></p>
+<p><a href="https://xkcd.com/1579/"><span class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://imgs.xkcd.com/comics/tech_loops.png" class="img-fluid figure-img"></span></a></p>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-xkcd-dependency-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2.1: The <a href="https://xkcd.com/1579/">xkcd comic #1579</a> discussing tech loops, for us a place holder on how to install packages, <a href="https://www.explainxkcd.com/wiki/index.php/1579:_Tech_Loops">explainxkcd</a>. Click the image to get to the original image source <a href="https://imgs.xkcd.com/comics/tech_loops.png">https://imgs.xkcd.com/comics/tech_loops.png</a>.
@@ -599,7 +617,7 @@ Figure&nbsp;2.1: The <a href="https://xkcd.com/1579/">xkcd comic #1579</a> discu
 <div id="fig-xkcd-dependency" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-xkcd-dependency-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p><a href="https://xkcd.com/1987/"><img src="https://imgs.xkcd.com/comics/python_environment.png" class="img-fluid figure-img"></a></p>
+<p><a href="https://xkcd.com/1987/"><span class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="https://imgs.xkcd.com/comics/python_environment.png" class="img-fluid figure-img"></span></a></p>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-xkcd-dependency-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2.2: The <a href="https://xkcd.com/1987/">xkcd comic #1987</a> discussing python environments, <a href="https://www.explainxkcd.com/wiki/index.php/1987:_Python_Environment">explainxkcd</a>. Click the image to get to the original image source <a href="https://imgs.xkcd.com/comics/python_environment.png">https://imgs.xkcd.com/comics/python_environment.png</a>.
@@ -1502,7 +1520,7 @@ Ming, Frost. 2019. <span>“<span class="nocase">PDM project site</span>.”</sp
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Softwaredesign WS 2024 (MECH-M-DUAL-1-SWD)</p>
+<p>Softwaredesign WS 2025/26 (MECH-M-DUAL-1-SWD)</p>
 </div>   
     <div class="nav-footer-center">
 <p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> Peter Kandolf</p>
@@ -1512,6 +1530,38 @@ Ming, Frost. 2019. <span>“<span class="nocase">PDM project site</span>.”</sp
 </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

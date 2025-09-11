@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>13&nbsp; CI/CD – Softwaredesign</title>
+<title>14&nbsp; CI/CD – Softwaredesign</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -255,7 +255,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       }
     };
     const authorPrefersDark = false;
-    const darkModeDefault = authorPrefersDark;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
       document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
       document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
     let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
@@ -268,6 +269,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       toggleGiscusIfUsed(toAlternate, darkModeDefault);
       window.dispatchEvent(new Event('resize'));
     };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
     // Switch to dark mode if need be
     if (hasAlternateSentinel()) {
       toggleColorMode(true);
@@ -283,7 +292,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../errorhandling/index.html">Runtime stability</a></li><li class="breadcrumb-item"><a href="../errorhandling/cicd.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">CI/CD</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../errorhandling/index.html">Runtime stability</a></li><li class="breadcrumb-item"><a href="../errorhandling/cicd.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">CI/CD</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -385,6 +394,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Functional Programming</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pp/modules.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Working with modules and packages</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -399,13 +414,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../sc/numpy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">NumPy</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">NumPy</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../sc/pandas.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Pandas</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Pandas</span></span></a>
   </div>
 </li>
       </ul>
@@ -422,31 +437,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../errorhandling/exception.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Exception handling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Exception handling</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../errorhandling/logging.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Logging</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Logging</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../errorhandling/paths.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Path and file handling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Path and file handling</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../errorhandling/testing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Testing</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Testing</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../errorhandling/cicd.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">CI/CD</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">CI/CD</span></span></a>
   </div>
 </li>
       </ul>
@@ -463,7 +478,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../containerization/docker.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Docker</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Docker</span></span></a>
   </div>
 </li>
       </ul>
@@ -513,7 +528,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#github-actions" id="toc-github-actions" class="nav-link active" data-scroll-target="#github-actions"><span class="header-section-number">13.1</span> GitHub actions</a></li>
+  <li><a href="#github-actions" id="toc-github-actions" class="nav-link active" data-scroll-target="#github-actions"><span class="header-section-number">14.1</span> GitHub actions</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/errorhandling/cicd.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -521,9 +536,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../errorhandling/index.html">Runtime stability</a></li><li class="breadcrumb-item"><a href="../errorhandling/cicd.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">CI/CD</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../errorhandling/index.html">Runtime stability</a></li><li class="breadcrumb-item"><a href="../errorhandling/cicd.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">CI/CD</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">CI/CD</span></h1>
+<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">CI/CD</span></h1>
 </div>
 
 
@@ -559,7 +574,7 @@ The last step in this automation pipeline is the automatic deployment of the cod
 </div>
 <div class="callout-body-container">
 <div id="exm-errorhandling-cicd-self" class="theorem example">
-<p><span class="theorem-title"><strong>Example 13.1 (Working procedure for these notes)</strong></span> Let us use these notes as example to illustrate this process:</p>
+<p><span class="theorem-title"><strong>Example 14.1 (Working procedure for these notes)</strong></span> Let us use these notes as example to illustrate this process:</p>
 <ol type="1">
 <li>The authors write some new material about e.g.&nbsp;CI/CD stuff. This might take some time until the pictures are ready, the text has the correct format and code blocks are tested and developed.</li>
 <li>In the next step the new section is <em>committed</em> to the local repository. This goes on for a couple of commits and separate for each author.</li>
@@ -589,8 +604,8 @@ Note
 <p>Obviously, this does not prevent the notes from having some errors or typos but the authors always get a quick feedback if their work can still be displayed.</p>
 </div>
 </div>
-<section id="github-actions" class="level2" data-number="13.1">
-<h2 data-number="13.1" class="anchored" data-anchor-id="github-actions"><span class="header-section-number">13.1</span> GitHub actions</h2>
+<section id="github-actions" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="github-actions"><span class="header-section-number">14.1</span> GitHub actions</h2>
 <p>As we are working on GitHub for the lecture it is natural to look at a CI/CD solutions compatible with this system but we note that there are platform independent solutions and solutions for each of the major platform (GitLab, Azure DevOps, BitBucket, gitea, …) though with different styles and capabilities.</p>
 <p>On GitHub this part is controlled by so called <em>GitHub Actions</em>, their documentation can be found <a href="https://docs.github.com/en/actions">here</a>.</p>
 <p>Let us discuss here how to integrate the actions with a Python repository in our setup, so <code>pdm</code> and executing our unit tests.</p>
@@ -1076,7 +1091,7 @@ Note
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../errorhandling/testing.html" class="pagination-link" aria-label="Testing">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Testing</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Testing</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
@@ -1089,7 +1104,7 @@ Note
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Softwaredesign WS 2024 (MECH-M-DUAL-1-SWD)</p>
+<p>Softwaredesign WS 2025/26 (MECH-M-DUAL-1-SWD)</p>
 </div>   
     <div class="nav-footer-center">
 <p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> Peter Kandolf</p>

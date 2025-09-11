@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>10&nbsp; Logging – Softwaredesign</title>
+<title>11&nbsp; Logging – Softwaredesign</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -255,7 +255,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       }
     };
     const authorPrefersDark = false;
-    const darkModeDefault = authorPrefersDark;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
       document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
       document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
     let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
@@ -268,6 +269,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       toggleGiscusIfUsed(toAlternate, darkModeDefault);
       window.dispatchEvent(new Event('resize'));
     };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
     // Switch to dark mode if need be
     if (hasAlternateSentinel()) {
       toggleColorMode(true);
@@ -283,7 +292,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../errorhandling/index.html">Runtime stability</a></li><li class="breadcrumb-item"><a href="../errorhandling/logging.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Logging</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../errorhandling/index.html">Runtime stability</a></li><li class="breadcrumb-item"><a href="../errorhandling/logging.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Logging</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -385,6 +394,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Functional Programming</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pp/modules.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Working with modules and packages</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -399,13 +414,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../sc/numpy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">NumPy</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">NumPy</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../sc/pandas.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Pandas</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Pandas</span></span></a>
   </div>
 </li>
       </ul>
@@ -422,31 +437,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../errorhandling/exception.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Exception handling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Exception handling</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../errorhandling/logging.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Logging</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Logging</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../errorhandling/paths.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Path and file handling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Path and file handling</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../errorhandling/testing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Testing</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Testing</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../errorhandling/cicd.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">CI/CD</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">CI/CD</span></span></a>
   </div>
 </li>
       </ul>
@@ -463,7 +478,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../containerization/docker.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Docker</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Docker</span></span></a>
   </div>
 </li>
       </ul>
@@ -515,9 +530,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../errorhandling/index.html">Runtime stability</a></li><li class="breadcrumb-item"><a href="../errorhandling/logging.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Logging</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../errorhandling/index.html">Runtime stability</a></li><li class="breadcrumb-item"><a href="../errorhandling/logging.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Logging</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Logging</span></h1>
+<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Logging</span></h1>
 </div>
 
 
@@ -556,7 +571,7 @@ Tip
 </div>
 </div>
 <p>Python provides an extensive module named <code>logging</code> for these purposes.</p>
-<div id="b220ea66" class="cell styled-output" data-execution_count="2">
+<div id="6c6002f7" class="cell styled-output" data-execution_count="2">
 <div class="sourceCode cell-code" id="annotated-cell-1"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-1-1" class="code-annotation-target"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> logging</span>
 <span id="annotated-cell-1-2"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a>numberlist <span class="op">=</span> [<span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="st">"a"</span>, <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>]</span>
 <span id="annotated-cell-1-3"><a href="#annotated-cell-1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -586,7 +601,7 @@ WARNING:root:The list does not only contain numbers</code></pre>
 </div>
 </div>
 <p>By default the logger write to the terminal. This might not always be what you want so this can be changed easily, together with the <em>log level</em>:</p>
-<div id="ce2ec3f2" class="cell styled-output" data-execution_count="4">
+<div id="f343391d" class="cell styled-output" data-execution_count="4">
 <div class="sourceCode cell-code" id="annotated-cell-2"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-2-1"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> logging</span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-2-2" class="code-annotation-target"><a href="#annotated-cell-2-2" aria-hidden="true" tabindex="-1"></a>logging.basicConfig(filename<span class="op">=</span><span class="st">"app.log"</span>,</span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-2-3" class="code-annotation-target"><a href="#annotated-cell-2-3" aria-hidden="true" tabindex="-1"></a>                    level<span class="op">=</span>logging.INFO)</span>
@@ -614,7 +629,7 @@ WARNING:root:The list does not only contain numbers</code></pre>
 </div>
 </div>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> app.log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="81f15645" class="cell styled-output" data-execution_count="5">
+<div id="45015935" class="cell styled-output" data-execution_count="5">
 <div class="cell-output cell-output-stdout">
 <pre><code>INFO:root:Working on number -2
 INFO:root:Working on number -1
@@ -712,7 +727,7 @@ Tip
 </div>
 </div>
 <p>An important additional feature is to specify the format of the message. This is particularly useful to get debugging information with certain timing information.</p>
-<div id="fb198c9d" class="cell styled-output" data-execution_count="8">
+<div id="5516ce0e" class="cell styled-output" data-execution_count="8">
 <div class="sourceCode cell-code" id="annotated-cell-4"><pre class="sourceCode python code-annotation-code code-with-copy"><code class="sourceCode python"><span id="annotated-cell-4-1"><a href="#annotated-cell-4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> logging                                                          </span>
 <span id="annotated-cell-4-2"><a href="#annotated-cell-4-2" aria-hidden="true" tabindex="-1"></a>logging.basicConfig(<span class="bu">format</span><span class="op">=</span><span class="st">"</span><span class="sc">%(asctime)s</span><span class="st">:</span><span class="sc">%(levelname)s</span><span class="st">: </span><span class="sc">%(message)s</span><span class="st">"</span>,</span>
 <span id="annotated-cell-4-3"><a href="#annotated-cell-4-3" aria-hidden="true" tabindex="-1"></a>                    level<span class="op">=</span>logging.DEBUG)</span>
@@ -727,15 +742,15 @@ Tip
 <span id="annotated-cell-4-12"><a href="#annotated-cell-4-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">TypeError</span>:</span>
 <span id="annotated-cell-4-13"><a href="#annotated-cell-4-13" aria-hidden="true" tabindex="-1"></a>        logging.warning(<span class="ss">f"The list does not only contain numbers"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>2025-09-10 15:20:16,797:DEBUG: Working on number -2
-2025-09-10 15:20:16,798:DEBUG: Working on number -1
-2025-09-10 15:20:16,798:DEBUG: Working on number 0
-2025-09-10 15:20:16,798:ERROR: Tried to divide by zero, error is float division by zero
-2025-09-10 15:20:16,799:DEBUG: Working on number 1
-2025-09-10 15:20:16,799:DEBUG: Working on number 2
-2025-09-10 15:20:16,800:DEBUG: Working on number a
-2025-09-10 15:20:16,800:WARNING: The list does not only contain numbers
-2025-09-10 15:20:16,800:DEBUG: Working on number 0.25</code></pre>
+<pre><code>2025-09-11 14:31:14,077:DEBUG: Working on number -2
+2025-09-11 14:31:14,077:DEBUG: Working on number -1
+2025-09-11 14:31:14,078:DEBUG: Working on number 0
+2025-09-11 14:31:14,079:ERROR: Tried to divide by zero, error is float division by zero
+2025-09-11 14:31:14,079:DEBUG: Working on number 1
+2025-09-11 14:31:14,080:DEBUG: Working on number 2
+2025-09-11 14:31:14,080:DEBUG: Working on number a
+2025-09-11 14:31:14,081:WARNING: The list does not only contain numbers
+2025-09-11 14:31:14,082:DEBUG: Working on number 0.25</code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -749,7 +764,7 @@ Tip
 </div>
 <div class="callout-body-container callout-body">
 <p>We can use multiple loggers in a project. The usual convention is to use <code>__name__</code> as the name by calling <code>logging.getLogger(__name__)</code>.</p>
-<div id="352476e9" class="cell styled-output" data-execution_count="10">
+<div id="5d18c3db" class="cell styled-output" data-execution_count="10">
 <div class="sourceCode cell-code" id="annotated-cell-8"><pre class="sourceCode python code-annotation-code code-with-copy"><code class="sourceCode python"><span id="annotated-cell-8-1"><a href="#annotated-cell-8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> logging                                                          </span>
 <span id="annotated-cell-8-2"><a href="#annotated-cell-8-2" aria-hidden="true" tabindex="-1"></a>logger <span class="op">=</span> logging.getLogger(<span class="va">__name__</span>)</span>
 <span id="annotated-cell-8-3"><a href="#annotated-cell-8-3" aria-hidden="true" tabindex="-1"></a>numberlist <span class="op">=</span> [<span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="st">"a"</span>, <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>]</span>
@@ -1190,12 +1205,12 @@ WARNING:__main__:The list does not only contain numbers</code></pre>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../errorhandling/exception.html" class="pagination-link" aria-label="Exception handling">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Exception handling</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Exception handling</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../errorhandling/paths.html" class="pagination-link" aria-label="Path and file handling">
-        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Path and file handling</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Path and file handling</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1203,7 +1218,7 @@ WARNING:__main__:The list does not only contain numbers</code></pre>
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Softwaredesign WS 2024 (MECH-M-DUAL-1-SWD)</p>
+<p>Softwaredesign WS 2025/26 (MECH-M-DUAL-1-SWD)</p>
 </div>   
     <div class="nav-footer-center">
 <p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> Peter Kandolf</p>

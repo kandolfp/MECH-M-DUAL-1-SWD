@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>7&nbsp; NumPy – Softwaredesign</title>
+<title>8&nbsp; NumPy – Softwaredesign</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -275,7 +275,8 @@ div.csl-indent {
       }
     };
     const authorPrefersDark = false;
-    const darkModeDefault = authorPrefersDark;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
       document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
       document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
     let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
@@ -288,6 +289,14 @@ div.csl-indent {
       toggleGiscusIfUsed(toAlternate, darkModeDefault);
       window.dispatchEvent(new Event('resize'));
     };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
     // Switch to dark mode if need be
     if (hasAlternateSentinel()) {
       toggleColorMode(true);
@@ -303,7 +312,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sc/index.html">Scientific Computing</a></li><li class="breadcrumb-item"><a href="../sc/numpy.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">NumPy</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sc/index.html">Scientific Computing</a></li><li class="breadcrumb-item"><a href="../sc/numpy.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">NumPy</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -405,6 +414,12 @@ div.csl-indent {
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Functional Programming</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pp/modules.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Working with modules and packages</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -419,13 +434,13 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../sc/numpy.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">NumPy</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">NumPy</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../sc/pandas.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Pandas</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Pandas</span></span></a>
   </div>
 </li>
       </ul>
@@ -442,31 +457,31 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../errorhandling/exception.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Exception handling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Exception handling</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../errorhandling/logging.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Logging</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Logging</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../errorhandling/paths.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Path and file handling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Path and file handling</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../errorhandling/testing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Testing</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Testing</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../errorhandling/cicd.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">CI/CD</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">CI/CD</span></span></a>
   </div>
 </li>
       </ul>
@@ -483,7 +498,7 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../containerization/docker.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Docker</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Docker</span></span></a>
   </div>
 </li>
       </ul>
@@ -533,8 +548,8 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation"><span class="header-section-number">7.1</span> Motivation</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">7.2</span> References</a></li>
+  <li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation"><span class="header-section-number">8.1</span> Motivation</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">8.2</span> References</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/sc/numpy.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -542,9 +557,9 @@ div.csl-indent {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sc/index.html">Scientific Computing</a></li><li class="breadcrumb-item"><a href="../sc/numpy.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">NumPy</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sc/index.html">Scientific Computing</a></li><li class="breadcrumb-item"><a href="../sc/numpy.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">NumPy</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-sc-numpy" class="quarto-section-identifier"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">NumPy</span></span></h1>
+<h1 class="title"><span id="sec-sc-numpy" class="quarto-section-identifier"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">NumPy</span></span></h1>
 </div>
 
 
@@ -570,11 +585,11 @@ div.csl-indent {
 <li>I/O tools for reading and writing arrays to disk and working with memory-mapped files</li>
 <li>A C API for connecting <code>NumPy</code> with libraries from C/C++ and FORTRAN like BLAS and LAPACK.</li>
 </ul>
-<section id="motivation" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="motivation"><span class="header-section-number">7.1</span> Motivation</h2>
+<section id="motivation" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="motivation"><span class="header-section-number">8.1</span> Motivation</h2>
 <p>Speed is often the main motivation to work in <code>numpy</code>.</p>
 <p>Let us look at the simple example of the <a href="https://kandolfp.github.io/MECH-M-DUAL-1-DBM/basics/linearalgebra.html#def-dotproduct">scalar product</a> to see why.</p>
-<div id="795b368f" class="cell styled-output" data-execution_count="1">
+<div id="eb13fc80" class="cell styled-output" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> timeit</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -605,12 +620,12 @@ div.csl-indent {
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"numpy result </span><span class="sc">{</span>np<span class="sc">.</span>vdot(np_a, np_b)<span class="sc">}</span><span class="ss">, time </span><span class="sc">{</span>t2<span class="op">=</span><span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Speedup </span><span class="sc">{</span>t1<span class="op">/</span>t2<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>loop result 2550205506, time t1=56.962832375000005
-numpy result 2550205506, time t2=0.6105820870000116
-Speedup 93.29266873005876</code></pre>
+<pre><code>loop result 2550205506, time t1=56.17686641099999
+numpy result 2550205506, time t2=0.6109699550000016
+Speedup 91.94701957316353</code></pre>
 </div>
 </div>
-<p>For the above example we see a speed up of 93.0. With <code>numpy</code> we will often see a speed up of 10 to 100 or likely even more.</p>
+<p>For the above example we see a speed up of 92.0. With <code>numpy</code> we will often see a speed up of 10 to 100 or likely even more.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -625,8 +640,8 @@ Note
 </div>
 </div>
 </section>
-<section id="references" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="references"><span class="header-section-number">7.2</span> References</h2>
+<section id="references" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="references"><span class="header-section-number">8.2</span> References</h2>
 <p>As we cover a lot of the basics in action in the sister class <a href="https://kandolfp.github.io/MECH-M-DUAL-1-DBM/">Basics of Data Science</a> this introduction ends here and we refer to others for a longer read like</p>
 <ul>
 <li><span class="citation" data-cites="McKinney2022-qz">McKinney (<a href="../references.html#ref-McKinney2022-qz" role="doc-biblioref">2022</a>)</span> (direct link to the <a href="https://wesmckinney.com/book/numpy-basics">NumPy-Basics</a>)</li>
@@ -1068,7 +1083,7 @@ McKinney, Wes. 2022. <em>Python for Data Analysis 3e</em>. 3rd ed. Sebastopol, C
   </div>
   <div class="nav-page nav-page-next">
       <a href="../sc/pandas.html" class="pagination-link" aria-label="Pandas">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Pandas</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Pandas</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1076,7 +1091,7 @@ McKinney, Wes. 2022. <em>Python for Data Analysis 3e</em>. 3rd ed. Sebastopol, C
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Softwaredesign WS 2024 (MECH-M-DUAL-1-SWD)</p>
+<p>Softwaredesign WS 2025/26 (MECH-M-DUAL-1-SWD)</p>
 </div>   
     <div class="nav-footer-center">
 <p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> Peter Kandolf</p>

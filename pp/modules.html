@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Containerization – Softwaredesign</title>
+<title>7&nbsp; Working with modules and packages – Softwaredesign</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -30,8 +85,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../containerization/docker.html" rel="next">
-<link href="../errorhandling/cicd.html" rel="prev">
+<link href="../sc/index.html" rel="next">
+<link href="../pp/fp.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -46,9 +101,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-d2b0d12b45c08fc6e02230f9c3d12f5b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark-7ee7f6d30a8146128559a2974676ffe3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../site_libs/bootstrap/bootstrap-d2b0d12b45c08fc6e02230f9c3d12f5b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
-<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -260,7 +312,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../containerization/index.html">Containerization</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pp/index.html">Programming paradigms</a></li><li class="breadcrumb-item"><a href="../pp/modules.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Working with modules and packages</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -364,7 +416,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../pp/modules.html" class="sidebar-item-text sidebar-link">
+  <a href="../pp/modules.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Working with modules and packages</span></span></a>
   </div>
 </li>
@@ -436,7 +488,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../containerization/index.html" class="sidebar-item-text sidebar-link active">
+            <a href="../containerization/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Containerization</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -496,20 +548,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#virtualisation-and-containerisation" id="toc-virtualisation-and-containerisation" class="nav-link active" data-scroll-target="#virtualisation-and-containerisation">Virtualisation and containerisation</a></li>
-  <li><a href="#virtualisation" id="toc-virtualisation" class="nav-link" data-scroll-target="#virtualisation">Virtualisation</a></li>
-  <li><a href="#containerisation" id="toc-containerisation" class="nav-link" data-scroll-target="#containerisation">Containerisation</a></li>
-  <li><a href="#different-container-solutions" id="toc-different-container-solutions" class="nav-link" data-scroll-target="#different-container-solutions">Different container solutions</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link active" data-scroll-target="#references"><span class="header-section-number">7.1</span> References</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/containerization/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/pp/modules.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pp/index.html">Programming paradigms</a></li><li class="breadcrumb-item"><a href="../pp/modules.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Working with modules and packages</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Containerization</h1>
+<h1 class="title"><span id="sec-pp-modules" class="quarto-section-identifier"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Working with modules and packages</span></span></h1>
 </div>
 
 
@@ -526,142 +575,191 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>In this section we are going to talk about <em>containerisation</em> but before we can do that let us discuss some common issues in (scientific) computing that will give rise to why containerization is an important issue.</p>
-<section id="you-need-a-different-softwarelibrary-than-installed" class="level4">
-<h4 class="anchored" data-anchor-id="you-need-a-different-softwarelibrary-than-installed">You need a different software/library than installed</h4>
-<p>Quite often the software that is installed on a machine that you have access to or are allowed to work with does not have the specific library, software, software version that you need to work with. Even more often you do not have the rights to install software at your own freedom on the machine and the admin takes quite long to install what you need.</p>
-</section>
-<section id="you-need-to-assure-reproducibility-i.e.reproducible-science" class="level4">
-<h4 class="anchored" data-anchor-id="you-need-to-assure-reproducibility-i.e.reproducible-science">You need to assure reproducibility (i.e.~reproducible science)</h4>
-<p>Another frequent scenario is that you should always be able to reproduce your results. This means that you need to be able to run the same experiments two, three or twenty years later. Some reasons for this are:</p>
-<ul>
-<li>a client gets an error and you need to verify it with the version this client has</li>
-<li>you switch operating system</li>
-<li>the review process for a paper takes longer</li>
-<li>you need to update a library or switch to a new library and you need to verify your results</li>
-<li>you now work with library version <em>x</em> but you need to regenerate some input variable that still use version <em>y</em></li>
-<li>you need to make sure that on <em>machine a</em> and <em>machine b</em> the results are the same</li>
-</ul>
-</section>
-<section id="i-need-specific-software-dependencies-dependency-hell" class="level4">
-<h4 class="anchored" data-anchor-id="i-need-specific-software-dependencies-dependency-hell">I need specific software dependencies (dependency hell)</h4>
-<p>If you haven not run into this problem by now you are either new to programming or just plain and simple lucky.</p>
-<p>In programming languages like Python or Julia you usually work with a multitude of libraries depending on your needs. It will come as no surprise to you that most of these libraries again depend on other libraries. This vast ecosystem is constantly growing and quickly <em>library a</em> will depend on <em>library b</em> with <em>version y</em> while <em>library c</em> needs <em>version z</em> of <em>library b</em>. As you can see it is already confusing to write down so actually sorting it out on your system is even more difficult. While modern package managers have become better at this you will often still run into the so called <em>dependency hell</em>.<br>
-Now consider that most likely your code will start to have these issues as well if you move from one version of a library to the next and combine it with the above paint.</p>
-</section>
-<section id="you-need-to-run-software-compiled-for-x-but-run-y" class="level4">
-<h4 class="anchored" data-anchor-id="you-need-to-run-software-compiled-for-x-but-run-y">You need to run software compiled for X but run Y</h4>
-<p>If you are running a windows machine but need to run some Linux software as there is no Windows version available. Or maybe you have a new Apple with an Mx chip and still want to use some software that is compiled for x86.</p>
-</section>
-<section id="you-need-to-test-your-software-for-x-but-you-run-y" class="level4">
-<h4 class="anchored" data-anchor-id="you-need-to-test-your-software-for-x-but-you-run-y">You need to test your software for X but you run Y</h4>
-<p>Maybe you are developing software on Windows but it should also run on Linux but it should also work on Android iOS and so forth.</p>
-</section>
-<section id="you-have-no-rights-to-install-software-but-you-can-run-jobs-high-performance-computing" class="level4">
-<h4 class="anchored" data-anchor-id="you-have-no-rights-to-install-software-but-you-can-run-jobs-high-performance-computing">You have no rights to install software but you can run jobs (High Performance Computing)</h4>
-<p>When you have a massive workload that requires a multitude of CPUs, GPUs, or simply runs for quite a long time you do not want to do this on your own computer as it will limit your work experience significantly for everything else. Here dedicated servers or High Performance Computing infrastructure becomes useful as it can provide you with these resources. On most of these systems you will not be allowed to install software randomly and the admins will also not be able to provide you with every wish.</p>
-</section>
-<section id="you-need-to-share-your-software-but-how" class="level4">
-<h4 class="anchored" data-anchor-id="you-need-to-share-your-software-but-how">You need to share your software but how?</h4>
-<p>Let us assume you created some nice data processing pipeline and you want to make it available to others. Sure everybody can install the same environment that you have and run the code but you will get a lot of calls because something is not working. Often the colleagues work on other operating systems and you barely know how you got it to run on your machine.</p>
-</section>
-<section id="you-need-to-archive-a-working-version-limited" class="level4">
-<h4 class="anchored" data-anchor-id="you-need-to-archive-a-working-version-limited">You need to archive a working version (limited)</h4>
-<p>This is something that you already came across in the context of <em>git</em> but let us consider you have some old data that can only be processed with a specific version of your software, how do you keep that software alive over a long period of time?</p>
-</section>
-<section id="legacy-code-on-old-os" class="level4">
-<h4 class="anchored" data-anchor-id="legacy-code-on-old-os">Legacy code on old OS</h4>
-<p>Maybe you have some code that is only working on some old operating system but from a security point of view you can no longer run this system for your daily work and you only need it for some specific task that you need maybe once a month.</p>
-<p>In the above scenarios (and more) virtualisation or containerisation can help. So what is this and what are the differences?</p>
-</section>
-<section id="virtualisation-and-containerisation" class="level2">
-<h2 class="anchored" data-anchor-id="virtualisation-and-containerisation">Virtualisation and containerisation</h2>
-<p>Your computer or <em>physical machine</em> is organised approximately like in <a href="#fig-containerization-pm" class="quarto-xref">Figure&nbsp;<span>1</span></a>.</p>
-<div id="fig-containerization-pm" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-containerization-pm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../_assets/containerization/physical_machine.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Organisation of process on a machine."><img src="../_assets/containerization/physical_machine.svg" class="img-fluid figure-img"></a>
+<p>As we have seen in <a href="oop.html" class="quarto-xref"><span>Chapter 5</span></a> and <a href="fp.html" class="quarto-xref"><span>Chapter 6</span></a> it makes sense to pack functionality together that <em>belongs</em> together. In Python this is done via <a href="https://docs.python.org/3/tutorial/modules.html">modules and packages</a>.</p>
+<p>From the Python <a href="https://docs.python.org/3/glossary.html">glossary</a> we get:</p>
+<blockquote class="blockquote">
+<p><a href="https://docs.python.org/3/glossary.html#term-module"><strong>module</strong></a></p>
+<p>An object that serves as an organizational unit of Python code. Modules have a namespace containing arbitrary Python objects. Modules are loaded into Python by the process of importing.</p>
+<p>See also package.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><a href="https://docs.python.org/3/glossary.html#term-package"><strong>package</strong></a></p>
+<p>A Python module which can contain submodules or recursively, subpackages. Technically, a package is a Python module with a <strong>path</strong> attribute.</p>
+<p>See also regular package and namespace package.</p>
+</blockquote>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-containerization-pm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Organisation of process on a machine.
-</figcaption>
-</figure>
+<div class="callout-title-container flex-fill">
+Note
 </div>
-<p>As virtualisation and containerisation is something that lives next to this the prefix <em>host</em> is used to make sure everybody knows what we are talking about.</p>
-<p>Starting from the bottom you have some hardware. This is your CPU, various levels and layers of storage, your network device, keyboard, monitor, and so forth.</p>
-<p>The <em>host kernel</em> is mainly the operating system. It provides you with a standardized interface to the hardware so you do not need to use different programs depending on the brand of monitor you use.</p>
-<p>The <em>host process</em> is what you mainly interface with on a computer. This could be MS Word, you favourite internet browser or music player, in short applications are made up of processes.</p>
-</section>
-<section id="virtualisation" class="level2">
-<h2 class="anchored" data-anchor-id="virtualisation">Virtualisation</h2>
-<p>Now you can run some virtualisation on your machine. As the name suggests it will provide a virtual environment. For example <a href="https://www.virtualbox.org/">Virtual Box</a> is a widely used way to bring Linux to your Windows machine or the other way around. This way you only need set of hardware but have the possibilities of different operation systems available to you. This looks something like the following</p>
-<div id="fig-containerization-vm" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-containerization-vm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../_assets/containerization/virtual_machine.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: Organisation of process within a virtual machine."><img src="../_assets/containerization/virtual_machine.svg" class="img-fluid figure-img"></a>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-containerization-vm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Organisation of process within a virtual machine.
-</figcaption>
-</figure>
+<div class="callout-body-container callout-body">
+<p>We use the same example here as later on in <a href="../errorhandling/testing.html" class="quarto-xref"><span>Chapter 13</span></a>.</p>
 </div>
-<p>From the view of the <em>host</em> the entire virtualisation is one (or more) <em>guest processes</em>, illustrated above by the <span style="color: #2f9e44;">green box</span>.</p>
-<p>The <span style="color: #fa5252;"><em>hypervisor</em></span> is translating between the <em>host kernel</em> and the virtual hardware that is needed for the <span style="color: #fa5252;"><em>guest kernel</em></span>. This means, the <em>guest kernel</em> is seeing its own set of hardware (CPU, GPU, Keyboard, and so forth). Quite often you can for example decide if a connected USB Drive is used by the guest or the host. On top of the <em>hypervisor</em> everything is the same as on the host. This also means you use up resources to provide this.</p>
-</section>
-<section id="containerisation" class="level2">
-<h2 class="anchored" data-anchor-id="containerisation">Containerisation</h2>
-<p>Now containerisation is a operating system based virtualisation.</p>
-<div id="fig-containerization-container" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-containerization-container-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../_assets/containerization/container_machine.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: Organisation of process within a container."><img src="../_assets/containerization/container_machine.svg" class="img-fluid figure-img"></a>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-containerization-container-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: Organisation of process within a container.
-</figcaption>
-</figure>
+<p>We define a class <code>Rectangle</code> with some functions and in addition we include a function <code>is_square</code> in the file but not the class. Everything together it looks like</p>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
 </div>
-<p>You have a specific <span style="color: #fa5252;"><em>runtime</em></span> but not a second kernel. The runtime takes care of the separation on the level of namespaces. We only discuss Linux containers in this detail and do not guarantee that Windows containers use a different mechanism. Namespaces are a mechanism of the kernel that separates or <em>partitions</em> resources such that different processes use different set of resources. For examples, the container might only see 4 of your 16 CPUs, no network drive, can only use 2 GB of main storage and so forth. This separation also makes sure that there is no leakage of information from one process to the other. You can also have a different set of rights or run as a different user. Other than with a virtualisation the <em>host kernel</em> is used and also the <em>host hardware</em> if is allowed via the namespace configuration.</p>
-</section>
-<section id="different-container-solutions" class="level2">
-<h2 class="anchored" data-anchor-id="different-container-solutions">Different container solutions</h2>
-<p>The containerisation started with <a href="https://docs.docker.com/">Docker</a>. Nowadays, there are a different solutions available with a different focus and different set of functionalities:</p>
+<div class="callout-title-container flex-fill">
+Code for the example
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Rectangle:</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""A class to represent a rectangle"""</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, width, height):</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.width <span class="op">=</span> width</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.height <span class="op">=</span> height</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get_area(<span class="va">self</span>):</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Return the area of the rectangle"""</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.width <span class="op">*</span> <span class="va">self</span>.height</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> set_width(<span class="va">self</span>, width):</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Set the width of the rectangle"""</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.width <span class="op">=</span> width</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> set_height(<span class="va">self</span>, height):</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Set the height of the rectangle"""</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.height <span class="op">=</span> height</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Standalone function in the module</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> is_square(rectangle: Rectangle):</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co">    Check if a given rectangle is a square.</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co">    This function is not part of the Rectangle class, </span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co">    but it operates on a Rectangle object.</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> rectangle.width <span class="op">==</span> rectangle.height</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>and we store it in the root directory of our project as <code>rectangle.py</code>.</p>
+<p>Now, if we call Python we can import the module via its name <code>rectangle</code> (the extension is not used)</p>
+<div id="b21634f3" class="cell styled-output" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> rectangle</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>rect <span class="op">=</span> rectangle.Rectangle(<span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>rect<span class="sc">.</span>get_area() <span class="op">=</span> <span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>rectangle<span class="sc">.</span>is_square(rect) <span class="op">=</span><span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>rect.get_area() = 1
+rectangle.is_square(rect) =True</code></pre>
+</div>
+</div>
+<p>We can also get a specific resource and we can rename it</p>
+<div id="f5a13b24" class="cell styled-output" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rectangle <span class="im">import</span> is_square <span class="im">as</span> check_square</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>rect <span class="op">=</span> rectangle.Rectangle(<span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>check_square(rect) <span class="op">=</span><span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>check_square(rect) =True</code></pre>
+</div>
+</div>
+<p>or everything</p>
+<div id="8d8bf8dc" class="cell styled-output" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rectangle <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>rect <span class="op">=</span> Rectangle(<span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>is_square(rect) <span class="op">=</span><span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>is_square(rect) =True</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We can see in the last two examples, that we no longer need to specify the module, i.e.&nbsp;the <a href="https://docs.python.org/3/glossary.html#term-namespace">namespace</a>, to access.</p>
+</div>
+</div>
+<p>We can also execute the module, which will result in not anything happening for our original file but if we add <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> sys</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    r <span class="op">=</span> Rectangle(<span class="bu">int</span>(sys.argv[<span class="dv">1</span>]), <span class="bu">int</span>(sys.argv[<span class="dv">2</span>]))</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>r<span class="sc">.</span>get_area() <span class="op">=</span> <span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>at the end we can call it and we get a result:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> rectangle.py 1 2 </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="295ea53f" class="cell styled-output" data-execution_count="6">
+<div class="cell-output cell-output-stdout">
+<pre><code>r.get_area() = 2</code></pre>
+</div>
+</div>
+<p>Now, depending on the input provided the area of the rectangle is computed.</p>
+<p>When including or calling a module, Python needs to know where the module is located. This is realised via the <a href="https://docs.python.org/3/tutorial/modules.html#the-module-search-path">module search path</a>. When calling <code>import</code> the following locations are processed:</p>
 <ol type="1">
-<li><a href="https://opencontainers.org/">Open Container Initiative</a> for example <a href="https://podman.io/">Podman</a>
-<ul>
-<li>open industry standards for container format &amp; runtime</li>
-<li>Allows for a daemon-less container engine for running OCI containers (root or rootless)</li>
-</ul></li>
-<li><a href="https://apptainer.org/">AppTainer</a> - formally know as Singularity.
-<ul>
-<li>designed for HPC</li>
-<li>uses Linux namespaces but leaves resource limitations to the batch system</li>
-<li>feels like running a program</li>
-<li>allows access to <em>all</em> host resources</li>
-<li>runs in the user namespace</li>
-</ul></li>
-<li><a href="https://docs.docker.com/">Docker</a>
-<ul>
-<li>based on Linux namespaces and resource limitations</li>
-<li>client server model (<em>dockerd</em>)</li>
-<li>typical <em>microservices</em> (see <a href="https://docs.docker.com/compose/">docker-compose</a> for a swarm)</li>
-<li>very popular with a huge collection on dockerhub</li>
-</ul></li>
+<li>The build in modules.</li>
+<li>The directory containing the input script or file, most of the time this is the <em>current directory</em></li>
+<li>The environment variable <code>PYTHONPATH</code> (a list of directory names, with the same syntax as the shell variable <code>PATH</code>).</li>
+<li>The installation-dependent default (by convention including a <code>site-packages</code> directory, handled by the <code>site</code> module), we use <code>pdm</code> to manage these in <code>.venv</code>.</li>
 </ol>
-<p>If you want to fully understand what a container actually is it is very instructive to have a look at this video by <a href="https://www.lizrice.com/">Liz Rice</a> <em>Learn how to code a container using Go code</em>.</p>
-<div id="fig-containerization-video" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-containerization-video-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/8fi7uSYlOdc" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-containerization-video-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4: Containers From Scratch by Liz Rice.
-</figcaption>
-</figure>
-</div>
-<p>Our focus will be on Docker.</p>
+<p>Consequently, if we want to include something in subdirectory we can use <code>src.rectangle</code> where <code>.</code> replaces the path separator <code>/</code>.</p>
+<p>We can see this in action when using <em>packages</em>, as we know a collection of modules. For example, <code>numpy</code> or <code>pandas</code> are packages, that contain various modules and we discuss them in the next section.</p>
+<p>In order to create a package the <code>__init__.py</code> file needs to be part of a directory, to let Python know that this is a package. As example we have a look at our toy example module again.</p>
+<div class="sourceCode" id="annotated-cell-6"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><span id="annotated-cell-6-1"><a href="#annotated-cell-6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tree module/</span>
+<span id="annotated-cell-6-2"><a href="#annotated-cell-6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">module/</span></span>
+<span id="annotated-cell-6-3"><a href="#annotated-cell-6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> pdm.lock</span>
+<span id="annotated-cell-6-4"><a href="#annotated-cell-6-4" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> pyproject.toml</span>
+<span id="annotated-cell-6-5"><a href="#annotated-cell-6-5" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> src</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-6" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-6-6" class="code-annotation-target"><a href="#annotated-cell-6-6" aria-hidden="true" tabindex="-1"></a> <span class="ex">&nbsp;&nbsp;</span> └── rectangle</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-6" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-6-7" class="code-annotation-target"><a href="#annotated-cell-6-7" aria-hidden="true" tabindex="-1"></a> <span class="ex">&nbsp;&nbsp;</span>     ├── __init__.py</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-6" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-6-8" class="code-annotation-target"><a href="#annotated-cell-6-8" aria-hidden="true" tabindex="-1"></a> <span class="ex">&nbsp;&nbsp;</span>     └── rectangle.py</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-6" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-6" data-code-lines="6" data-code-annotation="1">The directory containing the module, in our case <code>src.rectangle</code>.</span>
+</dd>
+<dt data-target-cell="annotated-cell-6" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-6" data-code-lines="7" data-code-annotation="2">The init file.</span>
+</dd>
+<dt data-target-cell="annotated-cell-6" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-6" data-code-lines="8" data-code-annotation="3">The actual code.</span>
+</dd>
+</dl>
+<p>We have two such files where for the module part the content is.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> .rectangle <span class="im">import</span> <span class="op">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This explicitly uses the current directory and imports everything into the namespace of the module. Therefore, we do not need to write <code>rectangle.rectangle.Rectangle</code> to use the <code>Rectangle</code> class but just <code>rectangle.Rectangle</code>.</p>
+<p>This concludes our short introduction to modules, for further details we suggest the following references.</p>
+<section id="references" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="references"><span class="header-section-number">7.1</span> References</h2>
+<p>We only provide a glimpse into the concept of functional programming in Python. There are more guides out there, like</p>
+<ul>
+<li><span class="citation" data-cites="Matthes2023">Matthes (<a href="../references.html#ref-Matthes2023" role="doc-biblioref">2023</a>)</span> has a section about modules.</li>
+<li>The Python Tutorial on Modules and Packages, <a href="https://docs.python.org/3/tutorial/modules.html">link</a></li>
+<li>A RealPython guide on modules and packages, <a href="https://realpython.com/python-modules-packages/">link</a></li>
+</ul>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-Matthes2023" class="csl-entry" role="listitem">
+Matthes, Eric. 2023. <em>Python Crash Course - a Hands-on, Project-Based Introduction to Programming</em>. 3rd ed. No Starch Press. <a href="https://ehmatthes.github.io/pcc_3e/">https://ehmatthes.github.io/pcc_3e/</a>.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>The magic of <code>__name__ == "__main__"</code> is explained in the <a href="https://docs.python.org/3/library/__main__.html">docs</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
@@ -1079,13 +1177,13 @@ Figure&nbsp;4: Containers From Scratch by Liz Rice.
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../errorhandling/cicd.html" class="pagination-link" aria-label="CI/CD">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">CI/CD</span></span>
+      <a href="../pp/fp.html" class="pagination-link" aria-label="Functional Programming">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Functional Programming</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../containerization/docker.html" class="pagination-link" aria-label="Docker">
-        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Docker</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../sc/index.html" class="pagination-link" aria-label="Scientific Computing">
+        <span class="nav-page-text">Scientific Computing</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1097,44 +1195,12 @@ Figure&nbsp;4: Containers From Scratch by Liz Rice.
 </div>   
     <div class="nav-footer-center">
 <p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> Peter Kandolf</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/containerization/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/pp/modules.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
-(function() {
-  let previousOnload = window.onload;
-  window.onload = () => {
-    if (previousOnload) {
-      previousOnload();
-    }
-    lightboxQuarto.on('slide_before_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      const href = trigger.getAttribute('href');
-      if (href !== null) {
-        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-        if (imgEl !== null) {
-          const srcAttr = imgEl.getAttribute("src");
-          if (srcAttr && srcAttr.startsWith("data:")) {
-            slideConfig.href = srcAttr;
-          }
-        }
-      } 
-    });
-  
-    lightboxQuarto.on('slide_after_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(slideNode);
-      }
-    });
-  
-  };
-  
-})();
-          </script>
 
 
 

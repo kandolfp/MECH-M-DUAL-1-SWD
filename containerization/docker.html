@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>14&nbsp; Docker – Softwaredesign</title>
+<title>15&nbsp; Docker – Softwaredesign</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -280,7 +280,8 @@ div.csl-indent {
       }
     };
     const authorPrefersDark = false;
-    const darkModeDefault = authorPrefersDark;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
       document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
       document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
     let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
@@ -293,6 +294,14 @@ div.csl-indent {
       toggleGiscusIfUsed(toAlternate, darkModeDefault);
       window.dispatchEvent(new Event('resize'));
     };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
     // Switch to dark mode if need be
     if (hasAlternateSentinel()) {
       toggleColorMode(true);
@@ -308,7 +317,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../containerization/index.html">Containerization</a></li><li class="breadcrumb-item"><a href="../containerization/docker.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Docker</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../containerization/index.html">Containerization</a></li><li class="breadcrumb-item"><a href="../containerization/docker.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Docker</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -410,6 +419,12 @@ div.csl-indent {
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Functional Programming</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pp/modules.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Working with modules and packages</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -424,13 +439,13 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../sc/numpy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">NumPy</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">NumPy</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../sc/pandas.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Pandas</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Pandas</span></span></a>
   </div>
 </li>
       </ul>
@@ -447,31 +462,31 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../errorhandling/exception.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Exception handling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Exception handling</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../errorhandling/logging.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Logging</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Logging</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../errorhandling/paths.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Path and file handling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Path and file handling</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../errorhandling/testing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Testing</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Testing</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../errorhandling/cicd.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">CI/CD</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">CI/CD</span></span></a>
   </div>
 </li>
       </ul>
@@ -488,7 +503,7 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../containerization/docker.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Docker</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Docker</span></span></a>
   </div>
 </li>
       </ul>
@@ -538,24 +553,24 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#basics-of-docker" id="toc-basics-of-docker" class="nav-link active" data-scroll-target="#basics-of-docker"><span class="header-section-number">14.1</span> Basics of Docker</a>
+  <li><a href="#basics-of-docker" id="toc-basics-of-docker" class="nav-link active" data-scroll-target="#basics-of-docker"><span class="header-section-number">15.1</span> Basics of Docker</a>
   <ul class="collapse">
-  <li><a href="#the-docker-daemon" id="toc-the-docker-daemon" class="nav-link" data-scroll-target="#the-docker-daemon"><span class="header-section-number">14.1.1</span> The Docker daemon</a></li>
-  <li><a href="#the-docker-client" id="toc-the-docker-client" class="nav-link" data-scroll-target="#the-docker-client"><span class="header-section-number">14.1.2</span> The Docker client</a></li>
-  <li><a href="#the-docker-registries" id="toc-the-docker-registries" class="nav-link" data-scroll-target="#the-docker-registries"><span class="header-section-number">14.1.3</span> The Docker registries</a></li>
-  <li><a href="#images" id="toc-images" class="nav-link" data-scroll-target="#images"><span class="header-section-number">14.1.4</span> Images</a></li>
-  <li><a href="#container" id="toc-container" class="nav-link" data-scroll-target="#container"><span class="header-section-number">14.1.5</span> Container</a></li>
+  <li><a href="#the-docker-daemon" id="toc-the-docker-daemon" class="nav-link" data-scroll-target="#the-docker-daemon"><span class="header-section-number">15.1.1</span> The Docker daemon</a></li>
+  <li><a href="#the-docker-client" id="toc-the-docker-client" class="nav-link" data-scroll-target="#the-docker-client"><span class="header-section-number">15.1.2</span> The Docker client</a></li>
+  <li><a href="#the-docker-registries" id="toc-the-docker-registries" class="nav-link" data-scroll-target="#the-docker-registries"><span class="header-section-number">15.1.3</span> The Docker registries</a></li>
+  <li><a href="#images" id="toc-images" class="nav-link" data-scroll-target="#images"><span class="header-section-number">15.1.4</span> Images</a></li>
+  <li><a href="#container" id="toc-container" class="nav-link" data-scroll-target="#container"><span class="header-section-number">15.1.5</span> Container</a></li>
   </ul></li>
-  <li><a href="#hands-on" id="toc-hands-on" class="nav-link" data-scroll-target="#hands-on"><span class="header-section-number">14.2</span> Hands on</a>
+  <li><a href="#hands-on" id="toc-hands-on" class="nav-link" data-scroll-target="#hands-on"><span class="header-section-number">15.2</span> Hands on</a>
   <ul class="collapse">
-  <li><a href="#docker-commands" id="toc-docker-commands" class="nav-link" data-scroll-target="#docker-commands"><span class="header-section-number">14.2.1</span> Docker commands</a></li>
-  <li><a href="#jupyter-lab-images" id="toc-jupyter-lab-images" class="nav-link" data-scroll-target="#jupyter-lab-images"><span class="header-section-number">14.2.2</span> Jupyter Lab images</a></li>
-  <li><a href="#running-the-first-instance" id="toc-running-the-first-instance" class="nav-link" data-scroll-target="#running-the-first-instance"><span class="header-section-number">14.2.3</span> Running the first instance</a></li>
-  <li><a href="#looking-around-in-the-container" id="toc-looking-around-in-the-container" class="nav-link" data-scroll-target="#looking-around-in-the-container"><span class="header-section-number">14.2.4</span> Looking around in the container</a></li>
-  <li><a href="#bind-mounting-data-into-the-container" id="toc-bind-mounting-data-into-the-container" class="nav-link" data-scroll-target="#bind-mounting-data-into-the-container"><span class="header-section-number">14.2.5</span> Bind mounting data into the container</a></li>
-  <li><a href="#dockerfile" id="toc-dockerfile" class="nav-link" data-scroll-target="#dockerfile"><span class="header-section-number">14.2.6</span> Dockerfile</a></li>
-  <li><a href="#add-a-second-kernel-to-the-notebook" id="toc-add-a-second-kernel-to-the-notebook" class="nav-link" data-scroll-target="#add-a-second-kernel-to-the-notebook"><span class="header-section-number">14.2.7</span> Add a second kernel to the notebook</a></li>
-  <li><a href="#additional-notes-on-dockerfiles" id="toc-additional-notes-on-dockerfiles" class="nav-link" data-scroll-target="#additional-notes-on-dockerfiles"><span class="header-section-number">14.2.8</span> Additional notes on Dockerfiles</a></li>
+  <li><a href="#docker-commands" id="toc-docker-commands" class="nav-link" data-scroll-target="#docker-commands"><span class="header-section-number">15.2.1</span> Docker commands</a></li>
+  <li><a href="#jupyter-lab-images" id="toc-jupyter-lab-images" class="nav-link" data-scroll-target="#jupyter-lab-images"><span class="header-section-number">15.2.2</span> Jupyter Lab images</a></li>
+  <li><a href="#running-the-first-instance" id="toc-running-the-first-instance" class="nav-link" data-scroll-target="#running-the-first-instance"><span class="header-section-number">15.2.3</span> Running the first instance</a></li>
+  <li><a href="#looking-around-in-the-container" id="toc-looking-around-in-the-container" class="nav-link" data-scroll-target="#looking-around-in-the-container"><span class="header-section-number">15.2.4</span> Looking around in the container</a></li>
+  <li><a href="#bind-mounting-data-into-the-container" id="toc-bind-mounting-data-into-the-container" class="nav-link" data-scroll-target="#bind-mounting-data-into-the-container"><span class="header-section-number">15.2.5</span> Bind mounting data into the container</a></li>
+  <li><a href="#dockerfile" id="toc-dockerfile" class="nav-link" data-scroll-target="#dockerfile"><span class="header-section-number">15.2.6</span> Dockerfile</a></li>
+  <li><a href="#add-a-second-kernel-to-the-notebook" id="toc-add-a-second-kernel-to-the-notebook" class="nav-link" data-scroll-target="#add-a-second-kernel-to-the-notebook"><span class="header-section-number">15.2.7</span> Add a second kernel to the notebook</a></li>
+  <li><a href="#additional-notes-on-dockerfiles" id="toc-additional-notes-on-dockerfiles" class="nav-link" data-scroll-target="#additional-notes-on-dockerfiles"><span class="header-section-number">15.2.8</span> Additional notes on Dockerfiles</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/containerization/docker.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -564,9 +579,9 @@ div.csl-indent {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../containerization/index.html">Containerization</a></li><li class="breadcrumb-item"><a href="../containerization/docker.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Docker</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../containerization/index.html">Containerization</a></li><li class="breadcrumb-item"><a href="../containerization/docker.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Docker</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Docker</span></h1>
+<h1 class="title"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Docker</span></h1>
 </div>
 
 
@@ -596,46 +611,46 @@ Note
 <p>These notes where originally developed for the class <em>971001 Software</em> at the University of Innsbruck and are slightly adapted for this notes. See <span class="citation" data-cites="pgd2024">Kandolf (<a href="../references.html#ref-pgd2024" role="doc-biblioref">2024</a>)</span> for the original source and <a href="https://kandolfp.github.io/ws22-ulg-python-git-docker/pages/docker/basics">github pages</a> for the notes.</p>
 </div>
 </div>
-<section id="basics-of-docker" class="level2" data-number="14.1">
-<h2 data-number="14.1" class="anchored" data-anchor-id="basics-of-docker"><span class="header-section-number">14.1</span> Basics of Docker</h2>
+<section id="basics-of-docker" class="level2" data-number="15.1">
+<h2 data-number="15.1" class="anchored" data-anchor-id="basics-of-docker"><span class="header-section-number">15.1</span> Basics of Docker</h2>
 <p>Docker understands itself as an <em>open platform for developing, shipping, and running applications</em>. By separating the application form the infrastructure it allows you to develop independent of the platform the <em>container</em> is running on later.</p>
 <p>The <em>docker platform</em> allows you to run many applications in isolated environments in so called <em>containers</em>. This allows you to split up your application into different containers, for example the database is separate from your application and so forth. This allows you to update different parts independently from each other and revert changes if required. This approach is often summed up under the term <em>micro services</em>.</p>
-<p>Docker uses a specific architecture to achieve this, see <a href="#fig-containerization-docker-arch" class="quarto-xref">Figure&nbsp;<span>14.1</span></a>.</p>
+<p>Docker uses a specific architecture to achieve this, see <a href="#fig-containerization-docker-arch" class="quarto-xref">Figure&nbsp;<span>15.1</span></a>.</p>
 <div id="fig-containerization-docker-arch" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-containerization-docker-arch-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../_assets/containerization/docker_architecture.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;14.1: The docker architecture."><img src="../_assets/containerization/docker_architecture.svg" class="img-fluid figure-img"></a>
+<a href="../_assets/containerization/docker_architecture.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;15.1: The docker architecture."><img src="../_assets/containerization/docker_architecture.svg" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-containerization-docker-arch-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;14.1: The docker architecture.
+Figure&nbsp;15.1: The docker architecture.
 </figcaption>
 </figure>
 </div>
 <p>Mainly docker consists of a client <code>docker</code> and server <code>dockerd</code> (docker daemon) approach.</p>
-<section id="the-docker-daemon" class="level3" data-number="14.1.1">
-<h3 data-number="14.1.1" class="anchored" data-anchor-id="the-docker-daemon"><span class="header-section-number">14.1.1</span> The Docker daemon</h3>
+<section id="the-docker-daemon" class="level3" data-number="15.1.1">
+<h3 data-number="15.1.1" class="anchored" data-anchor-id="the-docker-daemon"><span class="header-section-number">15.1.1</span> The Docker daemon</h3>
 <p>The Docker daemon is in charge of all the Docker objects such as images, containers, networks, volumes and listens for API calls. Furthermore, it is able to communicate with other daemons.</p>
 </section>
-<section id="the-docker-client" class="level3" data-number="14.1.2">
-<h3 data-number="14.1.2" class="anchored" data-anchor-id="the-docker-client"><span class="header-section-number">14.1.2</span> The Docker client</h3>
+<section id="the-docker-client" class="level3" data-number="15.1.2">
+<h3 data-number="15.1.2" class="anchored" data-anchor-id="the-docker-client"><span class="header-section-number">15.1.2</span> The Docker client</h3>
 <p>The docker client is your way to interact with Docker. Instructions like <code>docker pull</code> are sent as an API call to <code>dockerd</code> and executed there. The daemon that you communicate with does not necessarily be on the local machine nor does it always have to be the same.</p>
 </section>
-<section id="the-docker-registries" class="level3" data-number="14.1.3">
-<h3 data-number="14.1.3" class="anchored" data-anchor-id="the-docker-registries"><span class="header-section-number">14.1.3</span> The Docker registries</h3>
+<section id="the-docker-registries" class="level3" data-number="15.1.3">
+<h3 data-number="15.1.3" class="anchored" data-anchor-id="the-docker-registries"><span class="header-section-number">15.1.3</span> The Docker registries</h3>
 <p>The Docker registries are separate and strictly speaking not necessary for you to use Docker. There purpose is to store Docker images. This can be public like <a href="https://hub.docker.com/">Docker Hub</a> and <a href="https://autamus.io/registry/">Autamus</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> or private for your organisation and tools like GitLab provide registries as well.</p>
 <p>When you use a command like <code>docker pull</code> you pull an image from a registry and with <code>docker push</code> you push it to a registry, the same as with Git.</p>
 <p>Again, the client can talk to multiple registries.</p>
 <p>The various docker objects in the above image are</p>
 </section>
-<section id="images" class="level3" data-number="14.1.4">
-<h3 data-number="14.1.4" class="anchored" data-anchor-id="images"><span class="header-section-number">14.1.4</span> Images</h3>
+<section id="images" class="level3" data-number="15.1.4">
+<h3 data-number="15.1.4" class="anchored" data-anchor-id="images"><span class="header-section-number">15.1.4</span> Images</h3>
 <blockquote class="blockquote">
 <p>An image is a read-only template with instructions for creating a Docker container. Often, an image is based on another image, with some additional customization. For example, you may build an image which is based on the ubuntu image, but installs the Apache web server and your application, as well as the configuration details needed to make your application run.</p>
 </blockquote>
 <p>In order to build you own image you need a so called <code>Dockerfile</code> which uses a specific syntax to allow the Docker daemon to build an image from it. Each step in this image is called a layer and whenever you build an image only the layers that have changed need to be rebuild.</p>
 </section>
-<section id="container" class="level3" data-number="14.1.5">
-<h3 data-number="14.1.5" class="anchored" data-anchor-id="container"><span class="header-section-number">14.1.5</span> Container</h3>
+<section id="container" class="level3" data-number="15.1.5">
+<h3 data-number="15.1.5" class="anchored" data-anchor-id="container"><span class="header-section-number">15.1.5</span> Container</h3>
 <blockquote class="blockquote">
 <p>A container is a runnable instance of an image. You can create, start, stop, move, or delete a container using the Docker API or CLI. You can connect a container to one or more networks, attach storage to it, or even create a new image based on its current state.</p>
 </blockquote>
@@ -645,11 +660,11 @@ Figure&nbsp;14.1: The docker architecture.
 </blockquote>
 </section>
 </section>
-<section id="hands-on" class="level2" data-number="14.2">
-<h2 data-number="14.2" class="anchored" data-anchor-id="hands-on"><span class="header-section-number">14.2</span> Hands on</h2>
+<section id="hands-on" class="level2" data-number="15.2">
+<h2 data-number="15.2" class="anchored" data-anchor-id="hands-on"><span class="header-section-number">15.2</span> Hands on</h2>
 <p>In order to get to know Docker you need to work with it.</p>
-<section id="docker-commands" class="level3" data-number="14.2.1">
-<h3 data-number="14.2.1" class="anchored" data-anchor-id="docker-commands"><span class="header-section-number">14.2.1</span> Docker commands</h3>
+<section id="docker-commands" class="level3" data-number="15.2.1">
+<h3 data-number="15.2.1" class="anchored" data-anchor-id="docker-commands"><span class="header-section-number">15.2.1</span> Docker commands</h3>
 <p>The Docker client or CLI provides you with a multitude of commands:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> docker <span class="ex">--help</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -742,7 +757,7 @@ Figure&nbsp;14.1: The docker architecture.
 </div>
 <div class="callout-body-container">
 <div id="exm-containerization-docker-gettingstarted" class="theorem example">
-<p><span class="theorem-title"><strong>Example 14.1 (Getting started with docker)</strong></span> By running:</p>
+<p><span class="theorem-title"><strong>Example 15.1 (Getting started with docker)</strong></span> By running:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> docker <span class="ex">run</span> <span class="at">-dp</span> 80:80 docker/getting-started</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>and than accessing <a href="http://localhost">localhost</a> will give you a step by step introduction on what is happening and gives you step by step instructions to build an application in Docker.</p>
 </div>
@@ -751,8 +766,8 @@ Figure&nbsp;14.1: The docker architecture.
 </div>
 <p>In order to get a closer connection to what is happening in the rest of this course we go a different path. We will get a <a href="https://jupyter.org/">Jupyter Lab</a> image and install additional resources as well as additional <em>kernels</em>,</p>
 </section>
-<section id="jupyter-lab-images" class="level3" data-number="14.2.2">
-<h3 data-number="14.2.2" class="anchored" data-anchor-id="jupyter-lab-images"><span class="header-section-number">14.2.2</span> Jupyter Lab images</h3>
+<section id="jupyter-lab-images" class="level3" data-number="15.2.2">
+<h3 data-number="15.2.2" class="anchored" data-anchor-id="jupyter-lab-images"><span class="header-section-number">15.2.2</span> Jupyter Lab images</h3>
 <p>The Jupyter project provides us with a lot of <a href="https://jupyter-docker-stacks.readthedocs.io/en/latest/">Docker images</a> on <a href="https://hub.docker.com/u/jupyter">Docker Hub</a>.</p>
 <p>In order to have a bit of work to do we start with the <em>minimal-notebook</em> By default Docker will communicate with Docker Hub so if you call</p>
 <div class="sourceCode" id="annotated-cell-2"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><span id="annotated-cell-2-1"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> docker <span class="ex">pull</span> jupyter/minimal-notebook</span>
@@ -809,8 +824,8 @@ Note
 </div>
 <p>Now we have the image and we can run it. Let us do so by calling:</p>
 </section>
-<section id="running-the-first-instance" class="level3" data-number="14.2.3">
-<h3 data-number="14.2.3" class="anchored" data-anchor-id="running-the-first-instance"><span class="header-section-number">14.2.3</span> Running the first instance</h3>
+<section id="running-the-first-instance" class="level3" data-number="15.2.3">
+<h3 data-number="15.2.3" class="anchored" data-anchor-id="running-the-first-instance"><span class="header-section-number">15.2.3</span> Running the first instance</h3>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> docker <span class="ex">run</span> jupyter/minimal-notebook:latest</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Entered</span> start.sh with args: jupyter lab</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Executing</span> the command: jupyter lab</span>
@@ -1000,8 +1015,8 @@ Note
 </div>
 <p>Now you can use it just like any other Jupyter lab instance with - most likely - the latest version of Python (<code>3.10.8</code> when typing these notes).</p>
 </section>
-<section id="looking-around-in-the-container" class="level3" data-number="14.2.4">
-<h3 data-number="14.2.4" class="anchored" data-anchor-id="looking-around-in-the-container"><span class="header-section-number">14.2.4</span> Looking around in the container</h3>
+<section id="looking-around-in-the-container" class="level3" data-number="15.2.4">
+<h3 data-number="15.2.4" class="anchored" data-anchor-id="looking-around-in-the-container"><span class="header-section-number">15.2.4</span> Looking around in the container</h3>
 <p>Obviously, the first thing you want to do is to have a look and run your latest homework. Nevertheless, checking in the <em>Terminal</em> (you find it in the <em>Launcher</em> under <em>Other</em>) where you currently are located with a quick <code>pwd</code> you will get the following</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">base</span><span class="kw">)</span> <span class="ex">jovyan@0648fadeef68:~$</span> pwd</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">/home/jovyan</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1034,8 +1049,8 @@ Note
 </div>
 </div>
 </section>
-<section id="bind-mounting-data-into-the-container" class="level3" data-number="14.2.5">
-<h3 data-number="14.2.5" class="anchored" data-anchor-id="bind-mounting-data-into-the-container"><span class="header-section-number">14.2.5</span> Bind mounting data into the container</h3>
+<section id="bind-mounting-data-into-the-container" class="level3" data-number="15.2.5">
+<h3 data-number="15.2.5" class="anchored" data-anchor-id="bind-mounting-data-into-the-container"><span class="header-section-number">15.2.5</span> Bind mounting data into the container</h3>
 <p>With another educated guess you figure out the option to do a <em>bind mount</em> inside the container.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> docker <span class="ex">run</span> <span class="at">--help</span> <span class="kw">|</span> <span class="fu">grep</span> mount</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>      <span class="ex">--mount</span> mount                    Attach a filesystem mount to the container</span>
@@ -1061,8 +1076,8 @@ Note
 </div>
 </div>
 </section>
-<section id="dockerfile" class="level3" data-number="14.2.6">
-<h3 data-number="14.2.6" class="anchored" data-anchor-id="dockerfile"><span class="header-section-number">14.2.6</span> Dockerfile</h3>
+<section id="dockerfile" class="level3" data-number="15.2.6">
+<h3 data-number="15.2.6" class="anchored" data-anchor-id="dockerfile"><span class="header-section-number">15.2.6</span> Dockerfile</h3>
 <p>Now that you have all this in order you run your examples but are greeted with the response that <code>numpy</code> is not available. Of course you can install it in the terminal - via pip - or directly via Python but next time you start the image you need to do it again.</p>
 <p>So we decide to create a new image and use that instead. A new image is created with a <code>Dockerfile</code>, see<a href="https://docs.docker.com/engine/reference/builder/">Dockerfile reference</a> for full details.</p>
 <p>So we create a the file <code>Dockerfile</code> with the following content, see <a href="https://jupyter-docker-stacks.readthedocs.io/en/latest/using/recipes.html#add-a-custom-conda-environment-and-jupyter-kernel">Documentation</a></p>
@@ -1091,8 +1106,8 @@ Note
 <div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> docker <span class="ex">run</span> <span class="at">-it</span> <span class="at">-p</span> 8888:8888 swd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Now lets do something more fancy.</p>
 </section>
-<section id="add-a-second-kernel-to-the-notebook" class="level3" data-number="14.2.7">
-<h3 data-number="14.2.7" class="anchored" data-anchor-id="add-a-second-kernel-to-the-notebook"><span class="header-section-number">14.2.7</span> Add a second kernel to the notebook</h3>
+<section id="add-a-second-kernel-to-the-notebook" class="level3" data-number="15.2.7">
+<h3 data-number="15.2.7" class="anchored" data-anchor-id="add-a-second-kernel-to-the-notebook"><span class="header-section-number">15.2.7</span> Add a second kernel to the notebook</h3>
 <p>The second language used in the class is R so why not include it into the container. Checking the documentation of R reveals that we need the <a href="https://irkernel.github.io/installation/"><code>IRkernel</code> package</a> and the installation instructions translate to</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode dockerfile code-with-copy"><code class="sourceCode dockerfile"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Start from a core stack version</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> jupyter/minimal-notebook:latest</span>
@@ -1103,8 +1118,8 @@ Note
 <span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Rscript</span> <span class="at">-e</span> <span class="st">"IRkernel::installspec()"</span> <span class="kw">&amp;&amp;</span> <span class="dt">\</span></span>
 <span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    <span class="ex">jupyter</span> labextension install @techrah/text-shortcuts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="additional-notes-on-dockerfiles" class="level3" data-number="14.2.8">
-<h3 data-number="14.2.8" class="anchored" data-anchor-id="additional-notes-on-dockerfiles"><span class="header-section-number">14.2.8</span> Additional notes on Dockerfiles</h3>
+<section id="additional-notes-on-dockerfiles" class="level3" data-number="15.2.8">
+<h3 data-number="15.2.8" class="anchored" data-anchor-id="additional-notes-on-dockerfiles"><span class="header-section-number">15.2.8</span> Additional notes on Dockerfiles</h3>
 <p>There are several more commands that can be used in the <a href="https://docs.docker.com/engine/reference/builder/">Dockerfile</a>:</p>
 <p>As seen above the <code>#</code> symbol can used for comments in a Dockerfile.</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode dockerfile code-with-copy"><code class="sourceCode dockerfile"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">WORKDIR</span> /path/to/workdir</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1563,7 +1578,7 @@ Kandolf, Peter. 2024. <span>“ULG Data Science - WS22 971001 Software - Introdu
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Softwaredesign WS 2024 (MECH-M-DUAL-1-SWD)</p>
+<p>Softwaredesign WS 2025/26 (MECH-M-DUAL-1-SWD)</p>
 </div>   
     <div class="nav-footer-center">
 <p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> Peter Kandolf</p>

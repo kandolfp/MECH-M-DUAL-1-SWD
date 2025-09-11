@@ -310,7 +310,8 @@ window.Quarto = {
       }
     };
     const authorPrefersDark = false;
-    const darkModeDefault = authorPrefersDark;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
       document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
       document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
     let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
@@ -323,6 +324,14 @@ window.Quarto = {
       toggleGiscusIfUsed(toAlternate, darkModeDefault);
       window.dispatchEvent(new Event('resize'));
     };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
     // Switch to dark mode if need be
     if (hasAlternateSentinel()) {
       toggleColorMode(true);
@@ -440,6 +449,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Functional Programming</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pp/modules.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Working with modules and packages</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -454,13 +469,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../sc/numpy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">NumPy</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">NumPy</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../sc/pandas.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Pandas</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Pandas</span></span></a>
   </div>
 </li>
       </ul>
@@ -477,31 +492,31 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../errorhandling/exception.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Exception handling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Exception handling</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../errorhandling/logging.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Logging</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Logging</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../errorhandling/paths.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Path and file handling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Path and file handling</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../errorhandling/testing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Testing</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Testing</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../errorhandling/cicd.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">CI/CD</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">CI/CD</span></span></a>
   </div>
 </li>
       </ul>
@@ -518,7 +533,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../containerization/docker.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Docker</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Docker</span></span></a>
   </div>
 </li>
       </ul>
@@ -799,7 +814,7 @@ Student "*" --* University : Composition
 <div class="callout-body-container">
 <div id="exr-iterators" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise B.5 (Iterators)</strong></span> Explain the output of the following code fragment, see <a href="../pp/fp.html#sec-fpp" class="quarto-xref"><span>Section 6.1</span></a>:</p>
-<div id="a76b223a" class="cell styled-output" data-execution_count="1">
+<div id="d90e6161" class="cell styled-output" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>square <span class="op">=</span> <span class="kw">lambda</span> a: a <span class="op">**</span> <span class="dv">2</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>iterator <span class="op">=</span> <span class="bu">map</span>(square, <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">5</span>))</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -830,7 +845,7 @@ list(iterator) = [1, 4, 9, 16]</code></pre>
 <div class="callout-body-container">
 <div id="exr-accumulate" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise B.6 (Accumulator)</strong></span> In <a href="../pp/fp.html#sec-fpp" class="quarto-xref"><span>Section 6.1</span></a> we discussed the <code>functools</code> module. On function included there is <code>accumulate</code> that takes an iterator and a function to apply to it. It can, for example be used to compute partial sum or product:</p>
-<div id="853ebe64" class="cell styled-output" data-execution_count="2">
+<div id="33213f96" class="cell styled-output" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itertools <span class="im">import</span> accumulate</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> operator <span class="im">import</span> add, mul</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -845,7 +860,7 @@ list(accumulate([1, 2, 3, 4, 5], mul)) = [1, 2, 6, 24, 120]</code></pre>
 <ol type="1">
 <li><p>Compute a running maximum in a list of numbers.</p></li>
 <li><p>Compute an <a href="https://en.wikipedia.org/wiki/Amortization_schedule">amortization schedule</a> for a loan of <span class="math inline">\(1000\)</span> with an interest of <span class="math inline">\(5\%\)</span> and a payment of <span class="math inline">\(100\)</span> for <span class="math inline">\(10\)</span> years. <strong>Hint:</strong> You can provide an initial value as third argument to <code>accumulate</code> and the result should look something like the following:</p>
-<div id="3e6f960c" class="cell styled-output" data-execution_count="3">
+<div id="3ea0b775" class="cell styled-output" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>[1000, 950, 898, 843, 785, 724, 660, 593, 523, 449, 371]</code></pre>
 </div>
@@ -1006,7 +1021,7 @@ list(accumulate([1, 2, 3, 4, 5], mul)) = [1, 2, 6, 24, 120]</code></pre>
 <div id="exr-pandas_sets" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise B.12 (Use <code>pandas</code> to redo Section 2 of <a href="https://kandolfp.github.io/MECH-M-DUAL-1-DBM/basics/sets.html">MECH-M-DUAL-I-DBM</a>)</strong></span> In <a href="https://kandolfp.github.io/MECH-M-DUAL-1-DBM/basics/sets.html">MECH-M-DUAL-I-DBM</a> Section 2 we worked with the <code>mieten3.asc</code> dataset and did some computations on it.</p>
 <p>Use <code>pandas</code> to load the dataset and compute the same properties and create similar plots, where it is appropriate.</p>
-<p><strong>Hint:</strong> Data loading and some examples are done in <a href="../sc/pandas.html" class="quarto-xref"><span>Chapter 8</span></a>.</p>
+<p><strong>Hint:</strong> Data loading and some examples are done in <a href="../sc/pandas.html" class="quarto-xref"><span>Chapter 9</span></a>.</p>
 </div>
 </div>
 </div>
@@ -1026,7 +1041,7 @@ list(accumulate([1, 2, 3, 4, 5], mul)) = [1, 2, 6, 24, 120]</code></pre>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Age'</span>: [<span class="dv">11</span>, <span class="dv">16</span>, <span class="dv">30</span>, <span class="dv">51</span>]</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>create</p>
-<div id="10bd9e18" class="cell" data-execution_count="4">
+<div id="aa23e613" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display" data-execution_count="4">
 <div>
 
@@ -1585,7 +1600,7 @@ Vasiliev, Yuli. 2022. <em>Python for Data Science - a Hands-on Introduction</em>
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Softwaredesign WS 2024 (MECH-M-DUAL-1-SWD)</p>
+<p>Softwaredesign WS 2025/26 (MECH-M-DUAL-1-SWD)</p>
 </div>   
     <div class="nav-footer-center">
 <p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> Peter Kandolf</p>
