@@ -1,6 +1,7 @@
 # Summary {.unnumbered}
 
-TBD.
+Hopefully, these notes sparked an interest in software design, as this is an important tool in the modern world. 
+The notes can help as a first landing page to find help and references.
 
 ## Collection of interesting reads
 
