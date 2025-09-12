@@ -1,5 +1,14 @@
 # Introduction {.unnumbered}
 
-This is a book created from markdown and executable code.
+In this class we are going to look at the basic of programming and Softwaredesign. We will always try to not only discuss the theory but also use [Python](https://www.python.org/) to illustrate the content programmatically.
+These notes are an orientation to get into the topics but should not be the only source to consider. 
+As the class is primarily designed as _self study_  we present exercises in the appendices to check our progress. 
 
-See @knuth84 for additional discussion of literate programming.
+The structure of the notes is as follows.
+We first look at some basics for software design like @sec-intro-packagemanager and @sec-intro-versioncontrol. 
+As a next step we introduce different programming paradigms with @sec-pp-oop and @sec-pp-fp as well as an introduction to the concept of @sec-pp-modules.
+
+The sections on scientific programming are best seen as a motivation to study @Kandolf_GDM, where the packages are shown in action.
+
+The forth part is concerned with the runtime stability, namely how to do @sec-error-exceptions, @sec-error-logging, @sec-pathfile, @sec-error-testing, and @sec-error-cicd.
+As a final conclusion we introduce the modern concept of containerization with the example of @sec-container-docker. 

@@ -1,4 +1,4 @@
-# Exception handling
+# Exception handling {#sec-error-exceptions}
 
 This section deals with what to do in Python to make sure _(un)expected errors_ during the runtime are handled in such a way that the program is not closing down in an unexpected way.
 

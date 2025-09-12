@@ -1,4 +1,4 @@
-# Logging
+# Logging {#sec-error-logging}
 
 Logging is the concept of that is used to protocol _everything_ or at least every important _action/result_ that happens in a program in order to allow track how the program is doing. 
 
