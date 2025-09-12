@@ -400,7 +400,7 @@ In Python we can use _decorators_ to modify the functionality of a function by w
 - [programiz](https://www.programiz.com/python-programming/decorator)
 - [Python 101](https://python101.pythonlibrary.org/chapter25_decorators.html)
 
-Write a decorator `@positive` that checks arguments to be positive and raise an Exception (with `raise Exception("Sorry, not positive")`). Test this implementation with @exr-montecarlopi2. We will look at exception handling later.
+Write a decorator `@positive` that checks arguments to be positive and raise an Exception (with `raise Exception("Sorry, not positive")`). Test this implementation with @exr-montecarlopi2 and @exr-pps. We will look at exception handling later.
 
 Can you modify the decorator such that you can give an optional argument specifying the location to check for positivity?
 ```python
