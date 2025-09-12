@@ -91,7 +91,7 @@ print(member)
 :::::
 
 ::::: {.callout-note  collapse="true" icon=false}
-## 2 Loop start and end - middle
+## 2. Loop start and end - middle
 ```{python}
 #| classes: styled-output
 #| error: true
@@ -104,7 +104,7 @@ print(f"I can not wait to hear {member} play in the next song.")
 :::::
 
 ::::: {.callout-note  collapse="true" icon=false}
-## 3 Loop start and end - end
+## 3. Loop start and end - end
 ```{python}
 #| classes: styled-output
 #| error: true
@@ -119,7 +119,7 @@ for member in band_members:
 :::::
 
 ::::: {.callout-note  collapse="true" icon=false}
-## 4 Loop start and end - everything
+## 4. Loop start and end - everything
 ```{python}
 #| classes: styled-output
 #| error: true
@@ -338,31 +338,31 @@ Examples
 
 ## Set, List and Dictionary Comprehensions
 
-(@) Transform a list of tuples into a list of numbers using (nested) list comprehension, i.e. the list `flat` should be created and filled in one call from the content of `list_of_sets`.
+1. Transform a list of tuples into a list of numbers using (nested) list comprehension, i.e. the list `flat` should be created and filled in one call from the content of `list_of_sets`.
    ```{.python}
    list_of_sets = [(1, 2, 3), (4, 5, 6), (7, 8)]
    flat = [1, 2, 3, 4, 5, 6, 7, 8]
    ```
 
-(@) Is it still working if we include a set with a single entry?
+1. Is it still working if we include a set with a single entry?
    ```{.python}
    list_of_sets = [(1, 2, 3), (4, 5, 6), (7, 8), (9)]
    flat = [1, 2, 3, 4, 5, 6, 7, 8, 9]
    ```
 
-(@) What happens when we indicate that it is supposed to be a set clearly?
+1. What happens when we indicate that it is supposed to be a set clearly?
    ```{.python}
    list_of_sets = [(1, 2, 3), (4, 5, 6), (7, 8), (9,)]
    flat = [1, 2, 3, 4, 5, 6, 7, 8, 9]
    ```
 
-(@) What happens if we have lists instead of sets?
+1. What happens if we have lists instead of sets?
    ```{.python}
    list_of_lists = [[1, 2, 3], [4, 5, 6], [7, 8], [9]]
    flat = [1, 2, 3, 4, 5, 6, 7, 8, 9]
    ```
 
-(@) Split a sentence give as string into a list of words (ignore `,`, `.` for now).
+1. Split a sentence give as string into a list of words (ignore `,`, `.` for now).
    ```{.python}
    sentence = "I spy with my little eye a tricky" \
               " list and dict comprehension coming up"
@@ -371,13 +371,13 @@ Examples
             "comprehension", "coming", "up"]
    ```
 
-(@) From this list of words, get a set (therefore unique) lengths of these words, i.e. `spy -> 3`. **Hint**: you might want to look into the function `map`.
+1. From this list of words, get a set (therefore unique) lengths of these words, i.e. `spy -> 3`. **Hint**: you might want to look into the function `map`.
 
 
-(@) Combine everything to get from a sentence a dictionary with length of word as key and a set of words as value. 
+1. Combine everything to get from a sentence a dictionary with length of word as key and a set of words as value. 
 Test it with a couple of different sentences. 
 
-(@) Can you reduce this into _dictionary comprehension_ , i.e. create the dictionary from scratch in one go.
+1. Can you reduce this into _dictionary comprehension_ , i.e. create the dictionary from scratch in one go.
 ::::
 :::
 
