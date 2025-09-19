@@ -79,7 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-d2b0d12b45c08fc6e02230f9c3d12f5b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-7ee7f6d30a8146128559a2974676ffe3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-dark-31cb10edc1c0975d1b58055636ea12f5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../site_libs/bootstrap/bootstrap-d2b0d12b45c08fc6e02230f9c3d12f5b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
@@ -532,7 +532,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../errorhandling/index.html">Runtime stability</a></li><li class="breadcrumb-item"><a href="../errorhandling/logging.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Logging</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Logging</span></h1>
+<h1 class="title"><span id="sec-error-logging" class="quarto-section-identifier"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Logging</span></span></h1>
 </div>
 
 
@@ -571,7 +571,7 @@ Tip
 </div>
 </div>
 <p>Python provides an extensive module named <code>logging</code> for these purposes.</p>
-<div id="6c6002f7" class="cell styled-output" data-execution_count="2">
+<div id="c50d60e0" class="cell styled-output" data-execution_count="2">
 <div class="sourceCode cell-code" id="annotated-cell-1"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-1-1" class="code-annotation-target"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> logging</span>
 <span id="annotated-cell-1-2"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a>numberlist <span class="op">=</span> [<span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="st">"a"</span>, <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>]</span>
 <span id="annotated-cell-1-3"><a href="#annotated-cell-1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -601,7 +601,7 @@ WARNING:root:The list does not only contain numbers</code></pre>
 </div>
 </div>
 <p>By default the logger write to the terminal. This might not always be what you want so this can be changed easily, together with the <em>log level</em>:</p>
-<div id="f343391d" class="cell styled-output" data-execution_count="4">
+<div id="b92a2b7a" class="cell styled-output" data-execution_count="4">
 <div class="sourceCode cell-code" id="annotated-cell-2"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-2-1"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> logging</span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-2-2" class="code-annotation-target"><a href="#annotated-cell-2-2" aria-hidden="true" tabindex="-1"></a>logging.basicConfig(filename<span class="op">=</span><span class="st">"app.log"</span>,</span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-2-3" class="code-annotation-target"><a href="#annotated-cell-2-3" aria-hidden="true" tabindex="-1"></a>                    level<span class="op">=</span>logging.INFO)</span>
@@ -629,7 +629,7 @@ WARNING:root:The list does not only contain numbers</code></pre>
 </div>
 </div>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> app.log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="45015935" class="cell styled-output" data-execution_count="5">
+<div id="bcd0e42f" class="cell styled-output" data-execution_count="5">
 <div class="cell-output cell-output-stdout">
 <pre><code>INFO:root:Working on number -2
 INFO:root:Working on number -1
@@ -727,7 +727,7 @@ Tip
 </div>
 </div>
 <p>An important additional feature is to specify the format of the message. This is particularly useful to get debugging information with certain timing information.</p>
-<div id="5516ce0e" class="cell styled-output" data-execution_count="8">
+<div id="78e3abaf" class="cell styled-output" data-execution_count="8">
 <div class="sourceCode cell-code" id="annotated-cell-4"><pre class="sourceCode python code-annotation-code code-with-copy"><code class="sourceCode python"><span id="annotated-cell-4-1"><a href="#annotated-cell-4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> logging                                                          </span>
 <span id="annotated-cell-4-2"><a href="#annotated-cell-4-2" aria-hidden="true" tabindex="-1"></a>logging.basicConfig(<span class="bu">format</span><span class="op">=</span><span class="st">"</span><span class="sc">%(asctime)s</span><span class="st">:</span><span class="sc">%(levelname)s</span><span class="st">: </span><span class="sc">%(message)s</span><span class="st">"</span>,</span>
 <span id="annotated-cell-4-3"><a href="#annotated-cell-4-3" aria-hidden="true" tabindex="-1"></a>                    level<span class="op">=</span>logging.DEBUG)</span>
@@ -742,15 +742,15 @@ Tip
 <span id="annotated-cell-4-12"><a href="#annotated-cell-4-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">TypeError</span>:</span>
 <span id="annotated-cell-4-13"><a href="#annotated-cell-4-13" aria-hidden="true" tabindex="-1"></a>        logging.warning(<span class="ss">f"The list does not only contain numbers"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>2025-09-11 14:31:14,077:DEBUG: Working on number -2
-2025-09-11 14:31:14,077:DEBUG: Working on number -1
-2025-09-11 14:31:14,078:DEBUG: Working on number 0
-2025-09-11 14:31:14,079:ERROR: Tried to divide by zero, error is float division by zero
-2025-09-11 14:31:14,079:DEBUG: Working on number 1
-2025-09-11 14:31:14,080:DEBUG: Working on number 2
-2025-09-11 14:31:14,080:DEBUG: Working on number a
-2025-09-11 14:31:14,081:WARNING: The list does not only contain numbers
-2025-09-11 14:31:14,082:DEBUG: Working on number 0.25</code></pre>
+<pre><code>2025-09-19 09:12:49,085:DEBUG: Working on number -2
+2025-09-19 09:12:49,085:DEBUG: Working on number -1
+2025-09-19 09:12:49,086:DEBUG: Working on number 0
+2025-09-19 09:12:49,086:ERROR: Tried to divide by zero, error is float division by zero
+2025-09-19 09:12:49,087:DEBUG: Working on number 1
+2025-09-19 09:12:49,087:DEBUG: Working on number 2
+2025-09-19 09:12:49,088:DEBUG: Working on number a
+2025-09-19 09:12:49,088:WARNING: The list does not only contain numbers
+2025-09-19 09:12:49,090:DEBUG: Working on number 0.25</code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -764,7 +764,7 @@ Tip
 </div>
 <div class="callout-body-container callout-body">
 <p>We can use multiple loggers in a project. The usual convention is to use <code>__name__</code> as the name by calling <code>logging.getLogger(__name__)</code>.</p>
-<div id="5d18c3db" class="cell styled-output" data-execution_count="10">
+<div id="6851cf78" class="cell styled-output" data-execution_count="10">
 <div class="sourceCode cell-code" id="annotated-cell-8"><pre class="sourceCode python code-annotation-code code-with-copy"><code class="sourceCode python"><span id="annotated-cell-8-1"><a href="#annotated-cell-8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> logging                                                          </span>
 <span id="annotated-cell-8-2"><a href="#annotated-cell-8-2" aria-hidden="true" tabindex="-1"></a>logger <span class="op">=</span> logging.getLogger(<span class="va">__name__</span>)</span>
 <span id="annotated-cell-8-3"><a href="#annotated-cell-8-3" aria-hidden="true" tabindex="-1"></a>numberlist <span class="op">=</span> [<span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="st">"a"</span>, <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>]</span>
