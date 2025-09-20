@@ -9,6 +9,35 @@ We will try to provide helpful references for books and online material that can
 In order to get an idea on how much you understand of the material we provide exercises.
 :::
 
+::: {.callout-important}
+If, **and only if**, you are taking the class at MCI and are not reading these notes on your own, you are expected to hand in the exercises below as a git repository.
+
+:::: {.callout-note appearance="simple" collapse="true" icon=false}
+## How you should hand in the exercises
+
+In order to get a bit of `git` and `pdm` training done we work for all exercises on [GitHub](https://https://github.com/).
+
+1. Create a new **private** project in GitHub -> you might want to use it for all later exercises as well.
+1. Use meaningful commit messages, see [Conventional commits](https://www.conventionalcommits.org/en/v1.0.0/).
+1. Give the instructors (kandolfp) access to the project, see [docs](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository) for help.
+1. Create a `pdm` project in your repository and commit the necessary files.
+1. Create an appropriate structure in your repository for the rest of the exercise (maybe have a look at the exercises to have a better idea first), not everything should be in the main folder.
+1. Try to structure your work on the exercises with `git`, i.e.
+   - Don't commit things that do not belong together in one single commit. Each exercise can be considered as a separate thing. Subparts of an exercise might be independent as well.
+   - Use meaningful commit messages, see [Conventional commits](https://www.conventionalcommits.org/en/v1.0.0/).
+   - Make sure that you do not commit something that does not work - produces an error.
+    If you have difficulties with an exercise you can also commit your best effort in this case.
+1. Add a README.md that explains what you are doing, how to run the exercises and anything else that is necessary (quick guide to `pdm`), **maybe note your name somewhere** (github nicks are not always easy to track down). 
+1. Optional
+   - Work with issues, you can reference the issue in the commit message, [docs](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls)
+::::
+:::
+
 Sessions: 
 
-- @sec-sss-sss1 concerned with: Variables, Data Types, Functions, Typing and Type Hints, Modules
+- @sec-sss-basics concerned with: Variables, Data Types, Functions, Typing and Type Hints, 
+- @sec-sss-pp converned with: objects, functional programming and m odules
+- @sec-sss-sc converned with: scientific computing, mainly `numpy` and `pandas`
+- @sec-sss-rs converned with: _decorators_, `Pydantic`, and `Pathlib`
+
+All of the topics covered will be part of the final project so further training will happen there.

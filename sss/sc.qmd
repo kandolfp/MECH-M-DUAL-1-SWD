@@ -1,0 +1,197 @@
+# Self Study Session - Scientific Computing {#sec-sss-sc}
+
+In this section we are mainly concerned with the _scientific computing_ libraries and approaches of Python, nevertheless you are expected to use `git` and `pdm` to solve the problems at hand.
+
+Once you are familiar with how Python handles these topics you will be able to answer questions like:
+
+- How is slicing working in `numpy` and `pandas`?
+- What is vectorization and why should I use it?
+- etc.
+
+These topics are covered in the following resources (given in no particular order):
+
+- @McKinney2022-qz [Online](https://wesmckinney.com/book/), Section 4 (`numpy`) and 5 (`pandas`)
+- @Matthes2023 Section 9
+- @Vasiliev2022 Chapter 3, 5, 6, 7
+- MCI Lecture notes of Julian Huber and Matthias Panny [Online](https://mrp123.github.io/MCI-MECH-B-3-SWD-SWD-ILV), Section 1 (German)
+- `NumPy` docs
+    - [NumPy quickstart](https://numpy.org/doc/stable/user/quickstart.html)
+    - [NumPy the absolute basics for beginners](https://numpy.org/doc/stable/user/absolute_beginners.html)
+    - [NumPy for MATLAB users](https://numpy.org/doc/stable/user/numpy-for-matlab-users.html)
+- `pandas` docs
+    - [10 minutes to pandas](https://pandas.pydata.org/docs/user_guide/10min.html)
+
+
+## Exercises {.unnumbered}
+
+::: {.callout-tip appearance="simple" collapse="true" icon=false}
+:::: {#exr-indexing_numpy}
+
+## Indexing in `numpy` or slicing
+
+There exists a multitude of different ways to index `numpy` arrays.
+Create an appropriate (or multiple appropriate arrays) and provide the answer to the following questions with slicing:
+
+For a vector:
+
+- return the last 5 elements
+- return every second element
+- reverse the vector
+- return element 1, 4 and 11
+- return all elements bigger than the mean
+
+For a matrix:
+
+- flip the second and third row
+- add the second column to the entire matrix
+- extract the sub matrix that only consists of odd rows and even columns
+- return the rows 1, 4, and 11
+::::
+:::
+
+::: {.callout-tip appearance="simple" collapse="true" icon=false}
+:::: {#exr-indexing_numpy}
+
+## Reshape `numpy`
+
+We can reshape, i.e. change row and column dimensions, of arrays.
+The important part here is the way the array is viewed by its dimensions.
+**Hint:** use `np.arange(x)` for the following exercise so you know the positions of the numbers.
+
+- Reshape a 8 element vector into a $4 \times 2$ matrix.
+- Reshape a 8 element vector into a $4 \times 2$ matrix and directly into a $2 \times 4$ without storing the intermediate result (in one line).
+- Reshape a 16 element vector into a $2 \times x$ vector where `numpy` infers the second dimension from the data.
+- Use the `shape` property of a matrix to reshape a vector.
+- Does `reshape` create a copy of the original data?
+- How do you _reverse_ back to a flat vector?
+::::
+:::
+
+::: {.callout-tip appearance="simple" collapse="true" icon=false}
+:::: {#exr-montecarlopi2}
+
+## Monte Carlo simulations in `numpy`
+
+Recall @exr-montecarlopi1 and implement a version of `in_unit_circle` that uses `numpy` arrays, you should take the code from @exr-montecarlopi_fun as basis and add a new function `in_unit_circle_np`.
+
+To write this in Python follow these steps:
+
+1. With `numpy.random.uniform()` create a $2\times N$ matrix with random numbers.
+1. Use element wise computation to get $M$. **Hint:** `True` is interpreted as `1` and `False` as `0` when you try to add boolean values.
+
+Once you have the second implementation test it and compare it with the other version.
+
+1. Is the accuracy the same?
+1. Have a look at `timeit` and see which of your two code versions is faster for which `N`
+1. Plot your results, i.e. for different values of $N$ the different execution times for the two versions, maybe use a logarithmic axis.
+1. Are there other plots that might give you an insight for this example. 
+::::
+:::
+
+::: {.callout-tip appearance="simple" collapse="true" icon=false}
+:::: {#exr-pps}
+
+## Predator Prey simulation
+
+The Lotka-Volterra Equations 
+$$
+\begin{array}{c}
+\dot{x} = \alpha x - \beta x y\\
+\dot{y} = \delta x y - \gamma y
+\end{array}
+$$ {#eq-lve}
+can be used to describe a predator-prey system.
+In this case we can interpret the variables as:
+
+- $x$ prey population
+- $y$ predator population
+- $\dot{x}$ growth rate of prey population
+- $\dot{y}$ growth rate of predator population
+- $\alpha$ natural growth rate of prey
+- $\beta$ death rate of prey due to predators
+- $\delta$ natural death rate of predators
+- $\gamma$ growth rate of predators per consumed prey
+
+We assume that the prey has unlimited food and the change rate is proportional to the size.
+The predators only eat the specific prey and they are always hungry.
+
+Create first an UML diagram and later Python code that follows these guidelines:
+
+- Create a predator class with the parameters $x, \alpha, \beta$ where only the first is public
+- Create a prey class with the parameters $y, \delta, \gamma$ where only the first is public
+- Create a class to propagate your model:
+    - the constructor takes a prey and a predator object 
+    - create a private method to compute the two derivatives
+    - create a second method to propagate a single time step $\Delta t$, as time integrator we suggest to implement a [_Forward Euler_](https://en.wikipedia.org/wiki/Euler_method) but you can also use something from `scipy.integrate` if you prefer.
+       - use the classes to store the current population in the appropriate variable. 
+    - create a public method where you provide the final time $t_1$ and $\Delta t$ and returns $x, y$ in each time step (you need to compute the amount of steps).
+- Plot the results
+- Test your method with the following parameters: 
+    - $\alpha = 1$
+    - $\beta = 0.1$
+    - $\gamma = 0.5$
+    - $\delta = 0.02$
+    - $x = 100$ (initial population)
+    - $y = 20$ (initial population)
+- Create getter/setter methods for the parameters that are private where you check that the signs and types are appropriate if they get set.
+::::
+:::
+
+::: {.callout-tip appearance="simple" collapse="true" icon=false}
+:::: {#exr-pandas_sets}
+
+## Use `pandas` to redo Section 2 of [MECH-M-DUAL-I-DBM](https://kandolfp.github.io/MECH-M-DUAL-1-DBM/basics/sets.html)
+
+In [MECH-M-DUAL-I-DBM](https://kandolfp.github.io/MECH-M-DUAL-1-DBM/basics/sets.html) Section 2 we worked with the `mieten3.asc` dataset and did some computations on it. 
+
+Use `pandas` to load the dataset and compute the same properties and create similar plots, where it is appropriate.
+
+**Hint:** Data loading and some examples are done in @sec-sc-pandas.
+::::
+:::
+
+::: {.callout-tip appearance="simple" collapse="true" icon=false}
+:::: {#exr-pandas_sets}
+
+## Advanced `pandas`
+
+(@) The method `apply()` can _apply a function along an axis of a `DataFrame`_ and can be used in various ways. 
+
+    Use `.apply` to create categories, i.e. from 
+    ```python
+    data = pd.DataFrame({
+        'Age': [11, 16, 30, 51]
+    })
+    ```
+    create 
+    ```{python}
+    #| echo: false
+    import pandas as pd
+    data = pd.DataFrame({
+        'Age': [11, 16, 30, 51]
+    })
+    
+    def category(x):
+        if x <= 12:
+            return "Child"
+        if x <= 18: 
+            return "Teenager"
+        return "Adult"
+    
+    data['Category'] = data['Age'].apply(lambda x: category(x))
+    data
+    ```
+
+(@) Read in the [death_valley_2014.csv](https://raw.githubusercontent.com/ehmatthes/pcc/refs/heads/master/chapter_16/death_valley_2014.csv) from the GitHub repo corresponding to @Matthes2023. 
+
+    - Transform the `PST` column into a `DataTime` object (various possibilities)
+    - Create a new `DataFrame` that consists of the _temperature_ columns where they are converted from °F to °C
+    - Merge the two `DataFrame`s
+    - Repeat the same operation directly with `.apply`
+    - Let us assume, for some reason, the entries from January where off for $1\%$. Use the `.update` function to change them - i.e. correct them by the error.
+    - Use the `.pipe` function to _apply_ a series of functions to your data. 
+        - Compute the `Mean Humidity` per month and scale this data with this value
+        - Update the `WindDirDegree` such that the values in in $[-180, 180]$ instead of $[0, 360)$
+        - Update the `PST` column to only contain month and day
+::::
+:::

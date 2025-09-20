@@ -1,0 +1,233 @@
+# Self Study Session - Programming paradigms {#sec-sss-pp}
+
+In this section we are mainly concerned with the _programming paradigms_ of Python, nevertheless you are expected to use `git` and `pdm` to solve the problems at hand.
+
+Once you are familiar with how Python handles these topics you will be able to answer questions like:
+
+- What is an object?
+- What is the scope of attributes/methods?
+- How can I inherit properties from an object?
+- How can I implement an interface in Python?
+- How does a `filter` work?
+- How does an `iterator` work?
+- etc.
+
+These topics are covered in the following resources (given in no particular order):
+
+- @McKinney2022-qz [Online](https://wesmckinney.com/book/), Section 4 (`numpy`) and 5 (`pandas`)
+- @Matthes2023 Section 9
+- @Vasiliev2022 Chapter 3, 5, 6, 7
+- MCI Lecture notes of Julian Huber and Matthias Panny [Online](https://mrp123.github.io/MCI-MECH-B-3-SWD-SWD-ILV), Section 1 (German)
+- Classes t [docs.python.org](https://docs.python.org/3/tutorial/classes.html)
+- Type hints cheat sheet form the docs of `mypy` [Online](https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html)
+- `NumPy` docs
+    - [NumPy quickstart](https://numpy.org/doc/stable/user/quickstart.html)
+    - [NumPy the absolute basics for beginners](https://numpy.org/doc/stable/user/absolute_beginners.html)
+    - [NumPy for MATLAB users](https://numpy.org/doc/stable/user/numpy-for-matlab-users.html)
+- `pandas` docs
+    - [10 minutes to pandas](https://pandas.pydata.org/docs/user_guide/10min.html)
+
+
+## Exercises {.unnumbered}
+
+::: {.callout-tip appearance="simple" collapse="true" icon=false}
+:::: {#exr-umltf}
+
+## UML fact checker
+
+```{mermaid}
+classDiagram
+Student "*" --* University : Composition
+    class University{
+        - name: string
+        - address: Address 
+    }
+    class Student{
+        - name: string 
+        - fee: float 
+    }
+```
+
+Which of the following can be answered with Yes and which with No:
+
+1. No two universities can have the same name?
+1. A university and a student can not have the same name?
+1. No student studies at more than one university?
+1. Each student studies at at least one university?
+1. Two students with the same name can not study at the same university?
+1. Two students with the same name can not study at different universities?
+1. Two universities can have the same address?
+
+Is there a way to specify a attribute in UML as unique?
+::::
+:::
+
+::: {.callout-tip appearance="simple" collapse="true" icon=false}
+:::: {#exr-txt2uml}
+
+## From text to UML
+
+Convert the following description into an appropriate UML diagram, with multiplicities and associations. 
+
+- Every person has a name, a phone number and an e-mail address.
+- Every address is only occupied by one person, some addresses might have no inhabitant.
+- Each address is associated with a street, a city, an area code, and a country.
+- Addresses can be verified as a home address for a person and printed for post service.
+- There are two types of persons:
+   - Students that can enlist for a class
+   - Professors that can receive a salary
+- A student has a study ID and an average grade.
+::::
+:::
+
+::: {.callout-tip appearance="simple" collapse="true" icon=false}
+:::: {#exr-uml2py}
+
+## From UML to Python
+
+Convert the UML diagram from @exr-txt2uml into Python code and test your classes.
+
+::::
+:::
+
+::: {.callout-tip appearance="simple" collapse="true" icon=false}
+:::: {#exr-oop_interface}
+
+## Interface
+
+Consider the following UML diagram and implement it in Python with interfaces.
+Set `lives` for a `Cat` to the appropriate `7`, feed some cat food generated with random integers uniformly distributed between $-10$ and $10$ and look how much food it can eat until it dies. Plot this for different initial values of `currentFood`.
+
+```{mermaid}
+classDiagram
+    Cat --|> Animal
+    Cat ..|> FourLegged
+    Cat ..|> OxygenBreather
+    class FourLegged{
+        <<interface>>
+        + run(destination)
+    }
+    class OxygenBreather{
+        <<interface>>
+        + breath()
+    }
+    class Animal{
+        - lives: int
+        - currentFood: int
+        + eat(food: int)
+    }
+    class Cat{
+        + getLivesLeft()
+        + getCurrentAmountofFood()
+        - decreaseLives()
+    }
+```
+
+::::
+:::
+
+::: {.callout-tip appearance="simple" collapse="true" icon=false}
+:::: {#exr-iterators}
+
+## Iterators
+
+Explain the output of the following code fragment, see @sec-fpp:
+```{python}
+#| classes: styled-output
+#| error: true
+square = lambda a: a ** 2
+iterator = map(square, range(1, 5))
+
+for i in iterator:
+    print(i)
+
+print(f"{list(iterator) = }")
+iterator = map(square, range(1, 5))
+print(f"{list(iterator) = }")
+```
+::::
+:::
+
+::: {.callout-tip appearance="simple" collapse="true" icon=false}
+:::: {#exr-accumulate}
+
+## Accumulator
+
+In @sec-fpp we discussed the `functools` module. 
+On function included there is `accumulate` that takes an iterator and a function to apply to it.
+It can, for example be used to compute partial sum or product:
+
+```{python}
+#| classes: styled-output
+#| error: true
+from itertools import accumulate
+from operator import add, mul
+
+print(f"{list(accumulate([1, 2, 3, 4, 5], add)) = }")
+print(f"{list(accumulate([1, 2, 3, 4, 5], mul)) = }")
+```
+
+Use it for the following tasks:
+
+1. Compute a running maximum in a list of numbers.
+1. Compute an [amortization schedule](https://en.wikipedia.org/wiki/Amortization_schedule) for a loan of $1000$ with an interest of $5\%$ and a payment of $100$ for $10$ years.
+**Hint:** You can provide an initial value as third argument to `accumulate` and the result should look something like the following:
+   ```{python}
+   #| echo: false
+   #| classes: styled-output
+   from itertools import accumulate, repeat
+
+   update = lambda balance, payment: round(balance * 1.05) - payment
+   list(accumulate(repeat(100, 10), update, initial=1_000))
+   ```
+   Feel free to add account fees to make it more realistic.
+::::
+:::
+
+::: {.callout-tip appearance="simple" collapse="true" icon=false}
+:::: {#exr-filter}
+
+## Filter
+
+Use functional programming and in particular the filter function to:
+
+1. Find all [palindromes](https://de.wikipedia.org/wiki/Palindrom) in a list of strings. 
+
+1. Count the number of vowels in a string.
+::::
+:::
+
+::: {.callout-tip appearance="simple" collapse="true" icon=false}
+:::: {#exr-module}
+
+## Creating a module
+
+Create your own module.
+The module should have the following functions:
+
+- For a given year, check if it is a leap year.
+- For a given date, return the day of the week, use the algorithm outlined [here](https://www.almanac.com/how-find-day-week). **Hint**: Dictionaries can help you for some of the mappings.
+- Return the week number of the year of a certain date, you can use the algorithm outlined [here](https://www.geeksforgeeks.org/how-to-get-the-current-weeknumber-of-the-year/).
+- Provide doc strings for each of your methods and for the module itself.
+::::
+:::
+
+
+::: {.callout-tip appearance="simple" collapse="true" icon=false}
+:::: {#exr-module_use}
+
+## Using your own module
+
+Use the module created in @exr-module and build a program on it. 
+
+- Include the local module via `pdm`.
+- Use the module to generate from a date the following output
+   - leap year -> true/false
+   - day of the week
+   - week of the year
+- How can you deal with european and american styled day-month order?
+- Update your module by adding the above described function where the returned value should be a dictionary with keys: `leapyear`, `weekday`,`week`.
+- Can you use the new function in the module right away or do you need to _reinstall_ it somehow?
+::::
+:::
+

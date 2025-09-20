@@ -49,8 +49,10 @@ book:
     - summary.qmd
     - references.qmd
   appendices:
-    - sss/sss1.qmd
-    - sss/sss2.qmd
+    - sss/basics.qmd
+    - sss/pp.qmd
+    - sss/sc.qmd
+    - sss/rs.qmd
 
 bibliography: references.bib
 

@@ -1,4 +1,4 @@
-# Self Study Session I {#sec-sss-sss1}
+# Self Study Session - Basics {#sec-sss-basics}
 
 ::: {.callout-important}
 **This lecture consists of several self study sessions!**
@@ -9,13 +9,7 @@ We will try to provide helpful references for books and online material that can
 In order to get an idea on how much you understand of the material we provide exercises.
 :::
 
-In this section we are mainly concerned with the basics of Python, nevertheless you are expected to use `git` and `pdm` to solve the problems at hand.
-
-## Topics
-
-For each topic we list various materials and what is the basic idea behind it. 
-
-### Variables, Data Types, Functions, Typing and Type Hints, Modules
+In this section we are mainly concerned with the _basics_ of Python, nevertheless you are expected to use `git` and `pdm` to solve the problems at hand.
 
 Once you are familiar with how Python handles these topics you will be able to answer questions like:
 
@@ -24,7 +18,7 @@ Once you are familiar with how Python handles these topics you will be able to a
 - What is the type of a variable?
 - How can I change the type of a variable?
 - Is Python _typed_?
-- Does talking about _casting_ makes sense?
+- Does talking about _casting_ make sense?
 - What is the difference between assignment and copy?
 - What happens to objects that are no longer referenced by any variable?
 - Is Python using call by value or call by reference?
@@ -45,31 +39,7 @@ This topics are covered in the following resources (given in no particular order
 - Type hints cheat sheet form the docs of `mypy` [Online](https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html)
 
 
-## Exercises
-
-::: {.callout-important}
-If, **and only if**, you are taking the class at MCI and are not reading these notes on your own, you are expected to hand in the exercises below as a git repository.
-
-:::: {.callout-note appearance="simple" collapse="true" icon=false}
-## How you should hand in the exercises
-
-In order to get a bit of `git` and `pdm` training done we work for all exercises on [GitHub](https://https://github.com/).
-
-1. Create a new **private** project in GitHub -> you might want to use it for all later exercises as well.
-1. Use meaningful commit messages, see [Conventional commits](https://www.conventionalcommits.org/en/v1.0.0/).
-1. Give the instructors (kandolfp) access to the project, see [docs](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository) for help.
-1. Create a `pdm` project in your repository and commit the necessary files.
-1. Create an appropriate structure in your repository for the rest of the exercise (maybe have a look at the exercises to have a better idea first), not everything should be in the main folder.
-1. Try to structure your work on the exercises with `git`, i.e.
-   - Don't commit things that do not belong together in one single commit. Each exercise can be considered as a separate thing. Subparts of an exercise might be independent as well.
-   - Use meaningful commit messages, see [Conventional commits](https://www.conventionalcommits.org/en/v1.0.0/).
-   - Make sure that you do not commit something that does not work - produces an error.
-    If you have difficulties with an exercise you can also commit your best effort in this case.
-1. Add a README.md that explains what you are doing, how to run the exercises and anything else that is necessary (quick guide to `pdm`), **maybe note your name somewhere** (github nicks are not always easy to track down). 
-1. Optional
-   - Work with issues, you can reference the issue in the commit message, [docs](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls)
-::::
-:::
+## Exercises {.unnumbered}
 
 ::: {.callout-tip appearance="simple" collapse="true" icon=false}
 :::: {#exr-indent}
@@ -261,7 +231,7 @@ To write this in Python follow these steps:
 1. Search for a module that allows to generate random values in python. 
 1. Define a function `def in_unit_circle(N)` that computes and returns $M$ from the function input $N$, which is a single positive integer. **Hint:** You can interpret two numbers between $0$ and $1$ as cartesian coordinates of a point and the squared sum of them will tell you the distance of this point from the origin. 
 1. Define a function `def estimate_pi(N)` that computes and returns the estimation of $\pi$ with @eq-pi.
-1. Search for a module that provides the exact value of $\pi$ and write a function \verb+def get_accuracy(N)+ that returns the absolute difference between the above function and $\pi$.
+1. Search for a module that provides the exact value of $\pi$ and write a function  `def get_accuracy(N)` that returns the absolute difference between the above function and $\pi$.
 1. Test your function with different values of $N$. **Hint:** $N$ needs to be quite large to have multiple digits of $\pi$ correct.
 ::::
 :::
@@ -273,9 +243,55 @@ To write this in Python follow these steps:
 
 For the functions `extimate_pi` and `in_unit_circle` in @exr-montecarlopi1 provide type hints to suggest only `integers` are allowed. 
 
-How can you give a further hint that the integer is always positive?
+How can you give a further _hint_ that the integer is always positive?
 
 Is the type enforced during runtime?
+::::
+:::
+
+::: {.callout-tip appearance="simple" collapse="true" icon=false}
+:::: {#exr-opt_arg}
+
+## Functions can have optional arguments
+
+Let us loot at the function
+```{python}
+#| classes: styled-output
+#| error: true
+def greet(person, greeting):
+   print(f"{greeting} {person}!")
+
+greet("Peter", "Hi")
+```
+
+1. Make _Hi_ the default value for `greeting`.
+1. Try calling the function as `greet(person="Peter", greeting="Hi")` and `greet(greeting="Hi", person="Peter")` and explain the result.
+1. Not all default values are a good choice, explain the following output
+   ```{python}
+   #| classes: styled-output
+   #| error: true
+   def add_item(item, items=[]):
+      items.append(item)
+      return items
+
+   print(add_item("apple"))
+   print(add_item("banana")) 
+   ```
+1. Change the code sucht that the output is
+   ```{python}
+   #| classes: styled-output
+   #| error: true
+   #| echo: false
+   def add_item(item, items=None):
+      if items is None:
+         items = []
+      items.append(item)
+      return items
+
+   print(add_item("apple"))
+   print(add_item("banana")) 
+   ```
+
 ::::
 :::
 
@@ -380,38 +396,3 @@ Test it with a couple of different sentences.
 1. Can you reduce this into _dictionary comprehension_ , i.e. create the dictionary from scratch in one go.
 ::::
 :::
-
-::: {.callout-tip appearance="simple" collapse="true" icon=false}
-:::: {#exr-module}
-
-## Creating a module
-
-Create your own module.
-The module should have the following functions:
-
-- For a given year, check if it is a leap year.
-- For a given date, return the day of the week, use the algorithm outlined [here](https://www.almanac.com/how-find-day-week). **Hint**: Dictionaries can help you for some of the mappings.
-- Return the week number of the year of a certain date, you can use the algorithm outlined [here](https://www.geeksforgeeks.org/how-to-get-the-current-weeknumber-of-the-year/).
-- Provide doc strings for each of your methods and for the module itself.
-::::
-:::
-
-
-::: {.callout-tip appearance="simple" collapse="true" icon=false}
-:::: {#exr-module_use}
-
-## Using your own module
-
-Use the module created in @exr-module and build a program on it. 
-
-- Include the local module via `pdm`.
-- Use the module to generate from a date the following output
-   - leap year -> true/false
-   - day of the week
-   - week of the year
-- How can you deal with european and american styled day-month order?
-- Update your module by adding the above described function where the returned value should be a dictionary with keys: `leapyear`, `weekday`,`week`.
-- Can you use the new function in the module right away or do you need to _reinstall_ it somehow?
-::::
-:::
-

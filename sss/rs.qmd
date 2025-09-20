@@ -1,0 +1,82 @@
+# Self Study Session - Runtime stability {#sec-sss-rs}
+
+In this section we are mainly concerned with the _scientific computing_ libraries and approaches of Python, nevertheless you are expected to use `git` and `pdm` to solve the problems at hand.
+
+Once you are familiar with how Python handles these topics you will be able to answer questions like:
+
+- How is slicing working in `numpy` and `pandas`?
+- What is vectorization and why should I use it?
+- etc.
+
+These topics are covered in the following resources (given in no particular order):
+
+- `NumPy` docs
+    - [NumPy quickstart](https://numpy.org/doc/stable/user/quickstart.html)
+    - [NumPy the absolute basics for beginners](https://numpy.org/doc/stable/user/absolute_beginners.html)
+    - [NumPy for MATLAB users](https://numpy.org/doc/stable/user/numpy-for-matlab-users.html)
+- `pandas` docs
+    - [10 minutes to pandas](https://pandas.pydata.org/docs/user_guide/10min.html)
+
+## Exercises {.unnumbered}
+
+::: {.callout-tip appearance="simple" collapse="true" icon=false}
+:::: {#exr-decorators}
+
+## Decorators
+
+In Python we can use _decorators_ to modify the functionality of a function by wrapping it in another function, you can find an introductions in the following links
+
+- [pythontips](https://book.pythontips.com/en/latest/decorators.html)
+- [programiz](https://www.programiz.com/python-programming/decorator)
+- [Python 101](https://python101.pythonlibrary.org/chapter25_decorators.html)
+
+Write a decorator `@positive` that checks arguments to be positive and raise an Exception (with `raise Exception("Sorry, not positive")`). Test this implementation with @exr-montecarlopi2 and @exr-pps. We will look at exception handling later.
+
+Can you modify the decorator such that you can give an optional argument specifying the location to check for positivity?
+```python
+@positiv(1)
+def testfun(a, b, c)
+
+# error for
+testfun(-1, -1, -1)
+# but not for
+testfun(-1, 1, -1)
+```
+::::
+:::
+
+
+::: {.callout-tip appearance="simple" collapse="true" icon=false}
+:::: {#exr-pydantic}
+
+## Pydantic
+
+In Python the [`Pydantic`](https://docs.pydantic.dev/latest/) module is a widely used data validation library. 
+
+Have a look at [Validators](https://docs.pydantic.dev/latest/concepts/validators/) and see if they can help with @exr-decorators.
+::::
+:::
+
+::: {.callout-tip appearance="simple" collapse="true" icon=false}
+:::: {#exr-pathlib}
+
+## Pathlib
+
+In Python the [`pathlib`](https://docs.python.org/3/library/pathlib.html) module is a widely used for working with paths and files.
+Use it to solve the following exercises.
+
+1. Create a directory `tmp` with current path of the program. Do not forget to first check if the directory already exists.
+1. Create the following files with this directory: [`test.txt`, `file.txt`, `README.md`, `random.py`]
+1. Use `collections.Counter` to get a dictionary with the number of files per ending in the directory `tmp`. The output should look something like this:
+   ```python
+   Counter({'.md': 1, '.txt': 2, '.py': 1})
+   ```
+1. Find the last modified file in the directory. 
+1. Clean up and delete all files as well as the directory.
+
+::::
+:::
+
+::: {callout-attention}
+The rest of the _runtime stability_ topics will be part of the project and implemented there.
+:::
