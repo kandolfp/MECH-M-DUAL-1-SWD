@@ -535,14 +535,26 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sss/sss1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Self Study Session I</span></span></a>
+  <a href="../sss/basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Self Study Session - Basics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sss/sss2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Self Study Session II</span></span></a>
+  <a href="../sss/pp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Self Study Session - Programming paradigms</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sss/sc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Self Study Session - Scientific Computing</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sss/rs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Self Study Session - Runtime stability</span></span></a>
   </div>
 </li>
       </ul>
@@ -640,7 +652,7 @@ n! = \begin{cases} 1, &amp; n=0\\
 </div>
 </div>
 <p>We can translate <a href="#def-factorial" class="quarto-xref">Definition&nbsp;<span>6.1</span></a> into a Python program as.</p>
-<div id="41707f21" class="cell styled-output" data-execution_count="1">
+<div id="3f5d38cc" class="cell styled-output" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> factorial(n):</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">1</span> <span class="cf">if</span> n <span class="op">&lt;=</span> <span class="dv">0</span> <span class="cf">else</span> n <span class="op">*</span> factorial(n <span class="op">-</span><span class="dv">1</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -669,9 +681,9 @@ Important
 </section>
 <section id="built-in-functions" class="level3" data-number="6.1.2">
 <h3 data-number="6.1.2" class="anchored" data-anchor-id="built-in-functions"><span class="header-section-number">6.1.2</span> Built-in functions</h3>
-<p>A lot of the functions (or functionality) we use in <em>set, list and dictionary comprehensions</em> (see <a href="../sss/sss1.html#exr-comprehensions" class="quarto-xref">Exercise&nbsp;<span>A.10</span></a>) are from functional programming.</p>
+<p>A lot of the functions (or functionality) we use in <em>set, list and dictionary comprehensions</em> (see <a href="../sss/basics.html#exr-comprehensions" class="quarto-xref">Exercise&nbsp;<span>A.11</span></a>) are from functional programming.</p>
 <p>One of the basic concepts employed there is the <a href="https://docs.python.org/3/glossary.html#term-iterator">iterator</a>. An iterator is an object (as we stated, paradigms are mixed) that returns data one element at the time. This is used in</p>
-<div id="86281df4" class="cell styled-output" data-execution_count="2">
+<div id="c77cd1af" class="cell styled-output" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">5</span>):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -686,7 +698,7 @@ Important
 <section id="anonymous-functions" class="level4" data-number="6.1.2.1">
 <h4 data-number="6.1.2.1" class="anchored" data-anchor-id="anonymous-functions"><span class="header-section-number">6.1.2.1</span> Anonymous functions</h4>
 <p>Before we look into how to use these concepts we introduce anonymous functions. It is often useful to define a function without giving it a proper name. This is done with the keyword <code>lambda</code> inspired by the <a href="https://en.wikipedia.org/wiki/Lambda_calculus"><em>lambda calculus</em></a>. The syntax is straight forward.</p>
-<div id="3d370861" class="cell styled-output" data-execution_count="3">
+<div id="ae975663" class="cell styled-output" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>square <span class="op">=</span> <span class="kw">lambda</span> a: a <span class="op">**</span> <span class="dv">2</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>square(<span class="dv">2</span>) <span class="op">=</span> <span class="sc">}</span><span class="ss">"</span>)</span>
@@ -700,7 +712,7 @@ square(-1) = 1</code></pre>
 <section id="map" class="level4" data-number="6.1.2.2">
 <h4 data-number="6.1.2.2" class="anchored" data-anchor-id="map"><span class="header-section-number">6.1.2.2</span> Map</h4>
 <p>Now, <code>map</code> is used to apply a function to something iterable and returns a new iterator that applies function to the result of <code>next()</code>.</p>
-<div id="ba185513" class="cell styled-output" data-execution_count="4">
+<div id="1c9a7477" class="cell styled-output" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>iterator <span class="op">=</span> <span class="bu">map</span>(square, <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">5</span>))</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> iterator:</span>
@@ -716,7 +728,7 @@ square(-1) = 1</code></pre>
 <section id="filter" class="level4" data-number="6.1.2.3">
 <h4 data-number="6.1.2.3" class="anchored" data-anchor-id="filter"><span class="header-section-number">6.1.2.3</span> Filter</h4>
 <p>The next function that comes in handy is <code>filter</code>. It can be used to only return certain elements from an iterator.</p>
-<div id="6f2d84fd" class="cell styled-output" data-execution_count="5">
+<div id="8842ba54" class="cell styled-output" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>is_even <span class="op">=</span> <span class="kw">lambda</span> x: (x <span class="op">%</span> <span class="dv">2</span>) <span class="op">==</span> <span class="dv">0</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>even <span class="op">=</span> <span class="bu">filter</span>(is_even, <span class="bu">range</span>(<span class="dv">10</span>))</span>
@@ -736,7 +748,7 @@ odd = [1, 3, 5, 7, 9]</code></pre>
 </div>
 </div>
 <p>In order to allow filter to work we actually do not need to return <code>True</code> or <code>False</code> but just something that Python interprets in that fashion. For example, we can filter all empty strings from a list of strings in the following fashion</p>
-<div id="b25bece8" class="cell styled-output" data-execution_count="6">
+<div id="018f1f81" class="cell styled-output" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>strings <span class="op">=</span> [<span class="st">""</span>, <span class="st">"Something"</span>, <span class="st">"something"</span>, <span class="st">""</span>, <span class="st">"dark"</span>, <span class="st">" "</span>, <span class="st">"side"</span>, <span class="st">" "</span>]</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>sentence <span class="op">=</span> <span class="st">" "</span>.join(<span class="bu">filter</span>(<span class="kw">lambda</span> s: s.strip(), strings))</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sentence)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -749,7 +761,7 @@ odd = [1, 3, 5, 7, 9]</code></pre>
 <h4 data-number="6.1.2.4" class="anchored" data-anchor-id="reduce"><span class="header-section-number">6.1.2.4</span> Reduce</h4>
 <p>It is also often useful to <em>reduce</em> an iterable to a single value. This is for example the case of <code>sum</code> or we can also use it to compute the factorial <a href="#def-factorial" class="quarto-xref">Definition&nbsp;<span>6.1</span></a>.</p>
 <p>The <code>reduce</code> function can be found in <code>functools</code> and as we do not want to write the multiplication ourself we can import it from <code>operator</code>. Note, the function provided to <code>reduce</code> must take exactly two arguments.</p>
-<div id="f7c8b9cd" class="cell styled-output" data-execution_count="7">
+<div id="e1cbbb45" class="cell styled-output" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> functools <span class="im">import</span> <span class="bu">reduce</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> operator <span class="im">import</span> mul</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -764,7 +776,7 @@ factorial_reduce(5) = 120</code></pre>
 </div>
 </div>
 <p>A nice feature of the reduce function is that you can call it with an initial value.</p>
-<div id="1ba1eb50" class="cell styled-output" data-execution_count="8">
+<div id="38bc5e30" class="cell styled-output" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> functools <span class="im">import</span> <span class="bu">reduce</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> operator <span class="im">import</span> add</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Appendix B — Self Study Session II – Softwaredesign</title>
+<title>Appendix C — Self Study Session - Scientific Computing – Softwaredesign</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,7 +85,8 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../sss/sss1.html" rel="prev">
+<link href="../sss/rs.html" rel="next">
+<link href="../sss/pp.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -127,10 +128,6 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
-<meta name="mermaid-theme" content="neutral">
-<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
@@ -347,7 +344,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sss/sss1.html">Appendices</a></li><li class="breadcrumb-item"><a href="../sss/sss2.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Self Study Session II</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sss/basics.html">Appendices</a></li><li class="breadcrumb-item"><a href="../sss/sc.html"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Self Study Session - Scientific Computing</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -561,14 +558,26 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sss/sss1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Self Study Session I</span></span></a>
+  <a href="../sss/basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Self Study Session - Basics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sss/sss2.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Self Study Session II</span></span></a>
+  <a href="../sss/pp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Self Study Session - Programming paradigms</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sss/sc.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Self Study Session - Scientific Computing</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sss/rs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Self Study Session - Runtime stability</span></span></a>
   </div>
 </li>
       </ul>
@@ -583,21 +592,17 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#topics" id="toc-topics" class="nav-link active" data-scroll-target="#topics"><span class="header-section-number">B.1</span> Topics</a>
-  <ul class="collapse">
-  <li><a href="#object-oriented-programmingdesign-scientific-computing-decorators" id="toc-object-oriented-programmingdesign-scientific-computing-decorators" class="nav-link" data-scroll-target="#object-oriented-programmingdesign-scientific-computing-decorators"><span class="header-section-number">B.1.1</span> Object oriented programming/design, scientific computing, decorators</a></li>
-  </ul></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">B.2</span> Exercises</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link active" data-scroll-target="#exercises">Exercises</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/sss/sss2.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/sss/sc.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sss/sss1.html">Appendices</a></li><li class="breadcrumb-item"><a href="../sss/sss2.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Self Study Session II</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sss/basics.html">Appendices</a></li><li class="breadcrumb-item"><a href="../sss/sc.html"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Self Study Session - Scientific Computing</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-sss-sss2" class="quarto-section-identifier">Appendix B — Self Study Session II</span></h1>
+<h1 class="title"><span id="sec-sss-sc" class="quarto-section-identifier">Appendix C — Self Study Session - Scientific Computing</span></h1>
 </div>
 
 
@@ -614,33 +619,9 @@ window.Quarto = {
 </header>
 
 
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>This lecture consists of several self study sessions!</strong></p>
-<p>In these sections you are supposed to work on the given topics on your own and in your own time. We will try to provide helpful references for books and online material that can help you but you are not limited to these materials.</p>
-<p>In order to get an idea on how much you understand of the material we provide exercises.</p>
-</div>
-</div>
-<p>In this section we are mainly concerned with the basics of Python, nevertheless you are expected to use <code>git</code> and <code>pdm</code> to solve the problems at hand.</p>
-<section id="topics" class="level2" data-number="B.1">
-<h2 data-number="B.1" class="anchored" data-anchor-id="topics"><span class="header-section-number">B.1</span> Topics</h2>
-<p>For each topic we list various materials and what is the basic idea behind it.</p>
-<section id="object-oriented-programmingdesign-scientific-computing-decorators" class="level3" data-number="B.1.1">
-<h3 data-number="B.1.1" class="anchored" data-anchor-id="object-oriented-programmingdesign-scientific-computing-decorators"><span class="header-section-number">B.1.1</span> Object oriented programming/design, scientific computing, decorators</h3>
+<p>In this section we are mainly concerned with the <em>scientific computing</em> libraries and approaches of Python, nevertheless you are expected to use <code>git</code> and <code>pdm</code> to solve the problems at hand.</p>
 <p>Once you are familiar with how Python handles these topics you will be able to answer questions like:</p>
 <ul>
-<li>What is an object?</li>
-<li>What is the scope of attributes/methods?</li>
-<li>How can I inherit properties from an object?</li>
-<li>How can I implement an interface in Python?</li>
 <li>How is slicing working in <code>numpy</code> and <code>pandas</code>?</li>
 <li>What is vectorization and why should I use it?</li>
 <li>etc.</li>
@@ -651,8 +632,6 @@ Important
 <li><span class="citation" data-cites="Matthes2023">Matthes (<a href="../references.html#ref-Matthes2023" role="doc-biblioref">2023</a>)</span> Section 9</li>
 <li><span class="citation" data-cites="Vasiliev2022">Vasiliev (<a href="../references.html#ref-Vasiliev2022" role="doc-biblioref">2022</a>)</span> Chapter 3, 5, 6, 7</li>
 <li>MCI Lecture notes of Julian Huber and Matthias Panny <a href="https://mrp123.github.io/MCI-MECH-B-3-SWD-SWD-ILV">Online</a>, Section 1 (German)</li>
-<li>Classes t <a href="https://docs.python.org/3/tutorial/classes.html">docs.python.org</a></li>
-<li>Type hints cheat sheet form the docs of <code>mypy</code> <a href="https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html">Online</a></li>
 <li><code>NumPy</code> docs
 <ul>
 <li><a href="https://numpy.org/doc/stable/user/quickstart.html">NumPy quickstart</a></li>
@@ -664,229 +643,8 @@ Important
 <li><a href="https://pandas.pydata.org/docs/user_guide/10min.html">10 minutes to pandas</a></li>
 </ul></li>
 </ul>
-</section>
-</section>
-<section id="exercises" class="level2" data-number="B.2">
-<h2 data-number="B.2" class="anchored" data-anchor-id="exercises"><span class="header-section-number">B.2</span> Exercises</h2>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>If, <strong>and only if</strong>, you are taking the class at MCI and are not reading these notes on your own, you are expected to hand in the exercises below as a git repository, you can use the old one if you like.</p>
-</div>
-</div>
-<div class="callout callout-style-simple callout-tip no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<div id="exr-umltf" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise B.1 (UML fact checker)</strong></span> &nbsp;</p>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">classDiagram
-Student "*" --* University : Composition
-    class University{
-        - name: string
-        - address: Address 
-    }
-    class Student{
-        - name: string 
-        - fee: float 
-    }
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-<p>Which of the following can be answered with Yes and which with No:</p>
-<ol type="1">
-<li>No two universities can have the same name?</li>
-<li>A university and a student can not have the same name?</li>
-<li>No student studies at more than one university?</li>
-<li>Each student studies at at least one university?</li>
-<li>Two students with the same name can not study at the same university?</li>
-<li>Two students with the same name can not study at different universities?</li>
-<li>Two universities can have the same address?</li>
-</ol>
-<p>Is there a way to specify a attribute in UML as unique?</p>
-</div>
-</div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-tip no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<div id="exr-txt2uml" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise B.2 (From text to UML)</strong></span> Convert the following description into an appropriate UML diagram, with multiplicities and associations.</p>
-<ul>
-<li>Every person has a name, a phone number and an e-mail address.</li>
-<li>Every address is only occupied by one person, some addresses might have no inhabitant.</li>
-<li>Each address is associated with a street, a city, an area code, and a country.</li>
-<li>Addresses can be verified as a home address for a person and printed for post service.</li>
-<li>There are two types of persons:
-<ul>
-<li>Students that can enlist for a class</li>
-<li>Professors that can receive a salary</li>
-</ul></li>
-<li>A student has a study ID and an average grade.</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-tip no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<div id="exr-uml2py" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise B.3 (From UML to Python)</strong></span> Convert the UML diagram from <a href="#exr-txt2uml" class="quarto-xref">Exercise&nbsp;<span>B.2</span></a> into Python code and test your classes.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-tip no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<div id="exr-oop_interface" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise B.4 (Interface)</strong></span> Consider the following UML diagram and implement it in Python with interfaces. Set <code>lives</code> for a <code>Cat</code> to the appropriate <code>7</code>, feed some cat food generated with random integers uniformly distributed between <span class="math inline">\(-10\)</span> and <span class="math inline">\(10\)</span> and look how much food it can eat until it dies. Plot this for different initial values of <code>currentFood</code>.</p>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">classDiagram
-    Cat --|&gt; Animal
-    Cat ..|&gt; FourLegged
-    Cat ..|&gt; OxygenBreather
-    class FourLegged{
-        &lt;&lt;interface&gt;&gt;
-        + run(destination)
-    }
-    class OxygenBreather{
-        &lt;&lt;interface&gt;&gt;
-        + breath()
-    }
-    class Animal{
-        - lives: int
-        - currentFood: int
-        + eat(food: int)
-    }
-    class Cat{
-        + getLivesLeft()
-        + getCurrentAmountofFood()
-        - decreaseLives()
-    }
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-tip no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<div id="exr-iterators" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise B.5 (Iterators)</strong></span> Explain the output of the following code fragment, see <a href="../pp/fp.html#sec-fpp" class="quarto-xref"><span>Section 6.1</span></a>:</p>
-<div id="2752977d" class="cell styled-output" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>square <span class="op">=</span> <span class="kw">lambda</span> a: a <span class="op">**</span> <span class="dv">2</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>iterator <span class="op">=</span> <span class="bu">map</span>(square, <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">5</span>))</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> iterator:</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="bu">list</span>(iterator) <span class="op">=</span> <span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>iterator <span class="op">=</span> <span class="bu">map</span>(square, <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">5</span>))</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="bu">list</span>(iterator) <span class="op">=</span> <span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>1
-4
-9
-16
-list(iterator) = []
-list(iterator) = [1, 4, 9, 16]</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-tip no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<div id="exr-accumulate" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise B.6 (Accumulator)</strong></span> In <a href="../pp/fp.html#sec-fpp" class="quarto-xref"><span>Section 6.1</span></a> we discussed the <code>functools</code> module. On function included there is <code>accumulate</code> that takes an iterator and a function to apply to it. It can, for example be used to compute partial sum or product:</p>
-<div id="56439239" class="cell styled-output" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itertools <span class="im">import</span> accumulate</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> operator <span class="im">import</span> add, mul</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="bu">list</span>(accumulate([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>], add)) <span class="op">=</span> <span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="bu">list</span>(accumulate([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>], mul)) <span class="op">=</span> <span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>list(accumulate([1, 2, 3, 4, 5], add)) = [1, 3, 6, 10, 15]
-list(accumulate([1, 2, 3, 4, 5], mul)) = [1, 2, 6, 24, 120]</code></pre>
-</div>
-</div>
-<p>Use it for the following tasks:</p>
-<ol type="1">
-<li><p>Compute a running maximum in a list of numbers.</p></li>
-<li><p>Compute an <a href="https://en.wikipedia.org/wiki/Amortization_schedule">amortization schedule</a> for a loan of <span class="math inline">\(1000\)</span> with an interest of <span class="math inline">\(5\%\)</span> and a payment of <span class="math inline">\(100\)</span> for <span class="math inline">\(10\)</span> years. <strong>Hint:</strong> You can provide an initial value as third argument to <code>accumulate</code> and the result should look something like the following:</p>
-<div id="e524b892" class="cell styled-output" data-execution_count="3">
-<div class="cell-output cell-output-display" data-execution_count="3">
-<pre><code>[1000, 950, 898, 843, 785, 724, 660, 593, 523, 449, 371]</code></pre>
-</div>
-</div>
-<p>Feel free to add account fees to make it more realistic.</p></li>
-</ol>
-</div>
-</div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-tip no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<div id="exr-filter" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise B.7 (Filter)</strong></span> Use functional programming and in particular the filter function to:</p>
-<ol type="1">
-<li><p>Find all <a href="https://de.wikipedia.org/wiki/Palindrom">palindromes</a> in a list of strings.</p></li>
-<li><p>Count the number of vowels in a string.</p></li>
-</ol>
-</div>
-</div>
-</div>
-</div>
+<section id="exercises" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="exercises">Exercises</h2>
 <div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -894,7 +652,7 @@ list(accumulate([1, 2, 3, 4, 5], mul)) = [1, 2, 6, 24, 120]</code></pre>
 </div>
 <div class="callout-body-container">
 <div id="exr-indexing_numpy" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise B.8 (Indexing in <code>numpy</code> or slicing)</strong></span> There exists a multitude of different ways to index <code>numpy</code> arrays. Create an appropriate (or multiple appropriate arrays) and provide the answer to the following questions with slicing:</p>
+<p><span class="theorem-title"><strong>Exercise C.1 (Indexing in <code>numpy</code> or slicing)</strong></span> There exists a multitude of different ways to index <code>numpy</code> arrays. Create an appropriate (or multiple appropriate arrays) and provide the answer to the following questions with slicing:</p>
 <p>For a vector:</p>
 <ul>
 <li>return the last 5 elements</li>
@@ -921,7 +679,7 @@ list(accumulate([1, 2, 3, 4, 5], mul)) = [1, 2, 6, 24, 120]</code></pre>
 </div>
 <div class="callout-body-container">
 <div id="exr-indexing_numpy" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise B.9 (Reshape <code>numpy</code>)</strong></span> We can reshape, i.e.&nbsp;change row and column dimensions, of arrays. The important part here is the way the array is viewed by its dimensions. <strong>Hint:</strong> use <code>np.arange(x)</code> for the following exercise so you know the positions of the numbers.</p>
+<p><span class="theorem-title"><strong>Exercise C.2 (Reshape <code>numpy</code>)</strong></span> We can reshape, i.e.&nbsp;change row and column dimensions, of arrays. The important part here is the way the array is viewed by its dimensions. <strong>Hint:</strong> use <code>np.arange(x)</code> for the following exercise so you know the positions of the numbers.</p>
 <ul>
 <li>Reshape a 8 element vector into a <span class="math inline">\(4 \times 2\)</span> matrix.</li>
 <li>Reshape a 8 element vector into a <span class="math inline">\(4 \times 2\)</span> matrix and directly into a <span class="math inline">\(2 \times 4\)</span> without storing the intermediate result (in one line).</li>
@@ -941,7 +699,7 @@ list(accumulate([1, 2, 3, 4, 5], mul)) = [1, 2, 6, 24, 120]</code></pre>
 </div>
 <div class="callout-body-container">
 <div id="exr-montecarlopi2" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise B.10 (Monte Carlo simulations in <code>numpy</code>)</strong></span> Recall <a href="sss1.html#exr-montecarlopi1" class="quarto-xref">Exercise&nbsp;<span>A.5</span></a> and implement a version of <code>in_unit_circle</code> that uses <code>numpy</code> arrays, you should take the code from <a href="sss1.html#exr-montecarlopi_fun" class="quarto-xref">Exercise&nbsp;<span>A.7</span></a> as basis and add a new function <code>in_unit_circle_np</code>.</p>
+<p><span class="theorem-title"><strong>Exercise C.3 (Monte Carlo simulations in <code>numpy</code>)</strong></span> Recall <a href="basics.html#exr-montecarlopi1" class="quarto-xref">Exercise&nbsp;<span>A.5</span></a> and implement a version of <code>in_unit_circle</code> that uses <code>numpy</code> arrays, you should take the code from <a href="basics.html#exr-montecarlopi_fun" class="quarto-xref">Exercise&nbsp;<span>A.8</span></a> as basis and add a new function <code>in_unit_circle_np</code>.</p>
 <p>To write this in Python follow these steps:</p>
 <ol type="1">
 <li>With <code>numpy.random.uniform()</code> create a <span class="math inline">\(2\times N\)</span> matrix with random numbers.</li>
@@ -965,12 +723,12 @@ list(accumulate([1, 2, 3, 4, 5], mul)) = [1, 2, 6, 24, 120]</code></pre>
 </div>
 <div class="callout-body-container">
 <div id="exr-pps" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise B.11 (Predator Prey simulation)</strong></span> The Lotka-Volterra Equations <span id="eq-lve"><span class="math display">\[
+<p><span class="theorem-title"><strong>Exercise C.4 (Predator Prey simulation)</strong></span> The Lotka-Volterra Equations <span id="eq-lve"><span class="math display">\[
 \begin{array}{c}
 \dot{x} = \alpha x - \beta x y\\
 \dot{y} = \delta x y - \gamma y
 \end{array}
-\tag{B.1}\]</span></span> can be used to describe a predator-prey system. In this case we can interpret the variables as:</p>
+\tag{C.1}\]</span></span> can be used to describe a predator-prey system. In this case we can interpret the variables as:</p>
 <ul>
 <li><span class="math inline">\(x\)</span> prey population</li>
 <li><span class="math inline">\(y\)</span> predator population</li>
@@ -1019,7 +777,7 @@ list(accumulate([1, 2, 3, 4, 5], mul)) = [1, 2, 6, 24, 120]</code></pre>
 </div>
 <div class="callout-body-container">
 <div id="exr-pandas_sets" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise B.12 (Use <code>pandas</code> to redo Section 2 of <a href="https://kandolfp.github.io/MECH-M-DUAL-1-DBM/basics/sets.html">MECH-M-DUAL-I-DBM</a>)</strong></span> In <a href="https://kandolfp.github.io/MECH-M-DUAL-1-DBM/basics/sets.html">MECH-M-DUAL-I-DBM</a> Section 2 we worked with the <code>mieten3.asc</code> dataset and did some computations on it.</p>
+<p><span class="theorem-title"><strong>Exercise C.5 (Use <code>pandas</code> to redo Section 2 of <a href="https://kandolfp.github.io/MECH-M-DUAL-1-DBM/basics/sets.html">MECH-M-DUAL-I-DBM</a>)</strong></span> In <a href="https://kandolfp.github.io/MECH-M-DUAL-1-DBM/basics/sets.html">MECH-M-DUAL-I-DBM</a> Section 2 we worked with the <code>mieten3.asc</code> dataset and did some computations on it.</p>
 <p>Use <code>pandas</code> to load the dataset and compute the same properties and create similar plots, where it is appropriate.</p>
 <p><strong>Hint:</strong> Data loading and some examples are done in <a href="../sc/pandas.html" class="quarto-xref"><span>Chapter 9</span></a>.</p>
 </div>
@@ -1033,16 +791,16 @@ list(accumulate([1, 2, 3, 4, 5], mul)) = [1, 2, 6, 24, 120]</code></pre>
 </div>
 <div class="callout-body-container">
 <div id="exr-pandas_sets" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise B.13 (Advanced <code>pandas</code>)</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Exercise C.6 (Advanced <code>pandas</code>)</strong></span> &nbsp;</p>
 <ol class="example" type="1">
 <li><p>The method <code>apply()</code> can <em>apply a function along an axis of a <code>DataFrame</code></em> and can be used in various ways.</p>
 <p>Use <code>.apply</code> to create categories, i.e.&nbsp;from</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Age'</span>: [<span class="dv">11</span>, <span class="dv">16</span>, <span class="dv">30</span>, <span class="dv">51</span>]</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Age'</span>: [<span class="dv">11</span>, <span class="dv">16</span>, <span class="dv">30</span>, <span class="dv">51</span>]</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>create</p>
-<div id="c8aa1785" class="cell" data-execution_count="4">
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div id="7d77db32" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-display" data-execution_count="1">
 <div>
 
 
@@ -1095,65 +853,6 @@ list(accumulate([1, 2, 3, 4, 5], mul)) = [1, 2, 6, 24, 120]</code></pre>
 <li>Update the <code>PST</code> column to only contain month and day</li>
 </ul></li>
 </ul></li>
-</ol>
-</div>
-</div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-tip no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<div id="exr-decorators" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise B.14 (Decorators)</strong></span> In Python we can use <em>decorators</em> to modify the functionality of a function by wrapping it in another function, you can find an introductions in the following links</p>
-<ul>
-<li><a href="https://book.pythontips.com/en/latest/decorators.html">pythontips</a></li>
-<li><a href="https://www.programiz.com/python-programming/decorator">programiz</a></li>
-<li><a href="https://python101.pythonlibrary.org/chapter25_decorators.html">Python 101</a></li>
-</ul>
-<p>Write a decorator <code>@positive</code> that checks arguments to be positive and raise an Exception (with <code>raise Exception("Sorry, not positive")</code>). Test this implementation with <a href="#exr-montecarlopi2" class="quarto-xref">Exercise&nbsp;<span>B.10</span></a> and <a href="#exr-pps" class="quarto-xref">Exercise&nbsp;<span>B.11</span></a>. We will look at exception handling later.</p>
-<p>Can you modify the decorator such that you can give an optional argument specifying the location to check for positivity?</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="at">@positiv</span>(<span class="dv">1</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> testfun(a, b, c)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># error for</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>testfun(<span class="op">-</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span>)</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># but not for</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>testfun(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-tip no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<div id="exr-pydantic" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise B.15 (Pydantic)</strong></span> In Python the <a href="https://docs.pydantic.dev/latest/"><code>Pydantic</code></a> module is a widely used data validation library.</p>
-<p>Have a look at <a href="https://docs.pydantic.dev/latest/concepts/validators/">Validators</a> and see if they can help with <a href="#exr-decorators" class="quarto-xref">Exercise&nbsp;<span>B.14</span></a>.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-tip no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<div id="exr-pathlib" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise B.16 (Pathlib)</strong></span> In Python the <a href="https://docs.python.org/3/library/pathlib.html"><code>pathlib</code></a> module is a widely used for working with paths and files. Use it to solve the following exercises.</p>
-<ol type="1">
-<li><p>Create a directory <code>tmp</code> with current path of the program. Do not forget to first check if the directory already exists.</p></li>
-<li><p>Create the following files with this directory: [<code>test.txt</code>, <code>file.txt</code>, <code>README.md</code>, <code>random.py</code>]</p></li>
-<li><p>Use <code>collections.Counter</code> to get a dictionary with the number of files per ending in the directory <code>tmp</code>. The output should look something like this:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>Counter({<span class="st">'.md'</span>: <span class="dv">1</span>, <span class="st">'.txt'</span>: <span class="dv">2</span>, <span class="st">'.py'</span>: <span class="dv">1</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>Find the last modified file in the directory.</p></li>
-<li><p>Clean up and delete all files as well as the directory.</p></li>
 </ol>
 </div>
 </div>
@@ -1589,11 +1288,14 @@ Vasiliev, Yuli. 2022. <em>Python for Data Science - a Hands-on Introduction</em>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../sss/sss1.html" class="pagination-link" aria-label="Self Study Session I">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Self Study Session I</span></span>
+      <a href="../sss/pp.html" class="pagination-link" aria-label="Self Study Session - Programming paradigms">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Self Study Session - Programming paradigms</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../sss/rs.html" class="pagination-link" aria-label="Self Study Session - Runtime stability">
+        <span class="nav-page-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Self Study Session - Runtime stability</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -1604,7 +1306,7 @@ Vasiliev, Yuli. 2022. <em>Python for Data Science - a Hands-on Introduction</em>
 </div>   
     <div class="nav-footer-center">
 <p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> Peter Kandolf</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/sss/sss2.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/sss/sc.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
