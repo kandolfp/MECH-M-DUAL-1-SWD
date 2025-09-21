@@ -350,6 +350,23 @@ Examples
 :::
 
 ::: {.callout-tip appearance="simple" collapse="true" icon=false}
+:::: {#exr-dicts-loop}
+
+## Loop with `key, value` pair
+
+1. Take the dictionary of @exr-dicts and write a loop that walkes through all keys and values such that both are extracted directly in the loop.
+1. We have seen the for loop for lists, sometimes it is helpfull to still get the index of the list in addition to the value, write a code snippet that produces the following output for the list `["fist", "second", "third"]`
+   ```{python}
+   #| classes: styled-output
+   #| error: true
+   #| echo: false
+   for index, value in enumerate(["fist", "second", "third"]):
+      print(f"{index = }, {value = }")
+   ```
+::::
+:::
+
+::: {.callout-tip appearance="simple" collapse="true" icon=false}
 :::: {#exr-comprehensions}
 
 ## Set, List and Dictionary Comprehensions
