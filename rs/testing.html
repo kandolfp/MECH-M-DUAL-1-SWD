@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>4&nbsp; Dependency and reproducibility – Softwaredesign</title>
+<title>13&nbsp; Testing – Softwaredesign</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +65,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../pp/index.html" rel="next">
-<link href="../basics/versioncontrol.html" rel="prev">
+<link href="../rs/cicd.html" rel="next">
+<link href="../rs/paths.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -46,6 +81,8 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-d2b0d12b45c08fc6e02230f9c3d12f5b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark-31cb10edc1c0975d1b58055636ea12f5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../site_libs/bootstrap/bootstrap-d2b0d12b45c08fc6e02230f9c3d12f5b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -260,7 +297,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../basics/index.html">Basics</a></li><li class="breadcrumb-item"><a href="../basics/epilogue.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Dependency and reproducibility</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../rs/index.html">Runtime stability</a></li><li class="breadcrumb-item"><a href="../rs/testing.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Testing</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -335,7 +372,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../basics/epilogue.html" class="sidebar-item-text sidebar-link active">
+  <a href="../basics/epilogue.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Dependency and reproducibility</span></span></a>
   </div>
 </li>
@@ -422,7 +459,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../rs/testing.html" class="sidebar-item-text sidebar-link">
+  <a href="../rs/testing.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Testing</span></span></a>
   </div>
 </li>
@@ -509,16 +546,27 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#unit-tests" id="toc-unit-tests" class="nav-link active" data-scroll-target="#unit-tests"><span class="header-section-number">13.1</span> Unit Tests</a>
+  <ul class="collapse">
+  <li><a href="#via-assert" id="toc-via-assert" class="nav-link" data-scroll-target="#via-assert"><span class="header-section-number">13.1.1</span> Via <code>assert</code></a></li>
+  <li><a href="#via-unittest" id="toc-via-unittest" class="nav-link" data-scroll-target="#via-unittest"><span class="header-section-number">13.1.2</span> Via <code>unittest</code></a></li>
+  <li><a href="#via-pytest" id="toc-via-pytest" class="nav-link" data-scroll-target="#via-pytest"><span class="header-section-number">13.1.3</span> Via <code>pytest</code></a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/rs/testing.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../basics/index.html">Basics</a></li><li class="breadcrumb-item"><a href="../basics/epilogue.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Dependency and reproducibility</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../rs/index.html">Runtime stability</a></li><li class="breadcrumb-item"><a href="../rs/testing.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Testing</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-intro-pm-reproducibility" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Dependency and reproducibility</span></span></h1>
+<h1 class="title"><span id="sec-error-testing" class="quarto-section-identifier"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Testing</span></span></h1>
 </div>
 
 
@@ -535,46 +583,294 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Before we conclude our introduction to <em>package managers</em> and <em>version control</em> we would like to share some thoughts on <strong>dependencies</strong> and <strong>reproducibility</strong>.</p>
-<p>In our world of modern infrastructure we depend on a lot of other projects and quite often we do not even realize what tools we need in the background for our little program to run. Best example, do you have any idea what the programming languages for the commands <code>git</code>, <code>python</code>, or <code>pdm</code> are and what system dependencies they have?</p>
-<p>This is exquisitely illustrated in the following <a href="https://xkcd.com">xkcd comic</a>.</p>
-<div id="fig-xkcd-dependency" class="quarto-float quarto-figure quarto-figure-center anchored">
+<p>It is of great importance to test our code. This allows us not only to avoid errors and problems while running our code but can save in total a lot of time.</p>
+<p>Writing tests is hardly ever the main focus of a developer but it should be included as an essential part of every piece of code. There exist a style of developing called <em>test driven development</em> summarized in <a href="#fig-testdriven" class="quarto-xref">Figure&nbsp;<span>13.1</span></a>.</p>
+<div id="fig-testdriven" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-xkcd-dependency-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p><a href="https://xkcd.com/2347/"><span class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://imgs.xkcd.com/comics/dependency.png" class="img-fluid figure-img"></span></a></p>
+<div aria-describedby="fig-testdriven-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<p><a href="https://commons.wikimedia.org/wiki/File:TDD_Global_Lifecycle.png"><span class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/TDD_Global_Lifecycle.png" class="img-fluid figure-img"></span></a></p>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-xkcd-dependency-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.1: The <a href="https://xkcd.com/2347/">xkcd comic #2347</a> discussing dependency, <a href="https://www.explainxkcd.com/wiki/index.php/2347:_Dependency">explainxkcd</a>. Click the image to get to the original image source <a href="https://imgs.xkcd.com/comics/dependency.png">https://imgs.xkcd.com/comics/dependency.png</a>.
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-testdriven-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13.1: Lifecycle of the Test-Driven Development method - Xarawn, CC BY-SA 4.0 <a href="https://creativecommons.org/licenses/by-sa/4.0" class="uri">https://creativecommons.org/licenses/by-sa/4.0</a>, via Wikimedia Commons
 </figcaption>
 </figure>
 </div>
-<p>There only needs to be one little pebble misplaced and everything collapses.</p>
-<p>In industry and academia it is often a problem that some computation can not be reproduced. Let it be an experiment that you need to rerun two years after your initial run, or generate some computations for an annual report. Or the more trivial matter of running you code on a different machine (of a colleague or after you got a new computer). Such situations require your program to provide the same output for the same input. Quite often we do not think about this during the development of our code but if we stick to some basic concepts we are already closer to reproducibility. Trust us if we say: Sooner or later you will need this!</p>
-<p>In this last sections we discussed two tools that will help us in this quest:</p>
-<ul>
-<li>package management</li>
-<li>version control</li>
-</ul>
-<p>Our code will have dependencies and keeping the correct list and pinning the correct version helps us greatly. The dependencies also undergo development and are not standing still so we need to be aware that we run on a specific version. The same is true for our own code and version control helps us keep track of what, why, and how we did <em>it</em>. This helps us correct errors, return to an old but working versions, figure out who to blame for the error.</p>
-<p>Besides these two tools we should also write our code in such a way that it is easy to follow and we should try to keep it as little attached to our current work environment as possible - in particular with paths to files - and we can avoid a situation like the following:</p>
-<blockquote class="blockquote">
-<p>Sure I can share my code but I am glad it runs on my machine. I have no idea how to get it to run on yours.</p>
-</blockquote>
-<p>We know that this is a bit much for beginners but if we stick to it from the start we have less to change later on.</p>
-<p>Anyway, lets end with:</p>
-<div id="fig-xkcd-code-quality" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-xkcd-code-quality-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p><a href="https://www.xkcd.com/1513/"><span class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="https://imgs.xkcd.com/comics/code_quality.png" class="img-fluid figure-img"></span></a></p>
+<p>There are different types of tests that are appropriate for different types of software and are necessary in different kinds of projects, the following descriptions are adopted from <a href="https://www.atlassian.com/continuous-delivery/software-testing/types-of-software-testing">Atlassian, accessed 22.11.2024</a>.</p>
+<ol type="1">
+<li><p>Unit tests<br>
+Unit tests are very low level and close to the source of an application. They consist in testing individual methods and functions of the classes, components, or modules used by your software. Unit tests are generally quite cheap to automate and can run very quickly by a continuous integration server.</p></li>
+<li><p>Integration tests<br>
+Integration tests verify that different modules or services used by your application work well together. For example, it can be testing the interaction with the database or making sure that microservices work together as expected. These types of tests are more expensive to run as they require multiple parts of the application to be up and running.</p></li>
+<li><p>Functional tests<br>
+Functional tests focus on the business requirements of an application. They only verify the output of an action and do not check the intermediate states of the system when performing that action.<br>
+<br>
+There is sometimes a confusion between integration tests and functional tests as they both require multiple components to interact with each other. The difference is that an integration test may simply verify that you can query the database while a functional test would expect to get a specific value from the database as defined by the product requirements.</p></li>
+<li><p>End-to-end tests<br>
+End-to-end testing replicates a user behavior with the software in a complete application environment. It verifies that various user flows work as expected and can be as simple as loading a web page or logging in or much more complex scenarios verifying email notifications, online payments, etc…<br>
+<br>
+End-to-end tests are very useful, but they’re expensive to perform and can be hard to maintain when they’re automated. It is recommended to have a few key end-to-end tests and rely more on lower level types of testing (unit and integration tests) to be able to quickly identify breaking changes.</p></li>
+<li><p>Acceptance testing<br>
+Acceptance tests are formal tests that verify if a system satisfies business requirements. They require the entire application to be running while testing and focus on replicating user behaviors. But they can also go further and measure the performance of the system and reject changes if certain goals are not met.</p></li>
+<li><p>Performance testing<br>
+Performance tests evaluate how a system performs under a particular workload. These tests help to measure the reliability, speed, scalability, and responsiveness of an application. For instance, a performance test can observe response times when executing a high number of requests, or determine how a system behaves with a significant amount of data. It can determine if an application meets performance requirements, locate bottlenecks, measure stability during peak traffic, and more.</p></li>
+<li><p>Smoke testing<br>
+Smoke tests are basic tests that check the basic functionality of an application. They are meant to be quick to execute, and their goal is to give you the assurance that the major features of your system are working as expected.<br>
+<br>
+Smoke tests can be useful right after a new build is made to decide whether or not you can run more expensive tests, or right after a deployment to make sure that they application is running properly in the newly deployed environment.</p></li>
+</ol>
+<p>We are going to look primarily on Unit tests here.</p>
+<section id="unit-tests" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="unit-tests"><span class="header-section-number">13.1</span> Unit Tests</h2>
+<p>As mentioned above unit tests are meant to make sure single sections of your code provide the functionality as they should.</p>
+<section id="via-assert" class="level3" data-number="13.1.1">
+<h3 data-number="13.1.1" class="anchored" data-anchor-id="via-assert"><span class="header-section-number">13.1.1</span> Via <code>assert</code></h3>
+<p>One way to write a unit test is via <code>assert</code> statements, as they can also be deactivated during runtime, see <a href="exception.html#sec-error-assert" class="quarto-xref"><span>Section 10.3</span></a>, for this kind of unit tests an <code>AssertionError</code> signals a not successful test. Usually we write a separate function to perform the tests with the prefix <code>test_</code></p>
+<div id="e95a0e70" class="cell styled-output" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numbers</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> traceback</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add(a: numbers.Number, b: numbers.Number) <span class="op">-&gt;</span> numbers.Number:</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> a <span class="op">+</span> b</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_add():</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> add(<span class="dv">2</span>, <span class="dv">1</span>) <span class="op">==</span> <span class="dv">3</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> add(<span class="dv">0</span>, <span class="dv">0</span>) <span class="op">==</span> <span class="dv">0</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> add(<span class="fl">0.4</span>, <span class="dv">1</span><span class="op">/</span><span class="dv">3</span>) <span class="op">==</span> <span class="fl">0.7333333333333334</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> add(<span class="dv">1</span>, <span class="fl">1e-16</span>) <span class="op">==</span> <span class="dv">1</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    np.testing.assert_almost_equal(add(<span class="dv">1</span>, <span class="fl">1e-16</span>), <span class="dv">1</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  test_add()</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">AssertionError</span> <span class="im">as</span> ae:</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="ss">f"Test failed!, </span><span class="sc">{</span>traceback<span class="sc">.</span>print_exception(ae)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">"Test passed!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Test passed!</code></pre>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-xkcd-code-quality-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.2: The <a href="https://www.xkcd.com/1513/">xkcd comic #1513</a> discussing code quality, <a href="https://www.explainxkcd.com/wiki/index.php/1513:_Code_Quality">explainxkcd</a>. Click the image to get to the original image source <a href="https://imgs.xkcd.com/comics/code_quality.png">https://imgs.xkcd.com/comics/code_quality.png</a>.
-</figcaption>
-</figure>
 </div>
-<p>and <a href="https://peps.python.org/pep-0008/">Python style guide - PEP 8</a>.</p>
+<p>This is tedious and not very convenient to handle and work with.</p>
+</section>
+<section id="via-unittest" class="level3" data-number="13.1.2">
+<h3 data-number="13.1.2" class="anchored" data-anchor-id="via-unittest"><span class="header-section-number">13.1.2</span> Via <code>unittest</code></h3>
+<p>The module <code>unittest</code> is a much more comprehensive way of running your test. This is also where the directory <code>tests</code> from our introduction to <code>pdm</code> comes into play, see <a href="../basics/packagemanager.html" class="quarto-xref"><span>Chapter 2</span></a>.</p>
+<p>Tests are structured in this directory. We constructed a dummy project to show how testing can be done.</p>
+<div class="sourceCode" id="annotated-cell-2"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><span id="annotated-cell-2-1"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tree module/</span>
+<span id="annotated-cell-2-2"><a href="#annotated-cell-2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">module/</span></span>
+<span id="annotated-cell-2-3"><a href="#annotated-cell-2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> pdm.lock</span>
+<span id="annotated-cell-2-4"><a href="#annotated-cell-2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> pyproject.toml</span>
+<span id="annotated-cell-2-5"><a href="#annotated-cell-2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> src</span>
+<span id="annotated-cell-2-6"><a href="#annotated-cell-2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">│&nbsp;&nbsp;</span> └── rectangle</span>
+<span id="annotated-cell-2-7"><a href="#annotated-cell-2-7" aria-hidden="true" tabindex="-1"></a><span class="ex">│&nbsp;&nbsp;</span>     ├── __init__.py</span>
+<span id="annotated-cell-2-8"><a href="#annotated-cell-2-8" aria-hidden="true" tabindex="-1"></a><span class="ex">│&nbsp;&nbsp;</span>     └── rectangle.py</span>
+<span id="annotated-cell-2-9"><a href="#annotated-cell-2-9" aria-hidden="true" tabindex="-1"></a><span class="ex">└──</span> tests</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-2-10" class="code-annotation-target"><a href="#annotated-cell-2-10" aria-hidden="true" tabindex="-1"></a>    <span class="ex">└──</span> rectangle</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-2-11" class="code-annotation-target"><a href="#annotated-cell-2-11" aria-hidden="true" tabindex="-1"></a>        <span class="ex">├──</span> __init__.py</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-2-12" class="code-annotation-target"><a href="#annotated-cell-2-12" aria-hidden="true" tabindex="-1"></a>        <span class="ex">└──</span> test_rectangle.py</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-2" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-lines="10" data-code-annotation="1">create a directory per module (directory) in your <code>src</code> folder with the same name</span>
+</dd>
+<dt data-target-cell="annotated-cell-2" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-lines="11" data-code-annotation="2">optionally make the test folder a module as well</span>
+</dd>
+<dt data-target-cell="annotated-cell-2" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-lines="12" data-code-annotation="3">create a file containing the tests with the same name</span>
+</dd>
+</dl>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="fa-solid fa-pen-to-square" aria-label="pen-to-square"></i> Code for the example
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol class="example" type="1">
+<li><code>module/src/rectangle/__init__.py</code></li>
+</ol>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> .rectangle <span class="im">import</span> <span class="op">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" class="example" type="1">
+<li><code>module/src/rectangle/rectangle.py</code></li>
+</ol>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Rectangle:</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""A class to represent a rectangle"""</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, width, height):</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.width <span class="op">=</span> width</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.height <span class="op">=</span> height</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get_area(<span class="va">self</span>):</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Return the area of the rectangle"""</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.width <span class="op">*</span> <span class="va">self</span>.height</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> set_width(<span class="va">self</span>, width):</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Set the width of the rectangle"""</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.width <span class="op">=</span> width</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> set_height(<span class="va">self</span>, height):</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Set the height of the rectangle"""</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.height <span class="op">=</span> height</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Standalone function in the module</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> is_square(rectangle: Rectangle):</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="co">    Check if a given rectangle is a square.</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="co">    This function is not part of the Rectangle class, </span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="co">    but it operates on a Rectangle object.</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> rectangle.width <span class="op">==</span> rectangle.height</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="3" class="example" type="1">
+<li><code>module/tests/rectangle/__init__.py</code></li>
+</ol>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> .test_rectangle <span class="im">import</span> <span class="op">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="4" class="example" type="1">
+<li><code>module/tests/rectangle/test_rectangle.py</code></li>
+</ol>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> unittest</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> src.rectangle <span class="im">import</span> Rectangle</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> TestGetAreaRectangle(unittest.TestCase):</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> test_area_correct(<span class="va">self</span>):</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        rectangle <span class="op">=</span> Rectangle(<span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.assertEqual(rectangle.get_area(), <span class="dv">6</span>, <span class="st">"incorrect area"</span>)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> test_area_incorrect(<span class="va">self</span>):</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        rectangle <span class="op">=</span> Rectangle(<span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.assertNotEqual(rectangle.get_area(), <span class="dv">5</span>, <span class="st">"correct area"</span>)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> test_set_width(<span class="va">self</span>):</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>        rectangle <span class="op">=</span> Rectangle(<span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>        rectangle.set_width(<span class="fl">0.7</span>)</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.assertEqual(rectangle.get_area(), <span class="fl">0.7</span>, <span class="st">"set_width not working"</span>)</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> test_set_height(<span class="va">self</span>):</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>        rectangle <span class="op">=</span> Rectangle(<span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>        rectangle.set_width(<span class="fl">0.7</span>)</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.assertEqual(rectangle.get_area(), <span class="fl">0.7</span>, <span class="st">"set_width not working"</span>)</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> test_deliberate_error(<span class="va">self</span>):</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>        rectangle <span class="op">=</span> Rectangle(<span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.assertEqual(rectangle.get_area(), <span class="dv">2</span>, <span class="st">"deliberate error"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>We can run the tests from the terminal (note the change of directory is only necessary for these notes)</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pdm</span> run python <span class="at">-m</span> unittest <span class="at">-v</span> tests.rectangle</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b0c563ee" class="cell styled-output" data-execution_count="2">
+<div class="cell-output cell-output-stderr">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-blue-fg">INFO:</span> Inside an active virtualenv 
+
+<span style="opacity:0.7" class="ansi-green-fg">/home/runner/work/MECH-M-DUAL-1-SWD/MECH-M-DUAL-1-SWD/</span><span style="opacity:0.7" class="ansi-green-fg">.venv</span>, reusing it.
+
+Set env var <span style="opacity:0.7" class="ansi-green-fg">PDM_IGNORE_ACTIVE_VENV</span> to ignore it.
+
+test_area_correct (tests.rectangle.test_rectangle.TestGetAreaRectangle.test_area_correct) ... ok
+
+test_area_incorrect (tests.rectangle.test_rectangle.TestGetAreaRectangle.test_area_incorrect) ... ok
+
+test_deliberate_error (tests.rectangle.test_rectangle.TestGetAreaRectangle.test_deliberate_error) ... FAIL
+
+test_set_height (tests.rectangle.test_rectangle.TestGetAreaRectangle.test_set_height) ... ok
+
+test_set_width (tests.rectangle.test_rectangle.TestGetAreaRectangle.test_set_width) ... ok
 
 
+
+======================================================================
+
+FAIL: test_deliberate_error (tests.rectangle.test_rectangle.TestGetAreaRectangle.test_deliberate_error)
+
+----------------------------------------------------------------------
+
+Traceback (most recent call last):
+
+  File "/home/runner/work/MECH-M-DUAL-1-SWD/MECH-M-DUAL-1-SWD/_assets/errorhandling/module/tests/rectangle/test_rectangle.py", line 26, in test_deliberate_error
+
+    self.assertEqual(rectangle.get_area(), 2, "deliberate error")
+
+AssertionError: 1 != 2 : deliberate error
+
+
+
+----------------------------------------------------------------------
+
+Ran 5 tests in 0.001s
+
+
+
+FAILED (failures=1)
+</pre>
+</div>
+</div>
+</div>
+</section>
+<section id="via-pytest" class="level3" data-number="13.1.3">
+<h3 data-number="13.1.3" class="anchored" data-anchor-id="via-pytest"><span class="header-section-number">13.1.3</span> Via <code>pytest</code></h3>
+<p>A third party option is the module <code>pytest</code> <a href="https://docs.pytest.org/en/stable/">docs</a> that is often considered easier to handle than <code>unittest</code>. As there is a compatibility between <code>pytest</code> and <code>unittest</code> we can run</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pdm</span> run pytest <span class="at">-q</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="725accd4" class="cell styled-output" data-execution_count="3">
+<div class="cell-output cell-output-stderr">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-blue-fg">INFO:</span> Inside an active virtualenv 
+
+<span style="opacity:0.7" class="ansi-green-fg">/home/runner/work/MECH-M-DUAL-1-SWD/MECH-M-DUAL-1-SWD/</span><span style="opacity:0.7" class="ansi-green-fg">.venv</span>, reusing it.
+
+Set env var <span style="opacity:0.7" class="ansi-green-fg">PDM_IGNORE_ACTIVE_VENV</span> to ignore it.
+</pre>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-green-fg">.</span><span class="ansi-green-fg">.</span><span class="ansi-red-fg">F</span><span class="ansi-green-fg">.</span><span class="ansi-green-fg">.</span><span class="ansi-red-fg">                                                                    [100%]</span>
+
+=================================== FAILURES ===================================
+
+<span class="ansi-red-fg ansi-bold">__________________ TestGetAreaRectangle.test_deliberate_error __________________</span>
+
+
+
+self = &lt;tests.rectangle.test_rectangle.TestGetAreaRectangle testMethod=test_deliberate_error&gt;
+
+
+
+    <span class="ansi-bright-blue-fg">def</span> <span class="ansi-bright-green-fg">test_deliberate_error</span>(<span class="ansi-bright-cyan-fg">self</span>):
+
+        rectangle = Rectangle(<span class="ansi-bright-blue-fg">1</span>, <span class="ansi-bright-blue-fg">1</span>)
+
+&gt;       <span class="ansi-bright-cyan-fg">self</span>.assertEqual(rectangle.get_area(), <span class="ansi-bright-blue-fg">2</span>, <span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">deliberate error</span><span class="ansi-yellow-fg">"</span>)
+
+<span class="ansi-red-fg ansi-bold">E       AssertionError: 1 != 2 : deliberate error</span>
+
+
+
+<span class="ansi-red-fg ansi-bold">tests/rectangle/test_rectangle.py</span>:26: AssertionError
+
+<span class="ansi-cyan-fg ansi-bold">=========================== short test summary info ============================</span>
+
+<span class="ansi-red-fg">FAILED</span> tests/rectangle/test_rectangle.py::<span class="ansi-bold">TestGetAreaRectangle::test_deliberate_error</span> - AssertionError: 1 != 2 : deliberate error
+
+<span class="ansi-red-fg ansi-bold">1 failed</span>, <span class="ansi-green-fg">4 passed</span><span class="ansi-red-fg"> in 0.06s</span>
+</pre>
+</div>
+</div>
+</div>
+<p>as it will automatically search in the directory <code>tests</code> for files with the prefix <code>test_</code>.</p>
+
+
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -991,13 +1287,13 @@ Figure&nbsp;4.2: The <a href="https://www.xkcd.com/1513/">xkcd comic #1513</a> d
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../basics/versioncontrol.html" class="pagination-link" aria-label="Version Control">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Version Control</span></span>
+      <a href="../rs/paths.html" class="pagination-link" aria-label="Path and file handling">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Path and file handling</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../pp/index.html" class="pagination-link" aria-label="Programming paradigms">
-        <span class="nav-page-text">Programming paradigms</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../rs/cicd.html" class="pagination-link" aria-label="CI/CD">
+        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">CI/CD</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1009,7 +1305,7 @@ Figure&nbsp;4.2: The <a href="https://www.xkcd.com/1513/">xkcd comic #1513</a> d
 </div>   
     <div class="nav-footer-center">
 <p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> Peter Kandolf</p>
-<div class="toc-actions"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/basics/epilogue.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/rs/testing.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

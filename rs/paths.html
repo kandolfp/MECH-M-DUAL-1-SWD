@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>14&nbsp; CI/CD – Softwaredesign</title>
+<title>12&nbsp; Path and file handling – Softwaredesign</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../containerization/index.html" rel="next">
-<link href="../errorhandling/testing.html" rel="prev">
+<link href="../rs/testing.html" rel="next">
+<link href="../rs/logging.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -292,7 +292,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../errorhandling/index.html">Runtime stability</a></li><li class="breadcrumb-item"><a href="../errorhandling/cicd.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">CI/CD</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../rs/index.html">Runtime stability</a></li><li class="breadcrumb-item"><a href="../rs/paths.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Path and file handling</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -427,7 +427,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../errorhandling/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../rs/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Runtime stability</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -436,31 +436,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../errorhandling/exception.html" class="sidebar-item-text sidebar-link">
+  <a href="../rs/exception.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Exception handling</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../errorhandling/logging.html" class="sidebar-item-text sidebar-link">
+  <a href="../rs/logging.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Logging</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../errorhandling/paths.html" class="sidebar-item-text sidebar-link">
+  <a href="../rs/paths.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Path and file handling</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../errorhandling/testing.html" class="sidebar-item-text sidebar-link">
+  <a href="../rs/testing.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Testing</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../errorhandling/cicd.html" class="sidebar-item-text sidebar-link active">
+  <a href="../rs/cicd.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">CI/CD</span></span></a>
   </div>
 </li>
@@ -506,26 +506,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../sss/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Overview</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../sss/basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Self Study Session - Basics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Self Study Session - Basics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../sss/pp.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Self Study Session - Programming paradigms</span></span></a>
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Self Study Session - Programming paradigms</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../sss/sc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Self Study Session - Scientific Computing</span></span></a>
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Self Study Session - Scientific Computing</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../sss/rs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Self Study Session - Runtime stability</span></span></a>
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Self Study Session - Runtime stability</span></span></a>
   </div>
 </li>
       </ul>
@@ -540,17 +546,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#github-actions" id="toc-github-actions" class="nav-link active" data-scroll-target="#github-actions"><span class="header-section-number">14.1</span> GitHub actions</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link active" data-scroll-target="#references"><span class="header-section-number">12.1</span> References</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/errorhandling/cicd.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/rs/paths.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../errorhandling/index.html">Runtime stability</a></li><li class="breadcrumb-item"><a href="../errorhandling/cicd.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">CI/CD</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../rs/index.html">Runtime stability</a></li><li class="breadcrumb-item"><a href="../rs/paths.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Path and file handling</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-error-cicd" class="quarto-section-identifier"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">CI/CD</span></span></h1>
+<h1 class="title"><span id="sec-pathfile" class="quarto-section-identifier"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Path and file handling</span></span></h1>
 </div>
 
 
@@ -567,122 +573,134 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>The term <em>CI/CD</em> is most commonly attributed to <em>continuous integration, continuous delivery, and continuous deployment</em>. By introducing automation and continuous monitoring of the code lifecycle - from integration and testing to delivering and deploying - it helps keep the codebase working and our <em>product</em> up and running.</p>
-<p>The concept is often used in DevOps, MLOps or similar approaches.</p>
-<ol class="example" type="1">
-<li><p>Continuous integration<br>
-The main idea of <em>continuous integration</em> is to automate building and testing such that your merge to a shared branch or repository is known to work. The idea is that multiple people can work on the same code base and conflicts get recognized early and not after two months of developing. Typically, the CI <em>pipeline</em> does unit and integration tests that make sure that the chances have not broken the code. This allows for regular, hopefully daily, merge pushes to the shared repository.<br>
-In Git therms this would be a common <em>remote repository</em> for the developers.</p></li>
-<li><p>Continuous delivery<br>
-Now that you know that the code is automatically build and unit as well as integration tested the automated delivery to a shared repository is the next step.<br>
-This means your code base is always ready to be deployed to a production environment, meaning that it is not just used by you but by others and even other programs build on it.</p></li>
-<li><p>Continuous deployment<br>
-The last step in this automation pipeline is the automatic deployment of the code to a production environment where it can be used.</p></li>
-</ol>
-<div class="callout callout-style-simple callout-tip no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<p>Input and output (I/O) functionality is an important part of software development. In this section we introduce the <a href="https://docs.python.org/3/library/pathlib.html"><code>pathlib</code></a> module as a structure and pythonic way to deal with paths. Furthermore, we show some basic file read and write interaction to round off the topic.</p>
+<p>The module <code>pathlib</code> allows us to move away from paths as strings and combines all the file and path operations into a single module, where a <em>path</em> is represented by the class <code>Path</code>. Before <code>pathlib</code> these operations where spread over <code>os</code>, <code>glob</code>, and <code>shutil</code>. Furthermore, <code>pathlib</code> provides a cross-platform way to read, write, move, and delete files.</p>
+<p>The main object we are going to work with is <code>Path</code>, which is a superclass of <code>PosixPath</code> and <code>WindowsPath</code> and the platform agnostic version of a file system path.</p>
+<p>Let us look at an example here first, we always call the same function on different systems:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Path.cwd()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Linux</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Mac</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Windows</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div id="77012057" class="cell styled-output" data-execution_count="1">
+<div class="cell-output cell-output-stdout">
+<pre><code>PosixPath('/home/lecturer/lectures/MECH-M-DUAL-1-SWD')</code></pre>
 </div>
-<div class="callout-body-container">
-<div id="exm-errorhandling-cicd-self" class="theorem example">
-<p><span class="theorem-title"><strong>Example 14.1 (Working procedure for these notes)</strong></span> Let us use these notes as example to illustrate this process:</p>
-<ol type="1">
-<li>The authors write some new material about e.g.&nbsp;CI/CD stuff. This might take some time until the pictures are ready, the text has the correct format and code blocks are tested and developed.</li>
-<li>In the next step the new section is <em>committed</em> to the local repository. This goes on for a couple of commits and separate for each author.</li>
-<li>After the author is happy with the local changes it pushes the commits to the <em>remote repository</em>.</li>
-<li>The repository living on <a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD">github</a> uses <a href="https://docs.github.com/en/actions/using-workflows">github workflows</a> to
-<ul>
-<li>Checkout the repository</li>
-<li>Test if the page can be build, if not tell the author</li>
-<li>If the build was successful the page is moved over to <a href="https://pages.github.com/">github pages</a></li>
-</ul></li>
-<li>The reader of the notes always has the latest working copy of the notes.</li>
-</ol>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div id="66f7fe55" class="cell styled-output" data-execution_count="2">
+<div class="cell-output cell-output-stdout">
+<pre><code>PosixPath('/Users/lecturer/lectures/MECH-M-DUAL-1-SWD')</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div id="a61740cf" class="cell styled-output" data-execution_count="3">
+<div class="cell-output cell-output-stdout">
+<pre><code>WindowsPath('C:/Users/lecturer/lectures/MECH-M-DUAL-1-SWD')</code></pre>
 </div>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
+</div>
+<p>As we can see from the different outputs per platform, the module takes care of the differences but allows us a unified experience.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Obviously, this does not prevent the notes from having some errors or typos but the authors always get a quick feedback if their work can still be displayed.</p>
+<p>Of course we can use the specific versions like <code>PosixPath</code> but be aware that this results in a problems when using we are on the <em>wrong</em> platform.</p>
+<div id="f8363ee3" class="cell styled-output" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> WindowsPath</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>WindowsPath(<span class="st">'test.txt'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NotImplementedError</span>                       Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[4], line 3</span>
+<span class="ansi-green-fg ansi-bold">      1</span> <span style="font-weight:bold;color:rgb(0,135,0)">from</span> <span style="font-weight:bold;color:rgb(0,0,255)">pathlib</span> <span style="font-weight:bold;color:rgb(0,135,0)">import</span> WindowsPath
+<span class="ansi-green-fg">----&gt; 3</span> <span class="ansi-yellow-bg">WindowsPath</span><span class="ansi-yellow-bg">(</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">'</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">test.txt</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">'</span><span class="ansi-yellow-bg">)</span>
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.12.11/x64/lib/python3.12/pathlib.py:1434</span>, in <span class="ansi-cyan-fg">WindowsPath.__new__</span><span class="ansi-blue-fg">(cls, *args, **kwargs)</span>
+<span class="ansi-green-fg ansi-bold">   1433</span> <span style="font-weight:bold;color:rgb(0,135,0)">def</span> <span style="color:rgb(0,0,255)">__new__</span>(<span style="color:rgb(0,135,0)">cls</span>, <span style="color:rgb(98,98,98)">*</span>args, <span style="color:rgb(98,98,98)">*</span><span style="color:rgb(98,98,98)">*</span>kwargs):
+<span class="ansi-green-fg">-&gt; 1434</span>     <span style="font-weight:bold;color:rgb(0,135,0)">raise</span> <span style="font-weight:bold;color:rgb(215,95,95)">NotImplementedError</span>(
+<span class="ansi-green-fg ansi-bold">   1435</span>         <span style="color:rgb(175,0,0)">f</span><span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">cannot instantiate </span><span style="font-weight:bold;color:rgb(175,95,135)">{</span><span style="color:rgb(0,135,0)">cls</span><span style="color:rgb(98,98,98)">.</span><span style="color:rgb(0,0,135)">__name__</span><span style="font-weight:bold;color:rgb(175,95,135)">!r}</span><span style="color:rgb(175,0,0)"> on your system</span><span style="color:rgb(175,0,0)">"</span>)
+
+<span class="ansi-red-fg">NotImplementedError</span>: cannot instantiate 'WindowsPath' on your system</pre>
 </div>
 </div>
-<section id="github-actions" class="level2" data-number="14.1">
-<h2 data-number="14.1" class="anchored" data-anchor-id="github-actions"><span class="header-section-number">14.1</span> GitHub actions</h2>
-<p>As we are working on GitHub for the lecture it is natural to look at a CI/CD solutions compatible with this system but we note that there are platform independent solutions and solutions for each of the major platform (GitLab, Azure DevOps, BitBucket, gitea, …) though with different styles and capabilities.</p>
-<p>On GitHub this part is controlled by so called <em>GitHub Actions</em>, their documentation can be found <a href="https://docs.github.com/en/actions">here</a>.</p>
-<p>Let us discuss here how to integrate the actions with a Python repository in our setup, so <code>pdm</code> and executing our unit tests.</p>
-<p>Everything is controlled via the directory <code>.github/workflows</code> were we find <code>yml</code> files to control what is happening after a push to github.</p>
-<p>Let us consider this <code>testing.yml</code> file and have a look what is happening</p>
-<div class="sourceCode" id="annotated-cell-1"><pre class="sourceCode yml code-annotation-code code-with-copy code-annotated"><code class="sourceCode yaml"><a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-1-1" class="code-annotation-target"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">on</span><span class="kw">:</span></span>
-<span id="annotated-cell-1-2"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">workflow_dispatch</span><span class="kw">:</span></span>
-<span id="annotated-cell-1-3"><a href="#annotated-cell-1-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">push</span><span class="kw">:</span></span>
-<span id="annotated-cell-1-4"><a href="#annotated-cell-1-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">branches</span><span class="kw">:</span><span class="at"> main</span></span>
-<span id="annotated-cell-1-5"><a href="#annotated-cell-1-5" aria-hidden="true" tabindex="-1"></a></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-1-6" class="code-annotation-target"><a href="#annotated-cell-1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Testing</span></span>
-<span id="annotated-cell-1-7"><a href="#annotated-cell-1-7" aria-hidden="true" tabindex="-1"></a></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-1-8" class="code-annotation-target"><a href="#annotated-cell-1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">jobs</span><span class="kw">:</span></span>
-<span id="annotated-cell-1-9"><a href="#annotated-cell-1-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">testing</span><span class="kw">:</span><span class="at">                              </span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-1-10" class="code-annotation-target"><a href="#annotated-cell-1-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
-<span id="annotated-cell-1-11"><a href="#annotated-cell-1-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span><span class="at">                      </span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="5" onclick="event.preventDefault();">5</a><span id="annotated-cell-1-12" class="code-annotation-target"><a href="#annotated-cell-1-12" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="6" onclick="event.preventDefault();">6</a><span id="annotated-cell-1-13" class="code-annotation-target"><a href="#annotated-cell-1-13" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Set up PDM</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="7" onclick="event.preventDefault();">7</a><span id="annotated-cell-1-14" class="code-annotation-target"><a href="#annotated-cell-1-14" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> pdm-project/setup-pdm@v4</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="8" onclick="event.preventDefault();">8</a><span id="annotated-cell-1-15" class="code-annotation-target"><a href="#annotated-cell-1-15" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Install dependencies</span></span>
-<span id="annotated-cell-1-16"><a href="#annotated-cell-1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">          run</span><span class="kw">: </span><span class="ch">|</span></span>
-<span id="annotated-cell-1-17"><a href="#annotated-cell-1-17" aria-hidden="true" tabindex="-1"></a>            pdm sync</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="9" onclick="event.preventDefault();">9</a><span id="annotated-cell-1-18" class="code-annotation-target"><a href="#annotated-cell-1-18" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Run Tests</span></span>
-<span id="annotated-cell-1-19"><a href="#annotated-cell-1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">          run</span><span class="kw">: </span><span class="ch">|</span></span>
-<span id="annotated-cell-1-20"><a href="#annotated-cell-1-20" aria-hidden="true" tabindex="-1"></a>            pdm run -v pytest tests</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="1,2,3,4" data-code-annotation="1">specify when to run all actions in this file</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="6" data-code-annotation="2">specify a name to display on gitHub</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="3">3</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="8" data-code-annotation="3">all jobs to run are listed in this section</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="4">4</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="10" data-code-annotation="4">we need to specify on what system to run (this depends on the runner - docker)</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="5">5</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="12" data-code-annotation="5">checkout the git repository into the runner</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="6">6</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="13" data-code-annotation="6">we can give a step a name</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="7">7</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="14" data-code-annotation="7">setup and install the <code>pdm</code> project</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="8">8</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="15" data-code-annotation="8">synchronize the <code>pdm</code> project</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="9">9</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="18" data-code-annotation="9">run the tests</span>
-</dd>
-</dl>
-<p>The entire job is executed on a so called <a href="https://docs.github.com/en/actions/writing-workflows/choosing-where-your-workflow-runs/choosing-the-runner-for-a-job#standard-github-hosted-runners-for-public-repositories">public runner</a>, provided by GitHub. In the case of GitHub these are virtual machines where all users have some resources to work with.</p>
-<p>To see the output of the job we need to look into the section <code>Actions</code> in the project section. In our case, we will see that the action failed and we will receive an email telling us this as we have an error in our tests.</p>
+</div>
+</div>
+</div>
+<p>Of course we can define our path via a string and convert it back to a string.</p>
+<div id="abf598e6" class="cell styled-output" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> Path()</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">str</span>(p))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="00b06cb2" class="cell styled-output" data-execution_count="6">
+<div class="cell-output cell-output-stdout">
+<pre><code>/home/lecturer/lectures/MECH-M-DUAL-1-SWD</code></pre>
+</div>
+</div>
+<p>Again, <code>pathlib</code> will make sure to respect the platform specifics.</p>
+<p>If we want to join paths we can use the <code>/</code> operator</p>
+<div id="6f0e7012" class="cell styled-output" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>intro <span class="op">=</span> p <span class="op">/</span> <span class="st">'intro.qmd'</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(intro)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>/home/lecturer/lectures/MECH-M-DUAL-1-SWD/intro.qmd</code></pre>
+</div>
+</div>
+<p>or <code>joinpath()</code></p>
+<div id="599667ce" class="cell styled-output" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>intro <span class="op">=</span> p.joinpath(<span class="st">'intro.qmd'</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(intro)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>/home/lecturer/lectures/MECH-M-DUAL-1-SWD/intro.qmd</code></pre>
+</div>
+</div>
+<p>As mentioned we can use the same interface for file access so</p>
+<div id="0e94a112" class="cell styled-output" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> intro.<span class="bu">open</span>() <span class="im">as</span> f:</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(f.readline())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># Introduction {.unnumbered}
+</code></pre>
+</div>
+</div>
+<p>will allow us to read the first line of the introduction to these notes. We can use the usual functions to read as bytes or with a specific encoding like <code>utf-8</code>.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>pathlib</code> provides us with great possibilities to work with the file system in our program. Furthermore, as we can see from the above examples, it allows us to <strong>always us relative paths</strong> in the code and still have the absolute path on the system.</p>
+<p>This greatly helps us to make the code portable to different locations and work on different platforms.</p>
+</div>
+</div>
+<p>Have a look into the following references to get an idea of the further possibilities and to help you solve the exercises in the appendix.</p>
+<section id="references" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="references"><span class="header-section-number">12.1</span> References</h2>
+<p>You can find further information in the following sources:</p>
+<ul>
+<li>The official documentation, <a href="https://docs.python.org/3/library/pathlib.html">link</a></li>
+<li>A nice <em>RealPython</em> introduction to the topic <a href="https://realpython.com/python-pathlib/">link</a></li>
+</ul>
 
 
 </section>
@@ -1102,13 +1120,13 @@ Note
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../errorhandling/testing.html" class="pagination-link" aria-label="Testing">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Testing</span></span>
+      <a href="../rs/logging.html" class="pagination-link" aria-label="Logging">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Logging</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../containerization/index.html" class="pagination-link" aria-label="Containerization">
-        <span class="nav-page-text">Containerization</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../rs/testing.html" class="pagination-link" aria-label="Testing">
+        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Testing</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1120,7 +1138,7 @@ Note
 </div>   
     <div class="nav-footer-center">
 <p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> Peter Kandolf</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/errorhandling/cicd.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/rs/paths.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

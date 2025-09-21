@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>13&nbsp; Testing – Softwaredesign</title>
+<title>11&nbsp; Logging – Softwaredesign</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../errorhandling/cicd.html" rel="next">
-<link href="../errorhandling/paths.html" rel="prev">
+<link href="../rs/paths.html" rel="next">
+<link href="../rs/exception.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -81,11 +81,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/bootstrap/bootstrap-d2b0d12b45c08fc6e02230f9c3d12f5b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark-31cb10edc1c0975d1b58055636ea12f5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../site_libs/bootstrap/bootstrap-d2b0d12b45c08fc6e02230f9c3d12f5b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
-<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -297,7 +292,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../errorhandling/index.html">Runtime stability</a></li><li class="breadcrumb-item"><a href="../errorhandling/testing.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Testing</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../rs/index.html">Runtime stability</a></li><li class="breadcrumb-item"><a href="../rs/logging.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Logging</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -432,7 +427,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../errorhandling/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../rs/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Runtime stability</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -441,31 +436,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../errorhandling/exception.html" class="sidebar-item-text sidebar-link">
+  <a href="../rs/exception.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Exception handling</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../errorhandling/logging.html" class="sidebar-item-text sidebar-link">
+  <a href="../rs/logging.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Logging</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../errorhandling/paths.html" class="sidebar-item-text sidebar-link">
+  <a href="../rs/paths.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Path and file handling</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../errorhandling/testing.html" class="sidebar-item-text sidebar-link active">
+  <a href="../rs/testing.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Testing</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../errorhandling/cicd.html" class="sidebar-item-text sidebar-link">
+  <a href="../rs/cicd.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">CI/CD</span></span></a>
   </div>
 </li>
@@ -511,26 +506,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../sss/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Overview</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../sss/basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Self Study Session - Basics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Self Study Session - Basics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../sss/pp.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Self Study Session - Programming paradigms</span></span></a>
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Self Study Session - Programming paradigms</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../sss/sc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Self Study Session - Scientific Computing</span></span></a>
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Self Study Session - Scientific Computing</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../sss/rs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Self Study Session - Runtime stability</span></span></a>
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Self Study Session - Runtime stability</span></span></a>
   </div>
 </li>
       </ul>
@@ -540,27 +541,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#unit-tests" id="toc-unit-tests" class="nav-link active" data-scroll-target="#unit-tests"><span class="header-section-number">13.1</span> Unit Tests</a>
-  <ul class="collapse">
-  <li><a href="#via-assert" id="toc-via-assert" class="nav-link" data-scroll-target="#via-assert"><span class="header-section-number">13.1.1</span> Via <code>assert</code></a></li>
-  <li><a href="#via-unittest" id="toc-via-unittest" class="nav-link" data-scroll-target="#via-unittest"><span class="header-section-number">13.1.2</span> Via <code>unittest</code></a></li>
-  <li><a href="#via-pytest" id="toc-via-pytest" class="nav-link" data-scroll-target="#via-pytest"><span class="header-section-number">13.1.3</span> Via <code>pytest</code></a></li>
-  </ul></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/errorhandling/testing.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../errorhandling/index.html">Runtime stability</a></li><li class="breadcrumb-item"><a href="../errorhandling/testing.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Testing</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../rs/index.html">Runtime stability</a></li><li class="breadcrumb-item"><a href="../rs/logging.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Logging</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-error-testing" class="quarto-section-identifier"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Testing</span></span></h1>
+<h1 class="title"><span id="sec-error-logging" class="quarto-section-identifier"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Logging</span></span></h1>
 </div>
 
 
@@ -577,294 +567,245 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>It is of great importance to test our code. This allows us not only to avoid errors and problems while running our code but can save in total a lot of time.</p>
-<p>Writing tests is hardly ever the main focus of a developer but it should be included as an essential part of every piece of code. There exist a style of developing called <em>test driven development</em> summarized in <a href="#fig-testdriven" class="quarto-xref">Figure&nbsp;<span>13.1</span></a>.</p>
-<div id="fig-testdriven" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-testdriven-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p><a href="https://commons.wikimedia.org/wiki/File:TDD_Global_Lifecycle.png"><span class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/TDD_Global_Lifecycle.png" class="img-fluid figure-img"></span></a></p>
+<p>Logging is the concept of that is used to protocol <em>everything</em> or at least every important <em>action/result</em> that happens in a program in order to allow track how the program is doing.</p>
+<p>This is particularly useful for the developer of an application to perform</p>
+<ul>
+<li>error analysis</li>
+<li>performance analysis</li>
+<li>general tracking</li>
+<li>debugging 🐛</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-testdriven-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;13.1: Lifecycle of the Test-Driven Development method - Xarawn, CC BY-SA 4.0 <a href="https://creativecommons.org/licenses/by-sa/4.0" class="uri">https://creativecommons.org/licenses/by-sa/4.0</a>, via Wikimedia Commons
-</figcaption>
-</figure>
-</div>
-<p>There are different types of tests that are appropriate for different types of software and are necessary in different kinds of projects, the following descriptions are adopted from <a href="https://www.atlassian.com/continuous-delivery/software-testing/types-of-software-testing">Atlassian, accessed 22.11.2024</a>.</p>
-<ol type="1">
-<li><p>Unit tests<br>
-Unit tests are very low level and close to the source of an application. They consist in testing individual methods and functions of the classes, components, or modules used by your software. Unit tests are generally quite cheap to automate and can run very quickly by a continuous integration server.</p></li>
-<li><p>Integration tests<br>
-Integration tests verify that different modules or services used by your application work well together. For example, it can be testing the interaction with the database or making sure that microservices work together as expected. These types of tests are more expensive to run as they require multiple parts of the application to be up and running.</p></li>
-<li><p>Functional tests<br>
-Functional tests focus on the business requirements of an application. They only verify the output of an action and do not check the intermediate states of the system when performing that action.<br>
-<br>
-There is sometimes a confusion between integration tests and functional tests as they both require multiple components to interact with each other. The difference is that an integration test may simply verify that you can query the database while a functional test would expect to get a specific value from the database as defined by the product requirements.</p></li>
-<li><p>End-to-end tests<br>
-End-to-end testing replicates a user behavior with the software in a complete application environment. It verifies that various user flows work as expected and can be as simple as loading a web page or logging in or much more complex scenarios verifying email notifications, online payments, etc…<br>
-<br>
-End-to-end tests are very useful, but they’re expensive to perform and can be hard to maintain when they’re automated. It is recommended to have a few key end-to-end tests and rely more on lower level types of testing (unit and integration tests) to be able to quickly identify breaking changes.</p></li>
-<li><p>Acceptance testing<br>
-Acceptance tests are formal tests that verify if a system satisfies business requirements. They require the entire application to be running while testing and focus on replicating user behaviors. But they can also go further and measure the performance of the system and reject changes if certain goals are not met.</p></li>
-<li><p>Performance testing<br>
-Performance tests evaluate how a system performs under a particular workload. These tests help to measure the reliability, speed, scalability, and responsiveness of an application. For instance, a performance test can observe response times when executing a high number of requests, or determine how a system behaves with a significant amount of data. It can determine if an application meets performance requirements, locate bottlenecks, measure stability during peak traffic, and more.</p></li>
-<li><p>Smoke testing<br>
-Smoke tests are basic tests that check the basic functionality of an application. They are meant to be quick to execute, and their goal is to give you the assurance that the major features of your system are working as expected.<br>
-<br>
-Smoke tests can be useful right after a new build is made to decide whether or not you can run more expensive tests, or right after a deployment to make sure that they application is running properly in the newly deployed environment.</p></li>
-</ol>
-<p>We are going to look primarily on Unit tests here.</p>
-<section id="unit-tests" class="level2" data-number="13.1">
-<h2 data-number="13.1" class="anchored" data-anchor-id="unit-tests"><span class="header-section-number">13.1</span> Unit Tests</h2>
-<p>As mentioned above unit tests are meant to make sure single sections of your code provide the functionality as they should.</p>
-<section id="via-assert" class="level3" data-number="13.1.1">
-<h3 data-number="13.1.1" class="anchored" data-anchor-id="via-assert"><span class="header-section-number">13.1.1</span> Via <code>assert</code></h3>
-<p>One way to write a unit test is via <code>assert</code> statements, as they can also be deactivated during runtime, see <a href="exception.html#sec-error-assert" class="quarto-xref"><span>Section 10.3</span></a>, for this kind of unit tests an <code>AssertionError</code> signals a not successful test. Usually we write a separate function to perform the tests with the prefix <code>test_</code></p>
-<div id="9d69fd58" class="cell styled-output" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numbers</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> traceback</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add(a: numbers.Number, b: numbers.Number) <span class="op">-&gt;</span> numbers.Number:</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> a <span class="op">+</span> b</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_add():</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> add(<span class="dv">2</span>, <span class="dv">1</span>) <span class="op">==</span> <span class="dv">3</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> add(<span class="dv">0</span>, <span class="dv">0</span>) <span class="op">==</span> <span class="dv">0</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> add(<span class="fl">0.4</span>, <span class="dv">1</span><span class="op">/</span><span class="dv">3</span>) <span class="op">==</span> <span class="fl">0.7333333333333334</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> add(<span class="dv">1</span>, <span class="fl">1e-16</span>) <span class="op">==</span> <span class="dv">1</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    np.testing.assert_almost_equal(add(<span class="dv">1</span>, <span class="fl">1e-16</span>), <span class="dv">1</span>)</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  test_add()</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">AssertionError</span> <span class="im">as</span> ae:</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="ss">f"Test failed!, </span><span class="sc">{</span>traceback<span class="sc">.</span>print_exception(ae)<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">"Test passed!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Test passed!</code></pre>
+<div class="callout-title-container flex-fill">
+Tip
 </div>
 </div>
-<p>This is tedious and not very convenient to handle and work with.</p>
-</section>
-<section id="via-unittest" class="level3" data-number="13.1.2">
-<h3 data-number="13.1.2" class="anchored" data-anchor-id="via-unittest"><span class="header-section-number">13.1.2</span> Via <code>unittest</code></h3>
-<p>The module <code>unittest</code> is a much more comprehensive way of running your test. This is also where the directory <code>tests</code> from our introduction to <code>pdm</code> comes into play, see <a href="../basics/packagemanager.html" class="quarto-xref"><span>Chapter 2</span></a>.</p>
-<p>Tests are structured in this directory. We constructed a dummy project to show how testing can be done.</p>
-<div class="sourceCode" id="annotated-cell-2"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><span id="annotated-cell-2-1"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tree module/</span>
-<span id="annotated-cell-2-2"><a href="#annotated-cell-2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">module/</span></span>
-<span id="annotated-cell-2-3"><a href="#annotated-cell-2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> pdm.lock</span>
-<span id="annotated-cell-2-4"><a href="#annotated-cell-2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> pyproject.toml</span>
-<span id="annotated-cell-2-5"><a href="#annotated-cell-2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> src</span>
-<span id="annotated-cell-2-6"><a href="#annotated-cell-2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">│&nbsp;&nbsp;</span> └── rectangle</span>
-<span id="annotated-cell-2-7"><a href="#annotated-cell-2-7" aria-hidden="true" tabindex="-1"></a><span class="ex">│&nbsp;&nbsp;</span>     ├── __init__.py</span>
-<span id="annotated-cell-2-8"><a href="#annotated-cell-2-8" aria-hidden="true" tabindex="-1"></a><span class="ex">│&nbsp;&nbsp;</span>     └── rectangle.py</span>
-<span id="annotated-cell-2-9"><a href="#annotated-cell-2-9" aria-hidden="true" tabindex="-1"></a><span class="ex">└──</span> tests</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-2-10" class="code-annotation-target"><a href="#annotated-cell-2-10" aria-hidden="true" tabindex="-1"></a>    <span class="ex">└──</span> rectangle</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-2-11" class="code-annotation-target"><a href="#annotated-cell-2-11" aria-hidden="true" tabindex="-1"></a>        <span class="ex">├──</span> __init__.py</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-2-12" class="code-annotation-target"><a href="#annotated-cell-2-12" aria-hidden="true" tabindex="-1"></a>        <span class="ex">└──</span> test_rectangle.py</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout-body-container callout-body">
+<p>A logger is particularly useful when an application is not running under the supervision of the developer. For example by another user, on an embedded system, a server, etc..</p>
+</div>
+</div>
+<p>Python provides an extensive module named <code>logging</code> for these purposes.</p>
+<div id="aed1cd66" class="cell styled-output" data-execution_count="2">
+<div class="sourceCode cell-code" id="annotated-cell-1"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-1-1" class="code-annotation-target"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> logging</span>
+<span id="annotated-cell-1-2"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a>numberlist <span class="op">=</span> [<span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="st">"a"</span>, <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>]</span>
+<span id="annotated-cell-1-3"><a href="#annotated-cell-1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-1-4"><a href="#annotated-cell-1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> number <span class="kw">in</span> numberlist:    </span>
+<span id="annotated-cell-1-5"><a href="#annotated-cell-1-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-1-6" class="code-annotation-target"><a href="#annotated-cell-1-6" aria-hidden="true" tabindex="-1"></a>        logging.info(<span class="ss">f"Working on number </span><span class="sc">{</span>number<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="annotated-cell-1-7"><a href="#annotated-cell-1-7" aria-hidden="true" tabindex="-1"></a>        inverse <span class="op">=</span> <span class="fl">1.0</span> <span class="op">/</span> number</span>
+<span id="annotated-cell-1-8"><a href="#annotated-cell-1-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">ZeroDivisionError</span> <span class="im">as</span> e:</span>
+<span id="annotated-cell-1-9"><a href="#annotated-cell-1-9" aria-hidden="true" tabindex="-1"></a>        logging.error(<span class="ss">f"Tried to divide by zero, error is </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="annotated-cell-1-10"><a href="#annotated-cell-1-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">TypeError</span>:</span>
+<span id="annotated-cell-1-11"><a href="#annotated-cell-1-11" aria-hidden="true" tabindex="-1"></a>        logging.warning(<span class="ss">f"The list does not only contain numbers"</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="1" data-code-annotation="1">Include the module</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="6,9,11" data-code-annotation="2">We can classify what type of content we are logging, the correspond to the <em>log level</em></span>
+</dd>
+</dl>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ERROR:root:Tried to divide by zero, error is float division by zero
+WARNING:root:The list does not only contain numbers</code></pre>
+</div>
+</div>
+<p>By default the logger write to the terminal. This might not always be what you want so this can be changed easily, together with the <em>log level</em>:</p>
+<div id="a6a46cc7" class="cell styled-output" data-execution_count="4">
+<div class="sourceCode cell-code" id="annotated-cell-2"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-2-1"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> logging</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-2-2" class="code-annotation-target"><a href="#annotated-cell-2-2" aria-hidden="true" tabindex="-1"></a>logging.basicConfig(filename<span class="op">=</span><span class="st">"app.log"</span>,</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-2-3" class="code-annotation-target"><a href="#annotated-cell-2-3" aria-hidden="true" tabindex="-1"></a>                    level<span class="op">=</span>logging.INFO)</span>
+<span id="annotated-cell-2-4"><a href="#annotated-cell-2-4" aria-hidden="true" tabindex="-1"></a>numberlist <span class="op">=</span> [<span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="st">"a"</span>, <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>]</span>
+<span id="annotated-cell-2-5"><a href="#annotated-cell-2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-2-6"><a href="#annotated-cell-2-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> number <span class="kw">in</span> numberlist:    </span>
+<span id="annotated-cell-2-7"><a href="#annotated-cell-2-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="annotated-cell-2-8"><a href="#annotated-cell-2-8" aria-hidden="true" tabindex="-1"></a>        logging.info(<span class="ss">f"Working on number </span><span class="sc">{</span>number<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="annotated-cell-2-9"><a href="#annotated-cell-2-9" aria-hidden="true" tabindex="-1"></a>        inverse <span class="op">=</span> <span class="fl">1.0</span> <span class="op">/</span> number</span>
+<span id="annotated-cell-2-10"><a href="#annotated-cell-2-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">ZeroDivisionError</span> <span class="im">as</span> e:</span>
+<span id="annotated-cell-2-11"><a href="#annotated-cell-2-11" aria-hidden="true" tabindex="-1"></a>        logging.error(<span class="ss">f"Tried to divide by zero, error is </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="annotated-cell-2-12"><a href="#annotated-cell-2-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">TypeError</span>:</span>
+<span id="annotated-cell-2-13"><a href="#annotated-cell-2-13" aria-hidden="true" tabindex="-1"></a>        logging.warning(<span class="ss">f"The list does not only contain numbers"</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-2" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-2" data-code-lines="10" data-code-annotation="1">create a directory per module (directory) in your <code>src</code> folder with the same name</span>
+<span data-code-cell="annotated-cell-2" data-code-lines="2" data-code-annotation="1">we can specify a filename</span>
 </dd>
 <dt data-target-cell="annotated-cell-2" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-2" data-code-lines="11" data-code-annotation="2">optionally make the test folder a module as well</span>
-</dd>
-<dt data-target-cell="annotated-cell-2" data-target-annotation="3">3</dt>
-<dd>
-<span data-code-cell="annotated-cell-2" data-code-lines="12" data-code-annotation="3">create a file containing the tests with the same name</span>
+<span data-code-cell="annotated-cell-2" data-code-lines="3" data-code-annotation="2">we can also specify what the current log level, i.e.&nbsp;what kind of messages are actually put into the logger.</span>
 </dd>
 </dl>
-<div class="callout callout-style-simple callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+</div>
+</div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> app.log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="9b3b3e06" class="cell styled-output" data-execution_count="5">
+<div class="cell-output cell-output-stdout">
+<pre><code>INFO:root:Working on number -2
+INFO:root:Working on number -1
+INFO:root:Working on number 0
+ERROR:root:Tried to divide by zero, error is float division by zero
+INFO:root:Working on number 1
+INFO:root:Working on number 2
+INFO:root:Working on number a
+WARNING:root:The list does not only contain numbers
+INFO:root:Working on number 0.25
+DEBUG:asyncio:Using selector: EpollSelector</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<i class="fa-solid fa-pen-to-square" aria-label="pen-to-square"></i> Code for the example
+Caution
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<ol class="example" type="1">
-<li><code>module/src/rectangle/__init__.py</code></li>
-</ol>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> .rectangle <span class="im">import</span> <span class="op">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol start="2" class="example" type="1">
-<li><code>module/src/rectangle/rectangle.py</code></li>
-</ol>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Rectangle:</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""A class to represent a rectangle"""</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, width, height):</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.width <span class="op">=</span> width</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.height <span class="op">=</span> height</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get_area(<span class="va">self</span>):</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Return the area of the rectangle"""</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.width <span class="op">*</span> <span class="va">self</span>.height</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> set_width(<span class="va">self</span>, width):</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Set the width of the rectangle"""</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.width <span class="op">=</span> width</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> set_height(<span class="va">self</span>, height):</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Set the height of the rectangle"""</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.height <span class="op">=</span> height</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Standalone function in the module</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> is_square(rectangle: Rectangle):</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="co">    Check if a given rectangle is a square.</span></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="co">    This function is not part of the Rectangle class, </span></span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="co">    but it operates on a Rectangle object.</span></span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> rectangle.width <span class="op">==</span> rectangle.height</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol start="3" class="example" type="1">
-<li><code>module/tests/rectangle/__init__.py</code></li>
-</ol>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> .test_rectangle <span class="im">import</span> <span class="op">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol start="4" class="example" type="1">
-<li><code>module/tests/rectangle/test_rectangle.py</code></li>
-</ol>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> unittest</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> src.rectangle <span class="im">import</span> Rectangle</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> TestGetAreaRectangle(unittest.TestCase):</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> test_area_correct(<span class="va">self</span>):</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        rectangle <span class="op">=</span> Rectangle(<span class="dv">2</span>, <span class="dv">3</span>)</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.assertEqual(rectangle.get_area(), <span class="dv">6</span>, <span class="st">"incorrect area"</span>)</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> test_area_incorrect(<span class="va">self</span>):</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        rectangle <span class="op">=</span> Rectangle(<span class="dv">2</span>, <span class="dv">3</span>)</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.assertNotEqual(rectangle.get_area(), <span class="dv">5</span>, <span class="st">"correct area"</span>)</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> test_set_width(<span class="va">self</span>):</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>        rectangle <span class="op">=</span> Rectangle(<span class="dv">1</span>, <span class="dv">1</span>)</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>        rectangle.set_width(<span class="fl">0.7</span>)</span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.assertEqual(rectangle.get_area(), <span class="fl">0.7</span>, <span class="st">"set_width not working"</span>)</span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> test_set_height(<span class="va">self</span>):</span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>        rectangle <span class="op">=</span> Rectangle(<span class="dv">1</span>, <span class="dv">1</span>)</span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>        rectangle.set_width(<span class="fl">0.7</span>)</span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.assertEqual(rectangle.get_area(), <span class="fl">0.7</span>, <span class="st">"set_width not working"</span>)</span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> test_deliberate_error(<span class="va">self</span>):</span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>        rectangle <span class="op">=</span> Rectangle(<span class="dv">1</span>, <span class="dv">1</span>)</span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.assertEqual(rectangle.get_area(), <span class="dv">2</span>, <span class="st">"deliberate error"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We currently use the <code>root</code> logger and as soon as one handler is defined, i.e.&nbsp;the logger is called for the first time, calling <code>logging.basicConfig</code> has no effect, unless <code>force=True</code> is included.</p>
+<p>As e consequence you need to restart Python if you want to use the code below as is consecutively.</p>
 </div>
 </div>
+<p>There is a range of levels available that can always be extended. The default levels are in the following table and if you set the level only message of a type equal or higher (numeric value) are written to the output.:</p>
+<table class="caption-top table">
+<caption>The different log levels explained. The table is copied from <a href="https://docs.python.org/3/library/logging.html#logging-levels">docs</a>, accessed on the 21st Nov.&nbsp;24.</caption>
+<thead>
+<tr class="header">
+<th>Level</th>
+<th>Numeric value</th>
+<th style="text-align: left;">What it means / When to use it</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>logging.NOTSET</code></td>
+<td>0</td>
+<td style="text-align: left;">When set on a logger, indicates that ancestor loggers are to be consulted to determine the effective level. If that still resolves to <code>NOTSET</code>, then all events are logged. When set on a handler, all events are handled.</td>
+</tr>
+<tr class="even">
+<td><code>logging.DEBUG</code></td>
+<td>10</td>
+<td style="text-align: left;">Detailed information, typically only of interest to a developer trying to diagnose a problem.</td>
+</tr>
+<tr class="odd">
+<td><code>logging.INFO</code></td>
+<td>20</td>
+<td style="text-align: left;">Confirmation that things are working as expected.</td>
+</tr>
+<tr class="even">
+<td><code>logging.WARNING</code></td>
+<td>30</td>
+<td style="text-align: left;">An indication that something unexpected happened, or that a problem might occur in the near future (e.g.&nbsp;‘disk space low’). The software is still working as expected.</td>
+</tr>
+<tr class="odd">
+<td><code>logging.ERROR</code></td>
+<td>40</td>
+<td style="text-align: left;">Due to a more serious problem, the software has not been able to perform some function.</td>
+</tr>
+<tr class="even">
+<td><code>logging.CRITICAL</code></td>
+<td>50</td>
+<td style="text-align: left;">A serious error, indicating that the program itself may be unable to continue running.</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p>We can run the tests from the terminal (note the change of directory is only necessary for these notes)</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pdm</span> run python <span class="at">-m</span> unittest <span class="at">-v</span> tests.rectangle</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="223a814c" class="cell styled-output" data-execution_count="2">
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The default logging level setting is <code>logging.WARNING</code> as can be seen in the output of the first listing.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Note that the <code>logger</code> module does not automatically flush to the file. Meaning it might not be a real time logging process.</p>
+</div>
+</div>
+<p>An important additional feature is to specify the format of the message. This is particularly useful to get debugging information with certain timing information.</p>
+<div id="907235fe" class="cell styled-output" data-execution_count="8">
+<div class="sourceCode cell-code" id="annotated-cell-4"><pre class="sourceCode python code-annotation-code code-with-copy"><code class="sourceCode python"><span id="annotated-cell-4-1"><a href="#annotated-cell-4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> logging</span>
+<span id="annotated-cell-4-2"><a href="#annotated-cell-4-2" aria-hidden="true" tabindex="-1"></a>logging.basicConfig(<span class="bu">format</span><span class="op">=</span><span class="st">"</span><span class="sc">%(asctime)s</span><span class="st">:</span><span class="sc">%(levelname)s</span><span class="st">: </span><span class="sc">%(message)s</span><span class="st">"</span>,</span>
+<span id="annotated-cell-4-3"><a href="#annotated-cell-4-3" aria-hidden="true" tabindex="-1"></a>                    level<span class="op">=</span>logging.DEBUG)</span>
+<span id="annotated-cell-4-4"><a href="#annotated-cell-4-4" aria-hidden="true" tabindex="-1"></a>numberlist <span class="op">=</span> [<span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="st">"a"</span>, <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>]</span>
+<span id="annotated-cell-4-5"><a href="#annotated-cell-4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-4-6"><a href="#annotated-cell-4-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> number <span class="kw">in</span> numberlist:    </span>
+<span id="annotated-cell-4-7"><a href="#annotated-cell-4-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="annotated-cell-4-8"><a href="#annotated-cell-4-8" aria-hidden="true" tabindex="-1"></a>        logging.debug(<span class="ss">f"Working on number </span><span class="sc">{</span>number<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="annotated-cell-4-9"><a href="#annotated-cell-4-9" aria-hidden="true" tabindex="-1"></a>        inverse <span class="op">=</span> <span class="fl">1.0</span> <span class="op">/</span> number</span>
+<span id="annotated-cell-4-10"><a href="#annotated-cell-4-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">ZeroDivisionError</span> <span class="im">as</span> e:</span>
+<span id="annotated-cell-4-11"><a href="#annotated-cell-4-11" aria-hidden="true" tabindex="-1"></a>        logging.error(<span class="ss">f"Tried to divide by zero, error is </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="annotated-cell-4-12"><a href="#annotated-cell-4-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">TypeError</span>:</span>
+<span id="annotated-cell-4-13"><a href="#annotated-cell-4-13" aria-hidden="true" tabindex="-1"></a>        logging.warning(<span class="ss">f"The list does not only contain numbers"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-blue-fg">INFO:</span> Inside an active virtualenv 
-
-<span style="opacity:0.7" class="ansi-green-fg">/home/runner/work/MECH-M-DUAL-1-SWD/MECH-M-DUAL-1-SWD/</span><span style="opacity:0.7" class="ansi-green-fg">.venv</span>, reusing it.
-
-Set env var <span style="opacity:0.7" class="ansi-green-fg">PDM_IGNORE_ACTIVE_VENV</span> to ignore it.
-
-test_area_correct (tests.rectangle.test_rectangle.TestGetAreaRectangle.test_area_correct) ... ok
-
-test_area_incorrect (tests.rectangle.test_rectangle.TestGetAreaRectangle.test_area_incorrect) ... ok
-
-test_deliberate_error (tests.rectangle.test_rectangle.TestGetAreaRectangle.test_deliberate_error) ... FAIL
-
-test_set_height (tests.rectangle.test_rectangle.TestGetAreaRectangle.test_set_height) ... ok
-
-test_set_width (tests.rectangle.test_rectangle.TestGetAreaRectangle.test_set_width) ... ok
-
-
-
-======================================================================
-
-FAIL: test_deliberate_error (tests.rectangle.test_rectangle.TestGetAreaRectangle.test_deliberate_error)
-
-----------------------------------------------------------------------
-
-Traceback (most recent call last):
-
-  File "/home/runner/work/MECH-M-DUAL-1-SWD/MECH-M-DUAL-1-SWD/_assets/errorhandling/module/tests/rectangle/test_rectangle.py", line 26, in test_deliberate_error
-
-    self.assertEqual(rectangle.get_area(), 2, "deliberate error")
-
-AssertionError: 1 != 2 : deliberate error
-
-
-
-----------------------------------------------------------------------
-
-Ran 5 tests in 0.001s
-
-
-
-FAILED (failures=1)
-</pre>
+<pre><code>2025-09-21 15:33:13,029:DEBUG: Working on number -2
+2025-09-21 15:33:13,030:DEBUG: Working on number -1
+2025-09-21 15:33:13,030:DEBUG: Working on number 0
+2025-09-21 15:33:13,031:ERROR: Tried to divide by zero, error is float division by zero
+2025-09-21 15:33:13,031:DEBUG: Working on number 1
+2025-09-21 15:33:13,032:DEBUG: Working on number 2
+2025-09-21 15:33:13,032:DEBUG: Working on number a
+2025-09-21 15:33:13,033:WARNING: The list does not only contain numbers
+2025-09-21 15:33:13,033:DEBUG: Working on number 0.25</code></pre>
 </div>
 </div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-</section>
-<section id="via-pytest" class="level3" data-number="13.1.3">
-<h3 data-number="13.1.3" class="anchored" data-anchor-id="via-pytest"><span class="header-section-number">13.1.3</span> Via <code>pytest</code></h3>
-<p>A third party option is the module <code>pytest</code> <a href="https://docs.pytest.org/en/stable/">docs</a> that is often considered easier to handle than <code>unittest</code>. As there is a compatibility between <code>pytest</code> and <code>unittest</code> we can run</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pdm</span> run pytest <span class="at">-q</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="f4d2e76c" class="cell styled-output" data-execution_count="3">
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We can use multiple loggers in a project. The usual convention is to use <code>__name__</code> as the name by calling <code>logging.getLogger(__name__)</code>.</p>
+<div id="3b334303" class="cell styled-output" data-execution_count="10">
+<div class="sourceCode cell-code" id="annotated-cell-8"><pre class="sourceCode python code-annotation-code code-with-copy"><code class="sourceCode python"><span id="annotated-cell-8-1"><a href="#annotated-cell-8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> logging                                                          </span>
+<span id="annotated-cell-8-2"><a href="#annotated-cell-8-2" aria-hidden="true" tabindex="-1"></a>logger <span class="op">=</span> logging.getLogger(<span class="va">__name__</span>)</span>
+<span id="annotated-cell-8-3"><a href="#annotated-cell-8-3" aria-hidden="true" tabindex="-1"></a>numberlist <span class="op">=</span> [<span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="st">"a"</span>, <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>]</span>
+<span id="annotated-cell-8-4"><a href="#annotated-cell-8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-8-5"><a href="#annotated-cell-8-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> number <span class="kw">in</span> numberlist:    </span>
+<span id="annotated-cell-8-6"><a href="#annotated-cell-8-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="annotated-cell-8-7"><a href="#annotated-cell-8-7" aria-hidden="true" tabindex="-1"></a>        logger.debug(<span class="ss">f"Working on number </span><span class="sc">{</span>number<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="annotated-cell-8-8"><a href="#annotated-cell-8-8" aria-hidden="true" tabindex="-1"></a>        inverse <span class="op">=</span> <span class="fl">1.0</span> <span class="op">/</span> number</span>
+<span id="annotated-cell-8-9"><a href="#annotated-cell-8-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">ZeroDivisionError</span> <span class="im">as</span> e:</span>
+<span id="annotated-cell-8-10"><a href="#annotated-cell-8-10" aria-hidden="true" tabindex="-1"></a>        logger.error(<span class="ss">f"Tried to divide by zero, error is </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="annotated-cell-8-11"><a href="#annotated-cell-8-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">TypeError</span>:</span>
+<span id="annotated-cell-8-12"><a href="#annotated-cell-8-12" aria-hidden="true" tabindex="-1"></a>        logger.warning(<span class="ss">f"The list does not only contain numbers"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-blue-fg">INFO:</span> Inside an active virtualenv 
-
-<span style="opacity:0.7" class="ansi-green-fg">/home/runner/work/MECH-M-DUAL-1-SWD/MECH-M-DUAL-1-SWD/</span><span style="opacity:0.7" class="ansi-green-fg">.venv</span>, reusing it.
-
-Set env var <span style="opacity:0.7" class="ansi-green-fg">PDM_IGNORE_ACTIVE_VENV</span> to ignore it.
-</pre>
+<pre><code>ERROR:__main__:Tried to divide by zero, error is float division by zero
+WARNING:__main__:The list does not only contain numbers</code></pre>
 </div>
 </div>
-<div class="cell-output cell-output-stdout">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-green-fg">.</span><span class="ansi-green-fg">.</span><span class="ansi-red-fg">F</span><span class="ansi-green-fg">.</span><span class="ansi-green-fg">.</span><span class="ansi-red-fg">                                                                    [100%]</span>
-
-=================================== FAILURES ===================================
-
-<span class="ansi-red-fg ansi-bold">__________________ TestGetAreaRectangle.test_deliberate_error __________________</span>
-
-
-
-self = &lt;tests.rectangle.test_rectangle.TestGetAreaRectangle testMethod=test_deliberate_error&gt;
-
-
-
-    <span class="ansi-bright-blue-fg">def</span> <span class="ansi-bright-green-fg">test_deliberate_error</span>(<span class="ansi-bright-cyan-fg">self</span>):
-
-        rectangle = Rectangle(<span class="ansi-bright-blue-fg">1</span>, <span class="ansi-bright-blue-fg">1</span>)
-
-&gt;       <span class="ansi-bright-cyan-fg">self</span>.assertEqual(rectangle.get_area(), <span class="ansi-bright-blue-fg">2</span>, <span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">deliberate error</span><span class="ansi-yellow-fg">"</span>)
-
-<span class="ansi-red-fg ansi-bold">E       AssertionError: 1 != 2 : deliberate error</span>
-
-
-
-<span class="ansi-red-fg ansi-bold">tests/rectangle/test_rectangle.py</span>:26: AssertionError
-
-<span class="ansi-cyan-fg ansi-bold">=========================== short test summary info ============================</span>
-
-<span class="ansi-red-fg">FAILED</span> tests/rectangle/test_rectangle.py::<span class="ansi-bold">TestGetAreaRectangle::test_deliberate_error</span> - AssertionError: 1 != 2 : deliberate error
-
-<span class="ansi-red-fg ansi-bold">1 failed</span>, <span class="ansi-green-fg">4 passed</span><span class="ansi-red-fg"> in 0.06s</span>
-</pre>
+<p>Once the logger is defined, we can use it in the same fashion as we did before. This allows us to use multiple logger in the same application.</p>
 </div>
 </div>
-</div>
-<p>as it will automatically search in the directory <code>tests</code> for files with the prefix <code>test_</code>.</p>
+<p>See <a href="https://docs.python.org/3/library/logging.html">docs</a> for more information.</p>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1281,13 +1222,13 @@ self = &lt;tests.rectangle.test_rectangle.TestGetAreaRectangle testMethod=test_d
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../errorhandling/paths.html" class="pagination-link" aria-label="Path and file handling">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Path and file handling</span></span>
+      <a href="../rs/exception.html" class="pagination-link" aria-label="Exception handling">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Exception handling</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../errorhandling/cicd.html" class="pagination-link" aria-label="CI/CD">
-        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">CI/CD</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../rs/paths.html" class="pagination-link" aria-label="Path and file handling">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Path and file handling</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1299,44 +1240,12 @@ self = &lt;tests.rectangle.test_rectangle.TestGetAreaRectangle testMethod=test_d
 </div>   
     <div class="nav-footer-center">
 <p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> Peter Kandolf</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/errorhandling/testing.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions"><ul><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/edit/main/rs/logging.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/kandolfp/MECH-M-DUAL-1-SWD/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
-(function() {
-  let previousOnload = window.onload;
-  window.onload = () => {
-    if (previousOnload) {
-      previousOnload();
-    }
-    lightboxQuarto.on('slide_before_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      const href = trigger.getAttribute('href');
-      if (href !== null) {
-        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-        if (imgEl !== null) {
-          const srcAttr = imgEl.getAttribute("src");
-          if (srcAttr && srcAttr.startsWith("data:")) {
-            slideConfig.href = srcAttr;
-          }
-        }
-      } 
-    });
-  
-    lightboxQuarto.on('slide_after_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(slideNode);
-      }
-    });
-  
-  };
-  
-})();
-          </script>
 
 
 
