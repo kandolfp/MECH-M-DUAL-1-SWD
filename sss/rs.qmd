@@ -4,18 +4,13 @@ In this section we are mainly concerned with the _scientific computing_ librarie
 
 Once you are familiar with how Python handles these topics you will be able to answer questions like:
 
-- How is slicing working in `numpy` and `pandas`?
+- How is slicing working in _exceptions_, `Pathlib`, `logging` and _testing_?
 - What is vectorization and why should I use it?
 - etc.
 
-These topics are covered in the following resources (given in no particular order):
+Some usefull references:
 
-- `NumPy` docs
-    - [NumPy quickstart](https://numpy.org/doc/stable/user/quickstart.html)
-    - [NumPy the absolute basics for beginners](https://numpy.org/doc/stable/user/absolute_beginners.html)
-    - [NumPy for MATLAB users](https://numpy.org/doc/stable/user/numpy-for-matlab-users.html)
-- `pandas` docs
-    - [10 minutes to pandas](https://pandas.pydata.org/docs/user_guide/10min.html)
+- Python documentation for `errors` [docs](https://docs.python.org/3/tutorial/errors.html).
 
 ## Exercises {.unnumbered}
 
@@ -57,6 +52,39 @@ Have a look at [Validators](https://docs.pydantic.dev/latest/concepts/validators
 ::::
 :::
 
+
+::: {.callout-tip appearance="simple" collapse="true" icon=false}
+:::: {#exr-logging-environment}
+
+## Define log level via environment variable
+
+In @sec-error-logging we specified how to customize the logger for a project.
+Quite often you want to define the log level via an envrionment variable.
+If the variable `myloglevel=DEBUG` is set, it is used.
+If nothing is specified the devault value is used. 
+
+Implement this for the following snippet and test it accordingly to produce different output.
+
+```{.python}
+import logging
+logging.basicConfig(format="%(asctime)s:%(levelname)s: %(message)s",
+                    level=logging.DEBUG)
+numberlist = [-2, -1, 0, 1, 2, "a", 1/4]
+
+for number in numberlist:    
+    try:
+        logging.debug(f"Working on number {number}")
+        inverse = 1.0 / number
+    except ZeroDivisionError as e:
+        logging.error(f"Tried to divide by zero, error is {e}")
+    except TypeError:
+        logging.warning(f"The list does not only contain numbers")
+```
+
+**Hint**: The `os` module provides a function to get environment variables, [docs](https://docs.python.org/3/library/os.html#os.getenv).
+::::
+:::
+
 ::: {.callout-tip appearance="simple" collapse="true" icon=false}
 :::: {#exr-pathlib}
 
@@ -65,7 +93,8 @@ Have a look at [Validators](https://docs.pydantic.dev/latest/concepts/validators
 In Python the [`pathlib`](https://docs.python.org/3/library/pathlib.html) module is a widely used for working with paths and files.
 Use it to solve the following exercises.
 
-1. Create a directory `tmp` with current path of the program. Do not forget to first check if the directory already exists.
+1. Create a directory `tmp` with current path of the program. Do not forget to first check if the directory already exists. 
+   a. What would be the alternative with a `try`-`catch` statement?
 1. Create the following files with this directory: [`test.txt`, `file.txt`, `README.md`, `random.py`]
 1. Use `collections.Counter` to get a dictionary with the number of files per ending in the directory `tmp`. The output should look something like this:
    ```python
