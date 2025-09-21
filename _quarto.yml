@@ -36,13 +36,13 @@ book:
       chapters:
         - sc/numpy.qmd
         - sc/pandas.qmd
-    - part: errorhandling/index.qmd
+    - part: rs/index.qmd
       chapters:
-        - errorhandling/exception.qmd
-        - errorhandling/logging.qmd
-        - errorhandling/paths.qmd
-        - errorhandling/testing.qmd
-        - errorhandling/cicd.qmd
+        - rs/exception.qmd
+        - rs/logging.qmd
+        - rs/paths.qmd
+        - rs/testing.qmd
+        - rs/cicd.qmd
     - part: containerization/index.qmd
       chapters:
         - containerization/docker.qmd    
