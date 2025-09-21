@@ -127,7 +127,7 @@ logging.basicConfig(format="%(asctime)s:%(levelname)s: %(message)s",
 ```{python}
 #| classes: styled-output
 #| error: true
-import logging                                                          
+import logging
 logging.basicConfig(format="%(asctime)s:%(levelname)s: %(message)s",
                     level=logging.DEBUG)
 numberlist = [-2, -1, 0, 1, 2, "a", 1/4]
