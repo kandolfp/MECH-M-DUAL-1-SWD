@@ -1,4 +1,4 @@
-# Self Study Sessions
+# Overview
 
 ::: {.callout-important}
 **This lecture consists of several self study sessions!**

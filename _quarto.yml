@@ -49,6 +49,7 @@ book:
     - summary.qmd
     - references.qmd
   appendices:
+    - sss/index.qmd
     - sss/basics.qmd
     - sss/pp.qmd
     - sss/sc.qmd
