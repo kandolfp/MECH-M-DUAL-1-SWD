@@ -55,10 +55,11 @@ $$
 We can translate @def-factorial into a Python program as.
 
 ```{python}
-#| classes: styled-output
-#| error: true
+# | classes: styled-output
+# | error: true
 def factorial(n):
-    return 1 if n <= 0 else n * factorial(n -1)
+    return 1 if n <= 0 else n * factorial(n - 1)
+
 
 print(f"{factorial(3) = }")
 print(f"{factorial(5) = }")
@@ -81,8 +82,8 @@ One of the basic concepts employed there is the [iterator](https://docs.python.o
 An iterator is an object (as we stated, paradigms are mixed) that returns data one element at the time.
 This is used in 
 ```{python}
-#| classes: styled-output
-#| error: true
+# | classes: styled-output
+# | error: true
 for i in range(1, 5):
     print(i)
 ```
@@ -100,9 +101,9 @@ It is often useful to define a function without giving it a proper name.
 This is done with the keyword `lambda` inspired by the [_lambda calculus_](https://en.wikipedia.org/wiki/Lambda_calculus). 
 The syntax is straight forward.
 ```{python}
-#| classes: styled-output
-#| error: true
-square = lambda a: a ** 2
+# | classes: styled-output
+# | error: true
+square = lambda a: a**2
 
 print(f"{square(2) = }")
 print(f"{square(-1) = }")
@@ -113,8 +114,8 @@ print(f"{square(-1) = }")
 Now, `map` is used to apply a function to something iterable and returns a new iterator that applies function to the result of `next()`.
 
 ```{python}
-#| classes: styled-output
-#| error: true
+# | classes: styled-output
+# | error: true
 iterator = map(square, range(1, 5))
 
 for i in iterator:
@@ -127,14 +128,14 @@ The next function that comes in handy is `filter`.
 It can be used to only return certain elements from an iterator.
 
 ```{python}
-#| classes: styled-output
-#| error: true
+# | classes: styled-output
+# | error: true
 is_even = lambda x: (x % 2) == 0
 
 even = filter(is_even, range(10))
 print(f"{list(even) = }")
 
-# This is equivalent to 
+# This is equivalent to
 even = list(x for x in range(10) if is_even(x))
 print(f"{even = }")
 
@@ -147,8 +148,8 @@ In order to allow filter to work we actually do not need to return `True` or `Fa
 For example, we can filter all empty strings from a list of strings in the following fashion
 
 ```{python}
-#| classes: styled-output
-#| error: true
+# | classes: styled-output
+# | error: true
 strings = ["", "Something", "something", "", "dark", " ", "side", " "]
 sentence = " ".join(filter(lambda s: s.strip(), strings))
 print(sentence)
@@ -163,13 +164,15 @@ The `reduce` function can be found in `functools` and as we do not want to write
 Note, the function provided to `reduce` must take exactly two arguments.
 
 ```{python}
-#| classes: styled-output
-#| error: true
+# | classes: styled-output
+# | error: true
 from functools import reduce
 from operator import mul
 
+
 def factorial_reduce(n):
     return reduce(mul, range(1, n + 1))
+
 
 print(f"{factorial_reduce(3) = }")
 print(f"{factorial_reduce(5) = }")
@@ -178,8 +181,8 @@ print(f"{factorial_reduce(5) = }")
 A nice feature of the reduce function is that you can call it with an initial value.
 
 ```{python}
-#| classes: styled-output
-#| error: true
+# | classes: styled-output
+# | error: true
 from functools import reduce
 from operator import add
 

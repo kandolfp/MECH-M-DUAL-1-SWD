@@ -55,28 +55,31 @@ One way to write a unit test is via `assert` statements, as they can also be dea
 Usually we write a separate function to perform the tests with the prefix `test_`
 
 ```{python}
-#| classes: styled-output
-#| error: true
+# | classes: styled-output
+# | error: true
 import numbers
 import numpy as np
 import traceback
 
+
 def add(a: numbers.Number, b: numbers.Number) -> numbers.Number:
     return a + b
+
 
 def test_add():
     assert add(2, 1) == 3
     assert add(0, 0) == 0
-    assert add(0.4, 1/3) == 0.7333333333333334
+    assert add(0.4, 1 / 3) == 0.7333333333333334
     assert add(1, 1e-16) == 1
     np.testing.assert_almost_equal(add(1, 1e-16), 1)
 
+
 try:
-  test_add()
+    test_add()
 except AssertionError as ae:
-  print(f"Test failed!, {traceback.print_exception(ae)}")
+    print(f"Test failed!, {traceback.print_exception(ae)}")
 else:
-  print("Test passed!")
+    print("Test passed!")
 ```
 
 This is tedious and not very convenient to handle and work with.

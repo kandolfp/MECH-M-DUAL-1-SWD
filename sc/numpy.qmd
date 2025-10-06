@@ -18,25 +18,27 @@ Speed is often the main motivation to work in `numpy`.
 Let us look at the simple example of the [scalar product](https://kandolfp.github.io/MECH-M-DUAL-1-DBM/basics/linearalgebra.html#def-dotproduct) to see why.
 
 ```{python}
-#| classes: styled-output
+# | classes: styled-output
 import random
 import timeit
 import numpy as np
 
 random.seed(42)
 
-min_value = 1 
+min_value = 1
 max_value = 100
 
 # Generate the two lists of 10_000_000 random numbers each
 a = [random.randint(min_value, max_value) for _ in range(1_000_000)]
 b = [random.randint(min_value, max_value) for _ in range(1_000_000)]
 
+
 def dot(a, b):
     r = 0
     for first, second in zip(a, b):
         r += first * second
     return r
+
 
 t1 = timeit.timeit(lambda: dot(a, b), number=1000)
 

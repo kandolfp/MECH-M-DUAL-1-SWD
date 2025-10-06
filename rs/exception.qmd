@@ -14,9 +14,9 @@ For writing our own exceptions however, we should use `Exception` as the base.
 In order to introduce the concept let us show some of the most common exceptions
 
 ```{python}
-#| classes: styled-output
-#| error: true
-numberlist = [-2, -1, 0, 1, 2, "a", 1/4]
+# | classes: styled-output
+# | error: true
+numberlist = [-2, -1, 0, 1, 2, "a", 1 / 4]
 
 for number in numberlist:
     inverse = 1.0 / number
@@ -30,17 +30,17 @@ Importantly, the other elements in the list are never looked at.
 We can handle exceptions with the `try`-`except` construction to actually make sure that we react appropriately.
 
 ```{python}
-#| classes: styled-output
-#| error: true
-numberlist = [-2, -1, 0, 1, 2, "a", 1/4]
+# | classes: styled-output
+# | error: true
+numberlist = [-2, -1, 0, 1, 2, "a", 1 / 4]
 
-try:                                                                    # <1>
-    for number in numberlist:                                              # <1>
-        inverse = 1.0 / number                                          # <1>
-        print(f"Check: {inverse} * {number} = {inverse * number}")      # <1>
-except ZeroDivisionError:                                               # <2>
-    print("Warning: zero does not have an inverse!")                    # <3>
-                                                                        # <2>
+try:  # <1>
+    for number in numberlist:  # <1>
+        inverse = 1.0 / number  # <1>
+        print(f"Check: {inverse} * {number} = {inverse * number}")  # <1>
+except ZeroDivisionError:  # <2>
+    print("Warning: zero does not have an inverse!")  # <3>
+    # <2>
 ```
 1. The _try clause_ starts with `try` and ends with `except` and is executed normal
 1. The _exception clause_ starts at `except`, we can specify for which exception to look for.
@@ -55,7 +55,7 @@ To make sure this is the case we need to move our `try/except` into the loop.
 #| error: true
 numberlist = [-2, -1, 0, 1, 2, "a", 1/4]
                                                                   
-for number in numberlist:                                            # <1>
+for number in numberlist:                                         # <1>
     try:                                                          # <2>  
         inverse = 1.0 / number                                    # <2>
         print(f"Check: {inverse} * {number} = {inverse * number}")# <2>
@@ -78,7 +78,7 @@ If we use multiple `except` we can interpret them similar to `if`, `elif`, and `
 ```{python}
 #| classes: styled-output
 #| error: true
-numberlist = [-2, -1, 0, 1, 2, "a", 1/4]
+numberlist = [-2, -1, 0, 1, 2, "a", 1 / 4]
                                                                   
 for number in numberlist:                                            
     try:                                                            
@@ -87,7 +87,7 @@ for number in numberlist:
     except ZeroDivisionError:                                     # <1>
         print("Warning: zero does not have an inverse!")          # <1>
     except TypeError:                                             # <2>
-        print("Error: The inverse is only defined for a number!")        # <2>
+        print("Error: The inverse is only defined for a number!") # <2>
                                                                   # <1>
 ```
 1. Context of the `ZeroDivisionError`
@@ -99,7 +99,7 @@ Similar to when we inherited for multiple classes, we can combine exceptions by 
 ```{python}
 #| classes: styled-output
 #| error: true
-numberlist = [-2, -1, 0, 1, 2, "a", 1/4]
+numberlist = [-2, -1, 0, 1, 2, "a", 1 / 4]
                                                                   
 for number in numberlist:                                            
     try:                                                            
@@ -118,7 +118,7 @@ The `else` block is called if no exception occurred and the `finally` is always 
 ```{python}
 #| classes: styled-output
 #| error: true
-numberlist = [-2, -1, 0, 1, 2, "a", 1/4]
+numberlist = [-2, -1, 0, 1, 2, "a", 1 / 4]
                                                                   
 for number in numberlist:                                            
     try:                                                            
@@ -140,15 +140,15 @@ Of course you can also work with exception and raise them yourself, see [docs](h
 
 To raise an exception we use
 ```{python}
-#| classes: styled-output
-#| error: true
+# | classes: styled-output
+# | error: true
 raise ValueError("No value given.")
 ```
 
 We can _chain_ exceptions in case something happens during the handling of an exception
 ```{python}
-#| classes: styled-output
-#| error: true
+# | classes: styled-output
+# | error: true
 try:
     open("missing.txt")
 except OSError as e:
@@ -159,8 +159,8 @@ To deactivate the chaining we use `from None`.
 
 Alternatively, you can enrich the error with a note:
 ```{python}
-#| classes: styled-output
-#| error: true
+# | classes: styled-output
+# | error: true
 try:
     raise ValueError("No value given.")
 except ValueError as e:
@@ -202,8 +202,8 @@ This is not a full replacement of a `try-except` block.
 :::
 
 ```{python}
-#| classes: styled-output
-#| error: true
+# | classes: styled-output
+# | error: true
 path = "exception1.qmd"
 try:
     with open(path, "r") as file:
@@ -215,18 +215,19 @@ except OSError as os:
 If you write your own class you can include the necessary functions for the `with` statement as follows, Example from [GeeksForGeeks](https://www.geeksforgeeks.org/with-statement-in-python/):
 
 ```{python}
-#| classes: styled-output
-#| error: true
+# | classes: styled-output
+# | error: true
 class MessageWriter(object):
     def __init__(self, file_name):
         self.file_name = file_name
-    
+
     def __enter__(self):
         self.file = open(self.file_name, "w")
         return self.file
 
     def __exit__(self, *args):
         self.file.close()
+
 
 # using with statement with MessageWriter
 
@@ -235,22 +236,22 @@ with MessageWriter("my_file.txt") as xfile:
 ```
 
 ```{python}
-#| classes: styled-output
-#| echo: false
-
+# | classes: styled-output
+# | echo: false
 import os
+
 os.remove("my_file.txt")
 ```
 
 It is also possible to _collect_ exceptions and raise them in a group.
 ```{python}
-#| classes: styled-output
-#| error: true
-numberlist = [-2, -1, 0, 1, 2, "a", 1/4]
+# | classes: styled-output
+# | error: true
+numberlist = [-2, -1, 0, 1, 2, "a", 1 / 4]
 errors = []
 
 for i, number in enumerate(numberlist):
-    try:                                                            
+    try:
         inverse = 1.0 / number
     except BaseException as be:
         be.add_note(f"Happened for entry {i}")
@@ -266,10 +267,11 @@ For this `assert` can be used.
 It tests if a condition is true and if this is not the case an `AssertionError` is raised.
 
 ```{python}
-#| classes: styled-output
-#| error: true
+# | classes: styled-output
+# | error: true
 import numbers
-numberlist = [-2, -1, 0, 1, 2, "a", 1/4]
+
+numberlist = [-2, -1, 0, 1, 2, "a", 1 / 4]
 
 for number in numberlist:
     try:

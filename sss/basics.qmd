@@ -63,8 +63,8 @@ print(member)
 ::::: {.callout-note  collapse="true" icon=false}
 ## 2. Loop start and end - middle
 ```{python}
-#| classes: styled-output
-#| error: true
+# | classes: styled-output
+# | error: true
 band_members = ["Peter", "Bjorn", "John"]
 
 for member in band_members:
@@ -76,8 +76,8 @@ print(f"I can not wait to hear {member} play in the next song.")
 ::::: {.callout-note  collapse="true" icon=false}
 ## 3. Loop start and end - end
 ```{python}
-#| classes: styled-output
-#| error: true
+# | classes: styled-output
+# | error: true
 band_members = ["Peter", "Bjorn", "John"]
 
 for member in band_members:
@@ -91,8 +91,8 @@ for member in band_members:
 ::::: {.callout-note  collapse="true" icon=false}
 ## 4. Loop start and end - everything
 ```{python}
-#| classes: styled-output
-#| error: true
+# | classes: styled-output
+# | error: true
 band_members = ["Peter", "Bjorn", "John"]
 
 for member in band_members:
@@ -154,8 +154,9 @@ Run the following code and explain its output:
 ## Show the code and output
 
 ```{python}
-#| classes: styled-output
+# | classes: styled-output
 import copy
+
 list1 = [[1, 2, 3], [4, 5, 6], ["a", "b", "c"], 2]
 list2 = list1
 list3 = copy.copy(list1)
@@ -256,10 +257,11 @@ Is the type enforced during runtime?
 
 Let us loot at the function
 ```{python}
-#| classes: styled-output
-#| error: true
+# | classes: styled-output
+# | error: true
 def greet(person, greeting):
-   print(f"{greeting} {person}!")
+    print(f"{greeting} {person}!")
+
 
 greet("Peter", "Hi")
 ```

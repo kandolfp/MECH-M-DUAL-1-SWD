@@ -42,8 +42,8 @@ Now, if we call Python we can import the module via its name `rectangle` (the ex
 cp ../_assets/errorhandling/module/src/rectangle/rectangle.py .
 ```
 ```{python}
-#| classes: styled-output
-#| error: true
+# | classes: styled-output
+# | error: true
 import rectangle
 
 rect = rectangle.Rectangle(1, 1)
@@ -54,8 +54,8 @@ print(f"{rectangle.is_square(rect) =}")
 We can also get a specific resource and we can rename it
 
 ```{python}
-#| classes: styled-output
-#| error: true
+# | classes: styled-output
+# | error: true
 from rectangle import is_square as check_square
 
 rect = rectangle.Rectangle(1, 1)
@@ -65,8 +65,8 @@ print(f"{check_square(rect) =}")
 or everything
 
 ```{python}
-#| classes: styled-output
-#| error: true
+# | classes: styled-output
+# | error: true
 from rectangle import *
 
 rect = Rectangle(1, 1)

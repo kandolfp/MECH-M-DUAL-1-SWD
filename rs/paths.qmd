@@ -19,9 +19,9 @@ Path.cwd()
 ::: {.panel-tabset}
 ## Linux
 ```{python}
-#| classes: styled-output
-#| error: true
-#| echo: false
+# | classes: styled-output
+# | error: true
+# | echo: false
 print("PosixPath('/home/lecturer/lectures/MECH-M-DUAL-1-SWD')")
 ```
 
@@ -59,36 +59,38 @@ WindowsPath('test.txt')
 
 Of course we can define our path via a string and convert it back to a string.
 ```{python}
-#| classes: styled-output
-#| error: true
-#| eval: false
+# | classes: styled-output
+# | error: true
+# | eval: false
 from pathlib import Path
+
 p = Path()
 print(str(p))
 ```
 ```{python}
-#| classes: styled-output
-#| error: true
-#| echo: false
+# | classes: styled-output
+# | error: true
+# | echo: false
 from pathlib import Path
-p = Path('/home/lecturer/lectures/MECH-M-DUAL-1-SWD')
+
+p = Path("/home/lecturer/lectures/MECH-M-DUAL-1-SWD")
 print(str(p))
 ```
 Again, `pathlib` will make sure to respect the platform specifics.
 
 If we want to join paths we can use the `/` operator 
 ```{python}
-#| classes: styled-output
-#| error: true
-intro = p / 'intro.qmd'
+# | classes: styled-output
+# | error: true
+intro = p / "intro.qmd"
 print(intro)
 ```
 
 or `joinpath()`
 ```{python}
-#| classes: styled-output
-#| error: true
-intro = p.joinpath('intro.qmd')
+# | classes: styled-output
+# | error: true
+intro = p.joinpath("intro.qmd")
 print(intro)
 ```
 
@@ -101,8 +103,8 @@ intro = Path() / '..' / 'intro.qmd'
 ```
 
 ```{python}
-#| classes: styled-output
-#| error: true
+# | classes: styled-output
+# | error: true
 with intro.open() as f:
     print(f.readline())
 ```

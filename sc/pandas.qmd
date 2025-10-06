@@ -105,15 +105,15 @@ So the tables you see are generated directly from Python, in order to have a bet
 
 ```{python}
 area_dict = {"Vienna": 415,   "Lower Austria": 19178,
-                 "Styria": 16401, "Upper Austria": 11982,
-                 "Tyrol": 12648,  "Carinthia": 9536,
-                 "Salzburg": 7154,"Vorarlberg": 2601,
-                 "Burgenland": 3965}
+             "Styria": 16401, "Upper Austria": 11982,
+             "Tyrol": 12648,  "Carinthia": 9536,
+             "Salzburg": 7154,"Vorarlberg": 2601,
+             "Burgenland": 3965}
 pop_dict = {"Vienna": 1794770, "Lower Austria": 1636287,
-                "Styria": 1221014, "Upper Austria": 1436791,
-                "Tyrol": 728537,   "Carinthia": 557371,
-                "Salzburg": 538258,"Vorarlberg": 378490,
-                "Burgenland": 288229}
+            "Styria": 1221014, "Upper Austria": 1436791,
+            "Tyrol": 728537,   "Carinthia": 557371,
+            "Salzburg": 538258,"Vorarlberg": 378490,
+            "Burgenland": 288229}
 area = pd.Series(area_dict)
 pop = pd.Series(pop_dict)
 states = pd.DataFrame({"area": area, "population": pop})
@@ -121,9 +121,9 @@ states
 ```
 We can access transfer it back into a `Series` by accessing it accordingly.
 ```{python}
-#| classes: styled-output
-states.iloc[0:2, :] # <2>
-states.loc[["Vienna", "Lower Austria"], "population"] # <1>
+# | classes: styled-output
+states.iloc[0:2, :]  # <2>
+states.loc[["Vienna", "Lower Austria"], "population"]  # <1>
 ```	
 1. Select by position
 1. Select by label
@@ -134,7 +134,7 @@ states.describe()
 that already provides common properties we have seen in the [Data sets](https://kandolfp.github.io/MECH-M-DUAL-1-DBM/basics/sets.html) section of the sister lecture.
 Of course we can also add new columns, if they have the same index
 ```{python}
-states["density"] = states["population"]/states["area"]
+states["density"] = states["population"] / states["area"]
 states.sort_values(by=["density"])
 ```
 
@@ -142,31 +142,31 @@ Let us use the Munich renting dataset for further investigations, as it is signi
 
 We can directly load it into a `DataFrame` and view its _head_ or _tail_
 ```{python}
-df = pd.read_csv("https://data.ub.uni-muenchen.de/2/1/miete03.asc", sep="\t") # <1>
+df = pd.read_csv("https://data.ub.uni-muenchen.de/2/1/miete03.asc", sep="\t")  # <1>
 
-df.head() # no output
+df.head()  # no output
 df.tail()
 ```
 1. Load a csv like file.
 
 Of course we can transfer it into a `numpy` array.
 ```{python}
-#| classes: styled-output
+# | classes: styled-output
 df.to_numpy()
 ```
 But this has the potential downside to cast everything to one type even as we have here clearly integers and floats mixed.
 ```{python}
-#| classes: styled-output
+# | classes: styled-output
 df.dtypes
 ```
 As we can see the `bj` is a `float64` while it should be a `int64` we can fix this by calling
 ```{python}
-#| classes: styled-output
+# | classes: styled-output
 df = df.astype({"bj": "int64"})
 df.dtypes
 ```
 ```{python}
-#| classes: styled-output
+# | classes: styled-output
 df = df.astype({"bj": "int64"})
 df.dtypes
 ```
@@ -176,7 +176,7 @@ df.T
 ```
 but note that this might mess up your data types
 ```{python}
-#| classes: styled-output
+# | classes: styled-output
 df.T.dtypes
 ```
 We can also use boolean indexing to filter by certain conditions
@@ -198,14 +198,14 @@ df.agg(["sum", "min", "mean"], axis=0)
 ```
 and transform, i.e. manipulate data
 ```{python}
-#| classes: styled-output
+# | classes: styled-output
 df.groupby("bj")["bj"].transform(lambda x: x - 1900)  # <1>
 ```
 1. `groupby` will split the data into groups based on the criteria of `Date`.
 
 Quite often it is useful to find out how often a value appears, this can be done by
 ```{python}
-#| classes: styled-output
+# | classes: styled-output
 df["ww0"].value_counts()
 ```
 
@@ -238,7 +238,6 @@ df.boxplot(column=["nm"])
 We can also compute the correlation between two series
 ```{python}
 #| classes: styled-output
-
 df["nm"].corr(df["wfl"])
 ```
 or the entire `DataFrame`
