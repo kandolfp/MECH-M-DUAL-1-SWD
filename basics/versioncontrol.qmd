@@ -116,7 +116,7 @@ The main structure as well as the basic idea in the pictures follows these notes
 
 In particular, such a setup could look something like this:
 
-![Basic setup](../_assets/basics/versioncontrol/distributed1.svg){.lightbox}
+![Basic setup](../_assets/basics/versioncontrol/distributed1){.lightbox}
 
 In this setup the _Remote Repository_ is the place you send your changes to in order to have them visible for others, and in return you can get changes from them via the _Remote Repository_. 
 
@@ -142,7 +142,7 @@ This will perform the following two actions:
 1. _Checkout_ the content of the _remote repository_ into the [_working directory_]{colour="#e67700"}. By default this is the name of the repository, in your case the folder `playground` is created and all files are put there. 
 1. A copy of the _remote repository_ is stored in the [_local repository_]{colour="#1864ab"}. For all intended purposes, it acts exactly the same as the _Remote Repository_, with the sole exception that is not shared with others. 
 
-![Clone a remote repository to your machine](../_assets/basics/versioncontrol/distributed2.svg){.lightbox}
+![Clone a remote repository to your machine](../_assets/basics/versioncontrol/distributed2){.lightbox}
 
 ### Adding content
 
@@ -190,7 +190,7 @@ Now it is time to introduce another Git concept, namely the [_staging area_]{col
 The stating area is the curious white spot  between your _working directory_ and the _local repository_ in the above pictures. 
 This is the place where Git collects all the changes to your files that you want to put into the _local repository_.
 
-![Staging area with the changes that can be moved to the repository](../_assets/basics/versioncontrol/staging.svg){.lightbox}
+![Staging area with the changes that can be moved to the repository](../_assets/basics/versioncontrol/staging){.lightbox}
 
 By rerunning `git status` we get
 ```bash
@@ -222,7 +222,7 @@ The same can be achieved directly in the Terminal by writing
 
 ```
 
-![Committing changes the repository](../_assets/basics/versioncontrol/commit.svg){.lightbox}
+![Committing changes the repository](../_assets/basics/versioncontrol/commit){.lightbox}
 
 In the above message you can see that your commit gets some more meta data. 
 Specifically, it gets a [SHA-1](https://de.wikipedia.org/wiki/Secure_Hash_Algorithm) hash, namely `578e48f`
@@ -252,7 +252,7 @@ To https://github.com/kandolfp/playground.git
    e8f13f4..0b8a494  main -> main
 ```
 
-![Pushing changes from the local to the remote repository](../_assets/basics/versioncontrol/push.svg){.lightbox}
+![Pushing changes from the local to the remote repository](../_assets/basics/versioncontrol/push){.lightbox}
 
 Now, if you were to do this on your own, everything would work and you would be happy. 
 Unfortunately, since we are doing this in a class and at the same time, we will encounter some difficulties. 
@@ -279,7 +279,7 @@ The main idea is rather simple.
 
 If you consider having one commit after the other in a long chain like the trunk of a tree a branch is the same as for a tree:
 
-![A branch in a chain of commits](../_assets/basics/versioncontrol/branching.svg){.lightbox}
+![A branch in a chain of commits](../_assets/basics/versioncontrol/branching){.lightbox}
 
 In short, whenever multiple commits are _based_ on the same commit they (and all following commits) form different branches.
 
@@ -319,7 +319,7 @@ we can see that the _remote_ and the _local_ repository have different commits.
 
 With `git fetch` you can get changes from the _remote repository_ into the _local repository_. This is the other way around as with the `git push` command.
 
-![Fetching changes from the remote to the local repository](../_assets/basics/versioncontrol/fetch.svg){.lightbox}
+![Fetching changes from the remote to the local repository](../_assets/basics/versioncontrol/fetch){.lightbox}
 
 The important part here is, that this does not affect your _working directory_ as the changes are only synchronized with the _local repository_ and when you try to push again you will see the same message. 
 It does not even affect your _local branches_, it will only make sure that all of the _remote branches_ are synchronized. 
@@ -338,7 +338,7 @@ Successfully rebased and updated refs/heads/main.
 ```
 This should have worked for everybody as all of you added different files to the repository and the Git tree looks something like this:
 
-![After pulling and rebasing](../_assets/basics/versioncontrol/simplerebase.svg){.lightbox}
+![After pulling and rebasing](../_assets/basics/versioncontrol/simplerebase){.lightbox}
 
 
 Next we will see what happens if we modify some files. 
@@ -632,7 +632,7 @@ After pulling the remote changes back in we can finally reapply our stashed work
 
 Here it is as image and in the terminal.
 
-![Stashing changes and pulling in from remote, see numbers for order](../_assets/basics/versioncontrol/stash.svg){.lightbox}
+![Stashing changes and pulling in from remote, see numbers for order](../_assets/basics/versioncontrol/stash){.lightbox}
 
 ```bash
 > git stash push
