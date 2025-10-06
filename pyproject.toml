@@ -3,7 +3,7 @@ name = "Softwaredesign"
 version = "0.1.0"
 description = "Class"
 authors = [
-    {name = "Peter Kandolf", email = "peter.kandolf@mci.edu"},
+    {name = "Peter Kandolf", email = "kandolfp@gmail.com"},
 ]
 dependencies = [
     "jupyter>=1.1.1",
