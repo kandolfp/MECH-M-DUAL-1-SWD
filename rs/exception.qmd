@@ -53,7 +53,7 @@ To make sure this is the case we need to move our `try/except` into the loop.
 ```{python}
 #| classes: styled-output
 #| error: true
-numberlist = [-2, -1, 0, 1, 2, "a", 1/4]
+numberlist = [-2, -1, 0, 1, 2, "a", 1 / 4]
                                                                   
 for number in numberlist:                                         # <1>
     try:                                                          # <2>  

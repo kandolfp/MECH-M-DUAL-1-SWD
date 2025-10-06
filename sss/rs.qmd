@@ -69,7 +69,7 @@ Implement this for the following snippet and test it accordingly to produce diff
 import logging
 logging.basicConfig(format="%(asctime)s:%(levelname)s: %(message)s",
                     level=logging.DEBUG)
-numberlist = [-2, -1, 0, 1, 2, "a", 1/4]
+numberlist = [-2, -1, 0, 1, 2, "a", 1 / 4]
 
 for number in numberlist:    
     try:

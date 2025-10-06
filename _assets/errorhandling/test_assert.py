@@ -1,5 +1,5 @@
 import numbers
-numberlist = [-2, -1, 0, 1, 2, "a", 1/4]
+numberlist = [-2, -1, 0, 1, 2, "a", 1 / 4]
 
 for number in numberlist:
     try:
