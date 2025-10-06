@@ -57,7 +57,7 @@ print(
 ```{python}
 #| classes: styled-output
 #| error: true
-print(f"{r2d2.__port=}")
+print(f"{r2d2.__port = }")
 ```
 
 The little introduction each of the robots provides us with should be part of the class, not a property but a method.
@@ -121,8 +121,8 @@ It stands to reason, that we should be able to treat them similar.
 ```{python}
 # | classes: styled-output
 # | error: true
-print(f"{r2d2==number5=}")
-print(f"{r2d2<number5=}")
+print(f"{r2d2==number5 = }")
+print(f"{r2d2<number5 = }")
 print(r2d2)
 print(r2d2 + number5)
 ```
@@ -179,10 +179,10 @@ r2d2 = Robot("R2D2", [0, 0, 0, 1], 443, 32)
 r2d3 = Robot("R2D3", [0, 0, 0, 2], 443, 32)
 number5 = Robot("Number 5", [0, 0, 0, 3], 80, 20)
 
-print(f"{r2d2==number5=}")
-print(f"{r2d2==r2d3=}")
-print(f"{number5<r2d2=}")
-print(f"{r2d2<number5=}")
+print(f"{r2d2==number5 = }")
+print(f"{r2d2==r2d3 = }")
+print(f"{number5<r2d2 = }")
+print(f"{r2d2<number5 = }")
 print(r2d2)
 print(r2d2 + number5)
 ```

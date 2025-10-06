@@ -48,7 +48,7 @@ import rectangle
 
 rect = rectangle.Rectangle(1, 1)
 print(f"{rect.get_area() = }")
-print(f"{rectangle.is_square(rect) =}")
+print(f"{rectangle.is_square(rect)  = }")
 ```
 
 We can also get a specific resource and we can rename it
@@ -59,7 +59,7 @@ We can also get a specific resource and we can rename it
 from rectangle import is_square as check_square
 
 rect = rectangle.Rectangle(1, 1)
-print(f"{check_square(rect) =}")
+print(f"{check_square(rect)  = }")
 ```
 
 or everything
@@ -70,7 +70,7 @@ or everything
 from rectangle import *
 
 rect = Rectangle(1, 1)
-print(f"{is_square(rect) =}")
+print(f"{is_square(rect)  = }")
 ```
 
 ::: {.callout-note}

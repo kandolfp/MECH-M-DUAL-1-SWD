@@ -47,8 +47,8 @@ np_b = np.array(b, dtype=np.int64)
 
 t2 = timeit.timeit(lambda: np.vdot(np_a, np_b), number=1000)
 
-print(f"loop result {dot(a,b)}, time {t1=}")
-print(f"numpy result {np.vdot(np_a, np_b)}, time {t2=}")
+print(f"loop result {dot(a,b)}, time {t1 = }")
+print(f"numpy result {np.vdot(np_a, np_b)}, time {t2 = }")
 print(f"Speedup {t1/t2}")
 ```
 

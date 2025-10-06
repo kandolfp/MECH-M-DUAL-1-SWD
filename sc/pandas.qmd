@@ -82,8 +82,8 @@ print(s)                             # <2>
 print(s.array)                       # <3>
 print(s.index)                      # <4>
 s2 = pd.Series([4, 7, np.nan, -5, 3], index=["c", "a", "b", "d", "e"]) # <5>
-print(f"{s[0] == s2["c"]=}")                     # <6>
-print(f"{s2[["c", "b"]]=}")                     # <6>
+print(f"{s[0] == s2["c"] = }")                     # <6>
+print(f"{s2[["c", "b"]] = }")                     # <6>
 es = np.exp(s)                                       # <7>
 print(f"{es}")
 ```

@@ -176,7 +176,7 @@ We can also change the value of a variable:
 print("x =", x)
 x = 45.0
 print(f"x = {x}")
-print(f"{x=}")
+print(f"{x = }")
 ```
 :::{.callout-note}
 Python is dynamically typed, meaning that the type of a variable is checked during runtime and not beforehand.
@@ -275,7 +275,7 @@ for i in range(1, 10):
         even = even + 1
     else:
         odd = odd + 1
-print(f"{even=}, {odd=}")
+print(f"{even = }, {odd = }")
 
 # While loops run until a statement is no longer true
 a = 5
