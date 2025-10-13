@@ -242,7 +242,7 @@ To write this in Python follow these steps:
 
 ## Type hinting
 
-For the functions `extimate_pi` and `in_unit_circle` in @exr-montecarlopi1 provide type hints to suggest only `integers` are allowed. 
+For the functions `estimate_pi` and `in_unit_circle` in @exr-montecarlopi1 provide type hints to suggest only `integers` are allowed. 
 
 How can you give a further _hint_ that the integer is always positive?
 
