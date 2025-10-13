@@ -272,9 +272,10 @@ odd = 0
 even = 0
 for i in range(1, 10):
     if i % 2:
-        even = even + 1
-    else:
         odd = odd + 1
+    else:
+        even = even + 1
+
 print(f"{even = }, {odd = }")
 
 # While loops run until a statement is no longer true
