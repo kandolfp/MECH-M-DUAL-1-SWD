@@ -15,7 +15,7 @@ Imperative programming has a couple of subgenres that we will explore in time:
 
 - _structured programming_ when we use constructs like `if` and `for`
 - _procedural programming_ when we with procedures/functions that call each other
-- _modular programming_ when we combine logical structures into modules and include this into our
+- _modular programming_ when we combine logical structures into modules and include these into our program
 - _object oriented programming_ when we organise our code with objects that contain data structures and associated behaviour.
 
 We introduce these concepts in the progress of this class where [Object Oriented Programming](./oop.qmd) has its own section. 
