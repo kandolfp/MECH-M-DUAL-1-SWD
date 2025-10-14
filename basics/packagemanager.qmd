@@ -101,6 +101,7 @@ This part is designed as a type along session!
 >**Source**: From the [pdm-project on github](https://github.com/pdm-project/pdm/blob/c2dad76b062a194e80d931aba2efc0614b45c525/README.md#this-project), as of 9th of September 2024
 
 The following screen cast gives us a quick overview of its capabilities.
+
 [![Original source from https://pdm-project.org/latest/ - asciicast](https://asciinema.org/a/jnifN30pjfXbO9We2KqOdXEhB.svg)](https://asciinema.org/a/jnifN30pjfXbO9We2KqOdXEhB)
 
 :::{.callout-note}
