@@ -64,7 +64,7 @@ Hidden properties can not be access from outside:
 print(f"{r2d2.__port = }")
 ```
 
-The little introduction each of the robots provides us with should be part of the class, not a property but a method.
+The little introduction, each of the robots provides us with, should be part of the class, not a property but a method.
 
 ### Definition of methods
 
