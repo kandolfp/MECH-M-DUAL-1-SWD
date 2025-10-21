@@ -53,7 +53,11 @@ print(
     f"I am called {number5.name}, I can be reached under "
     f"{'.'.join(str(s) for s in number5.ip)}"
     f" and my top speed is {number5.speed}!"
-)Hidden properties can not be access from outside:
+)
+```
+
+Hidden properties can not be access from outside:
+
 ```{python}
 #| classes: styled-output
 #| error: true
@@ -121,8 +125,8 @@ It stands to reason, that we should be able to treat them similar.
 ```{python}
 # | classes: styled-output
 # | error: true
-print(f"{r2d2==number5 = }")
-print(f"{r2d2<number5 = }")
+print(f"{r2d2 == number5 = }")
+print(f"{r2d2 < number5 = }")
 print(r2d2)
 print(r2d2 + number5)
 ```
@@ -179,10 +183,10 @@ r2d2 = Robot("R2D2", [0, 0, 0, 1], 443, 32)
 r2d3 = Robot("R2D3", [0, 0, 0, 2], 443, 32)
 number5 = Robot("Number 5", [0, 0, 0, 3], 80, 20)
 
-print(f"{r2d2==number5 = }")
-print(f"{r2d2==r2d3 = }")
-print(f"{number5<r2d2 = }")
-print(f"{r2d2<number5 = }")
+print(f"{r2d2 == number5 = }")
+print(f"{r2d2 == r2d3 = }")
+print(f"{number5 < r2d2 = }")
+print(f"{r2d2 < number5 = }")
 print(r2d2)
 print(r2d2 + number5)
 ```
