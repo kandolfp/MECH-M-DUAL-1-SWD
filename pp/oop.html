@@ -78,9 +78,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-432a514079aff76c198e07c3482d1df2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-49cc4983b7cc8741c71eae0831fd8ded.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-432a514079aff76c198e07c3482d1df2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-f3e4be047f94999836566be8d7fec70b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-1cff5245d27da707879debdfdc57e7b2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-f3e4be047f94999836566be8d7fec70b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -648,7 +648,7 @@ Tip
 </section>
 <section id="definition-of-attributes" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="definition-of-attributes"><span class="header-section-number">5.2</span> Definition of attributes</h2>
-<div id="157e71eb" class="cell styled-output" data-execution_count="1">
+<div id="88f26aec" class="cell styled-output" data-execution_count="1">
 <div class="sourceCode cell-code" id="annotated-cell-1"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-1-1" class="code-annotation-target"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Robot:</span>
 <span id="annotated-cell-1-2"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Class representing a robot."""</span></span>
 <span id="annotated-cell-1-3"><a href="#annotated-cell-1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -682,7 +682,7 @@ Tip
 </div>
 </div>
 <p>Now that we have a simple class we can define our first objects.</p>
-<div id="e35dc315" class="cell styled-output" data-execution_count="2">
+<div id="64ef24cf" class="cell styled-output" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>r2d2 <span class="op">=</span> Robot(<span class="st">"R2D2"</span>, [<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>], <span class="dv">443</span>, <span class="dv">32</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>number5 <span class="op">=</span> Robot(<span class="st">"Number 5"</span>, [<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">3</span>], <span class="dv">80</span>, <span class="dv">20</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -695,69 +695,74 @@ Tip
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f"I am called </span><span class="sc">{</span>number5<span class="sc">.</span>name<span class="sc">}</span><span class="ss">, I can be reached under "</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f"</span><span class="sc">{</span><span class="st">'.'</span><span class="sc">.</span>join(<span class="bu">str</span>(s) <span class="cf">for</span> s <span class="kw">in</span> number5.ip)<span class="sc">}</span><span class="ss">"</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f" and my top speed is </span><span class="sc">{</span>number5<span class="sc">.</span>speed<span class="sc">}</span><span class="ss">!"</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>)Hidden properties can <span class="kw">not</span> be access <span class="im">from</span> outside:</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>```{python}</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">#| classes: styled-output</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">#| error: true</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>r2d2<span class="sc">.</span>__port <span class="op">=</span> <span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>I am called R2D2, I can be reached under 0.0.0.1 and my top speed is 32!
+I am called Number 5, I can be reached under 0.0.0.3 and my top speed is 20!</code></pre>
+</div>
+</div>
+<p>Hidden properties can not be access from outside:</p>
+<div id="d098bdbc" class="cell styled-output" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>r2d2<span class="sc">.</span>__port <span class="op">=</span> <span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
-<pre><span class="ansi-cyan-fg">  Cell </span><span class="ansi-green-fg">In[2], line 13</span>
-<span class="ansi-red-fg">    )Hidden properties can not be access from outside:</span>
-     ^
-<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
-</pre>
+<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">AttributeError</span>                            Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[3], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span style="color:rgb(0,135,0)">print</span>(<span style="color:rgb(175,0,0)">f</span><span style="color:rgb(175,0,0)">"</span><span style="font-weight:bold;color:rgb(175,95,135)">{</span><span class="ansi-yellow-bg">r2d2</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">__port</span><span style="color:rgb(188,188,188)"> </span><span style="font-weight:bold;color:rgb(175,95,135)">= }</span><span style="color:rgb(175,0,0)">"</span>)
+
+<span class="ansi-red-fg">AttributeError</span>: 'Robot' object has no attribute '__port'</pre>
 </div>
 </div>
 </div>
 <p>The little introduction each of the robots provides us with should be part of the class, not a property but a method.</p>
 <section id="definition-of-methods" class="level3" data-number="5.2.1">
 <h3 data-number="5.2.1" class="anchored" data-anchor-id="definition-of-methods"><span class="header-section-number">5.2.1</span> Definition of methods</h3>
-<div id="04c730f0" class="cell styled-output" data-execution_count="3">
-<div class="sourceCode cell-code" id="annotated-cell-3"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-3-1"><a href="#annotated-cell-3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Robot:</span>
-<span id="annotated-cell-3-2"><a href="#annotated-cell-3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Class representing a robot."""</span></span>
-<span id="annotated-cell-3-3"><a href="#annotated-cell-3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-3-4"><a href="#annotated-cell-3-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name: <span class="bu">str</span>, ip: <span class="bu">list</span>[<span class="bu">int</span>], port: <span class="bu">int</span>, speed: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
-<span id="annotated-cell-3-5"><a href="#annotated-cell-3-5" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Initialize the name and the ip address of the robot"""</span></span>
-<span id="annotated-cell-3-6"><a href="#annotated-cell-3-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
-<span id="annotated-cell-3-7"><a href="#annotated-cell-3-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.ip <span class="op">=</span> ip</span>
-<span id="annotated-cell-3-8"><a href="#annotated-cell-3-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.__port <span class="op">=</span> port</span>
-<span id="annotated-cell-3-9"><a href="#annotated-cell-3-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.speed <span class="op">=</span> speed</span>
-<span id="annotated-cell-3-10"><a href="#annotated-cell-3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-3-11"><a href="#annotated-cell-3-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> introduction(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
-<span id="annotated-cell-3-12"><a href="#annotated-cell-3-12" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Short introduction of the robot"""</span></span>
-<span id="annotated-cell-3-13"><a href="#annotated-cell-3-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> (</span>
-<span id="annotated-cell-3-14"><a href="#annotated-cell-3-14" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"I am called </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>name<span class="sc">}</span><span class="ss">, I can be reached under "</span></span>
-<span id="annotated-cell-3-15"><a href="#annotated-cell-3-15" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>__ip2str()<span class="sc">}</span><span class="ss"> and my top speed is </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>speed<span class="sc">}</span><span class="ss">!"</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-3-16" class="code-annotation-target"><a href="#annotated-cell-3-16" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="annotated-cell-3-17"><a href="#annotated-cell-3-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-3-18"><a href="#annotated-cell-3-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> __ip2str(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
-<span id="annotated-cell-3-19"><a href="#annotated-cell-3-19" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Transform the integer set with the port into a string"""</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-3-20" class="code-annotation-target"><a href="#annotated-cell-3-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span><span class="st">'.'</span><span class="sc">.</span>join(<span class="bu">str</span>(s) <span class="cf">for</span> s <span class="kw">in</span> <span class="va">self</span>.ip)<span class="sc">}</span><span class="ss">:</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>__port<span class="sc">}</span><span class="ss">"</span></span>
-<span id="annotated-cell-3-21"><a href="#annotated-cell-3-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-3-22"><a href="#annotated-cell-3-22" aria-hidden="true" tabindex="-1"></a></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-3-23" class="code-annotation-target"><a href="#annotated-cell-3-23" aria-hidden="true" tabindex="-1"></a>r2d2 <span class="op">=</span> Robot(<span class="st">"R2D2"</span>, [<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>], <span class="dv">443</span>, <span class="dv">32</span>)</span>
-<span id="annotated-cell-3-24"><a href="#annotated-cell-3-24" aria-hidden="true" tabindex="-1"></a>number5 <span class="op">=</span> Robot(<span class="st">"Number 5"</span>, [<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">3</span>], <span class="dv">80</span>, <span class="dv">20</span>)</span>
-<span id="annotated-cell-3-25"><a href="#annotated-cell-3-25" aria-hidden="true" tabindex="-1"></a></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-3-26" class="code-annotation-target"><a href="#annotated-cell-3-26" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(r2d2.introduction())</span>
-<span id="annotated-cell-3-27"><a href="#annotated-cell-3-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(number5.introduction())</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="7c5ce493" class="cell styled-output" data-execution_count="4">
+<div class="sourceCode cell-code" id="annotated-cell-4"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-4-1"><a href="#annotated-cell-4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Robot:</span>
+<span id="annotated-cell-4-2"><a href="#annotated-cell-4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Class representing a robot."""</span></span>
+<span id="annotated-cell-4-3"><a href="#annotated-cell-4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-4-4"><a href="#annotated-cell-4-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name: <span class="bu">str</span>, ip: <span class="bu">list</span>[<span class="bu">int</span>], port: <span class="bu">int</span>, speed: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="annotated-cell-4-5"><a href="#annotated-cell-4-5" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Initialize the name and the ip address of the robot"""</span></span>
+<span id="annotated-cell-4-6"><a href="#annotated-cell-4-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
+<span id="annotated-cell-4-7"><a href="#annotated-cell-4-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.ip <span class="op">=</span> ip</span>
+<span id="annotated-cell-4-8"><a href="#annotated-cell-4-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.__port <span class="op">=</span> port</span>
+<span id="annotated-cell-4-9"><a href="#annotated-cell-4-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.speed <span class="op">=</span> speed</span>
+<span id="annotated-cell-4-10"><a href="#annotated-cell-4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-4-11"><a href="#annotated-cell-4-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> introduction(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="annotated-cell-4-12"><a href="#annotated-cell-4-12" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Short introduction of the robot"""</span></span>
+<span id="annotated-cell-4-13"><a href="#annotated-cell-4-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> (</span>
+<span id="annotated-cell-4-14"><a href="#annotated-cell-4-14" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"I am called </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>name<span class="sc">}</span><span class="ss">, I can be reached under "</span></span>
+<span id="annotated-cell-4-15"><a href="#annotated-cell-4-15" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>__ip2str()<span class="sc">}</span><span class="ss"> and my top speed is </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>speed<span class="sc">}</span><span class="ss">!"</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-4-16" class="code-annotation-target"><a href="#annotated-cell-4-16" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="annotated-cell-4-17"><a href="#annotated-cell-4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-4-18"><a href="#annotated-cell-4-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> __ip2str(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="annotated-cell-4-19"><a href="#annotated-cell-4-19" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Transform the integer set with the port into a string"""</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-4-20" class="code-annotation-target"><a href="#annotated-cell-4-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span><span class="st">'.'</span><span class="sc">.</span>join(<span class="bu">str</span>(s) <span class="cf">for</span> s <span class="kw">in</span> <span class="va">self</span>.ip)<span class="sc">}</span><span class="ss">:</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>__port<span class="sc">}</span><span class="ss">"</span></span>
+<span id="annotated-cell-4-21"><a href="#annotated-cell-4-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-4-22"><a href="#annotated-cell-4-22" aria-hidden="true" tabindex="-1"></a></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-4-23" class="code-annotation-target"><a href="#annotated-cell-4-23" aria-hidden="true" tabindex="-1"></a>r2d2 <span class="op">=</span> Robot(<span class="st">"R2D2"</span>, [<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>], <span class="dv">443</span>, <span class="dv">32</span>)</span>
+<span id="annotated-cell-4-24"><a href="#annotated-cell-4-24" aria-hidden="true" tabindex="-1"></a>number5 <span class="op">=</span> Robot(<span class="st">"Number 5"</span>, [<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">3</span>], <span class="dv">80</span>, <span class="dv">20</span>)</span>
+<span id="annotated-cell-4-25"><a href="#annotated-cell-4-25" aria-hidden="true" tabindex="-1"></a></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-4-26" class="code-annotation-target"><a href="#annotated-cell-4-26" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(r2d2.introduction())</span>
+<span id="annotated-cell-4-27"><a href="#annotated-cell-4-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(number5.introduction())</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-annotation">
 <dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-3" data-target-annotation="1">1</dt>
+<dt data-target-cell="annotated-cell-4" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-3" data-code-lines="20" data-code-annotation="1">We can use the hidden attribute.</span>
+<span data-code-cell="annotated-cell-4" data-code-lines="20" data-code-annotation="1">We can use the hidden attribute.</span>
 </dd>
-<dt data-target-cell="annotated-cell-3" data-target-annotation="2">2</dt>
+<dt data-target-cell="annotated-cell-4" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-3" data-code-lines="23" data-code-annotation="2">We need to redefine the objects for the <em>new</em> class.</span>
+<span data-code-cell="annotated-cell-4" data-code-lines="23" data-code-annotation="2">We need to redefine the objects for the <em>new</em> class.</span>
 </dd>
-<dt data-target-cell="annotated-cell-3" data-target-annotation="3">3</dt>
+<dt data-target-cell="annotated-cell-4" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-3" data-code-lines="26,27" data-code-annotation="3">Calling a method is like calling a function but for the class object.</span>
+<span data-code-cell="annotated-cell-4" data-code-lines="26,27" data-code-annotation="3">Calling a method is like calling a function but for the class object.</span>
 </dd>
-<dt data-target-cell="annotated-cell-3" data-target-annotation="4">4</dt>
+<dt data-target-cell="annotated-cell-4" data-target-annotation="4">4</dt>
 <dd>
-<span data-code-cell="annotated-cell-3" data-code-lines="16" data-code-annotation="4">We can call other methods inside our object and they can be hidden.</span>
+<span data-code-cell="annotated-cell-4" data-code-lines="16" data-code-annotation="4">We can call other methods inside our object and they can be hidden.</span>
 </dd>
 </dl>
 </div>
@@ -797,21 +802,21 @@ Important
 <section id="overwriting-methods-and-integration-with-operators" class="level3" data-number="5.2.2">
 <h3 data-number="5.2.2" class="anchored" data-anchor-id="overwriting-methods-and-integration-with-operators"><span class="header-section-number">5.2.2</span> Overwriting methods and integration with operators</h3>
 <p>A lot of the base types we have been using are actually classes and we where dealing with the objects. It stands to reason, that we should be able to treat them similar.</p>
-<div id="b78e9015" class="cell styled-output" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>r2d2<span class="op">==</span>number5 <span class="op">=</span> <span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>r2d2<span class="op">&lt;</span>number5 <span class="op">=</span> <span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(r2d2)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(r2d2 <span class="op">+</span> number5)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="f06bd2a5" class="cell styled-output" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>r2d2 <span class="op">==</span> number5 <span class="op">=</span> <span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>r2d2 <span class="op">&lt;</span> number5 <span class="op">=</span> <span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(r2d2)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(r2d2 <span class="op">+</span> number5)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>r2d2==number5 = False</code></pre>
+<pre><code>r2d2 == number5 = False</code></pre>
 </div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[4], line 2</span>
-<span class="ansi-green-fg ansi-bold">      1</span> <span style="color:rgb(0,135,0)">print</span>(<span style="color:rgb(175,0,0)">f</span><span style="color:rgb(175,0,0)">"</span><span style="font-weight:bold;color:rgb(175,95,135)">{</span>r2d2<span style="color:rgb(98,98,98)">==</span>number5<span style="color:rgb(188,188,188)"> </span><span style="font-weight:bold;color:rgb(175,95,135)">= }</span><span style="color:rgb(175,0,0)">"</span>)
-<span class="ansi-green-fg">----&gt; 2</span> <span style="color:rgb(0,135,0)">print</span>(<span style="color:rgb(175,0,0)">f</span><span style="color:rgb(175,0,0)">"</span><span style="font-weight:bold;color:rgb(175,95,135)">{</span><span class="ansi-yellow-bg">r2d2</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">&lt;</span><span class="ansi-yellow-bg">number5</span><span style="color:rgb(188,188,188)"> </span><span style="font-weight:bold;color:rgb(175,95,135)">= }</span><span style="color:rgb(175,0,0)">"</span>)
+Cell <span class="ansi-green-fg">In[5], line 2</span>
+<span class="ansi-green-fg ansi-bold">      1</span> <span style="color:rgb(0,135,0)">print</span>(<span style="color:rgb(175,0,0)">f</span><span style="color:rgb(175,0,0)">"</span><span style="font-weight:bold;color:rgb(175,95,135)">{</span>r2d2<span style="color:rgb(188,188,188)"> </span><span style="color:rgb(98,98,98)">==</span><span style="color:rgb(188,188,188)"> </span>number5<span style="color:rgb(188,188,188)"> </span><span style="font-weight:bold;color:rgb(175,95,135)">= }</span><span style="color:rgb(175,0,0)">"</span>)
+<span class="ansi-green-fg">----&gt; 2</span> <span style="color:rgb(0,135,0)">print</span>(<span style="color:rgb(175,0,0)">f</span><span style="color:rgb(175,0,0)">"</span><span style="font-weight:bold;color:rgb(175,95,135)">{</span><span class="ansi-yellow-bg">r2d2</span><span style="color:rgb(188,188,188)" class="ansi-yellow-bg"> </span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">&lt;</span><span style="color:rgb(188,188,188)" class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">number5</span><span style="color:rgb(188,188,188)"> </span><span style="font-weight:bold;color:rgb(175,95,135)">= }</span><span style="color:rgb(175,0,0)">"</span>)
 <span class="ansi-green-fg ansi-bold">      3</span> <span style="color:rgb(0,135,0)">print</span>(r2d2)
 <span class="ansi-green-fg ansi-bold">      4</span> <span style="color:rgb(0,135,0)">print</span>(r2d2 <span style="color:rgb(98,98,98)">+</span> number5)
 
@@ -820,64 +825,64 @@ Cell <span class="ansi-green-fg">In[4], line 2</span>
 </div>
 </div>
 <p>In order to allow a seamless integration of our object into these types we should implement a couple of the <a href="https://docs.python.org/2.7/reference/datamodel.html">basic customizations</a></p>
-<div id="e573bbe7" class="cell styled-output" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Robot:</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Class representing a robot."""</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name: <span class="bu">str</span>, ip: <span class="bu">list</span>[<span class="bu">int</span>], port: <span class="bu">int</span>, speed: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Initialize the name and the ip address of the robot"""</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.ip <span class="op">=</span> ip</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.__port <span class="op">=</span> port</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.speed <span class="op">=</span> speed</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> introduction(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Short introduction of the robot"""</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> (</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"I am called </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>name<span class="sc">}</span><span class="ss">, I can be reached under "</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>__ip2str()<span class="sc">}</span><span class="ss"> and my top speed is </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>speed<span class="sc">}</span><span class="ss">!"</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> __ip2str(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Transform the integer set with the port into a string"""</span></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span><span class="st">'.'</span><span class="sc">.</span>join(<span class="bu">str</span>(s) <span class="cf">for</span> s <span class="kw">in</span> <span class="va">self</span>.ip)<span class="sc">}</span><span class="ss">:</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>__port<span class="sc">}</span><span class="ss">"</span></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> __ep__(<span class="va">self</span>, other):</span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Compare two objects of type Robot"""</span></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.speed <span class="op">==</span> other.speed</span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__lt__</span>(<span class="va">self</span>, other):</span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Less than for Robot"""</span></span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.speed <span class="op">&lt;</span> other.speed</span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>):</span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""The official string representation"""</span></span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.introduction()</span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__add__</span>(<span class="va">self</span>, other):</span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> Robot(</span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.name <span class="op">+</span> <span class="st">"♥"</span> <span class="op">+</span> other.name,</span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>            <span class="bu">list</span>(<span class="bu">map</span>(<span class="kw">lambda</span> x, y: x <span class="op">+</span> y, <span class="va">self</span>.ip, other.ip)),</span>
-<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.__port,</span>
-<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>            <span class="bu">min</span>(<span class="va">self</span>.speed, other.speed),</span>
-<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>r2d2 <span class="op">=</span> Robot(<span class="st">"R2D2"</span>, [<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>], <span class="dv">443</span>, <span class="dv">32</span>)</span>
-<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>r2d3 <span class="op">=</span> Robot(<span class="st">"R2D3"</span>, [<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>], <span class="dv">443</span>, <span class="dv">32</span>)</span>
-<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>number5 <span class="op">=</span> Robot(<span class="st">"Number 5"</span>, [<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">3</span>], <span class="dv">80</span>, <span class="dv">20</span>)</span>
-<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>r2d2<span class="op">==</span>number5 <span class="op">=</span> <span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>r2d2<span class="op">==</span>r2d3 <span class="op">=</span> <span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>number5<span class="op">&lt;</span>r2d2 <span class="op">=</span> <span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>r2d2<span class="op">&lt;</span>number5 <span class="op">=</span> <span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(r2d2)</span>
-<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(r2d2 <span class="op">+</span> number5)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ef5e9068" class="cell styled-output" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Robot:</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Class representing a robot."""</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name: <span class="bu">str</span>, ip: <span class="bu">list</span>[<span class="bu">int</span>], port: <span class="bu">int</span>, speed: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Initialize the name and the ip address of the robot"""</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.ip <span class="op">=</span> ip</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.__port <span class="op">=</span> port</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.speed <span class="op">=</span> speed</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> introduction(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Short introduction of the robot"""</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> (</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"I am called </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>name<span class="sc">}</span><span class="ss">, I can be reached under "</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>__ip2str()<span class="sc">}</span><span class="ss"> and my top speed is </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>speed<span class="sc">}</span><span class="ss">!"</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> __ip2str(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Transform the integer set with the port into a string"""</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span><span class="st">'.'</span><span class="sc">.</span>join(<span class="bu">str</span>(s) <span class="cf">for</span> s <span class="kw">in</span> <span class="va">self</span>.ip)<span class="sc">}</span><span class="ss">:</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>__port<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> __ep__(<span class="va">self</span>, other):</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Compare two objects of type Robot"""</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.speed <span class="op">==</span> other.speed</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__lt__</span>(<span class="va">self</span>, other):</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Less than for Robot"""</span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.speed <span class="op">&lt;</span> other.speed</span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>):</span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""The official string representation"""</span></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.introduction()</span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__add__</span>(<span class="va">self</span>, other):</span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> Robot(</span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.name <span class="op">+</span> <span class="st">"♥"</span> <span class="op">+</span> other.name,</span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>            <span class="bu">list</span>(<span class="bu">map</span>(<span class="kw">lambda</span> x, y: x <span class="op">+</span> y, <span class="va">self</span>.ip, other.ip)),</span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.__port,</span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>            <span class="bu">min</span>(<span class="va">self</span>.speed, other.speed),</span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>r2d2 <span class="op">=</span> Robot(<span class="st">"R2D2"</span>, [<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>], <span class="dv">443</span>, <span class="dv">32</span>)</span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>r2d3 <span class="op">=</span> Robot(<span class="st">"R2D3"</span>, [<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>], <span class="dv">443</span>, <span class="dv">32</span>)</span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>number5 <span class="op">=</span> Robot(<span class="st">"Number 5"</span>, [<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">3</span>], <span class="dv">80</span>, <span class="dv">20</span>)</span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>r2d2 <span class="op">==</span> number5 <span class="op">=</span> <span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>r2d2 <span class="op">==</span> r2d3 <span class="op">=</span> <span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>number5 <span class="op">&lt;</span> r2d2 <span class="op">=</span> <span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>r2d2 <span class="op">&lt;</span> number5 <span class="op">=</span> <span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(r2d2)</span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(r2d2 <span class="op">+</span> number5)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>r2d2==number5 = False
-r2d2==r2d3 = False
-number5&lt;r2d2 = True
-r2d2&lt;number5 = False
+<pre><code>r2d2 == number5 = False
+r2d2 == r2d3 = False
+number5 &lt; r2d2 = True
+r2d2 &lt; number5 = False
 I am called R2D2, I can be reached under 0.0.0.1:443 and my top speed is 32!
 I am called R2D2♥Number 5, I can be reached under 0.0.0.4:443 and my top speed is 20!</code></pre>
 </div>
@@ -886,91 +891,91 @@ I am called R2D2♥Number 5, I can be reached under 0.0.0.4:443 and my top speed
 <section id="inheritance" class="level3" data-number="5.2.3">
 <h3 data-number="5.2.3" class="anchored" data-anchor-id="inheritance"><span class="header-section-number">5.2.3</span> Inheritance</h3>
 <p>Quite often we want to define a class not from scratch but start form another class. This concept is called <em>inheritance</em> or we can formulate it as <em>one class is the child of another class</em>.</p>
-<div id="324c1681" class="cell styled-output" data-execution_count="6">
-<div class="sourceCode cell-code" id="annotated-cell-6"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-6" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-6-1" class="code-annotation-target"><a href="#annotated-cell-6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Cat:</span>
-<span id="annotated-cell-6-2"><a href="#annotated-cell-6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-6-3"><a href="#annotated-cell-6-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name: <span class="bu">str</span>, habitat: <span class="bu">list</span>[<span class="bu">str</span>]) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
-<span id="annotated-cell-6-4"><a href="#annotated-cell-6-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
-<span id="annotated-cell-6-5"><a href="#annotated-cell-6-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.habitat <span class="op">=</span> habitat</span>
-<span id="annotated-cell-6-6"><a href="#annotated-cell-6-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"I live in </span><span class="sc">{</span><span class="st">', '</span><span class="sc">.</span>join(habitat)<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="annotated-cell-6-7"><a href="#annotated-cell-6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-6-8"><a href="#annotated-cell-6-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-6-9"><a href="#annotated-cell-6-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
-<span id="annotated-cell-6-10"><a href="#annotated-cell-6-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f"My name is </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>name<span class="sc">}</span><span class="ss">, I am a Cat"</span></span>
-<span id="annotated-cell-6-11"><a href="#annotated-cell-6-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-6-12"><a href="#annotated-cell-6-12" aria-hidden="true" tabindex="-1"></a></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-6" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-6-13" class="code-annotation-target"><a href="#annotated-cell-6-13" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Tiger(Cat):</span>
-<span id="annotated-cell-6-14"><a href="#annotated-cell-6-14" aria-hidden="true" tabindex="-1"></a></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-6" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-6-15" class="code-annotation-target"><a href="#annotated-cell-6-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name: <span class="bu">str</span>, habitat: <span class="bu">list</span>[<span class="bu">str</span>] <span class="op">=</span> [<span class="st">"Asia"</span>]) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
-<span id="annotated-cell-6-16"><a href="#annotated-cell-6-16" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(name, habitat)</span>
-<span id="annotated-cell-6-17"><a href="#annotated-cell-6-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-6-18"><a href="#annotated-cell-6-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-6" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-6-19" class="code-annotation-target"><a href="#annotated-cell-6-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span><span class="bu">super</span>()<span class="sc">.</span><span class="fu">__str__</span>()<span class="sc">}</span><span class="ss"> -&gt; Tiger"</span></span>
-<span id="annotated-cell-6-20"><a href="#annotated-cell-6-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-6-21"><a href="#annotated-cell-6-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-6-22"><a href="#annotated-cell-6-22" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Lion(Cat):</span>
-<span id="annotated-cell-6-23"><a href="#annotated-cell-6-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-6-24"><a href="#annotated-cell-6-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name: <span class="bu">str</span>, habitat: <span class="bu">list</span>[<span class="bu">str</span>] <span class="op">=</span> [<span class="st">"Africa"</span>, <span class="st">"India"</span>]) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
-<span id="annotated-cell-6-25"><a href="#annotated-cell-6-25" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(name, habitat)</span>
-<span id="annotated-cell-6-26"><a href="#annotated-cell-6-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-6-27"><a href="#annotated-cell-6-27" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
-<span id="annotated-cell-6-28"><a href="#annotated-cell-6-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span><span class="bu">super</span>()<span class="sc">.</span><span class="fu">__str__</span>()<span class="sc">}</span><span class="ss"> -&gt; Lion"</span></span>
-<span id="annotated-cell-6-29"><a href="#annotated-cell-6-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-6-30"><a href="#annotated-cell-6-30" aria-hidden="true" tabindex="-1"></a></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-6" data-target-annotation="5" onclick="event.preventDefault();">5</a><span id="annotated-cell-6-31" class="code-annotation-target"><a href="#annotated-cell-6-31" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Liger(Lion, Tiger):</span>
-<span id="annotated-cell-6-32"><a href="#annotated-cell-6-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-6-33"><a href="#annotated-cell-6-33" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
-<span id="annotated-cell-6-34"><a href="#annotated-cell-6-34" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> (</span>
-<span id="annotated-cell-6-35"><a href="#annotated-cell-6-35" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"</span><span class="sc">{</span><span class="bu">super</span>()<span class="sc">.</span><span class="fu">__str__</span>()<span class="sc">}</span><span class="ss"> -&gt; Liger"</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-6" data-target-annotation="6" onclick="event.preventDefault();">6</a><span id="annotated-cell-6-36" class="code-annotation-target"><a href="#annotated-cell-6-36" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f" (Father </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span><span class="va">__class__</span><span class="sc">.</span>__bases__[<span class="dv">0</span>]<span class="sc">.</span><span class="va">__name__</span><span class="sc">}</span><span class="ss">,"</span></span>
-<span id="annotated-cell-6-37"><a href="#annotated-cell-6-37" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f" Mother </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span><span class="va">__class__</span><span class="sc">.</span>__bases__[<span class="dv">1</span>]<span class="sc">.</span><span class="va">__name__</span><span class="sc">}</span><span class="ss">)"</span></span>
-<span id="annotated-cell-6-38"><a href="#annotated-cell-6-38" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="annotated-cell-6-39"><a href="#annotated-cell-6-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-6-40"><a href="#annotated-cell-6-40" aria-hidden="true" tabindex="-1"></a></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-6" data-target-annotation="7" onclick="event.preventDefault();">7</a><span id="annotated-cell-6-41" class="code-annotation-target"><a href="#annotated-cell-6-41" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Tigon(Tiger, Lion):</span>
-<span id="annotated-cell-6-42"><a href="#annotated-cell-6-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-6-43"><a href="#annotated-cell-6-43" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
-<span id="annotated-cell-6-44"><a href="#annotated-cell-6-44" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> (</span>
-<span id="annotated-cell-6-45"><a href="#annotated-cell-6-45" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"</span><span class="sc">{</span><span class="bu">super</span>()<span class="sc">.</span><span class="fu">__str__</span>()<span class="sc">}</span><span class="ss"> -&gt; Tigon"</span></span>
-<span id="annotated-cell-6-46"><a href="#annotated-cell-6-46" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f" (Father </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span><span class="va">__class__</span><span class="sc">.</span>__bases__[<span class="dv">0</span>]<span class="sc">.</span><span class="va">__name__</span><span class="sc">}</span><span class="ss">,"</span></span>
-<span id="annotated-cell-6-47"><a href="#annotated-cell-6-47" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f" Mother </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span><span class="va">__class__</span><span class="sc">.</span>__bases__[<span class="dv">1</span>]<span class="sc">.</span><span class="va">__name__</span><span class="sc">}</span><span class="ss">)"</span></span>
-<span id="annotated-cell-6-48"><a href="#annotated-cell-6-48" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="annotated-cell-6-49"><a href="#annotated-cell-6-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-6-50"><a href="#annotated-cell-6-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-6-51"><a href="#annotated-cell-6-51" aria-hidden="true" tabindex="-1"></a>sven <span class="op">=</span> Liger(<span class="st">"Sven"</span>)</span>
-<span id="annotated-cell-6-52"><a href="#annotated-cell-6-52" aria-hidden="true" tabindex="-1"></a>olson <span class="op">=</span> Tigon(<span class="st">"Olson"</span>)</span>
-<span id="annotated-cell-6-53"><a href="#annotated-cell-6-53" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sven)</span>
-<span id="annotated-cell-6-54"><a href="#annotated-cell-6-54" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(olson)</span>
-<span id="annotated-cell-6-55"><a href="#annotated-cell-6-55" aria-hidden="true" tabindex="-1"></a>Liger.__mro__</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="06ee0a8d" class="cell styled-output" data-execution_count="7">
+<div class="sourceCode cell-code" id="annotated-cell-7"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-7" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-7-1" class="code-annotation-target"><a href="#annotated-cell-7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Cat:</span>
+<span id="annotated-cell-7-2"><a href="#annotated-cell-7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-7-3"><a href="#annotated-cell-7-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name: <span class="bu">str</span>, habitat: <span class="bu">list</span>[<span class="bu">str</span>]) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="annotated-cell-7-4"><a href="#annotated-cell-7-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
+<span id="annotated-cell-7-5"><a href="#annotated-cell-7-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.habitat <span class="op">=</span> habitat</span>
+<span id="annotated-cell-7-6"><a href="#annotated-cell-7-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"I live in </span><span class="sc">{</span><span class="st">', '</span><span class="sc">.</span>join(habitat)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="annotated-cell-7-7"><a href="#annotated-cell-7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-7-8"><a href="#annotated-cell-7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-7-9"><a href="#annotated-cell-7-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="annotated-cell-7-10"><a href="#annotated-cell-7-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f"My name is </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>name<span class="sc">}</span><span class="ss">, I am a Cat"</span></span>
+<span id="annotated-cell-7-11"><a href="#annotated-cell-7-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-7-12"><a href="#annotated-cell-7-12" aria-hidden="true" tabindex="-1"></a></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-7" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-7-13" class="code-annotation-target"><a href="#annotated-cell-7-13" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Tiger(Cat):</span>
+<span id="annotated-cell-7-14"><a href="#annotated-cell-7-14" aria-hidden="true" tabindex="-1"></a></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-7" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-7-15" class="code-annotation-target"><a href="#annotated-cell-7-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name: <span class="bu">str</span>, habitat: <span class="bu">list</span>[<span class="bu">str</span>] <span class="op">=</span> [<span class="st">"Asia"</span>]) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="annotated-cell-7-16"><a href="#annotated-cell-7-16" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(name, habitat)</span>
+<span id="annotated-cell-7-17"><a href="#annotated-cell-7-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-7-18"><a href="#annotated-cell-7-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-7" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-7-19" class="code-annotation-target"><a href="#annotated-cell-7-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span><span class="bu">super</span>()<span class="sc">.</span><span class="fu">__str__</span>()<span class="sc">}</span><span class="ss"> -&gt; Tiger"</span></span>
+<span id="annotated-cell-7-20"><a href="#annotated-cell-7-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-7-21"><a href="#annotated-cell-7-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-7-22"><a href="#annotated-cell-7-22" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Lion(Cat):</span>
+<span id="annotated-cell-7-23"><a href="#annotated-cell-7-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-7-24"><a href="#annotated-cell-7-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name: <span class="bu">str</span>, habitat: <span class="bu">list</span>[<span class="bu">str</span>] <span class="op">=</span> [<span class="st">"Africa"</span>, <span class="st">"India"</span>]) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="annotated-cell-7-25"><a href="#annotated-cell-7-25" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(name, habitat)</span>
+<span id="annotated-cell-7-26"><a href="#annotated-cell-7-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-7-27"><a href="#annotated-cell-7-27" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="annotated-cell-7-28"><a href="#annotated-cell-7-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span><span class="bu">super</span>()<span class="sc">.</span><span class="fu">__str__</span>()<span class="sc">}</span><span class="ss"> -&gt; Lion"</span></span>
+<span id="annotated-cell-7-29"><a href="#annotated-cell-7-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-7-30"><a href="#annotated-cell-7-30" aria-hidden="true" tabindex="-1"></a></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-7" data-target-annotation="5" onclick="event.preventDefault();">5</a><span id="annotated-cell-7-31" class="code-annotation-target"><a href="#annotated-cell-7-31" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Liger(Lion, Tiger):</span>
+<span id="annotated-cell-7-32"><a href="#annotated-cell-7-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-7-33"><a href="#annotated-cell-7-33" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="annotated-cell-7-34"><a href="#annotated-cell-7-34" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> (</span>
+<span id="annotated-cell-7-35"><a href="#annotated-cell-7-35" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"</span><span class="sc">{</span><span class="bu">super</span>()<span class="sc">.</span><span class="fu">__str__</span>()<span class="sc">}</span><span class="ss"> -&gt; Liger"</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-7" data-target-annotation="6" onclick="event.preventDefault();">6</a><span id="annotated-cell-7-36" class="code-annotation-target"><a href="#annotated-cell-7-36" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f" (Father </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span><span class="va">__class__</span><span class="sc">.</span>__bases__[<span class="dv">0</span>]<span class="sc">.</span><span class="va">__name__</span><span class="sc">}</span><span class="ss">,"</span></span>
+<span id="annotated-cell-7-37"><a href="#annotated-cell-7-37" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f" Mother </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span><span class="va">__class__</span><span class="sc">.</span>__bases__[<span class="dv">1</span>]<span class="sc">.</span><span class="va">__name__</span><span class="sc">}</span><span class="ss">)"</span></span>
+<span id="annotated-cell-7-38"><a href="#annotated-cell-7-38" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="annotated-cell-7-39"><a href="#annotated-cell-7-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-7-40"><a href="#annotated-cell-7-40" aria-hidden="true" tabindex="-1"></a></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-7" data-target-annotation="7" onclick="event.preventDefault();">7</a><span id="annotated-cell-7-41" class="code-annotation-target"><a href="#annotated-cell-7-41" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Tigon(Tiger, Lion):</span>
+<span id="annotated-cell-7-42"><a href="#annotated-cell-7-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-7-43"><a href="#annotated-cell-7-43" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="annotated-cell-7-44"><a href="#annotated-cell-7-44" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> (</span>
+<span id="annotated-cell-7-45"><a href="#annotated-cell-7-45" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"</span><span class="sc">{</span><span class="bu">super</span>()<span class="sc">.</span><span class="fu">__str__</span>()<span class="sc">}</span><span class="ss"> -&gt; Tigon"</span></span>
+<span id="annotated-cell-7-46"><a href="#annotated-cell-7-46" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f" (Father </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span><span class="va">__class__</span><span class="sc">.</span>__bases__[<span class="dv">0</span>]<span class="sc">.</span><span class="va">__name__</span><span class="sc">}</span><span class="ss">,"</span></span>
+<span id="annotated-cell-7-47"><a href="#annotated-cell-7-47" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f" Mother </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span><span class="va">__class__</span><span class="sc">.</span>__bases__[<span class="dv">1</span>]<span class="sc">.</span><span class="va">__name__</span><span class="sc">}</span><span class="ss">)"</span></span>
+<span id="annotated-cell-7-48"><a href="#annotated-cell-7-48" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="annotated-cell-7-49"><a href="#annotated-cell-7-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-7-50"><a href="#annotated-cell-7-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-7-51"><a href="#annotated-cell-7-51" aria-hidden="true" tabindex="-1"></a>sven <span class="op">=</span> Liger(<span class="st">"Sven"</span>)</span>
+<span id="annotated-cell-7-52"><a href="#annotated-cell-7-52" aria-hidden="true" tabindex="-1"></a>olson <span class="op">=</span> Tigon(<span class="st">"Olson"</span>)</span>
+<span id="annotated-cell-7-53"><a href="#annotated-cell-7-53" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sven)</span>
+<span id="annotated-cell-7-54"><a href="#annotated-cell-7-54" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(olson)</span>
+<span id="annotated-cell-7-55"><a href="#annotated-cell-7-55" aria-hidden="true" tabindex="-1"></a>Liger.__mro__</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-annotation">
 <dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-6" data-target-annotation="1">1</dt>
+<dt data-target-cell="annotated-cell-7" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-6" data-code-lines="1,2,3,4,5,7,9,10" data-code-annotation="1">We can define a base class with a constructor and a way of producing a string.</span>
+<span data-code-cell="annotated-cell-7" data-code-lines="1,2,3,4,5,7,9,10" data-code-annotation="1">We can define a base class with a constructor and a way of producing a string.</span>
 </dd>
-<dt data-target-cell="annotated-cell-6" data-target-annotation="2">2</dt>
+<dt data-target-cell="annotated-cell-7" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-6" data-code-lines="13,16,25" data-code-annotation="2">We inherit from a class simply by putting the class name into the definition as <em>argument</em>.</span>
+<span data-code-cell="annotated-cell-7" data-code-lines="13,16,25" data-code-annotation="2">We inherit from a class simply by putting the class name into the definition as <em>argument</em>.</span>
 </dd>
-<dt data-target-cell="annotated-cell-6" data-target-annotation="3">3</dt>
+<dt data-target-cell="annotated-cell-7" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-6" data-code-lines="15" data-code-annotation="3">If we inherit from the base we do not need to overwrite everything, only the methods we want to and we can be more specific like defining defaults.</span>
+<span data-code-cell="annotated-cell-7" data-code-lines="15" data-code-annotation="3">If we inherit from the base we do not need to overwrite everything, only the methods we want to and we can be more specific like defining defaults.</span>
 </dd>
-<dt data-target-cell="annotated-cell-6" data-target-annotation="4">4</dt>
+<dt data-target-cell="annotated-cell-7" data-target-annotation="4">4</dt>
 <dd>
-<span data-code-cell="annotated-cell-6" data-code-lines="19" data-code-annotation="4">We can access the parent with <code>super()</code>, similar to <code>self</code>.</span>
+<span data-code-cell="annotated-cell-7" data-code-lines="19" data-code-annotation="4">We can access the parent with <code>super()</code>, similar to <code>self</code>.</span>
 </dd>
-<dt data-target-cell="annotated-cell-6" data-target-annotation="5">5</dt>
+<dt data-target-cell="annotated-cell-7" data-target-annotation="5">5</dt>
 <dd>
-<span data-code-cell="annotated-cell-6" data-code-lines="31" data-code-annotation="5">We can inherit from multiple classes.</span>
+<span data-code-cell="annotated-cell-7" data-code-lines="31" data-code-annotation="5">We can inherit from multiple classes.</span>
 </dd>
-<dt data-target-cell="annotated-cell-6" data-target-annotation="6">6</dt>
+<dt data-target-cell="annotated-cell-7" data-target-annotation="6">6</dt>
 <dd>
-<span data-code-cell="annotated-cell-6" data-code-lines="36" data-code-annotation="6">There are multiple ways of accessing properties of <em>parent</em> classes.</span>
+<span data-code-cell="annotated-cell-7" data-code-lines="36" data-code-annotation="6">There are multiple ways of accessing properties of <em>parent</em> classes.</span>
 </dd>
-<dt data-target-cell="annotated-cell-6" data-target-annotation="7">7</dt>
+<dt data-target-cell="annotated-cell-7" data-target-annotation="7">7</dt>
 <dd>
-<span data-code-cell="annotated-cell-6" data-code-lines="41" data-code-annotation="7">The order of the classes for inheritance matters.</span>
+<span data-code-cell="annotated-cell-7" data-code-lines="41" data-code-annotation="7">The order of the classes for inheritance matters.</span>
 </dd>
 </dl>
 </div>
@@ -980,7 +985,7 @@ I live in Asia
 My name is Sven, I am a Cat -&gt; Tiger -&gt; Lion -&gt; Liger (Father Lion, Mother Tiger)
 My name is Olson, I am a Cat -&gt; Lion -&gt; Tiger -&gt; Tigon (Father Tiger, Mother Lion)</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>(__main__.Liger, __main__.Lion, __main__.Tiger, __main__.Cat, object)</code></pre>
 </div>
 </div>
@@ -1250,34 +1255,34 @@ Car "1" *.. "4" Wheel : has
 </div>
 </div>
 </div>
-<div id="52472d45" class="cell styled-output" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> abc <span class="im">import</span> ABC, abstractmethod</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Abstract Class</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> FlyingTransport(ABC):</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">@abstractmethod</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> fly(<span class="va">self</span>, origin, destination, passengers):</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">pass</span>  <span class="co"># Abstract Method has no implementation!</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Non-Abstract Class</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Helicopter(FlyingTransport):</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> fly(<span class="va">self</span>, origin, destination, passengers):</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Helicopter flying"</span>)</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Non-Abstract Class</span></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Aeroplane(FlyingTransport):</span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> fly(<span class="va">self</span>, origin, destination, passengers):</span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Aeroplane flying"</span>)</span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>helicopter1 <span class="op">=</span> Helicopter()</span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>aeroplane1 <span class="op">=</span> Aeroplane()</span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>helicopter1.fly(<span class="st">"INN"</span>, <span class="st">"QOJ"</span>, <span class="dv">2</span>)  <span class="co"># &gt; Helicopter flying</span></span>
-<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>aeroplane1.fly(<span class="st">"INN"</span>, <span class="st">"BER"</span>, <span class="dv">200</span>)  <span class="co"># &gt; Aeroplane flying</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="656e64fd" class="cell styled-output" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> abc <span class="im">import</span> ABC, abstractmethod</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Abstract Class</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> FlyingTransport(ABC):</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">@abstractmethod</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> fly(<span class="va">self</span>, origin, destination, passengers):</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">pass</span>  <span class="co"># Abstract Method has no implementation!</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Non-Abstract Class</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Helicopter(FlyingTransport):</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> fly(<span class="va">self</span>, origin, destination, passengers):</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Helicopter flying"</span>)</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Non-Abstract Class</span></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Aeroplane(FlyingTransport):</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> fly(<span class="va">self</span>, origin, destination, passengers):</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Aeroplane flying"</span>)</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>helicopter1 <span class="op">=</span> Helicopter()</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>aeroplane1 <span class="op">=</span> Aeroplane()</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>helicopter1.fly(<span class="st">"INN"</span>, <span class="st">"QOJ"</span>, <span class="dv">2</span>)  <span class="co"># &gt; Helicopter flying</span></span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>aeroplane1.fly(<span class="st">"INN"</span>, <span class="st">"BER"</span>, <span class="dv">200</span>)  <span class="co"># &gt; Aeroplane flying</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Helicopter flying
 Aeroplane flying</code></pre>

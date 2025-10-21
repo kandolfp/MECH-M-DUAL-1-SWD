@@ -78,9 +78,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-432a514079aff76c198e07c3482d1df2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-49cc4983b7cc8741c71eae0831fd8ded.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-432a514079aff76c198e07c3482d1df2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-f3e4be047f94999836566be8d7fec70b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-1cff5245d27da707879debdfdc57e7b2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-f3e4be047f94999836566be8d7fec70b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -593,7 +593,7 @@ Warning
 <h2 data-number="10.1" class="anchored" data-anchor-id="exceptions"><span class="header-section-number">10.1</span> Exceptions</h2>
 <p>The <code>BaseException</code> class is the base class for the built-in exceptions (<a href="https://docs.python.org/3/library/exceptions.html">see docs</a> and <a href="https://docs.python.org/3/tutorial/errors.html">tutorials</a>) and all the built-in exception are inherited from this class. For writing our own exceptions however, we should use <code>Exception</code> as the base.</p>
 <p>In order to introduce the concept let us show some of the most common exceptions</p>
-<div id="ed016b55" class="cell styled-output" data-execution_count="1">
+<div id="38ef30bb" class="cell styled-output" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>numberlist <span class="op">=</span> [<span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="st">"a"</span>, <span class="dv">1</span> <span class="op">/</span> <span class="dv">4</span>]</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> number <span class="kw">in</span> numberlist:</span>
@@ -619,7 +619,7 @@ Cell <span class="ansi-green-fg">In[1], line 4</span>
 </div>
 <p>We can see that an <code>ZeroDivisionError</code> is raised for the third entry in the list of <code>numberlist</code>. What happened above is not a graceful exit as our little program just stopped at the point of exception and the last action of the interpreter was to print the traceback. Importantly, the other elements in the list are never looked at.</p>
 <p>We can handle exceptions with the <code>try</code>-<code>except</code> construction to actually make sure that we react appropriately.</p>
-<div id="569a6e43" class="cell styled-output" data-execution_count="2">
+<div id="d840b071" class="cell styled-output" data-execution_count="2">
 <div class="sourceCode cell-code" id="annotated-cell-2"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-2-1"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a>numberlist <span class="op">=</span> [<span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="st">"a"</span>, <span class="dv">1</span> <span class="op">/</span> <span class="dv">4</span>]</span>
 <span id="annotated-cell-2-2"><a href="#annotated-cell-2-2" aria-hidden="true" tabindex="-1"></a></span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-2-3" class="code-annotation-target"><a href="#annotated-cell-2-3" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
@@ -651,7 +651,7 @@ Warning: zero does not have an inverse!</code></pre>
 </div>
 </div>
 <p>From the output we can see that the exception occurred and was handled properly. Nevertheless, the rest of the elements in the list are still not handled. To make sure this is the case we need to move our <code>try/except</code> into the loop.</p>
-<div id="72584a25" class="cell styled-output" data-execution_count="3">
+<div id="1c6e8c43" class="cell styled-output" data-execution_count="3">
 <div class="sourceCode cell-code" id="annotated-cell-3"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-3-1"><a href="#annotated-cell-3-1" aria-hidden="true" tabindex="-1"></a>numberlist <span class="op">=</span> [<span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="st">"a"</span>, <span class="dv">1</span> <span class="op">/</span> <span class="dv">4</span>]</span>
 <span id="annotated-cell-3-2"><a href="#annotated-cell-3-2" aria-hidden="true" tabindex="-1"></a>                                                                  </span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-3-3" class="code-annotation-target"><a href="#annotated-cell-3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> number <span class="kw">in</span> numberlist:</span>
@@ -704,7 +704,7 @@ Cell <span class="ansi-green-fg">In[3], line 5</span>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <p>If we use multiple <code>except</code> we can interpret them similar to <code>if</code>, <code>elif</code>, and <code>else</code> statements, where we jump into one part as soon as we match.</p>
-<div id="7fae67e4" class="cell styled-output" data-execution_count="4">
+<div id="f0c18896" class="cell styled-output" data-execution_count="4">
 <div class="sourceCode cell-code" id="annotated-cell-18"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-18-1"><a href="#annotated-cell-18-1" aria-hidden="true" tabindex="-1"></a>numberlist <span class="op">=</span> [<span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="st">"a"</span>, <span class="dv">1</span> <span class="op">/</span> <span class="dv">4</span>]</span>
 <span id="annotated-cell-18-2"><a href="#annotated-cell-18-2" aria-hidden="true" tabindex="-1"></a>                                                                  </span>
 <span id="annotated-cell-18-3"><a href="#annotated-cell-18-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> number <span class="kw">in</span> numberlist:                                            </span>
@@ -740,7 +740,7 @@ Check: 4.0 * 0.25 = 1.0</code></pre>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <p>Similar to when we inherited for multiple classes, we can combine exceptions by putting them into a <code>set</code> (with <code>(</code> and <code>)</code>).</p>
-<div id="6e20be2c" class="cell styled-output" data-execution_count="5">
+<div id="661c8dc0" class="cell styled-output" data-execution_count="5">
 <div class="sourceCode cell-code" id="annotated-cell-20"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-20-1"><a href="#annotated-cell-20-1" aria-hidden="true" tabindex="-1"></a>numberlist <span class="op">=</span> [<span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="st">"a"</span>, <span class="dv">1</span> <span class="op">/</span> <span class="dv">4</span>]</span>
 <span id="annotated-cell-20-2"><a href="#annotated-cell-20-2" aria-hidden="true" tabindex="-1"></a>                                                                  </span>
 <span id="annotated-cell-20-3"><a href="#annotated-cell-20-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> number <span class="kw">in</span> numberlist:                                            </span>
@@ -771,7 +771,7 @@ Check: 4.0 * 0.25 = 1.0</code></pre>
 </div>
 </div>
 <p>The construct has one further extension. After all of the <code>except</code> blocks we can place an <code>else</code> as well <code>finally</code> at the very end. The <code>else</code> block is called if no exception occurred and the <code>finally</code> is always called.</p>
-<div id="e90c1364" class="cell styled-output" data-execution_count="6">
+<div id="c8b8b986" class="cell styled-output" data-execution_count="6">
 <div class="sourceCode cell-code" id="annotated-cell-4"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-4-1"><a href="#annotated-cell-4-1" aria-hidden="true" tabindex="-1"></a>numberlist <span class="op">=</span> [<span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="st">"a"</span>, <span class="dv">1</span> <span class="op">/</span> <span class="dv">4</span>]</span>
 <span id="annotated-cell-4-2"><a href="#annotated-cell-4-2" aria-hidden="true" tabindex="-1"></a>                                                                  </span>
 <span id="annotated-cell-4-3"><a href="#annotated-cell-4-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> number <span class="kw">in</span> numberlist:                                            </span>
@@ -825,7 +825,7 @@ Let us work on the next element</code></pre>
 </div>
 <p>Of course you can also work with exception and raise them yourself, see <a href="https://docs.python.org/3/tutorial/errors.html">docs</a> for all the details.</p>
 <p>To raise an exception we use</p>
-<div id="63075b74" class="cell styled-output" data-execution_count="7">
+<div id="f54f5a06" class="cell styled-output" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">"No value given."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
@@ -839,7 +839,7 @@ Cell <span class="ansi-green-fg">In[7], line 1</span>
 </div>
 </div>
 <p>We can <em>chain</em> exceptions in case something happens during the handling of an exception</p>
-<div id="12b76243" class="cell styled-output" data-execution_count="8">
+<div id="b813448f" class="cell styled-output" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">open</span>(<span class="st">"missing.txt"</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">OSError</span> <span class="im">as</span> e:</span>
@@ -877,7 +877,7 @@ Cell <span class="ansi-green-fg">In[8], line 4</span>
 </div>
 <p>To deactivate the chaining we use <code>from None</code>.</p>
 <p>Alternatively, you can enrich the error with a note:</p>
-<div id="7b6a34e8" class="cell styled-output" data-execution_count="9">
+<div id="77695dab" class="cell styled-output" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">"No value given."</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">ValueError</span> <span class="im">as</span> e:</span>
@@ -902,7 +902,7 @@ Oh good, I can not handle this at the moment.</pre>
 <section id="with-statements" class="level2" data-number="10.2">
 <h2 data-number="10.2" class="anchored" data-anchor-id="with-statements"><span class="header-section-number">10.2</span> <code>with</code> statements</h2>
 <p>For certain objects it is clear that some <em>clean-up</em> is required. The prime example is accessing a file:</p>
-<div id="70493a1a" class="cell styled-output" data-execution_count="10">
+<div id="a0a6a9e8" class="cell styled-output" data-execution_count="10">
 <div class="sourceCode cell-code" id="annotated-cell-8"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-8-1"><a href="#annotated-cell-8-1" aria-hidden="true" tabindex="-1"></a>path <span class="op">=</span> <span class="st">"exception.qmd"</span>                  </span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-8-2" class="code-annotation-target"><a href="#annotated-cell-8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(path, <span class="st">"r"</span>)</span>
 <span id="annotated-cell-8-3"><a href="#annotated-cell-8-3" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
@@ -931,7 +931,7 @@ Oh good, I can not handle this at the moment.</pre>
 </div>
 </div>
 <p>The short and easier to read version is</p>
-<div id="f09b5a48" class="cell styled-output" data-execution_count="11">
+<div id="f7af7ddf" class="cell styled-output" data-execution_count="11">
 <div class="sourceCode cell-code" id="annotated-cell-9"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-9-1"><a href="#annotated-cell-9-1" aria-hidden="true" tabindex="-1"></a>path <span class="op">=</span> <span class="st">"exception.qmd"</span></span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-9" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-9-2" class="code-annotation-target"><a href="#annotated-cell-9-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(path, <span class="st">"r"</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
 <span id="annotated-cell-9-3"><a href="#annotated-cell-9-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="bu">file</span>.readline())</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -961,7 +961,7 @@ Caution
 <p>This is not a full replacement of a <code>try-except</code> block.</p>
 </div>
 </div>
-<div id="237392e1" class="cell styled-output" data-execution_count="12">
+<div id="041f8b86" class="cell styled-output" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>path <span class="op">=</span> <span class="st">"exception1.qmd"</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(path, <span class="st">"r"</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
@@ -973,7 +973,7 @@ Caution
 </div>
 </div>
 <p>If you write your own class you can include the necessary functions for the <code>with</code> statement as follows, Example from <a href="https://www.geeksforgeeks.org/with-statement-in-python/">GeeksForGeeks</a>:</p>
-<div id="cc3f7cbe" class="cell styled-output" data-execution_count="13">
+<div id="a9d5a394" class="cell styled-output" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> MessageWriter(<span class="bu">object</span>):</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, file_name):</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.file_name <span class="op">=</span> file_name</span>
@@ -992,7 +992,7 @@ Caution
 <span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>    xfile.write(<span class="st">"hello world"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>It is also possible to <em>collect</em> exceptions and raise them in a group.</p>
-<div id="2544e966" class="cell styled-output" data-execution_count="15">
+<div id="ca059517" class="cell styled-output" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>numberlist <span class="op">=</span> [<span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="st">"a"</span>, <span class="dv">1</span> <span class="op">/</span> <span class="dv">4</span>]</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>errors <span class="op">=</span> []</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1008,19 +1008,19 @@ Caution
 <pre><code>  + Exception Group Traceback (most recent call last):
   |   File "/home/runner/work/MECH-M-DUAL-1-SWD/MECH-M-DUAL-1-SWD/.venv/lib/python3.12/site-packages/IPython/core/interactiveshell.py", line 3577, in run_code
   |     exec(code_obj, self.user_global_ns, self.user_ns)
-  |   File "/tmp/ipykernel_2665/285673109.py", line 11, in &lt;module&gt;
+  |   File "/tmp/ipykernel_2707/285673109.py", line 11, in &lt;module&gt;
   |     raise ExceptionGroup("The following exceptions occurred:", errors)
   | ExceptionGroup: The following exceptions occurred: (2 sub-exceptions)
   +-+---------------- 1 ----------------
     | Traceback (most recent call last):
-    |   File "/tmp/ipykernel_2665/285673109.py", line 6, in &lt;module&gt;
+    |   File "/tmp/ipykernel_2707/285673109.py", line 6, in &lt;module&gt;
     |     inverse = 1.0 / number
     |               ~~~~^~~~~~~~
     | ZeroDivisionError: float division by zero
     | Happened for entry 2
     +---------------- 2 ----------------
     | Traceback (most recent call last):
-    |   File "/tmp/ipykernel_2665/285673109.py", line 6, in &lt;module&gt;
+    |   File "/tmp/ipykernel_2707/285673109.py", line 6, in &lt;module&gt;
     |     inverse = 1.0 / number
     |               ~~~~^~~~~~~~
     | TypeError: unsupported operand type(s) for /: 'float' and 'str'
@@ -1032,7 +1032,7 @@ Caution
 <section id="sec-error-assert" class="level2" data-number="10.3">
 <h2 data-number="10.3" class="anchored" data-anchor-id="sec-error-assert"><span class="header-section-number">10.3</span> Assertions</h2>
 <p>There is an additional feature that is a good way to make sure that conditions are met before working on something. For this <code>assert</code> can be used. It tests if a condition is true and if this is not the case an <code>AssertionError</code> is raised.</p>
-<div id="e64d6c63" class="cell styled-output" data-execution_count="16">
+<div id="46dc9646" class="cell styled-output" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numbers</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>numberlist <span class="op">=</span> [<span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="st">"a"</span>, <span class="dv">1</span> <span class="op">/</span> <span class="dv">4</span>]</span>
@@ -1059,7 +1059,7 @@ Check: 4.0 * 0.25 = 1.0</code></pre>
 <p>This feature is usually used during development. Therefore, there is an option <code>-O</code> to deactivate it during the run of a python program.</p>
 <p>This is often done, due to the fact that each of these <code>assert</code> statements takes some time to be processed.</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pdm</span> run python <span class="at">-O</span> test_assert.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="33c6d4dc" class="cell styled-output" data-execution_count="17">
+<div id="e4a6f9b6" class="cell styled-output" data-execution_count="17">
 <div class="cell-output cell-output-stdout">
 <pre><code>Check: -0.5 * -2 = 1.0
 Check: -1.0 * -1 = 1.0</code></pre>

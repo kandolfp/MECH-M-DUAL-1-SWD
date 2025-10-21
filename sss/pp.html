@@ -98,9 +98,9 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-432a514079aff76c198e07c3482d1df2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-49cc4983b7cc8741c71eae0831fd8ded.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-432a514079aff76c198e07c3482d1df2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-f3e4be047f94999836566be8d7fec70b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-1cff5245d27da707879debdfdc57e7b2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-f3e4be047f94999836566be8d7fec70b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -791,7 +791,7 @@ Student "*" --* University : Composition
 <div class="callout-body-container">
 <div id="exr-iterators" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise C.5 (Iterators)</strong></span> Explain the output of the following code fragment, see <a href="../pp/fp.html#sec-fpp" class="quarto-xref"><span>Section 6.1</span></a>:</p>
-<div id="618be623" class="cell styled-output" data-execution_count="1">
+<div id="0fd4cbb8" class="cell styled-output" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>square <span class="op">=</span> <span class="kw">lambda</span> a: a <span class="op">**</span> <span class="dv">2</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>iterator <span class="op">=</span> <span class="bu">map</span>(square, <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">5</span>))</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -822,7 +822,7 @@ list(iterator) = [1, 4, 9, 16]</code></pre>
 <div class="callout-body-container">
 <div id="exr-accumulate" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise C.6 (Accumulator)</strong></span> In <a href="../pp/fp.html#sec-fpp" class="quarto-xref"><span>Section 6.1</span></a> we discussed the <code>functools</code> module. On function included there is <code>accumulate</code> that takes an iterator and a function to apply to it. It can, for example be used to compute partial sum or product:</p>
-<div id="05101ebf" class="cell styled-output" data-execution_count="2">
+<div id="f09afdc8" class="cell styled-output" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itertools <span class="im">import</span> accumulate</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> operator <span class="im">import</span> add, mul</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -837,7 +837,7 @@ list(accumulate([1, 2, 3, 4, 5], mul)) = [1, 2, 6, 24, 120]</code></pre>
 <ol type="1">
 <li><p>Compute a running maximum in a list of numbers.</p></li>
 <li><p>Compute an <a href="https://en.wikipedia.org/wiki/Amortization_schedule">amortization schedule</a> for a loan of <span class="math inline">\(1000\)</span> with an interest of <span class="math inline">\(5\%\)</span> and a payment of <span class="math inline">\(100\)</span> for <span class="math inline">\(10\)</span> years. <strong>Hint:</strong> You can provide an initial value as third argument to <code>accumulate</code> and the result should look something like the following:</p>
-<div id="fe1f9991" class="cell styled-output" data-execution_count="3">
+<div id="9c7e7ae5" class="cell styled-output" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>[1000, 950, 898, 843, 785, 724, 660, 593, 523, 449, 371]</code></pre>
 </div>
