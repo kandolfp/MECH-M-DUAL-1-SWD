@@ -117,8 +117,8 @@ The predators only eat the specific prey and they are always hungry.
 
 Create first an UML diagram and later Python code that follows these guidelines:
 
-- Create a predator class with the parameters $x, \alpha, \beta$ where only the first is public
-- Create a prey class with the parameters $y, \delta, \gamma$ where only the first is public
+- Create a prey class with the parameters $x, \alpha, \beta$ where only the first is public
+- Create a predator class with the parameters $y, \delta, \gamma$ where only the first is public
 - Create a class to propagate your model:
     - the constructor takes a prey and a predator object 
     - create a private method to compute the two derivatives
