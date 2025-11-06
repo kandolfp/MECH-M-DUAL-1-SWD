@@ -19,7 +19,7 @@ Some usefull references:
 
 ## Decorators
 
-In Python we can use _decorators_ to modify the functionality of a function by wrapping it in another function, you can find an introductions in the following links
+In Python we can use _decorators_ to modify the functionality of a function by wrapping it in another function, you can find introductions in the following links
 
 - [pythontips](https://book.pythontips.com/en/latest/decorators.html)
 - [programiz](https://www.programiz.com/python-programming/decorator)
