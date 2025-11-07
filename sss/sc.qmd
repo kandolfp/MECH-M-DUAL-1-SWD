@@ -191,7 +191,7 @@ Use `pandas` to load the dataset and compute the same properties and create simi
     - Let us assume, for some reason, the entries from January where off for $1\%$. Use the `.update` function to change them - i.e. correct them by the error.
     - Use the `.pipe` function to _apply_ a series of functions to your data. 
         - Compute the `Mean Humidity` per month and scale this data with this value
-        - Update the `WindDirDegree` such that the values in in $[-180, 180]$ instead of $[0, 360)$
+        - Update the `WindDirDegree` such that the values are in $[-180, 180]$ instead of $[0, 360)$
         - Update the `PST` column to only contain month and day
 ::::
 :::
