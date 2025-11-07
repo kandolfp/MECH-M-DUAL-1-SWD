@@ -356,8 +356,8 @@ Examples
 
 ## Loop with `key, value` pair
 
-1. Take the dictionary of @exr-dicts and write a loop that walkes through all keys and values such that both are extracted directly in the loop.
-1. We have seen the for loop for lists, sometimes it is helpfull to still get the index of the list in addition to the value, write a code snippet that produces the following output for the list `["first", "second", "third"]`
+1. Take the dictionary of @exr-dicts and write a loop that walks through all keys and values such that both are extracted directly in the loop.
+1. We have seen the for loop for lists, sometimes it is helpful to still get the index of the list in addition to the value, write a code snippet that produces the following output for the list `["first", "second", "third"]`
    ```{python}
    #| classes: styled-output
    #| error: true

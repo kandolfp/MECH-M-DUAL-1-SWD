@@ -36,8 +36,8 @@ In order to get a bit of `git` and `pdm` training done we work for all exercises
 Sessions: 
 
 - @sec-sss-basics concerned with: Variables, Data Types, Functions, Typing and Type Hints, 
-- @sec-sss-pp converned with: objects, functional programming and m odules
-- @sec-sss-sc converned with: scientific computing, mainly `numpy` and `pandas`
-- @sec-sss-rs converned with: _decorators_, `Pydantic`, and `Pathlib`
+- @sec-sss-pp concerned with: objects, functional programming and m odules
+- @sec-sss-sc concerned with: scientific computing, mainly `numpy` and `pandas`
+- @sec-sss-rs concerned with: _decorators_, `Pydantic`, and `Pathlib`
 
 All of the topics covered will be part of the final project so further training will happen there.

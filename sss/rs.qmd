@@ -8,7 +8,7 @@ Once you are familiar with how Python handles these topics you will be able to a
 - What is vectorization and why should I use it?
 - etc.
 
-Some usefull references:
+Some useful references:
 
 - Python documentation for `errors` [docs](https://docs.python.org/3/tutorial/errors.html).
 
@@ -59,9 +59,9 @@ Have a look at [Validators](https://docs.pydantic.dev/latest/concepts/validators
 ## Define log level via environment variable
 
 In @sec-error-logging we specified how to customize the logger for a project.
-Quite often you want to define the log level via an envrionment variable.
+Quite often you want to define the log level via an environment variable.
 If the variable `myloglevel=DEBUG` is set, it is used.
-If nothing is specified the devault value is used. 
+If nothing is specified the default value is used. 
 
 Implement this for the following snippet and test it accordingly to produce different output.
 
