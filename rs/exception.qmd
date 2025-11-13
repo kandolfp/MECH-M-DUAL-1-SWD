@@ -179,6 +179,7 @@ The prime example is accessing a file:
 path = "exception.qmd"                  
 file = open(path, "r")              # <1>
 try:
+    print("The first line of this file is:")
     print(file.readline())          # <2>
 finally:
     file.close()                    # <3>
@@ -193,6 +194,7 @@ The short and easier to read version is
 #| error: true
 path = "exception.qmd"
 with open(path, "r") as file:        # <1>
+    print("The first line of this file is:")
     print(file.readline())
 ```
 1. Automatically closes the file as soon as the context is closed.
@@ -207,6 +209,7 @@ This is not a full replacement of a `try-except` block.
 path = "exception1.qmd"
 try:
     with open(path, "r") as file:
+        print("The first line of this file is:")
         print(file.readline())
 except OSError as os:
     print(f"Something happened: {os}")
