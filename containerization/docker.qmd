@@ -40,9 +40,9 @@ The daemon that you communicate with does not necessarily be on the local machin
 ### The Docker registries
 The Docker registries are separate and strictly speaking not necessary for you to use Docker. 
 There purpose is to store Docker images. 
-This can be public like [Docker Hub](https://hub.docker.com/) and [Autamus](https://autamus.io/registry/)[^1] or private for your organisation and tools like GitLab provide registries as well.
+This can be public like [Docker Hub](https://hub.docker.com/) and [Quay.io](https://quay.io/)[^1] or private for your organisation and tools like GitLab provide registries as well.
 
-[^1]: A Semi-Autonomous Build System for Scientific Containers
+[^1]: A registry from Red Hat
 
 When you use a command like `docker pull` you pull an image from a registry and with `docker push` you push it to a registry, the same as with Git. 
 
