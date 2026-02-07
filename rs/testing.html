@@ -625,7 +625,7 @@ Smoke tests can be useful right after a new build is made to decide whether or n
 <section id="via-assert" class="level3" data-number="13.1.1">
 <h3 data-number="13.1.1" class="anchored" data-anchor-id="via-assert"><span class="header-section-number">13.1.1</span> Via <code>assert</code></h3>
 <p>One way to write a unit test is via <code>assert</code> statements, as they can also be deactivated during runtime, see <a href="exception.html#sec-error-assert" class="quarto-xref"><span>Section 10.3</span></a>, for this kind of unit tests an <code>AssertionError</code> signals a not successful test. Usually we write a separate function to perform the tests with the prefix <code>test_</code></p>
-<div id="a9cb38f5" class="cell styled-output" data-execution_count="1">
+<div id="7fec06b7" class="cell styled-output" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numbers</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> traceback</span>
@@ -770,7 +770,7 @@ Smoke tests can be useful right after a new build is made to decide whether or n
 </div>
 <p>We can run the tests from the terminal (note the change of directory is only necessary for these notes)</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pdm</span> run python <span class="at">-m</span> unittest <span class="at">-v</span> tests.rectangle</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="e94d0676" class="cell styled-output" data-execution_count="2">
+<div id="28ec389f" class="cell styled-output" data-execution_count="2">
 <div class="cell-output cell-output-stderr">
 <div class="ansi-escaped-output">
 <pre><span class="ansi-blue-fg">INFO:</span> Inside an active virtualenv 
@@ -823,7 +823,7 @@ FAILED (failures=1)
 <h3 data-number="13.1.3" class="anchored" data-anchor-id="via-pytest"><span class="header-section-number">13.1.3</span> Via <code>pytest</code></h3>
 <p>A third party option is the module <code>pytest</code> <a href="https://docs.pytest.org/en/stable/">docs</a> that is often considered easier to handle than <code>unittest</code>. As there is a compatibility between <code>pytest</code> and <code>unittest</code> we can run</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pdm</span> run pytest <span class="at">-q</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="c5d1c389" class="cell styled-output" data-execution_count="3">
+<div id="bc6bd2a8" class="cell styled-output" data-execution_count="3">
 <div class="cell-output cell-output-stderr">
 <div class="ansi-escaped-output">
 <pre><span class="ansi-blue-fg">INFO:</span> Inside an active virtualenv 
@@ -864,7 +864,7 @@ self = &lt;tests.rectangle.test_rectangle.TestGetAreaRectangle testMethod=test_d
 
 <span class="ansi-red-fg">FAILED</span> tests/rectangle/test_rectangle.py::<span class="ansi-bold">TestGetAreaRectangle::test_deliberate_error</span> - AssertionError: 1 != 2 : deliberate error
 
-<span class="ansi-red-fg ansi-bold">1 failed</span>, <span class="ansi-green-fg">4 passed</span><span class="ansi-red-fg"> in 0.05s</span>
+<span class="ansi-red-fg ansi-bold">1 failed</span>, <span class="ansi-green-fg">4 passed</span><span class="ansi-red-fg"> in 0.06s</span>
 </pre>
 </div>
 </div>
